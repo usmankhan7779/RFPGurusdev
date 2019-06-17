@@ -126,11 +126,6 @@
                         <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
                           (click)="move()"> {{rfp.title}}</a>
                       </h3>
-                      <div class="col-md-6" *ngIf="!subscribe">
-                        <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
-                          <!-- <i class="material-icons">bubble_chart</i> -->
-                        </button>
-                      </div>
                       <div class="col-md-6 padding-0">
                         <h5 class="view-more collapsed" data-toggle="collapse" attr.data-target="#View{{rfp.id}}">
                           Details
@@ -139,47 +134,51 @@
                       </div>
 
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
-                      <!--<h4>Detail:</h4>-->
-                      <div class="table">
-                        <table class="table-normal">
-                          <thead>
-                            <tr>
-                              <td>
-                                <i class="glyphicon glyphicon-calendar"></i> Posted Date</td>
-                              <td>
-                                <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngIf="!adminlogin">
-                              <td *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}
-                              </td>
-                              <td *ngIf="check(rfp.date_entered) == false"></td>
-                              <td *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
-                              <td *ngIf="check(rfp.due_date) == false"></td>
-                            </tr>
-                            <tr *ngIf="adminlogin">
-                              <td>{{rfp.date_entered}}</td>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+  <!--<h4>Detail:</h4>-->
+  <div class="table">
+    <table class="table-normal">
+      <thead>
+        <tr>
+          <td>
+            <i class="glyphicon glyphicon-calendar"></i> Posted Date</td>
+          <td>
+            <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="!adminlogin">
+          <td *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}
+          </td>
+          <td *ngIf="check(rfp.date_entered) == false"></td>
+          <td *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
+          <td *ngIf="check(rfp.due_date) == false"></td>
+        </tr>
+        <tr *ngIf="adminlogin">
+          <td>{{rfp.date_entered}}</td>
 
-                              <td>{{rfp.due_date}}</td>
+          <td>{{rfp.due_date}}</td>
 
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6" *ngIf="!subscribe">
+    <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
+      <!-- <i class="material-icons">bubble_chart</i> -->
+    </button>
+  </div>
+</div>
 
                   </div>
-                  <div class="col-lg-12">
-
+                  <div class="col-lg-12 padding-0">
                     <div attr.id="View{{rfp.id}}" class="panel-details collapse">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
                         <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a [routerLink]="['/agency']"
                             [queryParams]="{ agency: rfp.agency}"><span><b>{{rfp.agency}}</b></span></a></h5>
                         <h5>
                           <i class="fa fa-university"></i> Category :
-                          <a [routerLink]="['/category']"
+                          <a  class="cat-elips" [routerLink]="['/category']"
                             [queryParams]="{ cat: rfp.new_category}"><span><b>{{ rfp.new_category}}</b></span></a>
                         </h5>
                         <h5>

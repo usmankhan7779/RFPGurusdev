@@ -65,14 +65,14 @@
                                 <ngx-slick class="CategorySlider" #slickModal="slick-modal" [config]="slideConfig">
                                     <div class="item CategorySliderTop" ngxSlickItem *ngFor="let ite of cat">
                                         <div class="image">
-                                            <a [routerLink]="['/category']" [queryParams]="{ cat:ite.category_name}">
+                                            <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:ite.category_name}">
                                                 <img title={{ite.category_name}} class="img cat-slide"
                                                     src="../../../../assets/img/cat/{{ite.category_image}}@96px.png">
                                             </a>
                                         </div>
                                         <div class="slide-overlay">
                                             <h4 class="card-title elipsis-cat-slider">
-                                                <a [routerLink]="['/category']"
+                                                <a  class="cat-elips" [routerLink]="['/category']"
                                                     [queryParams]="{ cat: ite.category_name}" class=".pclass "
                                                     title={{ite.category_name}}>{{ ite.category_name }}</a>
                                             </h4>

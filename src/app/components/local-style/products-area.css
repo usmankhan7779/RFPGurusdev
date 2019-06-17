@@ -1,4 +1,9 @@
-
+.cat-elips{
+  max-width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .products-area {
   font-size: 15px;
   line-height: 19px
