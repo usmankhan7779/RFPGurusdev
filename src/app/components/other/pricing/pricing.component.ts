@@ -24,6 +24,7 @@ declare var $: any;
 export class PricingComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
   isfreetrial: boolean = false;
+  readonly:boolean=false;
 
   free() {
     if (localStorage.getItem('currentUser')) {
@@ -205,13 +206,18 @@ export class PricingComponent implements OnInit {
     this.setautopay = val.checked
   }
   zipcodeCheck(zipcode1) {
+    alert('sadf');
     if (zipcode1.length > 4) {
+      alert('sadf');
       this.endRequest = this._serv2.zipcode(zipcode1).subscribe(
         data => {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
+          this.readonly=true;
+          alert(this.readonly);
         },
+        
         error => {
           if (error.status == 500) {
             swal(

@@ -204,7 +204,7 @@
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
                             <mat-form-field>
-                              <input matInput class="sh-text-capt" placeholder="City" type="text" formControlName="city">
+                              <input matInput class="sh-text-capt" placeholder="City" type="text" formControlName="city"  readonly>
                               <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
                                 <mat-error *ngIf="form.controls.city.errors.required">
                                   City cannot be empty
@@ -215,7 +215,7 @@
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
                             <mat-form-field>
-                              <input matInput class="text-uppercase" placeholder="State" type="text" formControlName="state">
+                              <input matInput class="text-uppercase" placeholder="State" type="text" formControlName="state" readonly>
                               <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
                                 <mat-error *ngIf="form.controls.state.errors.required">
                                   State cannot be empty
@@ -225,7 +225,7 @@
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
                             <mat-form-field>
-                              <input matInput class="sh-text-capt" placeholder="Country" type="text" formControlName="country">
+                              <input matInput class="sh-text-capt" placeholder="Country" type="text" formControlName="country" readonly>
                               <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
                                 <mat-error *ngIf="form.controls.country.errors.required">
                                   Country cannot be empty
@@ -265,7 +265,7 @@
                                   Nick Name cannot be empty
                                 </mat-error>
                                 <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                                  Nick Name should be atleast three letters.
+                                  Nick Name should be atleast 2 letters.
                                 </mat-error>
                                 
                               </mat-error>

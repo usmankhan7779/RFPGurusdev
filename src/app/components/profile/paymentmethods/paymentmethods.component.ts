@@ -207,8 +207,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       country: ['', Validators.compose([Validators.required])],
       zip: ['', Validators.compose([Validators.required, Validators.maxLength(5),
       Validators.pattern('^[0-9]*$')])],
-      cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
-      nickname: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z _.]+$')])],
+      cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2),Validators.pattern('[a-zA-Z ]*')])],
       address: ['', Validators.compose([Validators.required])],
       // setautopay:['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
@@ -365,7 +365,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       else {
         swal({
           type: 'error',
-          title: 'Please Enter Correct Details!',
+          title: 'Invalid Details!',
           showConfirmButton: false,
           timer: 1500, width: '512px',
         })
