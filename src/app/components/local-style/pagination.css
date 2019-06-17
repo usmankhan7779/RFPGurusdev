@@ -82,6 +82,9 @@ z-index: 9
 .pagination {
 margin-right: 18%!important
 }
+.header .pagination{
+  margin-right: 8% !important;
+}
 
 .pagination .btn-fill,
 .pagination .btn-fill {

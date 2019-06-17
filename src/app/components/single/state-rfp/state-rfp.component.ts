@@ -191,12 +191,13 @@ export class StateRfpComponent implements OnInit, OnDestroy {
     if (localStorage.getItem('currentadmin')) {
       this.adminlogin = localStorage.getItem('currentadmin')
     }
-    if (localStorage.getItem('statepage')) {
-      var page_num: number = Number(localStorage.getItem('statepage'));
-      this.setPage(page_num);
-    } else {
-      this.setPage(1);
-    }
+    // if (localStorage.getItem('statepage')) {
+    //   var page_num: number = Number(localStorage.getItem('statepage'));
+    //   this.setPage(page_num);
+    // } else {
+    //   this.setPage(1);
+    // }
+    this.setPage(1);
     this._shareData.returnState().subscribe(
       data => {
         this.state = data;

@@ -200,7 +200,7 @@
                 </h5>
             </li>
             <li *ngFor="let rfpcat of cat_subcat.slice(0, 5); let i = index">
-                <a class="abc" (click)=" formclear()" [routerLink]="['/category']"
+                <a class="abc" (click)=" formclear()"  class="cat-elips" [routerLink]="['/category']"
                     [queryParams]="{ cat: rfpcat?.cat?.category_name}">
                     {{rfpcat?.cat?.category_name | titlecase}}
                 </a>
