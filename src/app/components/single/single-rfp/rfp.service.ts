@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Headers, Response } from '@angular/http';
 
 @Injectable()
 export class RfpService {
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient,private _https : Http) {  }
 
   postWatchlist(rfpid) {
-    return this.http.post('https://apis.rfpgurus.com/rf_p/watchlist/', JSON.stringify({
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+     
+    headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this._https.post('https://apis.rfpgurus.com/rf_p/watchlist/', JSON.stringify({
       "rfp": rfpid
-    }));
+    }),{headers:headers});
   }
 
   rfprecord(id, val) {

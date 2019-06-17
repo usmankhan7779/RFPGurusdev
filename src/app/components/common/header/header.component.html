@@ -172,13 +172,15 @@
 
 
 
-              </div>
+              </div >
+              <div *ngIf="shown == true && total == 1"> 
               <div class="wishlist-btn-div" *ngIf="check_login()">
                 <a routerLink="/my-watchlist" class="addtocart-btn">Go to Watchlist</a>
               </div>
               <div class="wishlist-btn-div" *ngIf="check_adminlogin()">
                 <a routerLink="/watchlist" class="addtocart-btn">Go to Watchlist</a>
               </div>
+            </div>
             </div>
             <!-- </a> -->
           </li>

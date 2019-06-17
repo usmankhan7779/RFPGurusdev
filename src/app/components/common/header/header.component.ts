@@ -129,12 +129,14 @@ export class HeaderComponent implements OnInit {
 
   }
   total;
+  shown :boolean;
   watchlist() {
     if (localStorage.getItem('currentUser')) {
       this._serv.Watchlist().subscribe(
         data => {
           this.wrfp = data['result'];
           this.total = data['total']
+          this.shown = data['status']
           this._shareData.watchInfo(this.wrfp);
           this._shareData.watchtotal(this.total);
         },
