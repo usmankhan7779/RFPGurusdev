@@ -34,6 +34,9 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     local;
     uname;
     hide = true;
+    hide1 = true;
+    hide2 = true;
+
     public typeValidation: User;
     register: FormGroup;
     login: FormGroup;
@@ -76,7 +79,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
                 error => {
                     swal(
                         '',
-                        'Your old password is Incorrect.',
+                        'Your old password is Incorrect',
                         'error'
                     )
                 });

@@ -175,17 +175,35 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      if (localStorage.getItem('pages')) {
-        var page_num: number = Number(localStorage.getItem('pages'));
-        this.onPaginateChange(page_num);
-      } else {
+      // if (localStorage.getItem('pages')) {
+      //   var page_num: number = Number(localStorage.getItem('pages'));
+      //   this.onPaginateChange(page_num);
+      // } else {
         this.onPaginateChange(1);
-      }
+      // }
     }
     else {
       delete this.pageSize;
     }
   }
+  // page(pageSize) {
+  //   if (pageSize) {
+  //     // alert(pageSize)
+  //     this.pageSize = pageSize;
+  //     // if (localStorage.getItem('statepage') == null) {
+  //     //   // var page_num: number = Number(localStorage.getItem('statepage'));
+  //     //   alert('if wali ' + pageSize)
+  //     //   this.setPage(pageSize);
+  //     // } else {
+  //       // alert(this.pageSize)
+  //       this.setPage(1);
+  //     // }
+  //   }
+  //   else {
+  //     delete this.pageSize;
+  //   }
+  //   // this.setPage(this.pageSize)
+  // }
 
   changestate(states) {
 

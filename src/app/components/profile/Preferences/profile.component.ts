@@ -71,11 +71,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
             this.endRequest = this._adserv.rfpcounty(this.tempstatePreference).subscribe(
                 data => {
                     this.county = data[0];
+                    console.log(data[0])
                 }
             )
             this.endRequest = this._adserv.rfpagency(this.tempstatePreference).subscribe(
                 data => {
                     this.agency = data[0];
+                    console.log(data[0])
                 }
             )
         }
@@ -198,11 +200,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
                         this.endRequest = this._adserv.rfpcounty(this.tempstatePreference).subscribe(
                             data => {
                                 this.county = data[0];
+                                // console.log(data[0])
                             }
                         )
                         this.endRequest = this._adserv.rfpagency(this.tempstatePreference).subscribe(
                             data => {
                                 this.agency = data[0];
+                                // console.log(data[0].JSON)
                             }
                         )
                     }

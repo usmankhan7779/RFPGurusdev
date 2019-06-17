@@ -173,6 +173,20 @@ export class CategoryRfpComponent implements OnInit {
     }
 
   }
+  page(pageSize) {
+    if (pageSize) {
+      this.pageSize = pageSize;
+      // if (localStorage.getItem('pages')) {
+      //   var page_num: number = Number(localStorage.getItem('pages'));
+      //   this.onPaginateChange(page_num);
+      // } else {
+        this.setpage(1);
+      // }
+    }
+    else {
+      delete this.pageSize;
+    }
+  }
   setpage(page) {
     localStorage.setItem('catpage', page);
     this.route.queryParams

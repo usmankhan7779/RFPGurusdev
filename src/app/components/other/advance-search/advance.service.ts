@@ -3,11 +3,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Headers, Response } from '@angular/http';
 
 @Injectable()
 export class AdvanceService {
 
-  constructor(private http: HttpClient, private authInterceptor: SetHeaders) { }
+  constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
   trial_document() {
     return this.http.get('https://apis.rfpgurus.com/document_trial/');
   }
@@ -30,13 +31,22 @@ export class AdvanceService {
     }));
   }
   rfpcity(value) {
-    return this.http.post('https://apis.rfpgurus.com/county_city', JSON.stringify({ "county": value }));
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');     
+    // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this.http.post('https://apis.rfpgurus.com/county_city', JSON.stringify({ "county": value }),{headers:this.authInterceptor.setHeaders()});
   }
   rfpcounty(value) {
-    return this.http.post('https://apis.rfpgurus.com/state_county', JSON.stringify({ "state": value }));
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');     
+    // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this.http.post('https://apis.rfpgurus.com/state_county', JSON.stringify({ "state": value }),{headers: this.authInterceptor.setHeaders() });
   }
   rfpagency(value) {
-    return this.http.post('https://apis.rfpgurus.com/state_agency', JSON.stringify({ "state": value }));
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');     
+    // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this.http.post('https://apis.rfpgurus.com/state_agency', JSON.stringify({ "state": value }),{headers: this.authInterceptor.setHeaders() });
   }
   rfpagen() {
     return this.http.get('https://apis.rfpgurus.com/rf_p/allagencies/');
@@ -45,7 +55,7 @@ export class AdvanceService {
     return this.http.post('https://apis.rfpgurus.com/rf_p/searchby_multiple_categories/', JSON.stringify({ "category": val }));
   }
   rfpsinglesubcat(val) {
-    return this.http.post('https://apis.rfpgurus.com/rf_p/search_sub_category/', JSON.stringify({ "category": val }));
+    return this.http.post('https://apis.rfpgurus.com/rf_p/search_sub_category/', JSON.stringify({ "category": val }),{headers:this.authInterceptor.setHeaders()});
   }
   downloadFile(id) {
     return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/');
