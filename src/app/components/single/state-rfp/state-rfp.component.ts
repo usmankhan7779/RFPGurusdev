@@ -77,20 +77,25 @@ export class StateRfpComponent implements OnInit, OnDestroy {
   }
   page(pageSize) {
     if (pageSize) {
+      // alert(pageSize)
       this.pageSize = pageSize;
-      if (localStorage.getItem('statepage')) {
-        var page_num: number = Number(localStorage.getItem('statepage'));
-        this.setPage(page_num);
-      } else {
+      // if (localStorage.getItem('statepage') == null) {
+      //   // var page_num: number = Number(localStorage.getItem('statepage'));
+      //   alert('if wali ' + pageSize)
+      //   this.setPage(pageSize);
+      // } else {
+        // alert(this.pageSize)
         this.setPage(1);
-      }
+      // }
     }
     else {
       delete this.pageSize;
     }
+    // this.setPage(this.pageSize)
   }
   setPage(page) {
     localStorage.setItem('statepage', page);
+    // alert(this.pageSize)
     this.route.queryParams
 
       .subscribe(params => {
@@ -120,6 +125,8 @@ export class StateRfpComponent implements OnInit, OnDestroy {
             this.item = data['totalItems']
             this.length = this.item;
             this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
+            // this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
+// 
           });
       })
   }

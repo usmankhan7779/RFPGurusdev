@@ -121,12 +121,12 @@ export class AllRfpsComponent implements OnInit {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      if (localStorage.getItem('latestpage')) {
-        var page_num: number = Number(localStorage.getItem('latestpage'));
-        this.setPage(page_num);
-      } else {
+      // if (localStorage.getItem('latestpage')) {
+      //   var page_num: number = Number(localStorage.getItem('latestpage'));
+      //   this.setPage(page_num);
+      // } else {
         this.setPage(1);
-      }
+      // }
     }
     else {
       delete this.pageSize;

@@ -62,8 +62,11 @@
               <label class="product-label">Items per page:
               </label>
               <mat-form-field>
-                <mat-select class="width-sec" placeholder="" selected="10" (change)="page(pageSize)" value="pageSize"
-                  required [(ngModel)]="pageSize" name="pageSize">
+                <!-- <mat-select class="width-sec" placeholder="" selected="10" (change)="page(pageSize)" value="pageSize"
+                  required [(ngModel)]="pageSize" name="pageSize"> -->
+                  <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                  (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                  name="pageSize">
                   <mat-option value="10" selected="true">10</mat-option>
                   <mat-option value="20">20 </mat-option>
                   <mat-option value="35">35</mat-option>
@@ -142,7 +145,7 @@
                     <div class="col-sm-6 col-md-6 col-xs-6">
                       <ul class="list-normal">
                         <li *ngIf="!subscribe; else pdf">
-                          <a routerLink="pricing">
+                          <a href="pricing">
                             <i class="fafa-credit-card"></i> Pricing/Package Details
                           </a>
                         </li>
@@ -239,8 +242,11 @@
           <label class="product-label">Items per page:
           </label>
           <mat-form-field>
-            <mat-select class="width-sec" placeholder="" selected="10" (change)="page(pageSize)" value="pageSize"
-              required [(ngModel)]="pageSize" name="pageSize">
+            <!-- <mat-select class="width-sec" placeholder="" selected="10" (change)="page(pageSize)" value="pageSize"
+              required [(ngModel)]="pageSize" name="pageSize"> -->
+              <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+              (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+              name="pageSize">
               <mat-option value="10" selected="true">10</mat-option>
               <mat-option value="20">20 </mat-option>
               <mat-option value="35">35</mat-option>

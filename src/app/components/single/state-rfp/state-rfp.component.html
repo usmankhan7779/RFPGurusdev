@@ -73,8 +73,8 @@
                             </label>
                             <mat-form-field>
 
-                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}"
-                                    (change)="page(pageSize)" value="pageSize" required [(ngModel)]="pageSize"
+                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
                                     name="pageSize">
                                     <mat-option value="10" selected="true">10</mat-option>
                                     <mat-option value="20">20 </mat-option>
@@ -308,9 +308,12 @@
                     <label class="product-label">Items per page:
                     </label>
                     <mat-form-field>
-
+<!-- 
                         <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
-                            value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
+                            value="pageSize" required [(ngModel)]="pageSize" name="pageSize"> -->
+                            <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
                             <mat-option value="10" selected="true">10</mat-option>
                             <mat-option value="20">20 </mat-option>
                             <mat-option value="35">35</mat-option>
