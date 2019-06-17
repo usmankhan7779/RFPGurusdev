@@ -1,0 +1,76 @@
+a {
+  color: #1062a5
+}
+
+a:focus,
+a:hover {
+  color: #c00!important;
+  text-decoration: underline!important
+}
+
+.card .card-title {
+  font-size: 24px;
+  line-height: 19px
+}
+
+.signup-main .card .card-header.card-header-icon i {
+  margin-right: 5px
+}
+
+.signup-main .card .card-header h4 {
+  display: inline
+}
+
+.main-content {
+  padding: 10px 0 0
+}
+
+.mat-form-field-infix {
+  padding: 0!important;
+  padding: .5em 0;
+  border-top: 0
+}
+
+.form-footer {
+  padding-top: 0 !important;
+  padding: 5px 0 20px !important;
+
+}
+.card [data-background-color] {
+  margin: -35px 15px 0
+}
+
+.checkbox label {
+  padding-left: 0
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.regester-btn:disabled {
+  width: 35%;
+  opacity: .3
+}
+
+.regester-btn {
+  width: 290px;
+  margin-top: 20px;
+}
+.recaptcha-style {
+  margin: 0 0 10px;
+  float: none
+}
+.vt-middle {
+  padding: 0 2px
+}
+
+.signup-form-row>div {
+  min-height: 72px
+}
+
+@media (max-width:1024px) {
+  .recaptcha-style {
+      margin: 0 0 20px
+  }
+}
