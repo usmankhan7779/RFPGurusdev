@@ -60,7 +60,7 @@
                             <div class="col-md-4 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                               <mat-form-field>
                                 <mat-select placeholder="Card Type" formControlName="var_type_atm" #val
-                                  (change)="ShowButton(val.value,f)">
+                                  (valueChange)="ShowButton(val.value,f)">
                                   <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                                     [value]="card_get_datat.value" >{{card_get_datat.viewValue}}</mat-option>
                                 </mat-select>
@@ -307,7 +307,7 @@
                           <td>
                             <h3 class="edit-payment">
                               <a class="delete" (click)="deleteSingleCard(card.id)">
-                                <i class="fa fa-trash-alt"></i>
+                                <i class="fa fa-trash"></i>
                               </a>
                             </h3>
                           </td>
