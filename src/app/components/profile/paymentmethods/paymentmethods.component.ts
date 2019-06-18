@@ -11,6 +11,7 @@ import { SignupService } from "../../Auth/signup/signup.service";
 import { SeoService } from 'src/app/services/seoService';
 import { PricingService } from '../../other/pricing/pricing.service';
 import { HomeService } from '../../common/home/home.service';
+import { Alert } from 'selenium-webdriver';
 
 export interface card_opeation {
   value: string;
@@ -208,7 +209,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       zip: ['', Validators.compose([Validators.required, Validators.maxLength(5),
       Validators.pattern('^[0-9]*$')])],
       cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
-      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2),Validators.pattern('[a-zA-Z ]*')])],
+      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
       address: ['', Validators.compose([Validators.required])],
       // setautopay:['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
@@ -318,7 +319,23 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber2.valid && this.form.controls.ccv2.valid
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
         && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-        this.serv.addCard(this.default, this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber2'].split('-').join(''), this.form.value['ccv2'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
+          // addCard(status, name, address, zip, city, state, 
+          // country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
+
+          this.serv.addCard(this.default, 
+         this.form.value['cardnickname'], 
+          this.form.value['address'],
+           this.form.value['zip'], 
+          this.form.value['city'],
+           this.form.value['state'], 
+          this.form.value['country'], 
+          this.form.value['cardnumber2'].split('-').join(''), 
+          this.form.value['ccv2'], 
+          this.date.split('/').join(''),
+           this.form.value['var_type_atm'],
+           this.form.value['setautopay'], 
+           this.form.value['nickname']).subscribe(Data => {
+             console.log(this.form.value)
           swal({
             type: 'success',
             title: 'Payment Method Is Listed!',

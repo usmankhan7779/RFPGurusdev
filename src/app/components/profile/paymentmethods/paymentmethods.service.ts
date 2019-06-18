@@ -17,7 +17,6 @@ export class PaymentmethodsService {
   addCard(status, name, address, zip, city, state, country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
     let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-         
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
     return this._https.post('https://apis.rfpgurus.com/payment/cardinfo/',
       JSON.stringify({
