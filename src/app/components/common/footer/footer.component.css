@@ -194,12 +194,15 @@
   width: 35px !important;
   top: 1px;
   right: 0px;
+  color: #c00;
+  box-shadow: none !important;
   z-index: 2;
   opacity: 1;
   padding: 5px 0px 5px 0px;
-  background: #c00;
+  background: #fff;
   cursor: pointer;
 }
+
 .sh-subscribe button {
 margin: 0!important;
 vertical-align: baseline

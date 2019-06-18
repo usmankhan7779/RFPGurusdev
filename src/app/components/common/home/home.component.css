@@ -94,9 +94,8 @@
 .form-home {
     position: absolute;
     left: 80px;
-    top: 0;
+    bottom: 0;
     right: 80px;
-    bottom: auto
 }
 .form-home .btn-primary {
   width: 100%
@@ -155,6 +154,8 @@
 }
 .sh-pkg-holder ngx-slick{
   padding: 0 50px;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 .CategorySliderTop {
     cursor: pointer;
