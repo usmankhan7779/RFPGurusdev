@@ -94,6 +94,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   ShowButton(var_type_atm, f: NgForm) {
     this.cardtype = var_type_atm;
+    alert(this.cardtype);
     if (var_type_atm == "American Express") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
@@ -314,8 +315,11 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   check_value_get: boolean = false;
   add(f: NgForm) {
+    // alert(this.form.value['var_type_atm']);
     this.date = this.form.value['expirydate'];
     if (this.cardtype == "American Express") {
+      alert(this.cardtype);
+      alert('sdfs');
       if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber2.valid && this.form.controls.ccv2.valid
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
         && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
@@ -335,7 +339,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
            this.form.value['var_type_atm'],
            this.form.value['setautopay'], 
            this.form.value['nickname']).subscribe(Data => {
-             console.log(this.form.value)
+             console.log(this.form.value),
+           
           swal({
             type: 'success',
             title: 'Payment Method Is Listed!',

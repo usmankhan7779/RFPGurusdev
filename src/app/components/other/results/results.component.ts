@@ -81,7 +81,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       });
   }
   sort(sorted, page) {
-   
+   alert('dsfsf');
     this.route.queryParams
       .subscribe(params => {
         this.cat = params.keyword
