@@ -85,7 +85,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.route.queryParams
       .subscribe(params => {
         this.cat = params.keyword
-        this._serv.sortby(sorted, this.cat, page, this.pageSize).subscribe(
+        alert(params.keyword)
+        this._serv.sortby(sorted, params.keyword, page, this.pageSize).subscribe(
           data => {
             this.record = data['results'];
             this.item = data['totalItems']
