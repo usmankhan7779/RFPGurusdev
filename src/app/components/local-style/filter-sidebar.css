@@ -20,7 +20,7 @@
 }
 /* ........... */
 .sidebar-user {
-  padding: 95px 10px 20px;
+  padding: 80px 10px 20px;
   color: #555
 }
 
@@ -29,12 +29,16 @@
 }
 
 .search-filters-hd {
-  margin-bottom: 0 !important;
+  margin-bottom: 5px !important;
   font-size: 22px !important
 }
-
+.cat-sidebar-heading{
+  margin: 15px 0 5px;
+}
 .sidebar-user .btn {
   width: 100%;
+  box-shadow: 0 6px 10px #ccc !important;
+  font-weight: 600 !important;
 }
 
 .sh-sidebar-user ul li {
@@ -116,9 +120,7 @@ margin-bottom: 20px;
   text-overflow: ellipsis
 }
 
-.sidebar-user {
-padding: 90px 10px 20px
-}
+
 .sidebar-user .btn .material-icons {
 margin: 0 0 0 8px;
 font-weight: 700
