@@ -137,7 +137,7 @@
         <!--.............-->
         <ul class="navbar-nav sh-android-apple">
           <li class="heart-li" *ngIf="check_login() ||check_adminlogin()">
-            <a routerLink="/" title="Watchlist">
+            <a routerLink="/my-watchlist" title="Watchlist">
               <i class="fa fa-eye"></i>
               <sup>{{total}}</sup>
             </a>
@@ -173,19 +173,19 @@
 
 
               </div >
-              <div *ngIf="shown == true && total == 1"> 
+              <!-- <div *ngIf="shown == true && total == 1">  -->
               <div class="wishlist-btn-div" *ngIf="check_login()">
                 <a routerLink="/my-watchlist" class="addtocart-btn">Go to Watchlist</a>
               </div>
               <div class="wishlist-btn-div" *ngIf="check_adminlogin()">
                 <a routerLink="/watchlist" class="addtocart-btn">Go to Watchlist</a>
-              </div>
+              <!-- </div> -->
             </div>
             </div>
             <!-- </a> -->
           </li>
           <li class="heart-li" *ngIf="check_login()">
-            <a routerLink="/" title="Notification">
+            <a routerLink="/notifications" title="Notification">
               <i class="fa fa-bell"></i>
               <sup *ngIf="unread >=1">{{unread}}</sup>
             </a>

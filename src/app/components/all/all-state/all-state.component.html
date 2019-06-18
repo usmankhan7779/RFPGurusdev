@@ -5,7 +5,7 @@
     <i (click)="focusInput()">focus</i>
     <div class="container">
       <div class="search-holder">
-        <input type="search" name=query [(ngModel)]="query" #qure1 (change)="filter(qure1.value)"
+        <input type="search" name=query [(ngModel)]="query" #qure1 (ngModelChange)="filter(qure1.value)"
           placeholder="Search RFPs">
         <i class="fa fa-close" id="iconClose" (click)="closeSearch()"></i>
       </div>
