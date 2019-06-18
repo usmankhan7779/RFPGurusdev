@@ -148,7 +148,7 @@ export class HeaderComponent implements OnInit {
     this.id = id;
     this.title = title
     swal({
-      title: 'Are you sure you want to delete from watchlist? <br> You will not be able to revert this!',
+      title: 'Are you sure you want to delete from watch list? <br> You will not be able to revert this!',
       type: 'question',
       showCancelButton: true,
       width: '512px',
