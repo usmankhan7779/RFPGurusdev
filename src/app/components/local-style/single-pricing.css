@@ -9,7 +9,6 @@
     font-weight: 700;
     line-height: 30px;
     padding: 5px;
-    text-transform: uppercase
 }
 
 .single-pricing-2 .plan-name small {
@@ -37,10 +36,11 @@
 }
 
 .single-pricing-2 ul li {
-    font-weight: 500;
-    padding: 5px 20px;
-    line-height: 20px;
-    font-size: 18px
+  font-weight: 500;
+  padding: 5px 20px;
+  line-height: 20px;
+  font-size: 16px;
+  margin: 0;
 }
 .single-pricing-2 .plan-price {
     font-size: 48px;
@@ -58,7 +58,7 @@
     background-color: #fff;
     -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    min-height: 650px;
+    min-height: 550px;
     position: relative
 }
 .single-pricing-2.top {

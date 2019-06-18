@@ -3,510 +3,460 @@
 
 
 <section class="section pricing2-section">
-    <div class="container ">
-        <div class="row">
-            <div *ngIf="Yplan && Mplan" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <h2 *ngIf="isfreetrial" class="pricing_heading">Join RFPGurus for a 7-day risk-free trial period</h2>
-                <h2 class="main_heading">Our Unbeatable Pricing Model </h2>
-                <p><b>Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
-                    Subscribe to Monthly or Yearly democratized
-                    pricing packages. With a transparent and democratized pricing model, RFPGurus is the most
-                    affordable
-                    and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from
-                    over
-                    thousands
-                    and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special
-                    District
-                    and
-                    other Agencies.</b></p>
-            </div>
+  <div class="container ">
+    <div class="row">
+      <div *ngIf="Yplan && Mplan" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <h2 *ngIf="isfreetrial" class="pricing_heading">Join RFPGurus for a 7-day risk-free trial period</h2>
+        <h2 class="main_heading">Our Unbeatable Pricing Model </h2>
+        <p><b>Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
+            Subscribe to Monthly or Yearly democratized
+            pricing packages. With a transparent and democratized pricing model, RFPGurus is the most
+            affordable
+            and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from
+            over
+            thousands
+            and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special
+            District
+            and
+            other Agencies.</b></p>
+      </div>
 
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s"
-                *ngIf="Fplan">
-                <div class="single-pricing-2 top">
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register
-                            Now
-                        </a>
-                        <ng-template #pkg3>
-                            <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                    <span class="plan-name text-center">
-                        Free Plan
-                    </span>
-                    <p class="plan-price bg-black">
-                        <sup class="currency">$</sup>
-                        <strong>0.00</strong>
-                    </p>
-                    <ul class="list-pricing home-list-pricing">
-                        <li>
-                            <i class="fa fa-check"></i> Upto 5 RFP View/Downloads
-                        </li>
-
-                        <li>
-                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Upcoming Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Federal Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Search Engine
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Android Mobile App
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> iOS Mobile App
-                        </li>
-                        <!-- <li>
-                        <i class="fa fa-check"></i> Electronic Bid Submission
-                    </li> -->
-                        <!-- <li>
-                        <i class="fa fa-check"></i> Winning Bidder Insight
-                    </li> -->
-                        <li>
-                            <i class="fa fa-check"></i> Technical Support Chat
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> RFP as a Service
-                        </li>
-                    </ul>
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register
-                            Now</a>
-                        <ng-template #pkg3>
-                            <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s"
-                *ngIf="Mplan">
-                <div class="single-pricing-2 top">
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register Now</a>
-                        <ng-template #pkg1>
-                            <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                    <span class="plan-name text-center">
-                        Monthly Plan
-                    </span>
-                    <p class="plan-price">
-                        <sup class="currency">$</sup>
-                        <strong>24.99</strong>
-                    </p>
-                    <ul class="list-pricing home-list-pricing">
-                        <li>
-                            <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Upcoming Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Federal Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Search Engine
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Android Mobile App
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> iOS Mobile App
-                        </li>
-                        <!-- <li>
-                            <i class="fa fa-check"></i> Electronic Bid Submission
-                        </li> -->
-                        <!-- <li>
-                            <i class="fa fa-check"></i> Winning Bidder Insight
-                        </li> -->
-                        <li>
-                            <i class="fa fa-check"></i> Technical Support Chat
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> RFP as a Service
-                        </li>
-                    </ul>
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register
-                            Now</a>
-                        <ng-template #pkg1>
-                            <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                </div>
-            </div>
-            <!---->
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 premium wow animated bounceInUp"
-                data-wow-delay="0.6s" *ngIf="Yplan">
-                <div class="single-pricing-2 top">
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register
-                            Now</a>
-                        <ng-template #pkg4>
-                            <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                    <span class="plan-name text-center">
-                        Yearly Plan
-                    </span>
-                    <p class="plan-price">
-                        <sup class="currency">$</sup>
-                        <strong>299.99</strong>
-                    </p>
-                    <ul class="list-pricing home-list-pricing">
-                        <li>
-                            <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Upcoming Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> State &amp; Local Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Federal Agency Bids
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Search Engine
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Android Mobile App
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> iOS Mobile App
-                        </li>
-                        <!-- <li>
-                            <i class="fa fa-check"></i> Electronic Bid Submission
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> Winning Bidder Insight
-                        </li> -->
-                        <li>
-                            <i class="fa fa-check"></i> Technical Support Chat
-                        </li>
-                        <li>
-                            <i class="fa fa-check"></i> RFP as a Service
-                        </li>
-                    </ul>
-                    <div class="pricing2-button" *ngIf="!planSelected">
-                        <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
-                            title="Subscribe Package">Register
-                            Now</a>
-                        <ng-template #pkg4>
-                            <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
-                        </ng-template>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="pkgsub" class="sh-signup-form-fix col-lg-8 col-md-7 col-sm-6" data-wow-delay=".5s">
-
-                <div class=" row sh-payment">
-                    <div class="checkout-select-box ">
-                        <h2 *ngIf="isfreetrial" class="pricing_heading" style="text-align:center">Join RFPGurus for a
-                            7-day
-                            risk-free trial period</h2>
-                        <!-- <div class="switch" class="free-trial-switch">
-                                         <input [(ngModel)]="isfreetrial" id="switch-toggle-pricing"
-                                        class="switch-toggle switch-toggle-round" type="checkbox"> <label
-                                        for="switch-toggle-pricing"></label> 
-                                    </div> -->
-                        <!-- <div class="dp-inline free-trial">
-                                            <span class="pts-right " *ngIf="!isfreetrial">Start Your Free Trial</span>
-                                            <span
-                                               class="pts-right " style="color: black" *ngIf="isfreetrial" >Start Your Free Trial</span>
-                                    </div> -->
-
-                        <div id="section-pricing" class="text-center col-sm-12 padding-zero">
-                            <div class="pricing-tenure-switcher center" data-container="#pricing-switch">
-                                <div class="col-sm-4">
-                                    <mat-form-field class=" mg-0-auto yearly-mnthly">
-                                        <mat-select [(ngModel)]="valuee" (change)="selectPlan()">
-                                            <mat-option value="PY">Yearly Subscription</mat-option>
-                                            <mat-option value="BM">Monthly Subscription</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
-
-                                <span class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span
-                                    class="pts-left" *ngIf="isright">Saved Cards</span>
-                                <div class="pts-switcher">
-                                    <div class="switch">
-                                        <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
-                                            class="switch-toggle switch-toggle-round" type="checkbox"
-                                            [checked]="!res.length" 
-                                            [disabled]="!res.length"
-                                            >
-                                        <label for="switch-toggle-pricing-tenure"></label>
-                                    </div>
-                                </div><span class="pts-right" *ngIf="!isright">Add New Payment Method</span> <span
-                                    class="pts-right" *ngIf="isright" style="color: black">Add New Payment Method</span>
-                            </div>
-                            <div id="pricing-switch" class="col-sm-12">
-
-                                <div *ngIf="!isright" class="col-lg-6 mg-0-auto padding-zero Saved-card-sel-list">
-                                    <mat-form-field class="width-50per mg-0-auto">
-                                        <mat-select class="" placeholder="Select card" [(ngModel)]="model.defaultcard"
-                                            [formControl]="Carddefault">
-                                            <mat-option *ngFor="let card of res" [value]="card.id">
-                                                {{card.nickname}}</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
-
-                                <div class="col-md-12" *ngIf="isright">
-                                    <div class="cart-body">
-                                        <div class="credit-card-box">
-                                            <div class="flip">
-                                                <div class="front">
-                                                    <div class="chip"></div>
-                                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            height="47.834px" id="visa"
-                                                            style="enable-background:new 0 0 47.834 47.834;"
-                                                            version="1.1" viewBox="0 0 47.834 47.834" width="47.834px"
-                                                            x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
-                                                            <g>
-                                                                <g></g>
-                                                            </g>
-                                                        </svg></div>
-                                                    <div class="card-holder" style="top: 29px;left: 221px;">
-                                                        <label>Cardholder
-                                                            Name</label>
-                                                        <div>{{model.holdername}}</div>
-                                                    </div>
-                                                    <div class="card-holder"><label>Card Number</label>
-                                                        <div>{{model.cardNumber}}</div>
-                                                    </div>
-                                                    <div class="card-expiration-date"><label>Expiry
-                                                            Date</label>
-                                                        <div>{{model.expirationdate}}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="back">
-                                                    <div class="strip"></div>
-                                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            height="47.834px" id="visa"
-                                                            style="enable-background:new 0 0 47.834 47.834;"
-                                                            version="1.1" viewBox="0 0 47.834 47.834" width="47.834px"
-                                                            x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
-                                                            <g>
-                                                                <g></g>
-                                                            </g>
-                                                        </svg></div>
-                                                    <div class="card-expiration-date"><label>Expiry
-                                                            Date</label>
-                                                        <div>{{model.expirationdate}}</div>
-                                                    </div>
-                                                    <div class="ccv"><label>CCV</label>
-                                                        <div>{{model.cardcod}}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <form #f="ngForm" id="videoform"
-                                            class="edit-profile row sh-signup-form-fix" name="videoform"
-                                            method="post">
-                                            <div class="col-lg-12 center-div col-md-12">
-                                                <div class="contact_form">
-                                                    <div class="panel-body margin-top-145 padding-bottom-">
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field
-                                                                class="col-sm-6 col-xs-12 padding-zero  mat-size">
-                                                                <mat-select placeholder="Card Type"
-                                                                    [(ngModel)]="model.cardtype"
-                                                                    [formControl]="CardtypeForm"
-                                                                    (change)="ShowButton(CardtypeForm.value)">
-                                                                    <mat-option class="font-16"
-                                                                        *ngFor="let card_get_datat of card_opeation"
-                                                                        [value]="card_get_datat.value">
-                                                                        {{card_get_datat.viewValue}}</mat-option>
-                                                                </mat-select>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size">
-                                                                <input matInput placeholder="Credit Card Number"
-                                                                    [textMask]="{mask: cardmask}"
-                                                                    [formControl]="CardNumberForm"
-                                                                    [(ngModel)]="model.cardNumber" required>
-                                                                <mat-error *ngIf="CardNumberForm.hasError('pattern')">
-                                                                    Please
-                                                                    enter a valid card number. Only Numerics are
-                                                                    Allowed.
-                                                                </mat-error>
-                                                                <mat-error *ngIf="CardNumberForm.hasError('required')">
-                                                                    Card
-                                                                    number is <strong>required</strong> </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size">
-                                                                <input matInput placeholder="Expiry Date (MM/YY)"
-                                                                    [formControl]="ExpiryDateForm"
-                                                                    [(ngModel)]="model.expirationdate"
-                                                                    [textMask]="{mask: mask}" #exp
-                                                                    (change)="chek(exp.value)" required>
-                                                                <mat-error *ngIf="ExpiryDateForm.hasError('required')">
-                                                                    Expiry
-                                                                    Date is <strong>required</strong> </mat-error>
-                                                                <mat-error *ngIf="ExpiryDateForm.hasError('pattern')">
-                                                                    Expiry
-                                                                    Date should in <strong>mm/yy</strong> </mat-error>
-                                                                <!-- <mat-error *ngIf="expirydate <='18'">
-                                                                    Invalid
-                                                                    Expiry
-                                                                    Date </mat-error> -->
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size">
-                                                                <input matInput placeholder="CCV"
-                                                                    [formControl]="CardCodeForm"
-                                                                    [(ngModel)]="model.cardcod" required
-                                                                    [textMask]="{mask: ccvmask}">
-                                                                <mat-error *ngIf="CardCodeForm.hasError('minlength')">
-                                                                    Maximum
-                                                                    Length of <strong>CCV can be 3 characters</strong>
-                                                                </mat-error>
-                                                                <mat-error *ngIf="CardCodeForm.hasError('maxlength')">
-                                                                    Maximum
-                                                                    Length of <strong>CCV can be 4 characters</strong>
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="Cardholder Name"
-                                                                    [formControl]="Holdername" maxlength="15"
-                                                                    [(ngModel)]="model.holdername" required>
-
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="Street Address" [formControl]="Address"
-                                                                    maxlength="300" type="text"
-                                                                    [(ngModel)]="model.address" required>
-                                                                <mat-error *ngIf="Address.hasError('required')">
-                                                                    Street Address cannot be empty
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size">
-                                                                <input matInput placeholder="Zip Code" maxlength="5"
-                                                                    type="text" [formControl]="zipcode"
-                                                                    [(ngModel)]="model.zipcode" required
-                                                                    (ngModelChange)="zipcodeCheck(zipcode1.value)"
-                                                                    (keypress)="keyPress($event)"
-                                                                    step="1" 
-                                                                    #zipcode1>
-                                                                <mat-error *ngIf="zipcode.hasError('required')">
-                                                                    Zipcode cannot be empty
-                                                                </mat-error>
-                                                                <mat-error *ngIf="zipcode.hasError('minlength')">
-                                                                    Five digit zipcode required!
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="City"  [disabled]="true" type="text" [formControl]="city"
-                                                                    [(ngModel)]="model.city" required>
-                                                                <mat-error *ngIf="city.hasError('required')">
-                                                                    City cannot be empty
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="State" type="text"  [disabled]="true"
-                                                                    [formControl]="state" [(ngModel)]="model.state"
-                                                                    required>
-                                                                <mat-error *ngIf="state.hasError('required')">
-                                                                    State cannot be empty
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="Country" type="text" [disabled]="true"
-                                                                    [formControl]="country" [(ngModel)]="model.country"
-                                                                    required>
-                                                                <mat-error *ngIf="country.hasError('required')">
-                                                                    Country cannot be empty
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12">
-                                                            <mat-form-field class=" mat-size"> <input matInput
-                                                                    placeholder="Nick Name" type="text"
-                                                                    [formControl]="nickname"
-                                                                    [(ngModel)]="model.nickname" required>
-                                                                <mat-error *ngIf="nickname.hasError('required')">
-                                                                    Nick Name cannot be empty
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <div class="col-sm-6 col-xs-12 enroll-chckbox">
-                                                            <mat-slide-toggle value="setautopay"
-                                                                (change)="changed($event)" checked="true">
-                                                            </mat-slide-toggle>
-                                                            <p>Enroll in Autopay - Set this card as recurring payment
-                                                                method</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn-file btn btn-rose" (click)="proceed()">Place
-                                    Order</button>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
+      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
+        <div class="single-pricing-2 top">
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now
+            </a>
+            <ng-template #pkg3>
+              <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
+          <span class="plan-name text-center">
+            Free Plan
+          </span>
+          <p class="plan-price bg-black">
+            <sup class="currency">$</sup>
+            <strong>0.00</strong>
+          </p>
+          <ul class="list-pricing home-list-pricing">
+            <li>
+              <i class="fa fa-check"></i> Upto 5 RFP View/Downloads
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Upcoming Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> State &amp; Local Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Federal Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Search Engine
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Android Mobile App
+            </li>
+            <li>
+              <i class="fa fa-check"></i> iOS Mobile App
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Technical Support Chat
+            </li>
+            <li>
+              <i class="fa fa-check"></i> RFP as a Service
+            </li>
+          </ul>
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now</a>
+            <ng-template #pkg3>
+              <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
         </div>
+      </div>
+
+      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Mplan">
+        <div class="single-pricing-2 top">
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now</a>
+            <ng-template #pkg1>
+              <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
+          <span class="plan-name text-center">
+            Monthly Plan
+          </span>
+          <p class="plan-price">
+            <sup class="currency">$</sup>
+            <strong>24.99</strong>
+          </p>
+          <ul class="list-pricing home-list-pricing">
+            <li>
+              <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Upcoming Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> State &amp; Local Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Federal Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Search Engine
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Android Mobile App
+            </li>
+            <li>
+              <i class="fa fa-check"></i> iOS Mobile App
+            </li>
+            <!-- <li>
+                              <i class="fa fa-check"></i> Electronic Bid Submission
+                          </li> -->
+            <!-- <li>
+                              <i class="fa fa-check"></i> Winning Bidder Insight
+                          </li> -->
+            <li>
+              <i class="fa fa-check"></i> Technical Support Chat
+            </li>
+            <li>
+              <i class="fa fa-check"></i> RFP as a Service
+            </li>
+          </ul>
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now</a>
+            <ng-template #pkg1>
+              <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pricing-table2 premium wow animated bounceInUp"
+        data-wow-delay="0.6s" *ngIf="Yplan">
+        <div class="single-pricing-2 top">
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now</a>
+            <ng-template #pkg4>
+              <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
+          <span class="plan-name text-center">
+            Yearly Plan
+          </span>
+          <p class="plan-price">
+            <sup class="currency">$</sup>
+            <strong>299.99</strong>
+          </p>
+          <ul class="list-pricing home-list-pricing">
+            <li>
+              <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Upcoming Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> State &amp; Local Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Federal Agency Bids
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Search Engine
+            </li>
+            <li>
+              <i class="fa fa-check"></i> Android Mobile App
+            </li>
+            <li>
+              <i class="fa fa-check"></i> iOS Mobile App
+            </li>
+            <!-- <li>
+                              <i class="fa fa-check"></i> Electronic Bid Submission
+                          </li>
+                          <li>
+                              <i class="fa fa-check"></i> Winning Bidder Insight
+                          </li> -->
+            <li>
+              <i class="fa fa-check"></i> Technical Support Chat
+            </li>
+            <li>
+              <i class="fa fa-check"></i> RFP as a Service
+            </li>
+          </ul>
+          <div class="pricing2-button" *ngIf="!planSelected">
+            <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+              title="Subscribe Package">Register
+              Now</a>
+            <ng-template #pkg4>
+              <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="pkgsub" class="sh-signup-form-fix col-lg-8 col-md-7 col-sm-6" data-wow-delay=".5s">
+        <div class=" row sh-payment">
+          <div class="checkout-select-box ">
+            <h2 *ngIf="isfreetrial" class="pricing_heading" style="text-align:center">Join RFPGurus for a
+              7-day
+              risk-free trial period</h2>
+            <!-- <div class="switch" class="free-trial-switch">
+                                             <input [(ngModel)]="isfreetrial" id="switch-toggle-pricing"
+                                            class="switch-toggle switch-toggle-round" type="checkbox"> <label
+                                            for="switch-toggle-pricing"></label> 
+                                        </div> -->
+            <!-- <div class="dp-inline free-trial">
+                                                <span class="pts-right " *ngIf="!isfreetrial">Start Your Free Trial</span>
+                                                <span
+                                                   class="pts-right " style="color: black" *ngIf="isfreetrial" >Start Your Free Trial</span>
+                                        </div> -->
+
+            <div id="section-pricing" class="text-center col-sm-12 padding-zero">
+              <div class="pricing-tenure-switcher center" data-container="#pricing-switch">
+                <div class="col-sm-4">
+                  <mat-form-field class=" mg-0-auto yearly-mnthly">
+                    <mat-select [(ngModel)]="valuee" (change)="selectPlan()">
+                      <mat-option value="PY">Yearly Subscription</mat-option>
+                      <mat-option value="BM">Monthly Subscription</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <span class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span class="pts-left"
+                  *ngIf="isright">Saved Cards</span>
+                <div class="pts-switcher">
+                  <div class="switch">
+                    <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
+                      class="switch-toggle switch-toggle-round" type="checkbox" [checked]="!res.length"
+                      [disabled]="!res.length">
+                    <label for="switch-toggle-pricing-tenure"></label>
+                  </div>
+                </div><span class="pts-right" *ngIf="!isright">Add New Payment Method</span> <span class="pts-right"
+                  *ngIf="isright" style="color: black">Add New Payment Method</span>
+              </div>
+              <div id="pricing-switch" class="col-sm-12 padding-0">
+
+                <div *ngIf="!isright" class="col-lg-6 mg-0-auto padding-zero Saved-card-sel-list">
+                  <mat-form-field class="width-50per mg-0-auto">
+                    <mat-select class="" placeholder="Select card" [(ngModel)]="model.defaultcard"
+                      [formControl]="Carddefault">
+                      <mat-option *ngFor="let card of res" [value]="card.id">
+                        {{card.nickname}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-12 padding-0" *ngIf="isright">
+                  <div class="cart-body">
+                    <div class="credit-card-box">
+                      <div class="flip">
+                        <div class="front">
+                          <div class="chip"></div>
+                          <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink" height="47.834px" id="visa"
+                              style="enable-background:new 0 0 47.834 47.834;" version="1.1" viewBox="0 0 47.834 47.834"
+                              width="47.834px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                              <g>
+                                <g></g>
+                              </g>
+                            </svg></div>
+                          <div class="card-holder" style="top: 29px;left: 221px;">
+                            <label>Cardholder
+                              Name</label>
+                            <div>{{model.holdername}}</div>
+                          </div>
+                          <div class="card-holder"><label>Card Number</label>
+                            <div>{{model.cardNumber}}</div>
+                          </div>
+                          <div class="card-expiration-date"><label>Expiry
+                              Date</label>
+                            <div>{{model.expirationdate}}</div>
+                          </div>
+                        </div>
+                        <div class="back">
+                          <div class="strip"></div>
+                          <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink" height="47.834px" id="visa"
+                              style="enable-background:new 0 0 47.834 47.834;" version="1.1" viewBox="0 0 47.834 47.834"
+                              width="47.834px" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                              <g>
+                                <g></g>
+                              </g>
+                            </svg></div>
+                          <div class="card-expiration-date"><label>Expiry
+                              Date</label>
+                            <div>{{model.expirationdate}}</div>
+                          </div>
+                          <div class="ccv"><label>CCV</label>
+                            <div>{{model.cardcod}}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <form #f="ngForm" id="videoform" class="edit-profile row sh-signup-form-fix" name="videoform"
+                      method="post">
+                      <div class="col-lg-12 center-div col-md-12">
+                        <div class="contact_form">
+                          <div class="panel-body margin-top-145 padding-bottom-">
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class="col-sm-6 col-xs-12 padding-zero Saved-card-sel-list  mat-size">
+                                <mat-select placeholder="Card Type" [(ngModel)]="model.cardtype"
+                                  [formControl]="CardtypeForm" (change)="ShowButton(CardtypeForm.value)">
+                                  <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation"
+                                    [value]="card_get_datat.value">
+                                    {{card_get_datat.viewValue}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size">
+                                <input matInput placeholder="Credit Card Number" [textMask]="{mask: cardmask}"
+                                  [formControl]="CardNumberForm" [(ngModel)]="model.cardNumber" required>
+                                <mat-error *ngIf="CardNumberForm.hasError('pattern')">
+                                  Please
+                                  enter a valid card number. Only Numerics are
+                                  Allowed.
+                                </mat-error>
+                                <mat-error *ngIf="CardNumberForm.hasError('required')">
+                                  Card
+                                  number is <strong>required</strong> </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size">
+                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="ExpiryDateForm"
+                                  [(ngModel)]="model.expirationdate" [textMask]="{mask: mask}" #exp
+                                  (change)="chek(exp.value)" required>
+                                <mat-error *ngIf="ExpiryDateForm.hasError('required')">
+                                  Expiry
+                                  Date is <strong>required</strong> </mat-error>
+                                <mat-error *ngIf="ExpiryDateForm.hasError('pattern')">
+                                  Expiry
+                                  Date should in <strong>mm/yy</strong> </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size">
+                                <input matInput placeholder="CCV" [formControl]="CardCodeForm"
+                                  [(ngModel)]="model.cardcod" required [textMask]="{mask: ccvmask}">
+                                <mat-error *ngIf="CardCodeForm.hasError('minlength')">
+                                  Maximum
+                                  Length of <strong>CCV can be 3 characters</strong>
+                                </mat-error>
+                                <mat-error *ngIf="CardCodeForm.hasError('maxlength')">
+                                  Maximum
+                                  Length of <strong>CCV can be 4 characters</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="Cardholder Name"
+                                  [formControl]="Holdername" maxlength="15" [(ngModel)]="model.holdername" required>
+
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="Street Address"
+                                  [formControl]="Address" maxlength="300" type="text" [(ngModel)]="model.address"
+                                  required>
+                                <mat-error *ngIf="Address.hasError('required')">
+                                  Street Address cannot be empty
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size">
+                                <input matInput placeholder="Zip Code" maxlength="5" type="text" [formControl]="zipcode"
+                                  [(ngModel)]="model.zipcode" required (ngModelChange)="zipcodeCheck(zipcode1.value)"
+                                  (keypress)="keyPress($event)" step="1" #zipcode1>
+                                <mat-error *ngIf="zipcode.hasError('required')">
+                                  Zipcode cannot be empty
+                                </mat-error>
+                                <mat-error *ngIf="zipcode.hasError('minlength')">
+                                  Five digit zipcode required!
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="City" [disabled]="true"
+                                  type="text" [formControl]="city" [(ngModel)]="model.city" required>
+                                <mat-error *ngIf="city.hasError('required')">
+                                  City cannot be empty
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="State" type="text"
+                                  [disabled]="true" [formControl]="state" [(ngModel)]="model.state" required>
+                                <mat-error *ngIf="state.hasError('required')">
+                                  State cannot be empty
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="Country" type="text"
+                                  [disabled]="true" [formControl]="country" [(ngModel)]="model.country" required>
+                                <mat-error *ngIf="country.hasError('required')">
+                                  Country cannot be empty
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                              <mat-form-field class=" mat-size"> <input matInput placeholder="Nick Name" type="text"
+                                  [formControl]="nickname" [(ngModel)]="model.nickname" required>
+                                <mat-error *ngIf="nickname.hasError('required')">
+                                  Nick Name cannot be empty
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 enroll-chckbox">
+                              <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true">
+                              </mat-slide-toggle>
+                              <p>Enroll in Autopay - Set this card as recurring payment
+                                method</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <button type="submit" class="btn-file btn btn-rose" (click)="proceed()">Place
+                  Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 <!--3rd step-->

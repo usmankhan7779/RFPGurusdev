@@ -48,6 +48,13 @@
                             <mat-datepicker #startPicker3 color="warn"></mat-datepicker>
 
                         </mat-form-field>
+                        <!-- <mat-form-field class="sh-table-date">
+                            <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()"
+                                name="enterdate" [(ngModel)]="enterdate" placeholder="MM/DD/YYYY"
+                                (ngModelChange)="changeenterdate(enterdate)" />
+                            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #startPicker></mat-datepicker>
+                        </mat-form-field> -->
                     </div>
                     <div class="col-sm-12">
 
@@ -195,7 +202,7 @@
                     All States</button>
             </li>
             <li>
-                <h5>
+                <h5 class="cat-sidebar-heading">
                     <span>Categories</span>
                 </h5>
             </li>

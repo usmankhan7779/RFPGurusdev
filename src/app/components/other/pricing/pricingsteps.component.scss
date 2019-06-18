@@ -476,7 +476,7 @@ label {
 }
 
 .center-div {
-    margin: 240px auto 0;
+    margin: 100px auto 0;
     float: none;
     padding: 0 7px
 }
@@ -493,6 +493,10 @@ label {
 
 .Saved-card-sel-list .mat-form-field {
     font-weight: 600!important
+}
+.Saved-card-sel-list .mat-form-field-appearance-legacy .mat-form-field-label{
+  top: 1.08125em !important;
+  line-height: 24px !important;
 }
 
 .checkout {
@@ -826,6 +830,7 @@ svg:not(:root) {
 .pricing-tenure-switcher {
     position: relative;
     padding: 10px;
+    margin: 20px 0 0;
     background: #f4f4f7
 }
 
@@ -949,4 +954,8 @@ mat-option {
 }
 .list-pricing i{
   color: #01b301;
+}
+#pricing-switch{
+  padding: 20px 0 !important;
+  margin-top: 100px;
 }

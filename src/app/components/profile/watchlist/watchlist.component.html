@@ -8,12 +8,12 @@
         <div class="col-sm-12">
 
           <div class="col-sm-6 page-title">
-            <span>Watchlist</span>
+            <span>Watch List</span>
 
           </div>
           <div class="col-sm-12 text-center mg-top-100" *ngIf="message == 'No Rfp in your Watch List' ">
             <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
-            <h3 class="text-center">No Watchlist Found</h3>
+            <h3 class="text-center">Your Watch List is empty</h3>
           </div>
           <!-- <div class="col-sm-6" style="margin:10px 0px">
                 <span> Watchlist</span>
@@ -145,7 +145,7 @@
             <div>
               <div *ngIf="wrfp">
                 <button class="btn btn-primary btn-rose btn-lg pull-left" (click)="All_deletewatchlist()"
-                  title="Clear All Watchlist" type="submit">Clear All Watchlist</button>
+                  title="Clear All Watch List" type="submit">Clear All Watch List</button>
               </div>
             </div>
 
@@ -173,7 +173,7 @@
 
         </div>
         <div class="modal-body text-center padding-zero">
-          <h4>Are You Sure you want to Delete Watchlist?</h4>
+          <h4>Are You Sure you want to Delete Watch List?</h4>
         </div>
         <div class="modal-footer">
           <div class="modal-buttons">
@@ -196,7 +196,7 @@
 
         </div>
         <div class="modal-body text-center padding-zero">
-          <h4>Are You Sure you want to Remove this RFP From Watchlist?</h4>
+          <h4>Are You Sure you want to Remove this RFP From Watch List?</h4>
         </div>
         <div class="modal-footer">
           <div class="modal-buttons">

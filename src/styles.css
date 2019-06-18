@@ -459,7 +459,7 @@ ul li {
 }
 
 .mat-select .mat-select-trigger {
-    padding: 0 8px
+    padding-left: 8px
 }
 
 *,
@@ -559,7 +559,6 @@ h3 {
   color: #337ab7;
   text-decoration: none;
   font-size: 16px;
-  font-weight: normal;
 }
 
 .list-normal li a:hover {
@@ -2722,8 +2721,19 @@ padding: 0 5px;
   height: 1px;
   display: none;
 }
-
-
+.Saved-card-sel-list .mat-form-field-appearance-legacy .mat-form-field-label{
+  top: 0.68125em !important;
+  line-height: 24px !important;
+}
+.yearly-mnthly .mat-select-value{
+  padding: 3px 0;
+}
+.Saved-card-sel-list .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
+  transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-10px) scale(.75);
+}
+.contact_form{}
 /* ...............................Quries Start....................................... */
 @media (max-width:991px) {
 
@@ -3532,6 +3542,11 @@ padding: 0 5px;
 }
 .nav-home ul {
   padding: 17px 0 0 !important;
+}
+}
+@media (min-width:1400px) {
+  .svg_map {
+    width: 60% !important;
 }
 }
 /* End  Responsive.css */

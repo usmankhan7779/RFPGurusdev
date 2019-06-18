@@ -82,7 +82,7 @@
             </div>
           </div>
         </div> 
-        <div class="heart" *ngFor="let item of notificate">
+        <!-- <div class="heart" *ngFor="let item of notificate">
           <div class="addtocart-time" (click)="deletenofication(item?.id)">
             <i class="fa fa-times"></i>
           </div>
@@ -136,6 +136,10 @@
           <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All
             Notifications </button>
         </div>
+      </div> -->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="notificate">
+        <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All
+          Notifications </button>
       </div>
     </div>
   </div>

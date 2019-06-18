@@ -35,6 +35,8 @@ const routes: Routes = [
   { path: 'all-category', loadChildren: './components/all/all-category/all-category.module#AllCategoryModule' },
   { path: 'all-agencies', loadChildren: './components/all/all-agencies/all-agencies.module#AllAgenciesModule' },
   { path: 'all-state', loadChildren: './components/all/all-state/all-state.module#AllStateModule' },
+  { path: 'forgetpassword/:query2', loadChildren: './components/forget-password/forget-password.module#ForgetPasswordModule' },
+
 
   // =========== User Profile ===========  
   {

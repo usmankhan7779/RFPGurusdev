@@ -304,7 +304,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  // statsearch;
   formclear() {
     delete this.status;
     this.enterdate = null;
@@ -313,6 +313,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     this.agencies = undefined;
     this.cates = undefined;
     // this.search = false;
+    this.statsearch= null;
+    this.agensearch = null;
+    this.catsearch = null;
 
     this.postedDate = null;
     this.DueDate = null;
