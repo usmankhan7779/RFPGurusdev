@@ -19,12 +19,12 @@
               <label class="product-label mg-right-5px">Sort By:
               </label>
               <mat-form-field>
-                <mat-select class="width-sec" placeholder="" (change)="sort(sorted,1)" required [(ngModel)]="sorted"
+                <mat-select class="width-sec" placeholder=""  required [(ngModel)]="sorted"
                   name="sorted">
-                  <mat-option value="title" selected="true">By Title</mat-option>
-                  <mat-option value="state">By State </mat-option>
-                  <mat-option value="date_entered">By Posted Date</mat-option>
-                  <mat-option value="due_date">By Due Date</mat-option>
+                  <mat-option value="title" (click)="sort(sorted,1)" selected="true">By Title</mat-option>
+                  <mat-option value="state"  (click)="sort(sorted,1)"  >By State </mat-option>
+                  <mat-option value="date_entered"  (click)="sort(sorted,1)" >By Posted Date</mat-option>
+                  <mat-option value="due_date"  (click)="sort(sorted,1)" >By Due Date</mat-option>
                 </mat-select>
               </mat-form-field>
 
