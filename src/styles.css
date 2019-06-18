@@ -2721,14 +2721,14 @@ padding: 0 5px;
   height: 1px;
   display: none;
 }
-.pricing2-section .mat-form-field-appearance-legacy .mat-form-field-label{
+.Saved-card-sel-list .mat-form-field-appearance-legacy .mat-form-field-label{
   top: 0.68125em !important;
   line-height: 24px !important;
 }
 .yearly-mnthly .mat-select-value{
   padding: 3px 0;
 }
-.pricing2-section .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+.Saved-card-sel-list .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-10px) scale(.75);
