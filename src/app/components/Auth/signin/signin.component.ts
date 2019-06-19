@@ -15,6 +15,7 @@ declare var $: any;
 import { Location } from '@angular/common';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { SeoService } from '../../../services/seoService';
+import { JwtHelper } from 'angular2-jwt';
 
 declare interface ValidatorFn {
   (c: AbstractControl): {
@@ -42,6 +43,7 @@ export class SigninComponent implements OnInit {
 
 
   @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
+  jwtHelper: JwtHelper = new JwtHelper();
   endRequest;
   hide = true;
   public typeValidation: User;
@@ -64,8 +66,13 @@ export class SigninComponent implements OnInit {
       const createUser = this.http.post('https://apis.rfpgurus.com/social_login/', {
         user
       }, { headers: headers })
-      createUser.subscribe((data: Response) => {
-        let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
+      // createUser.subscribe((data: Response) => {
+        // let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
+        createUser.subscribe(data => {
+          let user = { 
+           user_id: this.jwtHelper.decodeToken(data['token']).user_id,
+           username: this.jwtHelper.decodeToken(data['token']).username, 
+           token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -74,7 +81,7 @@ export class SigninComponent implements OnInit {
           type: 'success',
           title: 'Successfully Logged in',
           showConfirmButton: false,
-          timer: 1500, width: '512px',
+          timer: 2500, width: '512px',
         });
         // this._location.back();
         if (localStorage.getItem('member')) {
