@@ -152,6 +152,7 @@ export class AllRfpsComponent implements OnInit {
     this._compiler.clearCache()
   }
   download(info) {
+    // alert(info)
     this._serv.downloadFile(info).subscribe(
       data => {
         if (data['status'] = "200") {
