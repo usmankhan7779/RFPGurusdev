@@ -87,20 +87,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   changeCheck(event){
     this.disabledAgreement = !event.checked;
   }
-  //  changeCheck()
-  //  {
-  //    if(this.terms==false)
-  //    {
-  //      this.terms=false;
-  //      alert( this.terms);
-  //    }
-  //    else
-  //    {
-  //      this.terms=true;
-  //      alert( this.terms);
-  //    }
-     
-  //  }
+ 
    
 
 
