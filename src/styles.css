@@ -1186,7 +1186,9 @@ padding: 0 10px
   padding: 0 10px
 }
 .profile-phonee .form-control{
-  height:37px !important;
+  height: 37px !important;
+  font-size: 18px;
+  padding: 22px 10px 10px;
 }
 .Profile .sh-signup-form-fix .mat-form-field-underline {
     bottom: 19px
@@ -2674,9 +2676,9 @@ padding: 0!important
 .edit-profile-comp .mat-form-field-appearance-legacy .mat-form-field-label {
   top: 1.58125em !important;
 }
-.sh-payment .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+/* .sh-payment .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
   margin-top: 0;
-}
+} */
 .sh-payment .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
   transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
@@ -2733,7 +2735,8 @@ padding: 0 5px;
   transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-10px) scale(.75);
 }
-.contact_form{}
+.minHeight {min-height: 450px;}
+
 /* ...............................Quries Start....................................... */
 @media (max-width:991px) {
 
