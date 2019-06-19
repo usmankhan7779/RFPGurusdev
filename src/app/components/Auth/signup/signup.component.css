@@ -62,15 +62,16 @@ a:hover {
   float: none
 }
 .vt-middle {
-  padding: 0 2px
+  padding: 0 2px;
+  font-weight: normal;
 }
 
-.signup-form-row>div {
-  min-height: 72px
+.label-floating .mat-form-field-appearance-legacy .mat-form-field-label{
+  top: 33px !important;
 }
-
 @media (max-width:1024px) {
   .recaptcha-style {
       margin: 0 0 20px
   }
 }
+
