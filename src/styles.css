@@ -2073,7 +2073,7 @@ button {
     padding-top: 40px
 }
 .signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
-    top: 1.98125em;
+    top: 1.98125em !important;
 }
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
     -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0)!important;
@@ -2650,7 +2650,7 @@ padding: 0!important
 }
 /* ........................Find RFPs Table End................................. */
 .contact-section .mat-input-element {
-  font-size: 20px;
+  font-size: 24px;
   color: #555;
   padding: 9px 0 2px;
   font-weight: 600;
@@ -2851,6 +2851,9 @@ padding: 0 5px;
 }
 
 @media (max-width:768px) {
+#contact{
+    padding: 0 10px;
+}
   .com-table>table {
     min-width: auto
 }
