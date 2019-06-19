@@ -2296,7 +2296,10 @@
   .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
       font-size: 125%!important
   }
-  
+  .sh-signup-form-fix .clr_red{
+    font-size: 12px;
+    margin: -19px 0 0;
+  }
   
   .sh-signup-form-fix.edit-profile .form-group {
     padding-bottom: 0!important;
@@ -2373,7 +2376,10 @@
   padding: 0
   }
   
-
+.resize-no{
+    resize: none;
+    height: 41px  !important;
+}
 
 .sh-select-list {
   text-align: right!important
@@ -2796,11 +2802,6 @@ color: #555 !important;
   background-color: #fff!important;
   font-size: 18px
 }
-.sh-sidebar-user .mat-form-field-flex {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #dcdcdc
-}
 .sh-sidebar-user .mat-option {
     font-size: 16px!important;
     font-weight: 400!important
@@ -2836,7 +2837,7 @@ border-radius: 5px;
 border: none;
 -webkit-box-shadow: none;
 box-shadow: none;
-border-bottom: 1px solid #e6e6e6
+border-bottom: 1px solid #e6e6e6 ;
 }
 .sidebar-user .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
 font-weight: 400!important
@@ -3109,7 +3110,7 @@ padding-bottom: 10px!important
   .sh-sidebar-user .mat-form-field-flex {
       -webkit-border-radius: 5px;
       border-radius: 5px;
-      border: 1px solid #dcdcdc
+      border-bottom: 1px solid #e6e6e6 !important;
   }
   .sh-sidebar-user .mat-option {
       font-size: 16px!important;

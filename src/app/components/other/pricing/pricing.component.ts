@@ -206,16 +206,16 @@ export class PricingComponent implements OnInit {
     this.setautopay = val.checked
   }
   zipcodeCheck(zipcode1) {
-    alert('sadf');
+    // alert('sadf');
     if (zipcode1.length > 4) {
-      alert('sadf');
+      // alert('sadf');
       this.endRequest = this._serv2.zipcode(zipcode1).subscribe(
         data => {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
           this.readonly=true;
-          alert(this.readonly);
+          // alert(this.readonly);
         },
         
         error => {
