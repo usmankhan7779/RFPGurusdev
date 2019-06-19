@@ -453,10 +453,10 @@
   }
 
   @media (min-width:992px) and (max-width:1024px) {
-    .nav-home ul a i {
+    /* .nav-home ul a i {
       font-size: 10px;
       width: 10px
-    }
+    } */
 
     .nav-home ul a i.fa-android,
     .nav-home ul a i.fa-apple {
@@ -473,7 +473,9 @@
       font-size: 16px;
       padding: 23px 0 0
     }
-
+    .profile-name {
+      left: -96px;
+  }
     .navbar-nav>li>a {
       font-size: 12px !important;
       padding: 25px 1px !important;
