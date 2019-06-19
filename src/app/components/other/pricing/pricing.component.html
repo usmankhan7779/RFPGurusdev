@@ -321,13 +321,13 @@
                         </div>
                       </div>
                     </div>
-                    <form #f="ngForm" id="videoform" class="edit-profile row sh-signup-form-fix" name="videoform"
+                    <form #f="ngForm" id="videoform" class="edit-profile floting-label row sh-signup-form-fix" name="videoform"
                       method="post">
                       <div class="col-lg-12 center-div col-md-12">
                         <div class="contact_form">
                           <div class="panel-body margin-top-145 padding-bottom-">
-                            <div class="col-sm-6 col-xs-12">
-                              <mat-form-field class="col-sm-6 col-xs-12 padding-zero Saved-card-sel-list  mat-size">
+                            <div class="col-sm-12 col-xs-12 Saved-card-sel-list">
+                              <mat-form-field class="col-lg-12 width-half padding-zero mat-size">
                                 <mat-select placeholder="Card Type" [(ngModel)]="model.cardtype"
                                   [formControl]="CardtypeForm" (change)="ShowButton(CardtypeForm.value)">
                                   <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation"
@@ -437,7 +437,7 @@
                                 </mat-error>
                               </mat-form-field>
                             </div>
-                            <div class="col-sm-6 col-xs-12 enroll-chckbox">
+                            <div class="col-sm-12 col-xs-12 enroll-chckbox">
                               <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true">
                               </mat-slide-toggle>
                               <p>Enroll in Autopay - Set this card as recurring payment

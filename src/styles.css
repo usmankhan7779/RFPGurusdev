@@ -1619,6 +1619,9 @@
       text-overflow: ellipsis
   }
   
+  
+
+
   .login-form-1.sh-signup-form-fix.sh .form-group {
       padding-bottom: 0!important;
       margin: 0!important
@@ -2294,7 +2297,11 @@
   
   
   /* .........................Signup-form-fix start................................. */
-  
+  .floting-label .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(.001px) !important;
+    transform: translateY(-16px) scale(.75) perspective(100px) translateZ(.001px) !important;
+    -ms-transform: translateY(-16px) scale(.75) !important;
+  }
   .mat-form-field-suffix .mat-icon,
   .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
       font-size: 125%!important

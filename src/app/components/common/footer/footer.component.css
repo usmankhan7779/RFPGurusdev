@@ -202,6 +202,9 @@
   background: #fff;
   cursor: pointer;
 }
+.sh-subscribe .btn-rose:hover{
+    background: none;
+}
 
 .sh-subscribe button {
 margin: 0!important;

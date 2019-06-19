@@ -245,7 +245,6 @@
     font-weight: 500
   }
 
-  .addtocart-btn,
   .wishlist-btn {
     display: block;
     -webkit-border-radius: 50px;
@@ -266,9 +265,12 @@
   .addtocart-btn {
     color: #fff !important;
     background: #000;
-    padding: 7px;
-    font-size: 20px;
-    font-weight: 600
+    padding: 6px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
   }
 
   .heart-card-btn {
@@ -313,9 +315,10 @@
     margin: 0;
     display: block;
     background: #f2f3f5;
+    text-align: center;
   }
 
-  .addtocart-btn,
+  
   .wishlist-btn {
     display: block;
     text-align: center
