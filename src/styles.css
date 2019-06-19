@@ -708,7 +708,7 @@
   }
   
   .btn {
-      font-size: 17px
+      font-size: 16px
   }
   
   h3 {
@@ -1432,6 +1432,9 @@
   .mt-15 {
       margin-top: 15px!important
   }
+  .mtb-10{
+      margin: 10px 0;
+  }
   .leftRsBanner:hover,
   .rightRsBanner:hover {
       background-color: #000!important
@@ -1573,9 +1576,8 @@
   .card-header>h2 {
       margin: 0!important
   }
-  .sub {
-      background-color: #c00!important;
-      -webkit-border-radius: 34px;
+  .sub { 
+    -webkit-border-radius: 34px;
       border-radius: 34px
   }
   
@@ -2299,6 +2301,7 @@
   .sh-signup-form-fix .clr_red{
     font-size: 12px;
     margin: -19px 0 0;
+    font-weight: 700 !important;
   }
   
   .sh-signup-form-fix.edit-profile .form-group {
@@ -2579,6 +2582,7 @@ padding-bottom: 12px
 font-size: 12px;
 padding-top: 0px;
 color: #c00;
+font-weight: 700;
 }
 
 .sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
@@ -2610,6 +2614,12 @@ font-size: 16px!important
 }
 .sh-signup-form-fix .mat-select{
   box-shadow: none;
+}
+.sh-signup-form-fix .clr_red{
+    color: #c00;
+    margin: -20px 0 -4px;
+    font-size: 12px;
+    font-weight: 700 !important;
 }
 /* .........................Signup-form-fix End................................. */
 

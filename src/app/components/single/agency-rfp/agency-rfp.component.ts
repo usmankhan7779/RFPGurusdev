@@ -38,6 +38,7 @@ export class AgencyRfpComponent implements OnInit, OnDestroy {
   }
   check(date) {
 
+    // alert(date)
     this.date = moment(date, this.formats, true).isValid()
     //    
     return this.date;
@@ -89,6 +90,7 @@ export class AgencyRfpComponent implements OnInit, OnDestroy {
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
+  
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
@@ -103,6 +105,7 @@ export class AgencyRfpComponent implements OnInit, OnDestroy {
       delete this.pageSize;
     }
   }
+  
   subscribe_data(page) {
     localStorage.setItem('agencypage', page);
     this._shareData.returnagency().subscribe(

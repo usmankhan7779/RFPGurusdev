@@ -94,7 +94,7 @@
 .form-home {
     position: absolute;
     left: 80px;
-    bottom: 0;
+    top: 10px;
     right: 80px;
 }
 .form-home .btn-primary {
@@ -328,20 +328,43 @@
 }
 
 .latest-rfp-div .plan-detail>h3 {
-  margin: 10px 0 0 !important;
+  margin: 10px 0 !important;
   max-height: 32px;
   min-height: 32px;
   font-size: 16px;
 }
 
-.sh-carousel-fix .plan-detail>h3 {
-    color: #c00;
+ .plan-detail>h3 {
     text-align: left;
     font-size: 18px !important;
     line-height: 24px
 }
+.banner-rfp{
+  width: 100%;
+  position: relative;
+}
+.banner-rfp img{
+  width: 100%;
+}
+.play-store-img2 {
+  margin: 0;
+  position: absolute;
+  bottom: 40px;
+  left: 37%;
+}
+.play-store-img2 li {
+  display: inline;
+  list-style: none;
+  margin-left: 30px;
+}
+.iosBadge {
+  max-width: 25%;
+}
+.androidBadge {
+  max-width: 25%;
+}
 
-.sh-carousel-fix .plan-detail>h3>a {
+ .plan-detail>h3>a {
     display: block;
     display: -webkit-box;
     max-width: 400px;
@@ -352,7 +375,7 @@
     text-overflow: ellipsis;
     font-size: 15px;
     line-height: 17px;
-    font-weight: 600
+    font-weight: normal;
 }
 
 .plan-detail>h5 {

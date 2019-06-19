@@ -18,7 +18,8 @@ padding: 15px
 }
 #display_advance .card{
     width: 880px;
-    margin: 20px auto;
+    margin: 0;
+    margin-bottom: 20px;
     float: none;
     display: block;
 }
@@ -42,10 +43,12 @@ padding: 15px
 }
 
 .sh-pref-selectlist .form-footer {
-    padding: 20px 30px 0;
+    padding: 0 30px;
     margin: 0;
 }
-
+.checkbox{
+  padding-top: 10px;
+}
 .panel-body .rfp-cat li {
     min-height: 100px;
     border-right: 1px solid #ccc;

@@ -43,7 +43,10 @@
 }
 .active-route {
   background-color: #f5f5f5 !important;
-  color: #555 !important; 
+  color: #555 !important;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  text-decoration: none;
 }
 
 
