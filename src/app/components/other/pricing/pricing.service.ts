@@ -1,12 +1,13 @@
 import { SetHeaders } from './../../../AuthGuards/auth.interceptor';
 import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
+import { Http, Headers, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 // import { Headers, Http, Response } from '';
 import swal from 'sweetalert2';
 @Injectable()
 export class PricingService {
-    constructor(private http: HttpClient, private authInterceptor: SetHeaders) { }
+    constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
 
     get_card_info() {
         // return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/');
@@ -21,20 +22,27 @@ export class PricingService {
 
     // this.isright,this.model.cardNumber, this.model.expirationdate,this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername,this.pkg_detail['type'],this.pkg_detail['dur']
     package_free(isright, cardNumber, expirationdate, cardcod, var_get_id, cardtype, holdername, pkg_type, pkg_dur) {
-        return this.http.post("https://apis.rfpgurus.com/package/",
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');     
+        headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        return this._https.post("https://apis.rfpgurus.com/package/",
             JSON.stringify({
                 "id": cardNumber,
                 "pricepackage": pkg_type,
                 "duration": pkg_dur
-            }));
+            }), { headers: headers }).map((data: Response) => data.json());
+        
     }
 
     package_free_trial(isright, cardNumber, expirationdate, cardcod, var_get_id, cardtype, holdername, pkg_type, pkg_dur) {
-        return this.http.post("https://apis.rfpgurus.com/free_Trail/",
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');     
+        headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        return this._https.post("https://apis.rfpgurus.com/free_Trail/",
             JSON.stringify({
                 "package_detail": pkg_type,
                 "card_info": cardNumber
-            })).map((res: Response) => {
+            }),{ headers: headers }).map((res: Response) => {
                 if (res.status == 200) {
                     swal(
                         'Your payment has been transferred',

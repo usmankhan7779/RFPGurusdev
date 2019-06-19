@@ -347,7 +347,7 @@
                                 </mat-error>
                                 <mat-error *ngIf="CardNumberForm.hasError('required')">
                                   Card
-                                  number is <strong>required</strong> </mat-error>
+                                  number is required </mat-error>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
@@ -357,10 +357,10 @@
                                   (change)="chek(exp.value)" required>
                                 <mat-error *ngIf="ExpiryDateForm.hasError('required')">
                                   Expiry
-                                  Date is <strong>required</strong> </mat-error>
+                                  Date is required </mat-error>
                                 <mat-error *ngIf="ExpiryDateForm.hasError('pattern')">
                                   Expiry
-                                  Date should in <strong>mm/yy</strong> </mat-error>
+                                  Date should in mm/yy </mat-error>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
@@ -369,11 +369,11 @@
                                   [(ngModel)]="model.cardcod" required [textMask]="{mask: ccvmask}">
                                 <mat-error *ngIf="CardCodeForm.hasError('minlength')">
                                   Maximum
-                                  Length of <strong>CCV can be 3 characters</strong>
+                                  Length of CCV can be 3 characters
                                 </mat-error>
                                 <mat-error *ngIf="CardCodeForm.hasError('maxlength')">
                                   Maximum
-                                  Length of <strong>CCV can be 4 characters</strong>
+                                  Length of CCV can be 4 characters
                                 </mat-error>
                               </mat-form-field>
                             </div>
