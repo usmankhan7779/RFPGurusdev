@@ -229,14 +229,14 @@
                 </div>
                 <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12">
                   <div class="checkbox padding-0 mg-0">
-                    <mat-slide-toggle  (change)="changeCheck()"></mat-slide-toggle>
+                    <mat-slide-toggle (change)="changeCheck($event)"></mat-slide-toggle>
                     By clicking on the "Signup" button below, you understand and agree that the use of this Website,
                     Mobile Apps, AI and ALL other related Technology Platforms are subject to the
                     <b><a class="vt-middle" [routerLink]="['/terms']" target="_blank">Terms of Use </a></b>and<b><a
                         class="vt-middle" [routerLink]="['/privacy-policy']" target="_blank"> Privacy Policy.</a></b>
                   </div>
-                  <button title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
-                    [disabled]="!register.valid || emailexist || usernameexist|| terms">Sign up</button>
+                  <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
+                    [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
                   <br>
                 </div>
               </div>
