@@ -1432,6 +1432,9 @@
   .mt-15 {
       margin-top: 15px!important
   }
+  .mtb-10{
+      margin: 10px 0;
+  }
   .leftRsBanner:hover,
   .rightRsBanner:hover {
       background-color: #000!important
