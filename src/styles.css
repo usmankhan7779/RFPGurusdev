@@ -2296,7 +2296,10 @@
   .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
       font-size: 125%!important
   }
-  
+  .sh-signup-form-fix .clr_red{
+    font-size: 12px;
+    margin: -19px 0 0;
+  }
   
   .sh-signup-form-fix.edit-profile .form-group {
     padding-bottom: 0!important;
@@ -2373,7 +2376,10 @@
   padding: 0
   }
   
-
+.resize-no{
+    resize: none;
+    height: 41px  !important;
+}
 
 .sh-select-list {
   text-align: right!important
