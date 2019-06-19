@@ -20,3 +20,47 @@
 .sh-notification-div.sh .heart-main-div {
   position: relative
 }
+.curser-pointer{
+  white-space: pre-line;
+  word-break: break-word;
+}
+.heart-heading {
+  // color: #fff;
+  // background: rgba(0, 0, 0, .6509803921568628);
+  width: 100%;
+  padding: 0 25px 0 5px;
+  border-radius: 0;
+  font-weight: 400 !important;
+  font-size: 14px;
+  overflow: hidden;
+}
+.heart-detail {
+  color: #767676;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+}
+.addtocart-time {
+  position: absolute;
+  right: 14px;
+  z-index: 9999;
+}
+.sh-notification-div .heart-heading:hover {
+  color: #c00;
+  text-decoration: none;
+  background: #fff;
+}
+.sh-del {
+  top: 10px;
+}
+.sh-del i{
+  color: #c00;
+}
+.card{
+  margin: 0 auto 20px;
+  padding: 0 0 20px;
+}
+.pd-top-20px{
+  padding-top: 20px;
+}

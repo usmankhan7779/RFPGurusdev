@@ -23,6 +23,7 @@
                         [ngClass]="displayFieldCss(login, 'password')">
                         <mat-form-field>
                             <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"
+                            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                 formControlName="password" placeholder="Password" required />
                             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
                             </mat-icon>
@@ -66,4 +67,5 @@
             </form>
         </div>
     </div>
+
 </div>

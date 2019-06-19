@@ -108,7 +108,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
-                      <input matInput class="sh-text-capt" type="text" id="city" formControlName="city" [(ngModel)]="vin_Data.city"
+                      <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
                       <mat-error *ngIf="register.controls.city.value == ''">
                         <strong>City cannot be empty</strong>
@@ -120,7 +120,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                     <mat-form-field>
-                      <input matInput class="text-uppercase" type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
+                      <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
                         formControlName="state" placeholder="State" required />
                       <mat-error *ngIf="register.controls.state.value == ''">
                         <strong>State cannot be empty</strong>
@@ -133,7 +133,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
                     <mat-form-field>
-                      <input matInput class="sh-text-capt" type="text" id="country" [(ngModel)]="vin_Data.country"
+                      <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
                         value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
                       <mat-error *ngIf="register.controls.country.value == ''">
                         <strong>Country cannot be empty</strong>
@@ -167,12 +167,18 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'username')">
                     <mat-form-field>
-                      <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username"
+                      <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username" minlength="3"
                         (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
                         placeholder="Username" required />
+<<<<<<< HEAD
                         <mat-error *ngIf="register.controls.username.errors?.maxlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
+=======
+                        <!-- <mat-error *ngIf="register.controls.username.maxlength">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error> -->
+>>>>>>> 8b23d6f78ebb45339287365c92dea0d27be79467
                         <mat-error *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
@@ -193,6 +199,7 @@
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'password')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" maxlength="32" [type]="hide ? 'password' : 'text'"
+                      onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                         matInput type="password" id="password" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password"
                         required />
                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -200,8 +207,7 @@
                         <strong>Password cannot be empty</strong>
                       </mat-error>
                       <mat-error *ngIf="register.controls.password.hasError('pattern')">
-                        Password must be at least 8 characters long, have at least one number, one special character and
-                        one upper case character.
+                        Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -209,7 +215,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'confirmPassword')">
                     <mat-form-field>
-                      <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
+                      <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
                       <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                       <mat-error
                         *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
@@ -229,14 +235,14 @@
                 </div>
                 <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12">
                   <div class="checkbox padding-0 mg-0">
-                    <mat-slide-toggle  (change)="changeCheck()"></mat-slide-toggle>
+                    <mat-slide-toggle (change)="changeCheck($event)"></mat-slide-toggle>
                     By clicking on the "Signup" button below, you understand and agree that the use of this Website,
                     Mobile Apps, AI and ALL other related Technology Platforms are subject to the
-                    <b><a class="vt-middle" [routerLink]="['/terms']" target="_blank">Terms of Use </a></b>and<b><a
-                        class="vt-middle" [routerLink]="['/privacy-policy']" target="_blank"> Privacy Policy.</a></b>
+                    <a class="vt-middle" [routerLink]="['/terms']" target="_blank">Terms of Use </a>and<a
+                        class="vt-middle" [routerLink]="['/privacy-policy']" target="_blank"> Privacy Policy.</a>
                   </div>
-                  <button title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
-                    [disabled]="!register.valid || emailexist || usernameexist|| terms">Sign up</button>
+                  <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
+                    [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
                   <br>
                 </div>
               </div>
