@@ -171,7 +171,7 @@
                         (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
                         placeholder="Username" required />
                         <mat-error *ngIf="register.controls.username.maxlength>64">
-                          <strong> Username must be between 3 and 64 characters </strong>
+                          <strong> Username must be between 2 and 64 characters </strong>
                         </mat-error>
                         <mat-error *ngIf="register.controls.username.minlength<3">
                           <strong> Username must be between 3 and 64 characters </strong>
@@ -193,6 +193,7 @@
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'password')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" maxlength="32" [type]="hide ? 'password' : 'text'"
+                      onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                         matInput type="password" id="password" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password"
                         required />
                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -200,8 +201,7 @@
                         <strong>Password cannot be empty</strong>
                       </mat-error>
                       <mat-error *ngIf="register.controls.password.hasError('pattern')">
-                        Password must be at least 8 characters long, have at least one number, one special character and
-                        one upper case character.
+                        Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -209,7 +209,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'confirmPassword')">
                     <mat-form-field>
-                      <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
+                      <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
                       <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                       <mat-error
                         *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">

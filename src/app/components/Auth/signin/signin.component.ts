@@ -207,7 +207,7 @@ export class SigninComponent implements OnInit {
           if (error.status == 400) {
             swal(
               'Error',
-              'First, verify your email address to signin.',
+              'First, verify your email address to signin',
               'error'
             )
           }
@@ -230,7 +230,7 @@ export class SigninComponent implements OnInit {
 
       swal({
         type: 'error',
-        title: 'Please confirm you are not a robot!',
+        title: 'Please confirm you are not a robot',
         showConfirmButton: false,
         width: '512px',
         timer: 2000
@@ -240,7 +240,7 @@ export class SigninComponent implements OnInit {
   foremail() {
     swal({
       title: 'Enter email address',
-      html: ' Enter your email address to receive a link allowing you to reset your password. First, verify your email address to signin.',
+      html: ' Enter your email address to receive a link allowing you to reset your password. First, verify your email address to signin',
       input: 'email',
       confirmButtonColor: "#000", width: '512px',
       inputPlaceholder: 'Enter your email address'
@@ -260,7 +260,7 @@ export class SigninComponent implements OnInit {
       error => {
         swal(
           'Invalid email ',
-          'Or user does not exist!',
+          'Or User does not exist',
           'error'
         )
       }
