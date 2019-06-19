@@ -13,12 +13,13 @@ export class AdvanceService {
     return this.http.get('https://apis.rfpgurus.com/document_trial/');
   }
   dropdown(state, agency, category, sub_category) {
+        
     return this.http.post('https://apis.rfpgurus.com/rf_p/drop_down/', JSON.stringify({
       "state": state,
       "agency": agency,
       "category": category,
       "sub_category": sub_category
-    }), { headers: this.authInterceptor.setHeaders() });
+    }), { headers: this.authInterceptor.setHeaders() }).map((response: Response) => response.json());
   }
   admindropdown(state) {
     return this.http.post('https://apis.rfpgurus.com/rf_p/add_rfp_dropdown/', JSON.stringify({

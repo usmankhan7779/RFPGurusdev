@@ -16,7 +16,7 @@ export class AgencyService {
         return this._https.get('https://apis.rfpgurus.com/rf_p/agency/' + agency + '/' + items + '?page=' + page,{ headers:headers}).map((response: Response) => response.json());
     }
     else{
-        return this._https.get('https://apis.rfpgurus.com/rf_p/agency/' + agency + '/' + items + '?page=' + page);
+        return this._https.get('https://apis.rfpgurus.com/rf_p/agency/' + agency + '/' + items + '?page=' + page).map((response: Response) => response.json());
 
     }
     }
