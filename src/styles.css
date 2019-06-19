@@ -2364,6 +2364,24 @@ font-size: 16px!important
 }
 /* .........................Signup-form-fix End................................. */
 
+/* .........................Go to Top Button Start................................. */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: 0;
+    background-color: #c00;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px 10px;
+    border-radius: 50px;
+}
+/* .........................Go to Top Button End................................. */
+
 /* .........................Sidebar more Condence Start................................. */
 .sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
