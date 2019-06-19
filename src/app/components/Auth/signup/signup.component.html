@@ -167,13 +167,13 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'username')">
                     <mat-form-field>
-                      <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username"
+                      <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username" minlength="3"
                         (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
                         placeholder="Username" required />
-                        <mat-error *ngIf="register.controls.username.maxlength>64">
-                          <strong> Username must be between 2 and 64 characters </strong>
-                        </mat-error>
-                        <mat-error *ngIf="register.controls.username.minlength<3">
+                        <!-- <mat-error *ngIf="register.controls.username.maxlength">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
                       <mat-error *ngIf="register.controls.username.value == ''">
