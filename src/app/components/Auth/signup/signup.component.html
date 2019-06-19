@@ -91,7 +91,7 @@
                     <mat-form-field class="zipCodee">
                       <input matInput type="number" maxlength="5" id="zipcode"
                         (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
-                        placeholder="Zip Code" maxlength="5" required />
+                        placeholder="Zip Code"required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;"/>
                       <mat-error *ngIf="register.controls.zipcode.value == ''">
                         <strong>Zipcode cannot be empty</strong>
                       </mat-error>
@@ -110,9 +110,9 @@
                     <mat-form-field>
                       <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
-                      <mat-error *ngIf="register.controls.city.value == ''">
+                      <!-- <mat-error *ngIf="register.controls.city.value == ''">
                         <strong>City cannot be empty</strong>
-                      </mat-error>
+                      </mat-error> -->
                     </mat-form-field>
                   </div>
                 </div>
@@ -122,9 +122,9 @@
                     <mat-form-field>
                       <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
                         formControlName="state" placeholder="State" required />
-                      <mat-error *ngIf="register.controls.state.value == ''">
+                      <!-- <mat-error *ngIf="register.controls.state.value == ''">
                         <strong>State cannot be empty</strong>
-                      </mat-error>
+                      </mat-error> -->
 
                     </mat-form-field>
                   </div>
@@ -135,9 +135,9 @@
                     <mat-form-field>
                       <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
                         value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
-                      <mat-error *ngIf="register.controls.country.value == ''">
+                      <!-- <mat-error *ngIf="register.controls.country.value == ''">
                         <strong>Country cannot be empty</strong>
-                      </mat-error>
+                      </mat-error> -->
                     </mat-form-field>
                   </div>
                 </div>
@@ -155,7 +155,7 @@
                       <mat-error *ngIf="register.controls.email.value == ''">
                         <strong>Email cannot be empty</strong>
                       </mat-error>
-                      <mat-error *ngIf="register.controls.email.hasError('pattern')">
+                      <mat-error *ngIf="register.controls.email.hasError('email')">
                         Please enter a valid email address
                       </mat-error>
                     </mat-form-field>
@@ -216,9 +216,7 @@
                         <strong>Password must match
                         </strong>
                       </mat-error>
-                      <mat-error *ngIf="register.controls.confirmPassword.hasError('pattern')">
-                        Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character.
-                      </mat-error>
+                     
                     </mat-form-field>
                   </div>
                 </div>
