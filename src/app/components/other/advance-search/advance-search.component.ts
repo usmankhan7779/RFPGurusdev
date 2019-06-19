@@ -227,6 +227,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           this._serv.searchrfprecord(this.Rfpnum, this.title, this.status, this.postedDate, this.DueDate, this.states, this.agencies, this.cates, this.pageSize, page, this.subcate, this.submissionfrom, this.submissionto).subscribe(
             data => {
               this.record = "";
+
               this.item = "";
               this.record = data['Results'];
               this.item = data['TotalResult'];
@@ -401,7 +402,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
         data => {
           if (data['States']) {
             this.state = data['States'];
-
+            
           }
           if (data['Categories']) {
             this.cat = data['Categories'];

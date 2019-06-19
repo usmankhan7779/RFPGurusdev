@@ -205,7 +205,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       phone: ['', Validators.compose([Validators.required])],
       username: ['', Validators.compose([Validators.required, Validators.pattern(this.usernameOnly), Validators.minLength(3)])],
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
-      email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailonly)])],
+      email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailonly), Validators.email])],
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
       // optionsCheckboxes: ['', Validators.required],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.pattern(this.password_regex), Validators.maxLength(100)])],

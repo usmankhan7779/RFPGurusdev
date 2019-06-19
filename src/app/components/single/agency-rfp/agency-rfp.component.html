@@ -121,10 +121,14 @@
                               <i class="glyphicon glyphicon-calendar"></i> Posted Date</td>
                             <td>
                               <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
+                              <!-- due_date -->
                           </tr>
                           </thead>
+                          <thead>
+                          
+                          </thead>
                           <tbody>
-                          <tr *ngIf="adminlogin">
+                          <tr *ngIf="!adminlogin">
                             <td *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}</td>
                             <td *ngIf="check(rfp.date_entered) == false"></td>
                             <td *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
