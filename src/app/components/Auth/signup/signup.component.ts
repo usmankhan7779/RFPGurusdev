@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       'has-feedback': this.isFieldValid(form, field)
     };
   }
-  disabledAgreement;
+  disabledAgreement: boolean = true;
   changeCheck(event){
     this.disabledAgreement = !event.checked;
   }
