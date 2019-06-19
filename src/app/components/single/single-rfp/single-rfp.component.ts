@@ -159,6 +159,8 @@ export class SingleRfpComponent implements OnInit {
 
         data => {
           this.statuss = data['message'];
+          // this.statuss = data.message;
+          // alert(this.statuss)
           this.wrfp = data['result'];
           this.total = data['total']
           //  this.global.getGolbalWishListCourses(this.GlobalWishListCourses);
@@ -198,13 +200,14 @@ export class SingleRfpComponent implements OnInit {
 
       this.route.queryParams
         .subscribe(params => {
-          this._nav.navigate(['login']);
+          //   console.log(params); // {order: "popular"}
+
+          this._nav.navigate(['signin']);
           this.rfpid = params['query'];
           localStorage.setItem('member', this.rfpid);
         });
-    }
 
-
+      }
   }
   doc;
   check_trial(url) {
