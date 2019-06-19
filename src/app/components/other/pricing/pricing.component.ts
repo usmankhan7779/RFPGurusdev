@@ -29,13 +29,11 @@ export class PricingComponent implements OnInit {
   free() {
     if (localStorage.getItem('currentUser')) {
       this.valuee = "BM";
-
       this.isfreetrial = true;
       this.Yplan = false;
-      this.Mplan = true;
-      this.Fplan = false;
+      this.Mplan = false;
+      this.Fplan = true;
       this.planSelected = true;
-
       this.prv_stepdetail("B", "M");
     }
     else {
@@ -99,7 +97,6 @@ export class PricingComponent implements OnInit {
   }
 
   prv_stepdetail(type, dur) {
-    // alert(type + dur);
     this.pkg_detail['type'] = type
     this.pkg_detail['dur'] = dur
     this.pkgsub = true;
@@ -125,7 +122,6 @@ export class PricingComponent implements OnInit {
     if (localStorage.getItem('currentUser')) {
       this._home.get_card_infos().subscribe(Data => {
         this.res = Data;
-        // alert(this.res.length)
         if (!this.res.length) {
           this.isright = true;
         }
@@ -206,16 +202,16 @@ export class PricingComponent implements OnInit {
     this.setautopay = val.checked
   }
   zipcodeCheck(zipcode1) {
-    // alert('sadf');
+   
     if (zipcode1.length > 4) {
-      // alert('sadf');
+    
       this.endRequest = this._serv2.zipcode(zipcode1).subscribe(
         data => {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
           this.readonly=true;
-          // alert(this.readonly);
+         
         },
         
         error => {
@@ -267,12 +263,13 @@ export class PricingComponent implements OnInit {
   }
 
   ShowButton(var_type_atm) {
-    // this.cardtype = var_type_atm;
+    this.model.cardtype = var_type_atm;
     if (var_type_atm == "American Express") {
-      this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
-      this.ccvmask = [/[0-9]/, /\d/, /\d/, /\d/]
+      this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+      this.ccvmask = [/[0-9]/, /\d/, /\d/, /\d/];
       this.model.cardNumber = '';
       this.model.cardcod = '';
+    
     }
     else if (var_type_atm == "Visa") {
       this.cardmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
@@ -327,7 +324,7 @@ export class PricingComponent implements OnInit {
     this.date = this.model.expirationdate;
     if (this.isfreetrial == true) {
       if (this.isright == true) {
-        this._http6.addCard(this.default, this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
+        this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
 
           this.model.defaultcard = Data['id']
           if (Data['id']) {
@@ -463,7 +460,8 @@ export class PricingComponent implements OnInit {
       }
     } else {
       if (this.isright == true) {
-        this._http6.addCard(this.default, this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
+        
+        this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
 
           this.model.defaultcard = Data['id']
           if (Data['id']) {

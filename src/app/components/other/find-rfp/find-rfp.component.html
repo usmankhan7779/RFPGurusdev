@@ -92,7 +92,7 @@
                             <tr>
                                 <td>
                                     <mat-form-field>
-                                        <input matInput name="Rfpnum" [(ngModel)]=Rfpnum placeholder="RFP #"
+                                        <input matInput name="Rfpnum" [(ngModel)]=Rfpnum placeholder="RFP No."
                                             (ngModelChange)="onPaginateChange(1)" />
                                     </mat-form-field>
                                 </td>
@@ -189,7 +189,7 @@
                     <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right">
                         <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
                             <li [ngClass]="{hide:pager.currentPage === 1}">
-                                <a (click)="onPaginateChange(1)" class="view-1s" class="btn btn-fill">
+                                <a (click)="onPaginateChange(1);" class="view-1s" class="btn btn-fill">
                                     <i class="fa fa-angle-double-left"></i>
                                 </a>
                             </li>
