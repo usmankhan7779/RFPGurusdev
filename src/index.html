@@ -53,6 +53,10 @@
 
 <body>
   <app-root></app-root>
+  <a onclick="topFunction()" style="display:none" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i>Top</a>
+<script>
+function scrollFunction(){document.body.scrollTop>20||document.documentElement.scrollTop>20?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=10,document.documentElement.scrollTop=10}window.onscroll=function(){scrollFunction()};
+</script>
 </body>
 
 </html>
