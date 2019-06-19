@@ -130,7 +130,7 @@ export class WatchlistComponent implements OnInit {
           data => {
             swal({
               type: 'success',
-              title: 'Your Watch List Successfully Clear',
+              title: 'Watch List successfully cleared',
               showConfirmButton: false,
               timer: 2500, width: '512px',
 
