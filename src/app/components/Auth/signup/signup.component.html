@@ -160,7 +160,7 @@
                       </mat-error>
                     </mat-form-field>
                     <p class="clr_red" *ngIf="emailexist && register.controls.email.value !=''">
-                      This Email already exists.
+                      Email already exists.
                     </p>
                   </div>
                 </div>
@@ -170,15 +170,9 @@
                       <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username" minlength="3"
                         (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
                         placeholder="Username" required />
-<<<<<<< HEAD
-                        <mat-error *ngIf="register.controls.username.errors?.maxlength">
-                          <strong> Username must be between 3 and 64 characters </strong>
-                        </mat-error>
-=======
                         <!-- <mat-error *ngIf="register.controls.username.maxlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error> -->
->>>>>>> 8b23d6f78ebb45339287365c92dea0d27be79467
                         <mat-error *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
@@ -190,7 +184,7 @@
                       </mat-error>
                     </mat-form-field>
                     <p *ngIf="usernameexist && register.controls.username.value != ''" class="clr_red">
-                      This Username already exists.
+                    Username already exists.
                     </p>
                   </div>
                 </div>
