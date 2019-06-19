@@ -1,5 +1,5 @@
 a {
-    color: #23527c
+    color: #337ab7
 }
 
 a:focus,
@@ -19,13 +19,14 @@ a:hover {
     margin-top: 0;
 }
 .form-1-forgot {
-    color: #007dff!important;
+    color: #337ab7!important;
     font-weight: 600;
     font-size: 16px;
     transition: none;
 }
+
 .blue-color{
-    color: #007dff!important;
+    color: #337ab7!important;
 }
 .checkbox label{padding-left: 0}
 
@@ -90,8 +91,8 @@ background-color: #fafafa
   margin-bottom: 6px!important
 }
 .term-privacy a {
-  padding: 0 20px;
-  font-size: 14px
+  margin-left: 10px;
+  font-size: 13px
 }
 .term-privacy a:hover {
   color: #c00
@@ -105,7 +106,6 @@ font-size: 15px
 }
 .sh-signin-btn {
   width: 100%;
-  padding: 2px 20px!important;
   font-size: 24px!important
 }
 .g-f-login>a:hover {
