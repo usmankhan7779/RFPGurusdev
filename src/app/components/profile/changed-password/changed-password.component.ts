@@ -36,6 +36,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     hide = true;
     hide1 = true;
     hide2 = true;
+    password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*(),.?":{}|<>]).{8,}$';
 
     public typeValidation: User;
     register: FormGroup;
@@ -120,7 +121,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
         this.register = this.formBuilder.group({
             // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
             oldpassword: ['', Validators.required],
-            password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(100)])],
+            password: ['', Validators.compose([Validators.required, Validators.pattern(this.password_regex), Validators.minLength(8), Validators.maxLength(100)])],
             confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(100)])],
         }, {
                 validator: PasswordValidation.MatchPassword // your validation method

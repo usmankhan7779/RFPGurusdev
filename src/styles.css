@@ -2301,6 +2301,7 @@
   .sh-signup-form-fix .clr_red{
     font-size: 12px;
     margin: -19px 0 0;
+    font-weight: 700 !important;
   }
   
   .sh-signup-form-fix.edit-profile .form-group {
@@ -2581,6 +2582,7 @@ padding-bottom: 12px
 font-size: 12px;
 padding-top: 0px;
 color: #c00;
+font-weight: 700;
 }
 
 .sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
@@ -2612,6 +2614,12 @@ font-size: 16px!important
 }
 .sh-signup-form-fix .mat-select{
   box-shadow: none;
+}
+.sh-signup-form-fix .clr_red{
+    color: #c00;
+    margin: -20px 0 -4px;
+    font-size: 12px;
+    font-weight: 700 !important;
 }
 /* .........................Signup-form-fix End................................. */
 
