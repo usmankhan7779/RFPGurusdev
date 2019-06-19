@@ -83,24 +83,11 @@ export class SignupComponent implements OnInit, OnDestroy {
       'has-feedback': this.isFieldValid(form, field)
     };
   }
-  disabledAgreement;
+  disabledAgreement: boolean = true;
   changeCheck(event){
     this.disabledAgreement = !event.checked;
   }
-  //  changeCheck()
-  //  {
-  //    if(this.terms==false)
-  //    {
-  //      this.terms=false;
-  //      alert( this.terms);
-  //    }
-  //    else
-  //    {
-  //      this.terms=true;
-  //      alert( this.terms);
-  //    }
-     
-  //  }
+ 
    
 
 
@@ -215,7 +202,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       country: ['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
       phone: ['', Validators.compose([Validators.required])],
-      username: ['', Validators.compose([Validators.required, Validators.pattern(this.usernameOnly)])],
+      username: ['', Validators.compose([Validators.required, Validators.pattern(this.usernameOnly), Validators.minLength(3)])],
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailonly)])],
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.

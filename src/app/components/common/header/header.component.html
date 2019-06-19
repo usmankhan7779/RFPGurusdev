@@ -49,7 +49,7 @@
       <div class="navbar-right navbar-nav">
         <ul class="navbar-nav sh-main-options">
           <li>
-            <a routerLink="/latest-rfp" routerLinkActive="Active">
+            <a onclick="topFunction()" routerLink="/latest-rfp" routerLinkActive="Active">
               <i class="fa fa-stack-overflow" aria-hidden="true"></i>Latest RFPs
             </a>
           </li>
@@ -175,10 +175,10 @@
               </div >
               <!-- <div *ngIf="shown == true && total == 1">  -->
               <div class="wishlist-btn-div" *ngIf="check_login()">
-                <a routerLink="/my-watchlist" class="addtocart-btn">Go to Watchlist</a>
+                <a routerLink="/my-watchlist" class="addtocart-btn">Go to Watch List</a>
               </div>
               <div class="wishlist-btn-div" *ngIf="check_adminlogin()">
-                <a routerLink="/watchlist" class="addtocart-btn">Go to Watchlist</a>
+                <a routerLink="/watchlist" class="addtocart-btn">Go to Watch List</a>
               <!-- </div> -->
             </div>
             </div>
@@ -282,7 +282,7 @@
                 </li>
                 <li *ngIf="check_login()">
                   <a routerLink="/my-watchlist">
-                    <i class="fa fa-heart" aria-hidden="true"></i>My Watchlist</a>
+                    <i class="fa fa-heart" aria-hidden="true"></i>My Watch List</a>
                 </li>
                 <li *ngIf="check_login()">
                   <a routerLink="/profile">
