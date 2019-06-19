@@ -88,12 +88,10 @@ export class SignupComponent implements OnInit, OnDestroy {
      if(this.terms==false)
      {
        this.terms=false;
-       alert( this.terms);
      }
      else
      {
        this.terms=true;
-       alert( this.terms);
      }
      
    }

@@ -15,13 +15,13 @@ export class PaymentmethodsService {
   //       headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
   //       return this._https.get('https://apis.rfpgurus.com/user_information/' + uid + '/',{headers:headers}).map(response => response.json());
  
-  addCard(status, name, address, zip, city, state, country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
+  addCard( name, address, zip, city, state, country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
     let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
     return this._https.post('https://apis.rfpgurus.com/payment/cardinfo/',
       JSON.stringify({
-        "default": status,
+        // "default": status,
         "name": name,
         // "pinCode": pin,
         "street_address": address,
