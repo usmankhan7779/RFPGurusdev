@@ -94,7 +94,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   ShowButton(var_type_atm, f: NgForm) {
     this.cardtype = var_type_atm;
-    alert(this.cardtype);
     if (var_type_atm == "AmericanExpress") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
@@ -239,7 +238,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   id;
   setautopay: boolean = false;
   autopay;
-  get(status, id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
+  get( id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
     this.id = id;
     this.name = name;
     this.cardnumber = number;
@@ -251,7 +250,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     this.city = city;
     this.state = state;
     this.country = country;
-    this.updefault = status;
+    // this.updefault = status;
     this.autopay = autopay;
   }
   deleteSingleCard(id) {
@@ -264,7 +263,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-      // alert(result)
       if (result == true) {
 
         this.serv.deleteCard(id).subscribe(Data => {
@@ -323,8 +321,9 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
         && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid)
          {
-         alert('sds');
-          this.serv.addCard(this.default, 
+       
+          this.serv.addCard(
+            // this.default, 
           this.form.value['cardnickname'], 
           this.form.value['address'],
           this.form.value['zip'], 
@@ -364,11 +363,11 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     }
 
     else {
-      alert('second');
+    
       if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber.valid && this.form.controls.ccv.valid
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
         && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-        this.endRequest = this.serv.addCard(this.default, this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
+        this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
           swal({
             type: 'success',
             title: 'Payment Method Is Listed!',

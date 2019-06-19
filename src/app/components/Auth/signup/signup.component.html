@@ -77,7 +77,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field>
-                      <textarea matInput type="text" id="address" style="height: 41px  !important;"
+                      <textarea matInput type="text" id="address" class="resize-no"
                         formControlName="address" placeholder="Address" required></textarea>
                       <!-- <mat-error *ngIf="register.controls.address.value == ''">
                         <strong>Address cannot be empty</strong>
@@ -160,7 +160,7 @@
                       </mat-error>
                     </mat-form-field>
                     <p class="clr_red" *ngIf="emailexist && register.controls.email.value !=''">
-                      This Email already exists.
+                      Email already exists.
                     </p>
                   </div>
                 </div>
@@ -184,7 +184,7 @@
                       </mat-error>
                     </mat-form-field>
                     <p *ngIf="usernameexist && register.controls.username.value != ''" class="clr_red">
-                      This Username already exists.
+                    Username already exists.
                     </p>
                   </div>
                 </div>

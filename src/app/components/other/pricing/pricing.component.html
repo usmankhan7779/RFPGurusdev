@@ -95,55 +95,53 @@
               <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template>
           </div>
-          <span class="plan-name text-center">
-            Monthly Plan
-          </span>
-          <p class="plan-price">
-            <sup class="currency">$</sup>
-            <strong>29.99</strong>
-          </p>
-          <ul class="list-pricing home-list-pricing">
-            <li>
-              <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Upcoming Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> State &amp; Local Agency Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Federal Agency Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Search Engine
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Android Mobile App
-            </li>
-            <li>
-              <i class="fa fa-check"></i> iOS Mobile App
-            </li>
-            <!-- <li>
-                              <i class="fa fa-check"></i> Electronic Bid Submission
-                          </li> -->
-            <!-- <li>
-                              <i class="fa fa-check"></i> Winning Bidder Insight
-                          </li> -->
-            <li>
-              <i class="fa fa-check"></i> Technical Support Chat
-            </li>
-            <li>
-              <i class="fa fa-check"></i> RFP as a Service
-            </li>
-          </ul>
-          <div class="pricing2-button" *ngIf="!planSelected">
+        
+              <span class="plan-name text-center">
+                  Monthly Plan
+                </span>
+                <p class="plan-price">
+                  <sup class="currency">$</sup>
+                  <strong>24.99</strong>
+                </p>
+                <ul class="list-pricing home-list-pricing">
+                  <li>
+                    <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Upcoming Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Federal Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Search Engine
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Android Mobile App
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> iOS Mobile App
+                  </li>
+                 
+                  <li>
+                    <i class="fa fa-check"></i> Technical Support Chat
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> RFP as a Service
+                  </li>
+                </ul>
+              
+          
+           <div class="pricing2-button" *ngIf="!planSelected">
             <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
               title="Subscribe Package">Register
               Now</a>
@@ -164,54 +162,58 @@
               <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
             </ng-template>
           </div>
-          <span class="plan-name text-center">
-            Yearly Plan
-          </span>
-          <p class="plan-price">
-            <sup class="currency">$</sup>
-            <strong>299.99</strong>
-          </p>
-          <ul class="list-pricing home-list-pricing">
-            <li>
-              <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Upcoming Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> State &amp; Local Agency Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Federal Agency Bids
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Search Engine
-            </li>
-            <li>
-              <i class="fa fa-check"></i> Android Mobile App
-            </li>
-            <li>
-              <i class="fa fa-check"></i> iOS Mobile App
-            </li>
-            <!-- <li>
-                              <i class="fa fa-check"></i> Electronic Bid Submission
-                          </li>
-                          <li>
-                              <i class="fa fa-check"></i> Winning Bidder Insight
-                          </li> -->
-            <li>
-              <i class="fa fa-check"></i> Technical Support Chat
-            </li>
-            <li>
-              <i class="fa fa-check"></i> RFP as a Service
-            </li>
-          </ul>
+        <div >
+            <span class="plan-name text-center">
+                Yearly Plan
+              </span>
+              <p class="plan-price">
+                <sup class="currency">$</sup>
+                <strong>299.99</strong>
+              </p>
+              <ul class="list-pricing home-list-pricing">
+                <li>
+                  <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Upcoming Bids
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Federal Agency Bids
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Search Engine
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Android Mobile App
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> iOS Mobile App
+                </li>
+                <!-- <li>
+                                  <i class="fa fa-check"></i> Electronic Bid Submission
+                              </li>
+                              <li>
+                                  <i class="fa fa-check"></i> Winning Bidder Insight
+                              </li> -->
+                <li>
+                    <!-- Technical Support Chat -->
+                  <i class="fa fa-check"></i> Chat
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> RFP as a Service
+                </li>
+              </ul>
+              
+        </div>
           <div class="pricing2-button" *ngIf="!planSelected">
             <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
               title="Subscribe Package">Register

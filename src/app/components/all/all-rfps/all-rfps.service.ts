@@ -1,15 +1,30 @@
 import { SetHeaders } from './../../../AuthGuards/auth.interceptor';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Headers, Response } from '@angular/http';
 
 @Injectable()
 export class AllRfpsService {
-    constructor(private http: HttpClient, private authInterceptor: SetHeaders) { }
+    constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
     trial_document(id) {
         return this.http.get('https://apis.rfpgurus.com/document_trial/' + id)
     }
     latestrfpecord(items, page) {
-        return this.http.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page)
+        let headers = new Headers();
+    if(localStorage.getItem('currentUser')){
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      
+         
+        // let headers = new Headers(); 
+        headers.append('Content-Type', 'application/json');
+         
+        // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        return this._https.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page,{headers:headers}).map((response: Response) => response.json())
+        }
+        else{
+            return this.http.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page)
+
+        }
     }
     downloadFile(id) {
         return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/')

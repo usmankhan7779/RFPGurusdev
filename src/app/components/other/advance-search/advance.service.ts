@@ -13,12 +13,13 @@ export class AdvanceService {
     return this.http.get('https://apis.rfpgurus.com/document_trial/');
   }
   dropdown(state, agency, category, sub_category) {
+        
     return this.http.post('https://apis.rfpgurus.com/rf_p/drop_down/', JSON.stringify({
       "state": state,
       "agency": agency,
       "category": category,
       "sub_category": sub_category
-    }), { headers: this.authInterceptor.setHeaders() });
+    }), { headers: this.authInterceptor.setHeaders() }).map((response: Response) => response.json());
   }
   admindropdown(state) {
     return this.http.post('https://apis.rfpgurus.com/rf_p/add_rfp_dropdown/', JSON.stringify({
@@ -76,7 +77,29 @@ export class AdvanceService {
 
   }
   searchrfprecord(Rfpnum, title, status, enterdate, duedate, state, agency, cat, items, page, subcat, submissionfrom, submissionto) {
-    return this.http.put('https://apis.rfpgurus.com/rf_p/filters/' + items + '/?page=' + page,
+    
+    let headers = new Headers();
+    if(localStorage.getItem('currentUser')){
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+       
+      headers.append('Content-Type', 'application/json');
+      return this._https.put('https://apis.rfpgurus.com/rf_p/filters/' + items + '/?page=' + page,
+      JSON.stringify({
+        "rfp_key": Rfpnum,
+        "title": title,
+        "status": status,
+        "posted_from": enterdate,
+        "posted_to": duedate,
+        "state": state,
+        "agency": agency,
+        "category": cat,
+        "sub_category": subcat,
+        "submission_from": submissionfrom,
+        "submission_to": submissionto
+      }), { headers: headers }).map((response: Response) => response.json())
+    }
+    else{
+      return this.http.put('https://apis.rfpgurus.com/rf_p/filters/' + items + '/?page=' + page,
       JSON.stringify({
         "rfp_key": Rfpnum,
         "title": title,
@@ -90,5 +113,6 @@ export class AdvanceService {
         "submission_from": submissionfrom,
         "submission_to": submissionto
       }), { headers: this.authInterceptor.setHeaders() });
+    }
   }
 }
