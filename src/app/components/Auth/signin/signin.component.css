@@ -1,5 +1,5 @@
 a {
-    color: #23527c
+    color: #337ab7
 }
 
 a:focus,
@@ -19,14 +19,14 @@ a:hover {
     margin-top: 0;
 }
 .form-1-forgot {
-    color: #0275d8!important;
+    color: #337ab7!important;
     font-weight: 600;
     font-size: 16px;
     transition: none;
 }
 
 .blue-color{
-    color: #0275d8!important;
+    color: #337ab7!important;
 }
 .checkbox label{padding-left: 0}
 
@@ -106,7 +106,6 @@ font-size: 15px
 }
 .sh-signin-btn {
   width: 100%;
-  padding: 2px 20px!important;
   font-size: 24px!important
 }
 .g-f-login>a:hover {

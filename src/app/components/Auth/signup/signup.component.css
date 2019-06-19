@@ -65,10 +65,6 @@ a:hover {
   padding: 0 2px
 }
 
-.signup-form-row>div {
-  min-height: 72px
-}
-
 @media (max-width:1024px) {
   .recaptcha-style {
       margin: 0 0 20px
