@@ -16,8 +16,11 @@
     margin-top: 20px;
 }
 #contact h2{
-    margin: 0;
+    margin: 0 !important;
     padding: 20px 0;
+}
+#contact p{
+  margin: 0 ;
 }
 #contact {
   background-color: #fff
@@ -32,3 +35,6 @@
 .contact-section textarea {
   height: 148px
 }
+.sh-edit-profile{
+  margin-bottom: 10px
+;}

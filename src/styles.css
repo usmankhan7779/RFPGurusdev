@@ -2307,6 +2307,56 @@
     font-size: 16px;
     padding: 6px 0;
     font-weight: 600;
+    font-size: 15px
+}
+.mg-right-5px {
+    margin-right: 5px
+}
+.form-foote.reg {
+    padding-top: 40px
+}
+.signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 1.98125em !important;
+}
+.sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+    -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0)!important;
+    -moz-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0)!important;
+    transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0)!important;
+    -ms-transform: translateY(15px) scale(.75)!important
+}
+
+
+.sh-ad-date .mat-input-placeholder.mat-empty {
+  top: 23px
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.sh-ad-date .mat-datepicker-toggle {
+  vertical-align: super!important
+}
+.sh-ad-date .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  -webkit-transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
+  transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-1.28125em) scale(.75);
+  width: 133.33333%;
+}
+
+.sh-ad-date .mat-form-field-underline {
+  bottom: 12px !important;
+}
+.sh-ad-date .mat-form-field-label{
+  top: 1.78125em !important;
+}
+.sh-ad-date input {
+  padding: 5px ;
+}
+
+
+.signup-main .mat-select:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none
   }
   
   .sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -2575,91 +2625,80 @@
   border-radius: 5px;
   border: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
-  border-bottom: 1px solid #e6e6e6
-  }
-  .sidebar-user .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
-  font-weight: 400!important
-  }
-  .sh-sidebar-user .mat-form-field-wrapper {
-  padding-bottom: 10px!important
-  }
-  /* ........................Sidebar End................................. */
-  
-  /* ........................Find RFPs Table Start................................. */
-  
-  
-  .sh-n-table .mat-form-field-infix {
-    background: #fff;
-    padding: 18px 0 .2375em
-  }
-  
-  .sh-n-table .mat-form-field-placeholder-wrapper {
-    position: absolute;
-    left: 10px;
-    top: -12px
-  }
-  .sh-n-table .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder{
-    font-size: 18px
-  }
-  
-  .sh-n-table .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
-  -webkit-transform: translateY(0) scale(.75) perspective(100px) translateZ(0)!important;
-  -moz-transform: translateY(0) scale(.75) perspective(100px) translateZ(0)!important;
-  transform: translateY(0) scale(.75) perspective(100px) translateZ(0)!important;
-  -ms-transform: translateY(0) scale(.75)!important
-  }
-  .sh-n-table .mat-form-field-underline {
-    bottom: 13px
-  }
-  
-  .sh-tb-select .mat-input-placeholder.mat-empty {
-    top: 2.28125em!important
-  }
-  .sh-tb-select .mat-form-field-underline {
-    bottom: 16px
-  }
-  .sh-table-date .mat-form-field-flex,
-  .sh-tb-select .mat-select {
-    background: #fff;
-    -webkit-box-shadow: none;
-    box-shadow: none
-  }
-  .sh-table-date .mat-form-field-prefix .mat-icon-button .mat-icon {
-  line-height: 2.125!important
-  }
-  
-  .sh-n-table .mat-input-element {
-    padding-left: 10px;
-    font-size: 16px;
-    font-weight: 400
-  }
-  
-  .sh-n-table .mat-select-value {
-    font-size: 16px;
-    line-height: 24px;
-    color: #000!important
-  }
-  .sh-n-table .mat-input-placeholder.mat-empty {
-    font-size: 15px
-  }
-  .sh-n-table .mat-input-placeholder.mat-empty {
-  top: 2.78126em!important
-  }
-  .sh-n-table .mat-input-element {
-  padding: 0!important
-  }
-  /* ........................Find RFPs Table End................................. */
-  .contact-section .mat-input-element {
-    font-size: 20px;
-    color: #555;
-    padding: 9px 0 2px;
-    font-weight: 600;
-  }
-  .main_heading{
-    font-size: 34px !important;
-    margin: 10px 0 20px !important;
-    color: #333;
+  box-shadow: none
+}
+.sh-table-date .mat-form-field-prefix .mat-icon-button .mat-icon {
+line-height: 2.125!important
+}
+
+.sh-n-table .mat-input-element {
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 400
+}
+
+.sh-n-table .mat-select-value {
+  font-size: 16px;
+  line-height: 24px;
+  color: #000!important
+}
+.sh-n-table .mat-input-placeholder.mat-empty {
+  font-size: 15px
+}
+.sh-n-table .mat-input-placeholder.mat-empty {
+top: 2.78126em!important
+}
+.sh-n-table .mat-input-element {
+padding: 0!important
+}
+/* ........................Find RFPs Table End................................. */
+.contact-section .mat-input-element {
+  font-size: 24px;
+  color: #555;
+  padding: 9px 0 2px;
+  font-weight: 600;
+}
+.main_heading{
+  font-size: 34px !important;
+  margin: 10px 0 20px !important;
+  color: #333;
+  font-weight: 600 !important;
+  text-align: center
+}
+.s-areaCarousel .leftRsBanner,.s-areaCarousel .rightRsBanner{
+  top: 0 !important;
+}
+.sh-pref-selectlist .mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 0;
+}
+.sh-pref-selectlist .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.61)!important;
+  font-weight: 600;
+}
+.edit-profile-comp .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 1.58125em !important;
+}
+/* .sh-payment .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+  margin-top: 0;
+} */
+.sh-payment .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {
+  -webkit-transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
+  transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
+  -ms-transform: translateY(-1.28124em) scale(.75);
+}
+.selectlist-payment .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0.98125em;
+}
+.selectlist-payment .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  -webkit-transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
+  transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
+  -ms-transform: translateY(-1.28124em) scale(.75);
+}
+.sh-n-table .mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 1.98125em;
+padding: 0 5px;
+}
+.sh-n-table input {
     font-weight: 600 !important;
     text-align: center
   }
@@ -3666,6 +3705,9 @@
 }
 
 @media (max-width:768px) {
+#contact{
+    padding: 0 10px;
+}
   .com-table>table {
     min-width: auto!important
 }
