@@ -108,7 +108,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
-                      <input matInput class="sh-text-capt" type="text" id="city" formControlName="city" [(ngModel)]="vin_Data.city"
+                      <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
                       <mat-error *ngIf="register.controls.city.value == ''">
                         <strong>City cannot be empty</strong>
@@ -120,7 +120,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                     <mat-form-field>
-                      <input matInput class="text-uppercase" type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
+                      <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
                         formControlName="state" placeholder="State" required />
                       <mat-error *ngIf="register.controls.state.value == ''">
                         <strong>State cannot be empty</strong>
@@ -133,7 +133,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
                     <mat-form-field>
-                      <input matInput class="sh-text-capt" type="text" id="country" [(ngModel)]="vin_Data.country"
+                      <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
                         value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
                       <mat-error *ngIf="register.controls.country.value == ''">
                         <strong>Country cannot be empty</strong>
