@@ -46,7 +46,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   card_opeation = [
     { value: 'Visa', viewValue: 'Visa Card' },
     { value: 'Mastercard', viewValue: 'Master Card' },
-    { value: 'American Express', viewValue: 'American Express' },
+    { value: 'AmericanExpress', viewValue: 'American Express' },
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
@@ -95,7 +95,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   ShowButton(var_type_atm, f: NgForm) {
     this.cardtype = var_type_atm;
     alert(this.cardtype);
-    if (var_type_atm == "American Express") {
+    if (var_type_atm == "AmericanExpress") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
       f.resetForm();
@@ -315,31 +315,29 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   check_value_get: boolean = false;
   add(f: NgForm) {
-    // alert(this.form.value['var_type_atm']);
     this.date = this.form.value['expirydate'];
-    if (this.cardtype == "American Express") {
-      alert(this.cardtype);
-      alert('sdfs');
+    if (this.cardtype == "AmericanExpress")
+
+     {
       if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber2.valid && this.form.controls.ccv2.valid
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
-        && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-          // addCard(status, name, address, zip, city, state, 
-          // country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
-
+        && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid)
+         {
+         alert('sds');
           this.serv.addCard(this.default, 
-         this.form.value['cardnickname'], 
+          this.form.value['cardnickname'], 
           this.form.value['address'],
-           this.form.value['zip'], 
+          this.form.value['zip'], 
           this.form.value['city'],
-           this.form.value['state'], 
+          this.form.value['state'], 
           this.form.value['country'], 
           this.form.value['cardnumber2'].split('-').join(''), 
           this.form.value['ccv2'], 
           this.date.split('/').join(''),
-           this.form.value['var_type_atm'],
-           this.form.value['setautopay'], 
-           this.form.value['nickname']).subscribe(Data => {
-             console.log(this.form.value),
+          this.cardtype,
+          this.form.value['setautopay'], 
+          this.form.value['nickname']).subscribe(Data => {
+          console.log(this.form.value),
            
           swal({
             type: 'success',
@@ -358,7 +356,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       else {
         swal({
           type: 'error',
-          title: 'Please Enter Valid Filed',
+          title: 'Please Enter Valid Field',
           showConfirmButton: false,
           timer: 1500, width: '512px',
         })
@@ -366,6 +364,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     }
 
     else {
+      alert('second');
       if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber.valid && this.form.controls.ccv.valid
         && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
         && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {

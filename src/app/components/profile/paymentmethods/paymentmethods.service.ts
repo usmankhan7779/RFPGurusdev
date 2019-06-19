@@ -4,10 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import swal from 'sweetalert2';
 import { Http, Headers, Response } from '@angular/http';
+import { SetHeaders } from 'src/app/AuthGuards/auth.interceptor';
 
 @Injectable()
 export class PaymentmethodsService {
-  constructor(private http: HttpClient,private _https : Http) {  }
+  constructor(private http: HttpClient,private _https : Http, private authInterceptor: SetHeaders) {  }
   // let headers = new Headers();
   //       headers.append('Content-Type', 'application/json');
          
@@ -81,7 +82,10 @@ export class PaymentmethodsService {
       });
   }
   deleteCard(id) {
-    return this.http.delete('https://apis.rfpgurus.com/payment/cardinfodelete/' + id);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this._https.delete('https://apis.rfpgurus.com/payment/cardinfodelete/' + id,{headers: headers });
   }
   Atm_card_exist(card) {
     return this.http.post('https://apis.rfpgurus.com/payment/cardnoexist/',

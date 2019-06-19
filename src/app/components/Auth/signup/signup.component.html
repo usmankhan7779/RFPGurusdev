@@ -18,8 +18,15 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
                     <mat-form-field>
-                      <input class="sh-text-capt" matInput type="text" maxlength="35" id="firstname"
+                      <input class="sh-text-capt" matInput type="text"  minlength="2"  maxlength="64" id="firstname"
                         formControlName="firstname" placeholder="First Name" required />
+                        <mat-error *ngIf="register.controls.firstname.errors?.maxlength">
+                          First Name must be between 2 to 64 characters
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                          First Name must be between 2 to 64 characters
+                        </mat-error>
+                        
                       <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
                         Only Alphabets
                       </mat-error>
@@ -32,8 +39,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'lastname')">
                     <mat-form-field>
-                      <input class="sh-text-capt" matInput type="text" maxlength="35" id="lastname"
+                      <input class="sh-text-capt" matInput type="text" minlength="2" maxlength="64" id="lastname"
                         formControlName="lastname" placeholder="Last Name" required />
+                        <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                          Last Name must be between 2 to 64 characters
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.firstname.errors?.maxlength">
+                          Last Name must be between 2 to 64 characters
+                        </mat-error>
                       <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
                         Only Alphabets
                       </mat-error>
@@ -46,8 +59,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field>
-                      <input matInput class="sh-text-capt" type="text" id="companyname" maxlength="255" formControlName="companyname"
+                      <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
                         placeholder="Company Name" required />
+                        <mat-error *ngIf="register.controls.companyname.errors?.minlength">
+                          <strong>Company Name must be between 3 and 64 characters </strong>
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.companyname.errors?.maxlength">
+                          <strong>Company Name must be between 3 and 64 characters </strong>
+                        </mat-error>
                       <mat-error *ngIf="register.controls.companyname.value == ''">
                         <strong>Company name cannot be empty</strong>
                       </mat-error>
@@ -70,7 +89,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
                     <mat-form-field class="zipCodee">
-                      <input matInput type="text" maxlength="5" id="zipcode"
+                      <input matInput type="number" maxlength="5" id="zipcode"
                         (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
                         placeholder="Zip Code" maxlength="5" required />
                       <mat-error *ngIf="register.controls.zipcode.value == ''">
@@ -151,6 +170,12 @@
                       <input [disabled]="emailexist" matInput type="text" maxlength="64" id="username"
                         (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
                         placeholder="Username" required />
+                        <mat-error *ngIf="register.controls.username.maxlength>64">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.username.minlength<3">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error>
                       <mat-error *ngIf="register.controls.username.value == ''">
                         <strong>Username cannot be empty</strong>
                       </mat-error>
@@ -192,8 +217,7 @@
                         </strong>
                       </mat-error>
                       <mat-error *ngIf="register.controls.confirmPassword.hasError('pattern')">
-                        Password must be at least 8 characters long, have at least one number, one special character and
-                        one upper case character.
+                        Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character.
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -205,14 +229,14 @@
                 </div>
                 <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12">
                   <div class="checkbox padding-0 mg-0">
-                    <mat-slide-toggle></mat-slide-toggle>
+                    <mat-slide-toggle  (change)="changeCheck()"></mat-slide-toggle>
                     By clicking on the "Signup" button below, you understand and agree that the use of this Website,
                     Mobile Apps, AI and ALL other related Technology Platforms are subject to the
                     <b><a class="vt-middle" [routerLink]="['/terms']" target="_blank">Terms of Use </a></b>and<b><a
                         class="vt-middle" [routerLink]="['/privacy-policy']" target="_blank"> Privacy Policy.</a></b>
                   </div>
                   <button title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
-                    [disabled]="!register.valid || emailexist || usernameexist">Sign up</button>
+                    [disabled]="!register.valid || emailexist || usernameexist|| terms">Sign up</button>
                   <br>
                 </div>
               </div>

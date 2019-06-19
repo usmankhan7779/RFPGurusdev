@@ -10,6 +10,7 @@ import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { isPlatformBrowser } from '@angular/common';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { SeoService } from '../../../services/seoService';
+import { DISABLED } from '@angular/forms/src/model';
 
 export class errorMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -62,6 +63,8 @@ export class SignupComponent implements OnInit, OnDestroy {
   emailexist: boolean = false;
   usernameexist: boolean = false;
   isequal;
+  btnSubmit;
+  terms:boolean;
   matcher = new errorMatcher();
   vin_Data = { city: "", state: "", country: "" };
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
@@ -80,7 +83,22 @@ export class SignupComponent implements OnInit, OnDestroy {
       'has-feedback': this.isFieldValid(form, field)
     };
   }
-  ;
+   changeCheck()
+   {
+     if(this.terms==false)
+     {
+       this.terms=false;
+       alert( this.terms);
+     }
+     else
+     {
+       this.terms=true;
+       alert( this.terms);
+     }
+     
+   }
+   
+
 
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
@@ -184,8 +202,8 @@ export class SignupComponent implements OnInit, OnDestroy {
       code: ['', Validators.required]
     });
     this.register = this.formBuilder.group({
-      firstname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly)])],
-      lastname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly)])],
+      firstname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
+      lastname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
       companyname: ['', Validators.compose([Validators.required])],
       address: ['', Validators.compose([Validators.required])],
       zipcode: ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
