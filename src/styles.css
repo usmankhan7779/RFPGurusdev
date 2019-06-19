@@ -2358,6 +2358,526 @@
   -webkit-box-shadow: none;
   box-shadow: none
   }
+  .signup-main .mat-select {
+    background: 0 0!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important
+    }
+    
+    .signup-main .mat-stepper-horizontal,
+    .signup-main .mat-stepper-vertical {
+    background: 0 0
+    }
+  .signup-main .mat-select .mat-select-trigger {
+  background: 0 0;
+  padding: 0
+  }
+  
+
+
+.sh-select-list {
+  text-align: right!important
+}
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+  
+
+.elpsis-agency {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.pd-top-0 {
+  padding-top: 0!important
+}
+.mat-calendar-body-selected {
+    background-color: #c00
+}
+.mr-2px {
+    margin-right: 2px!important
+}
+
+.head .s-icon-all-states {
+    right: 25px
+}
+.card .card-header.card-header-icon i {
+    font-size: 26px;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    color: #fff;
+}
+.card .card-header.card-header-icon+.card-content .card-title {
+    padding-bottom: 15px;
+}
+
+body {
+  background-color: #fafafa;
+  overflow-x: hidden;
+  display: block!important
+}
+/* End style.css */
+/* ...................Global Style Start................................. */
+
+.main-panel {
+    position: relative;
+    width: calc(100% - 260px);
+    -webkit-transition: all .33s cubic-bezier(.685,.0473,.346,1);
+    -o-transition: all .33s cubic-bezier(.685,.0473,.346,1);
+    transition: all .33s cubic-bezier(.685,.0473,.346,1);
+    height: 100%;
+}
+
+.main-panel, .panel .panel-heading i {
+    float: right;
+}
+.btn.btn-just-icon, .navbar .navbar-nav>li>a.btn.btn-just-icon {
+    font-size: 20px;
+    padding: 11px;
+    line-height: 1em;
+}
+.btn.btn-white, .btn.btn-white:focus, .btn.btn-white:hover, .navbar .navbar-nav>li>a.btn.btn-white, .navbar .navbar-nav>li>a.btn.btn-white:focus, .navbar .navbar-nav>li>a.btn.btn-white:hover {
+    background-color: #fff;
+    color: #999;
+}
+.btn .material-icons {
+    font-size: 17px;
+    top: -1px;
+    position: relative;
+    width: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.ripple-container {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    position: absolute;
+    pointer-events: none;
+}
+.visible-on-sidebar-mini {
+    display: none!important;
+}
+.sidebarToggle{
+    display: none;
+}
+.sticky .pagination {
+    margin-right: 80px!important;
+}
+.card .card-content {
+    padding: 15px 20px;
+    position: relative;
+}
+.card [data-background-color=purple] {
+    background: #000!important;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4)!important;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4)!important;
+    color: #fff;
+}
+.card {
+    position: relative;
+    width: 100%;
+    color: rgba(0,0,0,.87);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    background: #fff;
+    border-radius: 5px;
+}
+.card:focus {
+  outline: none;
+}
+.card, .card .card-header.card-header-text {
+    display: inline-block;
+}
+.card [data-background-color], .card [data-background-color] a {
+    color: #fff;
+}
+.card [data-background-color] .card-title {
+    color: #fff;
+    margin: 0 !important
+}
+.card [data-background-color]{
+    margin: -15px 15px 0;
+    border-radius: 3px;
+    padding: 15px;
+
+}
+
+.dashboard-footer {
+    float: right;
+    width: -webkit-calc(100% - 260px);
+    width: -moz-calc(100% - 260px);
+    width: calc(100% - 260px)
+}
+.dashboard-footer .footer-upper h2 {
+    font-size: 24px !important;
+}
+.dashboard-footer .subscribe > p {
+    max-height: 270px;
+}
+.packages-holder  .ngxcarousel .ngxcarousel-inner {
+    padding: 20px 0 0;
+}
+
+/* ...................Global Style End................................. */
+
+/* Start  Responsive.css */
+
+
+/* .........................Signup-form-fix start................................. */
+
+.mat-form-field-suffix .mat-icon,
+.sh-signup-form-fix .mat-form-field-prefix .mat-icon {
+    font-size: 125%!important
+}
+
+
+.sh-signup-form-fix.edit-profile .form-group {
+  padding-bottom: 0!important;
+  margin: 0!important
+}
+
+.sh-signup-form-fix .mat-input-element {
+  font-size: 16px;
+  color: #555;
+  padding: 6px 0;
+  font-weight: 600;
+}
+
+.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label {
+font-size: 16px;
+top: 1.58125em;
+font-weight: bold;
+}
+.sh-signup-form-fix .mat-form-field-infix {
+border-top: 0px solid transparent;
+padding: 6px 0;
+margin-top: 2px
+}
+.sh-signup-form-fix .mat-form-field-underline {
+bottom: 18px
+}
+
+.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+padding-bottom: 12px
+}
+
+.sh-signup-form-fix .mat-error {
+font-size: 12px;
+padding-top: 0px;
+color: #c00;
+}
+
+.sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
+padding-bottom: 25px
+}
+.sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+font-size: 16px!important
+}
+.sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+  -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0)!important;
+  -moz-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0)!important;
+  transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0)!important;
+  -ms-transform: translateY(5px) scale(.75)!important
+}
+.sh-signup-form-fix.sh .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+    -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0)!important;
+    -moz-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0)!important;
+    transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0)!important;
+    -ms-transform: translateY(-12px) scale(.75)!important
+}
+.sh-signup-form-fix.edit-profile .mat-input-placeholder.mat-empty {
+    top: 1.28125em!important
+}
+.signup-form .mat-input-element {
+  font-size: 24px !important;
+}
+.signup-form .mat-form-field-underline {
+  bottom: 18px;
+}
+.sh-signup-form-fix .mat-select{
+  box-shadow: none;
+}
+/* .........................Signup-form-fix End................................. */
+
+/* .........................Go to Top Button Start................................. */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: 0;
+    background-color: #c00;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px 10px;
+    border-radius: 50px;
+}
+/* .........................Go to Top Button End................................. */
+
+/* .........................Sidebar more Condence Start................................. */
+.sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
+.sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
+.sh-sidebar-more-condense mat-form-field.mat-form-field {
+    font-size: 13px!important;
+    top: 12px;
+    left: 5px
+}
+.sh-sidebar-more-condense .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.sh-sidebar-more-condense .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
+  transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-12px) scale(.75);
+}
+.sh-sidebar-more-condense .mat-select {
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+}
+.sh-sidebar-more-condense .mat-select-value{
+  padding: 4px 0px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 250px;
+  background: #fff;
+  -webkit-box-shadow: 0 10px 30px -12px rgba(0,0,0,.42), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  box-shadow: 0 10px 30px -12px rgba(0,0,0,.42), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+.sh-sidebar {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.sidebar.custom {
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  background: #fff;
+}
+
+.sh-sidebar-date .mat-form-field-appearance-legacy .mat-form-field-label {
+top: 10px!important
+}
+
+.sidebar {
+width: 250px
+}
+.sidebar .logo {
+width: 100%
+}
+.sidebar.custom .logo {
+padding: 10px
+}
+.sidebar .logo {
+text-align: center
+}
+.sidebar.custom label {
+color: #555 !important;
+}
+/* .........................Sidebar More Condence End................................. */
+
+/* .........................Advance Search Start................................. */
+
+.adv-placeholder .mat-form-field-wrapper {
+  height: 30px;
+  line-height: 38px
+}
+.adv-placeholder .mat-select .mat-select-trigger {
+  padding: 0
+}
+
+.sh-advanceSearch .mat-form-field-underline {
+  bottom: -6px;
+}
+
+.sh-advanceSearch .mat-input-placeholder.mat-empty {
+  top: 13px
+}
+.sh-advanceSearch .mat-input-element {
+  font-size: 16px;
+  color: #000;
+  padding: 12px 0 0px;
+}
+
+.sh-advanceSearch>.row>div {
+  min-height: 53px
+}
+
+.sh-advanceSearch .mat-form-field-infix {
+  border-top: 0 solid transparent;
+  padding: 0
+}
+
+.sh-advanceSearch .mat-form-field-wrapper {
+  padding-bottom: 0
+}
+
+.mat-select-value,
+.sh-advanceSearch .mat-select-trigger {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+  -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0)!important;
+  -moz-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0)!important;
+  transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0)!important;
+  -ms-transform: translateY(5px) scale(.75)!important
+}
+.sh-advanceSearch .mat-form-field-appearance-legacy .mat-form-field-label {
+  font-size: 16px;
+  top: 0.98125em;
+}
+/* .........................Advance Search End................................. */
+
+/* .........................Pagination Start................................. */
+
+.sh-pg-container .mat-select-value-text span {
+  font-size: 15px
+  }.sh-pg-container .mat-form-field-wrapper {
+    padding-bottom: 0
+  }
+
+  .sh-pg-container .mat-select-panel .mat-optgroup-label {
+    line-height: 32px !important;
+    height: 30px !important;
+    font-size: 16px !important;
+  }
+  .sh-pg-container .btn:not(.btn-just-icon):not(.btn-fab) .fa {
+    padding: 0!important
+  }
+  .sh-pg-container mat-form-field.mat-form-field {
+    max-width: 70px;
+    border: none;
+    margin-top: -24px;
+    }
+    .sh-pg-container .mat-form-field-wrapper{
+    padding: 0;
+    }
+    .sh-pg-container .mat-select {
+    background: #fff
+    }
+    .sh-pg-container .mat-form-field-appearance-legacy .mat-form-field-underline{
+    bottom: 7px;
+    }
+    .sh-pg-container .mat-form-field-underline {
+    display: none!important
+    }
+    
+    .sh-pg-container .mat-form-field-infix {
+    border-top: 0 solid transparent;
+    padding: 0
+}
+/* .........................Pagination End................................. */
+
+/* .........................Sidebar Start................................. */
+
+.sidebar-user mat-slider {
+  width: 100%;
+  background-color: #c00
+}
+.sh-sidebar-user .mat-form-field-infix {
+    border-top: 0 solid transparent;
+    padding: 0
+}
+.sh-sidebar-user .mat-select {
+  background-color: #fff!important;
+  font-size: 18px
+}
+.sh-sidebar-user .mat-form-field-flex {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc
+}
+.sh-sidebar-user .mat-option {
+    font-size: 16px!important;
+    font-weight: 400!important
+}
+.sh-sidebar-user .mat-form-field-wrapper {
+    padding-bottom: 10px!important
+}
+
+.sh-sidebar-user .sh-card-content .mat-select-panel {
+    max-width: 220px!important
+}
+.sh-sidebar-user a,
+.sh-sidebar-user button,
+.sh-sidebar-user h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important
+}
+
+.sh-sidebar-user .mat-form-field-underline {
+  display: none!important
+}
+
+.sidebar-user .card-content .mat-form-field-infix {
+  border-top: 0 solid transparent
+}
+
+.sidebar-user .mat-select-value-text {
+font-size: 13px
+}
+
+.sh-sidebar-user .mat-form-field-flex {
+-webkit-border-radius: 5px;
+border-radius: 5px;
+border: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-bottom: 1px solid #e6e6e6
+}
+.sidebar-user .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+font-weight: 400!important
+}
+.sh-sidebar-user .mat-form-field-wrapper {
+padding-bottom: 10px!important
+}
+
+
+.sh-ad-date .mat-input-placeholder.mat-empty {
+  top: 23px
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.sh-ad-date .mat-datepicker-toggle {
+  vertical-align: super!important
+}
+.sh-ad-date .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  -webkit-transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
+  transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-1.28125em) scale(.75);
+  width: 133.33333%;
+}
+
+.sh-ad-date .mat-form-field-underline {
+  bottom: 12px !important;
+}
+.sh-ad-date .mat-form-field-label{
+  top: 1.78125em !important;
+}
+.sh-ad-date input {
+  padding: 5px ;
+}
+
+
+.signup-main .mat-select:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none
+  }
   
   .sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label {
   font-size: 16px;
