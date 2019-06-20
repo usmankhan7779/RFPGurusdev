@@ -107,7 +107,7 @@ export class SigninComponent implements OnInit {
           else if (url == 'advanced-search') {
             this._nav.navigate([url]);
           }
-          else if (url == 'latest-rfp') {
+          else if (url == 'latest-rfps') {
             this._nav.navigate([url]);
           }
           else {
@@ -189,7 +189,7 @@ export class SigninComponent implements OnInit {
                 else if (url == 'advanced-search') {
                   this._nav.navigate([url]);
                 }
-                else if (url == 'latest-rfp') {
+                else if (url == 'latest-rfps') {
                   this._nav.navigate([url]);
                 }
                 else {
