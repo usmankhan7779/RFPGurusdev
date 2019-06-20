@@ -8,7 +8,7 @@ import { AdvanceService } from '../advance-search/advance.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { SeoService } from 'src/app/services/seoService';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-find-rfp',
   templateUrl: './find-rfp.component.html',
@@ -76,8 +76,10 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   subcates;
   submission_from;
   submission_to;
-
-  constructor(private homeServ: HomeService, private datePipe: DatePipe, private route: ActivatedRoute, private _adserv: AdvanceService, private pagerService: PagerService, private http: HttpClient, private _nav: Router, private seoService: SeoService) { }
+  f;
+  constructor(private homeServ: HomeService, private datePipe: DatePipe, private route: ActivatedRoute, private _adserv: AdvanceService, private pagerService: PagerService, private http: HttpClient, private _nav: Router, private seoService: SeoService) { 
+    
+  }
 
   ngOnInit() {
     window.scroll(0, 0);
@@ -139,6 +141,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         } else {
           this.onPaginateChange(1);
         }
+        this.formclear(this.f);
         // this.onPaginateChange(1);
       })
 
@@ -204,7 +207,29 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   //   }
   //   // this.setPage(this.pageSize)
   // }
-
+  formclear(f : NgForm) {
+    delete this.status;
+    delete this.enterdate;
+    delete this.duedate;
+    delete this.states;
+    delete this.agencies;
+    delete this.cates;
+    // delete this.enterdate;
+    // delete this.duedate;
+    delete this.subcates;
+    delete this.submission_from;
+    delete this.submission_to;
+    localStorage.removeItem('status');
+    localStorage.removeItem('enterdate');
+    localStorage.removeItem('duedate');
+    localStorage.removeItem('states');
+    localStorage.removeItem('agencies');
+    localStorage.removeItem('subcates');
+    localStorage.removeItem('submission_from');
+    localStorage.removeItem('submission_to');
+    console.log(this.status);
+f.resetForm();
+  }
   changestate(states) {
 
     this.states = states;
