@@ -27,14 +27,14 @@ const routes: Routes = [
   { path: 'faqs', loadChildren: './components/static/residential/residential.module#DialogOverviewModule' },
   { path: 'rfp-as-service', loadChildren: './components/static/rfp-as-service/rfp-as-service.module#RfpAsServiceModule' },
   { path: 'terms', loadChildren: './components/static/terms/terms.module#TermsModule' },
-  { path: 'what-is-rfp', loadChildren: './components/static/what-is-rfp/what-is-rfp.module#WhatIsRfpModule' },
+  { path: 'what-is-rfpgurus', loadChildren: './components/static/what-is-rfp/what-is-rfp.module#WhatIsRfpModule' },
   { path: 'what-we-do', loadChildren: './components/static/what-we-do/what-we-do.module#WhatWeDoModule' },
   { path: 'why-rfpgurus', loadChildren: './components/static/why-rfpgurus/why-rfpgurus.module#WhyRfpgurusModule' },
 
   // =========== All =========== 
   { path: 'all-category', loadChildren: './components/all/all-category/all-category.module#AllCategoryModule' },
   { path: 'all-agencies', loadChildren: './components/all/all-agencies/all-agencies.module#AllAgenciesModule' },
-  { path: 'all-state', loadChildren: './components/all/all-state/all-state.module#AllStateModule' },
+  { path: 'all-states', loadChildren: './components/all/all-state/all-state.module#AllStateModule' },
   { path: 'forgetpassword/:query2', loadChildren: './components/forget-password/forget-password.module#ForgetPasswordModule' },
 
 
@@ -56,8 +56,8 @@ const routes: Routes = [
     path: '', component: FiltersComponent, 
     children: [
 
-      { path: 'latest-rfp', loadChildren: './components/all/all-rfps/all-rfps.module#AllRfpsModule' },
-      { path: 'find-rfp', loadChildren: './components/other/find-rfp/find-rfp.module#FindRfpModule' },
+      { path: 'latest-rfps', loadChildren: './components/all/all-rfps/all-rfps.module#AllRfpsModule' },
+      { path: 'find-rfps', loadChildren: './components/other/find-rfp/find-rfp.module#FindRfpModule' },
       { path: 'searched-data', loadChildren: './components/other/results/results.module#ResultsModule' },
 
       // =========== Single ===========    
