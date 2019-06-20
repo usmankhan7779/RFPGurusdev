@@ -167,14 +167,14 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
                         <ul class="list-normal">
                           <li *ngIf="!subscribe; else pdf">
-                            <a routerLink="pricing">
+                            <a routerLink="/pricing">
                               <i class="fa fa-credit-card"></i>
                               View Pricing/Package Details
                             </a>
                           </li>
                           <ng-template #pdf>
 
-                            <li (click)="check_trial(rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
+                            <li (click)="check_trial(rfp.id,rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                               <a>
                                   <i class="material-icons">insert_drive_file</i>
                                   View Documents
@@ -182,7 +182,7 @@
                            
                           </li>
                           <ng-template #link>
-                            <li (click)="check_trial(rfp.web_info)">
+                            <li (click)="check_trial(rfp.id,rfp.web_info)">
                               
                               <a>
                                 <i class="material-icons">insert_drive_file</i>

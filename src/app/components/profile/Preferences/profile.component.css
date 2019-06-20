@@ -13,8 +13,9 @@ cursor: pointer;
 padding: 15px
 }
 #display_advance {
-    min-height: 500px;
-    margin-top: 30px;
+  min-height: 500px;
+  margin: 30px auto;
+  float: none;
 }
 #display_advance .card{
     max-width: 880px;
@@ -82,4 +83,7 @@ padding: 15px
 }
 .card .card-header.card-header-icon+.card-content .card-title {
   padding-bottom: 0;
+}
+.fa-times{
+    margin-top: 3px;
 }

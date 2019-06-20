@@ -143,7 +143,7 @@
             </div>
             <div class="products-area sh-products-area">
                 <div class="adv-pagination header" id="myHeader">
-                    <div class=" col-sm-11 mg-0-auto sh-pg-container">
+                    <div class="  mg-0-auto sh-pg-container top-page">
                         <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12 text-right">
                             <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
                                 <li [ngClass]="{hide:pager.currentPage === 1}">
@@ -196,12 +196,16 @@
                             <label class="product-label">Items per page:
                             </label>
                             <mat-form-field>
-                                <mat-select class="width-sec" placeholder="" selected="10" 
+                                <!-- <mat-select class="width-sec" placeholder="" selected="10" 
                                     value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
-                                    <mat-option value="10" selected="true">10</mat-option>
-                                    <mat-option value="20" (click)="page(pageSize)">20 </mat-option>
-                                    <mat-option value="35" (click)="page(pageSize)">35</mat-option>
-                                    <mat-option value="50" (click)="page(pageSize)">50</mat-option>
+                                    <mat-option value="10" selected="true">10</mat-option> -->
+                                    <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                    <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                    <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                    <mat-option onclick="topFunction()" value="50">50</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -297,13 +301,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
                                         <ul class="list-normal">
                                             <li *ngIf="!subscribe; else pdf">
-                                                <a routerLink="pricing">
+                                                <a routerLink="/pricing">
                                                     <i class="fa fa-credit-card"></i>
                                                     Pricing/Package Details
                                                 </a>
                                             </li>
                                             <ng-template #pdf>
-                                                <li (click)="check_trial(rfp.web_info)"
+                                                <li (click)="check_trial(rfp.id,rfp.web_info)"
                                                     *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                                                     <a>
                                                         <i class="material-icons">insert_drive_file</i>
@@ -312,7 +316,7 @@
 
                                                 </li>
                                                 <ng-template #link>
-                                                    <li (click)="check_trial(rfp.web_info)">
+                                                    <li (click)="check_trial(rfp.id,rfp.web_info)">
 
                                                         <a>
                                                             <i class="material-icons">insert_drive_file</i>
@@ -403,13 +407,21 @@
                         <label class="product-label">Items per page:
                         </label>
                         <mat-form-field>
-                            <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
+                            <!-- <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
                                 value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
                                 <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
                                 <mat-option onclick="topFunction()" value="20">20 </mat-option>
                                 <mat-option onclick="topFunction()" value="35">35</mat-option>
                                 <mat-option onclick="topFunction()" value="50">50</mat-option>
-                            </mat-select>
+                            </mat-select> -->
+                            <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                <mat-option onclick="topFunction()" value="50">50</mat-option>
+                                </mat-select>
                         </mat-form-field>
                     </div>
                 </div>

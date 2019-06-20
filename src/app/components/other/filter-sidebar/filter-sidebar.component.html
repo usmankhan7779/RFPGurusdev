@@ -1,6 +1,5 @@
 <div class="sidebar-user sh-sidebar-user ">
 
-    <nav>
         <div class="card-content sh-card-content" >
             <form (ngSubmit)="onSubmit()" novalidate class="sh-sidebar-more-condense sh-date ">
                 <div class="row">
@@ -143,7 +142,6 @@
             </form>
         </div>
         <ul class="list-category" style="margin-top: -10px">
-
             <li>
                 <h5>
                     <span>States</span>
@@ -159,41 +157,41 @@
                         </div>
                 -->
 
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)="formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'California'}">California</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'Florida'}">Florida</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)="formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'Georgia'}">Georgia</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'Illinois'}">Illinois</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'Massachusetts'}">Massachusetts</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'New Jersey'}">New
                     Jersey</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']" [queryParams]="{ state: 'New York'}">
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']" [queryParams]="{ state: 'New York'}">
                     New York</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'North Carolina'}">North
                     Carolina</a>
             </li>
             <li>
-                <a class="abc" (click)=" formclear()" [routerLink]="['/state']"
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
                     [queryParams]="{ state: 'Texas'}">Texas</a>
             </li>
             <li>
@@ -233,5 +231,5 @@
                 All Categories</button>
 
         </ul>
-    </nav>
+  
 </div>

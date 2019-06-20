@@ -1,8 +1,9 @@
 <section id="contact">
   <div class="text-center">
-    <h2 class="main_heading">Get in Touch with us</h2>
+      <h2 class="main_heading">Contact Us</h2>
+    <!-- <h2 class="main_heading">Get in Touch with us</h2>
     <p>If you feel any kind of queries, Please feel free to Contact Us. Just leave a
-      Message, Our customer support person will contact you.</p>
+      Message, Our customer support person will contact you.</p> -->
   </div>
   <div class="contact-section">
     <div class="container">
@@ -34,7 +35,7 @@
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Enter your feedback here" formControlName="message" required></textarea>
+                    <textarea matInput placeholder="Message" formControlName="message" required></textarea>
                     <mat-error *ngIf="form.controls.message.valid == false"><strong>Message cannot be empty or invalid</strong></mat-error>
                   </mat-form-field>
                 </div>

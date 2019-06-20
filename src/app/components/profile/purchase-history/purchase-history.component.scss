@@ -689,20 +689,14 @@ margin: 0
 .company-details>h2{
   margin: 0
 }
-.sh-btn-success {
-  padding: 0 10px!important;
-  text-transform: capitalize;
-  cursor: text
+.active-rfp{
+  font-size: 16px;
+  color: #028002;
+  font-weight: 600 !important;
 }
-.sh-btn-success {
-  padding: 10px;
-  font-weight: 900;
-  font-size: 30px
-}
-
-.sh-btn-success,
-.sh-btn-success:hover {
-  background-color: #000!important
+.table {
+  width: 100%;
+  table-layout: fixed;
 }
 @media print {
     .invoice {
@@ -730,13 +724,14 @@ margin: 0
   color: #fff!important
 }
 .history-header h2 {
-  font-size: 24px;
-  padding:10px;
+  padding: 5px;
   background: #000;
   color: #fff;
-  margin-bottom: 0;
 }
-
+.history-header{
+  text-align: center;
+  margin-top: 20px;
+}
 .history-table th {
   font-size: 20px!important;
   text-align: center;
@@ -763,4 +758,7 @@ margin: 0
 
 .history-table .no-pkg {
   color: #f80000
+}
+.history-table tbody tr td {
+  padding: 10px;
 }

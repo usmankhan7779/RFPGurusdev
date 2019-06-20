@@ -1,5 +1,5 @@
 <div class="row margin-0">    
-    <div class="col-lg-offset-3 col-md-offset-3 col-lg-9 col-md-9 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
+    <div class=" col-lg-10 col-md-3 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
         <div class="card">
             <form [formGroup]="register" class=" edit-profile sh-pref-selectlist">
                 <div class="card-header card-header-icon" data-background-color="rose">
@@ -39,7 +39,9 @@
                                                             [selectable]="selectable" [removable]="removable"
                                                             (removed)="remove(list, $event)">
                                                             {{list}}
-                                                            <mat-icon matChipRemove *ngIf="removable"></mat-icon>
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                <i class="fa fa-times"></i>
+                                                            </mat-icon>
                                                         </mat-chip>
                                                         <input [matChipInputFor]="chipList"
                                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -65,7 +67,9 @@
                                                             [selectable]="selectable" [removable]="removable"
                                                             (removed)="remove1(list, $event)">
                                                             {{list}}
-                                                            <mat-icon matChipRemove *ngIf="removable"></mat-icon>
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
                                                         </mat-chip>
                                                         <input [matChipInputFor]="chipList"
                                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -92,7 +96,9 @@
                                                             [selectable]="selectable" [removable]="removable"
                                                             (removed)="remove4(list, $event)">
                                                             {{list}}
-                                                            <mat-icon matChipRemove *ngIf="removable"></mat-icon>
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
                                                         </mat-chip>
                                                         <input [matChipInputFor]="chipList"
                                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -122,7 +128,9 @@
                                                             [selectable]="selectable" [removable]="removable"
                                                             (removed)="remove3(list, $event)">
                                                             {{list}}
-                                                            <mat-icon matChipRemove *ngIf="removable"></mat-icon>
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
                                                         </mat-chip>
                                                         <input [matChipInputFor]="chipList"
                                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -149,7 +157,9 @@
                                                             [selectable]="selectable" [removable]="removable"
                                                             (removed)="remove2(list, $event)">
                                                             {{list}}
-                                                            <mat-icon matChipRemove *ngIf="removable"></mat-icon>
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
                                                         </mat-chip>
                                                         <input [matChipInputFor]="chipList"
                                                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"

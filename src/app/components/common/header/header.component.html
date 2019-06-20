@@ -206,9 +206,7 @@
                         </div>
                         <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
                           <h5 (click)="updatenofication(item?.id)"> {{item.description}}</h5>
-                          <div>
-                            {{item.timecreated | date }}
-                        </div>
+                          
                         </div>
                       </a>
                       <a  onclick="topFunction()"*ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
