@@ -37,7 +37,7 @@
 }
 .sidebar-user .btn {
   width: 100%;
-  box-shadow: 0 6px 10px #ccc !important;
+  box-shadow: 0 3px 6px 2px #ccc !important;
   font-weight: 600 !important;
 }
 
@@ -110,7 +110,7 @@ font-weight: 400!important
 .sh-refresh-res {
 font-size: 18px!important;
 margin-top: 0;
-margin-bottom: 20px;
+margin-bottom: 10px;
 }
 .list-category li a {
   cursor: pointer;

@@ -153,28 +153,14 @@
                     <mat-error *ngIf="form.controls.expirydate.errors.required">
                       Expiry date cannot be empty
                     </mat-error>
-                    <!-- <div *ngIf="expirydate == 12/2018">
-                                  Invalid Expiry Date
-                                </div> -->
-                    <!-- <div *ngIf="msg == 'Expiry Date must be greater than current'">Expiry Date must be greater than current</div> -->
-
                     <mat-error *ngIf="form.controls.expirydate.hasError('pattern')">
                       Expiry date must be in MM/YY format.
                     </mat-error>
-
-
                   </mat-error>
-
-                  <!-- <div *ngIf="expirydate <= '19'">
-                                  Invalid Expiry Date
-                              </div> -->
                 </mat-form-field>
                 <p *ngIf="expirydate <= '19'" class="clr_red">
                   Invalid Expiry Date
                 </p>
-                <!-- <span class="card-error" >
-                             
-                            </span> -->
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'address')">
                 <mat-form-field>
