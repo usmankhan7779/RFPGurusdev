@@ -97,7 +97,7 @@ export class SingleRfpComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['pricing']);
           this.rfpid = params['query'];
           localStorage.setItem('member', this.rfpid);
         }
