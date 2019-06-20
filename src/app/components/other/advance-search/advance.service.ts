@@ -19,7 +19,7 @@ export class AdvanceService {
       "agency": agency,
       "category": category,
       "sub_category": sub_category
-    }), { headers: this.authInterceptor.setHeaders() }).map((response: Response) => response.json());
+    }), { headers: this.authInterceptor.setHeaders() });
   }
   admindropdown(state) {
     return this.http.post('https://apis.rfpgurus.com/rf_p/add_rfp_dropdown/', JSON.stringify({

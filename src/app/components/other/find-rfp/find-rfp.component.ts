@@ -133,12 +133,12 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         else if (localStorage.getItem('subcat') == null) {
           delete this.subcates;
         }
-        // if (localStorage.getItem('pages')) {
-        //   var page_num: number = Number(localStorage.getItem('pages'));
-        //   this.onPaginateChange(page_num);
-        // } else {
+        if (localStorage.getItem('pages')) {
+          var page_num: number = Number(localStorage.getItem('pages'));
+          this.onPaginateChange(page_num);
+        } else {
           this.onPaginateChange(1);
-        // }
+        }
         // this.onPaginateChange(1);
       })
 
