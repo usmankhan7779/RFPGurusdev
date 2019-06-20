@@ -83,3 +83,6 @@ padding: 15px
 .card .card-header.card-header-icon+.card-content .card-title {
   padding-bottom: 0;
 }
+.fa-times{
+    margin-top: 3px;
+}

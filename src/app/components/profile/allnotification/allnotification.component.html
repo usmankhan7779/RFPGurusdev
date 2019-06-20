@@ -77,6 +77,9 @@
 
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
                 </div>
               </a>
               <a class="heart-heading"
@@ -88,12 +91,13 @@
                 <span class="sh-del " (click)="deletenofication(item?.id)">
                   <i class="fa fa-times"></i>
                 </span>
-                <div class="heart-detail plan-detail">
-                  <div>
-<p>{{item?.timecreated | date}}</p>
-</div>
+                <div class="heart-detail ">
+                  
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                    </div>
                 </div>
               </a>
             </div>
@@ -114,9 +118,9 @@
                   <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
-                    <div>
-                        {{item.timecreated | date }}
-                    </div>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
                 </div>
               </a>
               <a class="heart-heading"
@@ -132,6 +136,9 @@
                 <div class="heart-detail  ">
                   <!-- (click)="single(item.target);updatenofication(item?.id)" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>
+                  <div class="text-right">
+                      {{item?.timecreated | date}}
+                    </div>
                   <!-- <h5 > {{item.description}}</h5> -->
                 </div>
               </a>
