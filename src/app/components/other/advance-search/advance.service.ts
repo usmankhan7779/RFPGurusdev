@@ -9,8 +9,8 @@ import { Http, Headers, Response } from '@angular/http';
 export class AdvanceService {
 
   constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
-  trial_document() {
-    return this.http.get('https://apis.rfpgurus.com/document_trial/');
+  trial_document(id) {
+    return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
   }
   dropdown(state, agency, category, sub_category) {
         
@@ -19,7 +19,7 @@ export class AdvanceService {
       "agency": agency,
       "category": category,
       "sub_category": sub_category
-    }), { headers: this.authInterceptor.setHeaders() }).map((response: Response) => response.json());
+    }), { headers: this.authInterceptor.setHeaders() });
   }
   admindropdown(state) {
     return this.http.post('https://apis.rfpgurus.com/rf_p/add_rfp_dropdown/', JSON.stringify({

@@ -233,7 +233,8 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
               this.item = data['TotalResult'];
               this.length = this.item;
               this.search = true;
-              this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
+              // this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
+              this.pager = this.pagerService.getPager(data['TotalResult'], page, this.pageSize);
             },
             error => {
               // this.search = true;
@@ -293,12 +294,12 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      if (localStorage.getItem('page')) {
-        var page_num: number = Number(localStorage.getItem('page'));
-        this.onSubmit(page_num);
-      } else {
-        this.onSubmit(1);
-      }
+      // if (localStorage.getItem('page')) {
+      //   var page_num: number = Number(localStorage.getItem('page'));
+      //   this.onSubmit(page_num);
+      // } else {
+        this.onSubmit(this.pageSize);
+      // }
     }
     else {
       delete this.pageSize;
@@ -388,6 +389,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   sub_categories: any = [];
   select_state() {
     if (this.states) {
+      
       localStorage.removeItem('agenciess');
       localStorage.removeItem('catess');
       localStorage.removeItem('subcats');
@@ -396,13 +398,13 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       delete this.subcate;
     }
     if (this.states == 'all') {
-
+       
     } else {
       this._serv.dropdown(this.states, this.agencies, this.cates, this.subcate).subscribe(
         data => {
           if (data['States']) {
             this.state = data['States'];
-            
+           
           }
           if (data['Categories']) {
             this.cat = data['Categories'];
@@ -434,13 +436,17 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           console.log(data);
           if (data['States']) {
             this.state = data['States'];
+            console.log("select_agency",this.state)
 
           }
           if (data['Categories']) {
             this.cat = data['Categories'];
+            console.log("select_agency",this.cat)
+
           }
           if (data['Agencies']) {
             this.agency = data['Agencies'];
+            console.log("select_agency",this.agency)
 
           }
           if (data['Sub_categories_list']) {
@@ -458,16 +464,21 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       data => {
         if (data['States']) {
           this.state = data['States'];
+          console.log("select_category",this.state)
 
         }
         if (data['Categories']) {
           this.cat = data['Categories'];
+          console.log("select_category",this.cat)
         }
         if (data['Agencies']) {
           this.agency = data['Agencies'];
+          console.log("select_category",this.agency)
 
         }
-        if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
+        if (data['Sub_categories_list'])
+         { this.sub_categories = data['Sub_categories_list']; }
+         console.log("select_category",this.sub_categories)
 
       })
   }
@@ -535,26 +546,46 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     });
 
   }
+  id;
   doc;
   check_trial(url) {
     if (this.subscribe == "Trial Subscription user") {
-      this._serv.trial_document().subscribe(
+      alert(this.id);
+      this._serv.trial_document(this.id).subscribe(
         data => {
-
           if (data['status'] == 'True') {
             this.doc = data['status'];
-            window.open(url, '_blank');
-          } else {
+            window.open(data['web_info'], '_blank');
+          }
+        },
+        error => {
+          if (error.status == 400) {
             swal({
               type: 'error',
-              title: "You can't download more documents",
+              title: "Bad request!",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
             });
-
           }
-
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
         })
     } else if (this.subscribe == "Subscribe user") {
 

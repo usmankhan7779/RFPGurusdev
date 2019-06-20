@@ -238,19 +238,40 @@ export class CategoryRfpComponent implements OnInit {
     let sth = 'rfp/' + query;
     this._nav.navigate([sth]);
   }
+  id;
   doc;
   check_trial(url) {
     if (this.subscribe == "Trial Subscription user") {
-      this._adserv.trial_document().subscribe(
+      this._adserv.trial_document(this.id).subscribe(
         data => {
           if (data['status'] == 'True') {
             this.doc = data['status'];
-            window.open(url, '_blank');
+            window.open(data['web_info'], '_blank');
           }
-          else {
+        },
+        error => {
+          if (error.status == 400) {
             swal({
               type: 'error',
-              title: "You can't download more documents",
+              title: "Bad request!",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
