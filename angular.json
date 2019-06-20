@@ -35,7 +35,8 @@
               "node_modules/slick-carousel/slick/slick.min.js",
               "node_modules/hammerjs/hammer.min.js",
               "node_modules/sweetalert2/dist/sweetalert2.min.js",
-              "node_modules/arrive/minified/arrive.min.js"
+              "node_modules/arrive/minified/arrive.min.js",
+              "src/assets/top.js"
             ]
           },
           "configurations": {

@@ -4948,5 +4948,24 @@ padding: 0 5px;
   .svg_map {
     width: 60%  !important;
 }
+
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    z-index: 99;
+    right: 10px;
+    border: none;
+    outline: 0;
+    background-color: #c00;
+    /* box-shadow: 0 0 12px #c00; */
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px
 }
 /* End  Responsive.css */
