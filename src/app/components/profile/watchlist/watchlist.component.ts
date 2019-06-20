@@ -152,19 +152,41 @@ export class WatchlistComponent implements OnInit {
   doc;
   check_trial(url) {
     if (this.subscribe == "Trial Subscription user") {
-      this.advanceServ.trial_document().subscribe(
+      this.advanceServ.trial_document(this.id).subscribe(
         data => {
-
           if (data['status'] == 'True') {
             this.doc = data['status'];
-            window.open(url, '_blank');
-            return true
-
-          } else {
-
-            return false;
+            window.open(data['web_info'], '_blank');
           }
-
+        },
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "Bad request!",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
         })
     } else if (this.subscribe == "Subscribe user") {
 
