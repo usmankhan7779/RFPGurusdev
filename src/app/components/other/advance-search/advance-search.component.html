@@ -198,9 +198,13 @@
                             <label class="product-label">Items per page:
                             </label>
                             <mat-form-field>
-                                <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
+                                <!-- <mat-select class="width-sec" placeholder="" selected="10" 
                                     value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
-                                    <mat-option onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                    <mat-option value="10" selected="true">10</mat-option> -->
+                                    <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
                                     <mat-option onclick="topFunction()" value="20">20 </mat-option>
                                     <mat-option onclick="topFunction()" value="35">35</mat-option>
                                     <mat-option onclick="topFunction()" value="50">50</mat-option>
@@ -305,7 +309,7 @@
                                                 </a>
                                             </li>
                                             <ng-template #pdf>
-                                                <li (click)="check_trial(rfp.web_info)"
+                                                <li (click)="check_trial(rfp.id,rfp.web_info)"
                                                     *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                                                     <a>
                                                         <i class="material-icons">insert_drive_file</i>
@@ -314,7 +318,7 @@
 
                                                 </li>
                                                 <ng-template #link>
-                                                    <li (click)="check_trial(rfp.web_info)">
+                                                    <li (click)="check_trial(rfp.id,rfp.web_info)">
 
                                                         <a>
                                                             <i class="material-icons">insert_drive_file</i>
@@ -405,13 +409,21 @@
                         <label class="product-label">Items per page:
                         </label>
                         <mat-form-field>
-                            <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
+                            <!-- <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
                                 value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
                                 <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
                                 <mat-option onclick="topFunction()" value="20">20 </mat-option>
                                 <mat-option onclick="topFunction()" value="35">35</mat-option>
                                 <mat-option onclick="topFunction()" value="50">50</mat-option>
-                            </mat-select>
+                            </mat-select> -->
+                            <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                <mat-option onclick="topFunction()" value="50">50</mat-option>
+                                </mat-select>
                         </mat-form-field>
                     </div>
                 </div>

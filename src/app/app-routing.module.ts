@@ -53,7 +53,8 @@ const routes: Routes = [
 
   // =========== Filters ===========  
   {
-    path: '', component: FiltersComponent, children: [
+    path: '', component: FiltersComponent, 
+    children: [
 
       { path: 'latest-rfp', loadChildren: './components/all/all-rfps/all-rfps.module#AllRfpsModule' },
       { path: 'find-rfp', loadChildren: './components/other/find-rfp/find-rfp.module#FindRfpModule' },

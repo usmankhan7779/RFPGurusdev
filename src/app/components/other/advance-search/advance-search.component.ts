@@ -79,6 +79,8 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   postedDate;
   DueDate;
   subcatsearch;
+  rfpid: string;
+  id;
   foods = [
     { value: 'active', viewValue: 'Active' },
     { value: 'expire', viewValue: 'Expired' },
@@ -293,12 +295,12 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      if (localStorage.getItem('page')) {
-        var page_num: number = Number(localStorage.getItem('page'));
-        this.onSubmit(page_num);
-      } else {
+      // if (localStorage.getItem('page')) {
+      //   var page_num: number = Number(localStorage.getItem('page'));
+      //   this.onSubmit(page_num);
+      // } else {
         this.onSubmit(1);
-      }
+      // }
     }
     else {
       delete this.pageSize;
@@ -487,7 +489,6 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
         header.classList.remove("sticky");
       }
     }
-
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Advanced Search');
@@ -509,13 +510,13 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     }
 
     // this.onPaginateChange(1);
-    if (localStorage.getItem('page')) {
-      var page_num: number = Number(localStorage.getItem('page'));
-      this.onSubmit(page_num);
-    }
-    else {
+    // if (localStorage.getItem('page')) {
+    //   var page_num: number = Number(localStorage.getItem('page'));
+    //   this.onSubmit(page_num);
+    // }
+    // else {
       this.onSubmit(1);
-    }
+    // }
 
     this.endRequest = this.homeServ.rfpstate().subscribe(
       data => {
@@ -536,25 +537,43 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
 
   }
   doc;
-  check_trial(url) {
+  check_trial(id,url) {
     if (this.subscribe == "Trial Subscription user") {
-      this._serv.trial_document().subscribe(
+      this._serv.trial_document(id).subscribe(
         data => {
-
           if (data['status'] == 'True') {
             this.doc = data['status'];
-            window.open(url, '_blank');
-          } else {
+            window.open(data['web_info'], '_blank');
+          }
+        },
+        error => {
+          if (error.status == 400) {
             swal({
               type: 'error',
-              title: "You can't download more documents",
+              title: "Bad request!",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
             });
-
           }
-
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
         })
     } else if (this.subscribe == "Subscribe user") {
 
