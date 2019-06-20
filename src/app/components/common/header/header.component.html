@@ -157,7 +157,7 @@
                       </a>
                       <div class="heart-detail plan-detail curser-pointer" [routerLink]="['rfp']"
                         [queryParams]="{query:data?.wrfp.seoTitleUrl}">
-                        <h5><i class="fa fa-university"></i>Category : <span>{{data?.wrfp.new_category}}</span></h5>
+                        <h5 class="ellipsis"><i class="fa fa-university"></i>Category : <span>{{data?.wrfp.new_category}}</span></h5>
                         <h5><i class="fa fa-fort-awesome"></i>State : <span> {{data?.wrfp.state}}</span></h5>
                         <h5 *ngIf="data?.wrfp.agency"><i class="fa fa-building-o"></i>Agency :
                           <span>{{data?.wrfp.agency}}</span></h5>
@@ -228,7 +228,6 @@
                               {{item.timecreated | date }}
                           </div>
                         </div>
-                        <br/>
                       </a>
                     </div>
                   </div>

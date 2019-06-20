@@ -28,7 +28,8 @@ padding: 5px
 }
 @media (max-width:1080px) {
   .sh-products-area .table-normal td {
-    font-size: 15px
+    font-size: 13px;
+    padding: 3px;
 }
 }
 @media (max-width:991px) {
