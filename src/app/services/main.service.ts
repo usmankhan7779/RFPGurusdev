@@ -2,11 +2,12 @@ import { SetHeaders } from './../AuthGuards/auth.interceptor';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
+import { Http, Headers, Response } from '@angular/http';
 
 @Injectable()
 export class MainService {
 
-    constructor(private http: HttpClient, private authInterceptor: SetHeaders) { }
+    constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
     purchaseHistory() {
         return this.http.get('https://apis.rfpgurus.com/payment/history/' + JSON.parse(localStorage.getItem('currentUser')).username + '/');
     }
@@ -14,7 +15,10 @@ export class MainService {
         return this.http.get('https://apis.rfpgurus.com/trail_history/');
     }
     deactivetrial() {
-        return this.http.get('https://apis.rfpgurus.com/deactivate_trail/');
+        let headers = new Headers();
+        headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+        headers.append('Content-Type', 'application/json');
+        return this._https.get('https://apis.rfpgurus.com/deactivate_trail/', {headers:headers}).map((response: Response) => response.json());
     }
 
     expirePackage(expDate) {

@@ -86,7 +86,7 @@ export class SingleRfpComponent implements OnInit {
       data => {
         if (data['status'] = "200") {
           swal(
-            'File Downloaded Successfully!',
+            'File Downloaded Successfully',
             '',
             'success'
           )
@@ -97,7 +97,7 @@ export class SingleRfpComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['pricing']);
           this.rfpid = params['query'];
           localStorage.setItem('member', this.rfpid);
         }
@@ -212,16 +212,36 @@ export class SingleRfpComponent implements OnInit {
   doc;
   check_trial(url) {
     if (this.subscribe == "Trial Subscription user") {
-      this.advanceServ.trial_document().subscribe(
+      this.advanceServ.trial_document(this.id).subscribe(
         data => {
-
           if (data['status'] == 'True') {
             this.doc = data['status'];
-            window.open(url, '_blank');
-          } else {
+            window.open(data['web_info'], '_blank');
+          }
+        },
+        error => {
+          if (error.status == 400) {
             swal({
               type: 'error',
-              title: "You can't download more documents",
+              title: "Bad request!",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

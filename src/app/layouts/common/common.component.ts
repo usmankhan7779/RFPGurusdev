@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-common',
@@ -6,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./common.component.css']
 })
 export class CommonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  // status: boolean = false;
+  constructor(private route: Router) { }
   
+  ngOnInit() {
+    
+  }
+
   w3_open() {
     document.getElementById("mySidebar").style.width = "250px";
   }

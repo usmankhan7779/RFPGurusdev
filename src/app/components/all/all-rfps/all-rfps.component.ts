@@ -106,7 +106,7 @@ export class AllRfpsComponent implements OnInit {
   memberonly() {
 
     if (!this.local) {
-      this._nav.navigate(['login']);
+      this._nav.navigate(['pricing']);
       localStorage.setItem('member', 'latest-rfp');
     }
     else if (!this.subscribe) {
@@ -203,7 +203,16 @@ export class AllRfpsComponent implements OnInit {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "Your free trial has been expired!",
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

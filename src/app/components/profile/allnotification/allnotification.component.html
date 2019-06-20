@@ -12,29 +12,38 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
                 routerLink="/purchase-history" (click)="deletenofication(item?.id)">
+                <p class="">
                 {{item.type_of_notification}}
 
                 <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-times"></i>
                 </span>
-                <div class="heart-detail plan-detail">
+                </p>
+                <div class="heart-detail ">
 
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
                 </div>
               </a>
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
                 [routerLink]="['/rfp']" [queryParams]="{query:item.target}" (click)="move();deletenofication(item?.id)">
+                <p class="">
                 {{item.type_of_notification}}
 
                 <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-times"></i>
                 </span>
-                <div class="heart-detail plan-detail">
-
+                <div class="heart-detail ">
+                  
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                    </div>
                 </div>
               </a>
             </div>
@@ -44,29 +53,38 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
                 routerLink="/purchase-history" (click)="deletenofication(item?.id)">
-                {{item.type_of_notification}}
+                <p>
+                  {{item.type_of_notification}}
 
-                <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
-                </span>
-                <div class="heart-detail plan-detail">
+                  <span class="sh-del " (click)="deletenofication(item?.id)">
+                    <i class="fa fa-times"></i>
+                  </span>
+                </p>
+                <div class="heart-detail ">
                   <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
                 </div>
               </a>
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
                 [routerLink]="['/rfp']" [queryParams]="{query:item.target}" (click)="move();deletenofication(item?.id)">
-                {{item.type_of_notification}}
+                <p>
+                  {{item.type_of_notification}}
 
-                <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
-                </span>
-
-                <div class="heart-detail plan-detail ">
+                  <span class="sh-del " (click)="deletenofication(item?.id)">
+                    <i class="fa fa-times"></i>
+                  </span>
+                </p>
+                <div class="heart-detail  ">
                   <!-- (click)="single(item.target);updatenofication(item?.id)" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>
+                  <div class="text-right">
+                      {{item?.timecreated | date}}
+                    </div>
                   <!-- <h5 > {{item.description}}</h5> -->
                 </div>
               </a>

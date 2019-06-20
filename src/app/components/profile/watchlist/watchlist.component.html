@@ -1,11 +1,11 @@
-<div class="main-panel">
 
-  <div class="main-content custom">
+
+  <div class="">
     <div class="container-fluid">
 
-      <div class="row">
+      <div class="row margin-0">
 
-        <div class="col-sm-12">
+        <div class="col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12 col-xs-12 center-admin-form">
 
           <div class="col-sm-6 page-title">
             <span>Watch List</span>
@@ -89,7 +89,7 @@
                         </li>
                         <ng-template #pdf>
 
-                          <li (click)="check_trial(rfp?.wrfp.web_info)"
+                          <li (click)="check_trial(rfp.wrfp.id,rfp?.wrfp.web_info)"
                             *ngIf=" rfp?.wrfp.rfp_reference == 'Download File' ; else link ">
                             <a>
                               <i class="material-icons">insert_drive_file</i>
@@ -98,7 +98,7 @@
 
                           </li>
                           <ng-template #link>
-                            <li (click)="check_trial(rfp?.wrfp.web_info)">
+                            <li (click)="check_trial(rfp.wrfp.id,rfp?.wrfp.web_info)">
 
                               <a>
                                 <i class="material-icons">insert_drive_file</i>
