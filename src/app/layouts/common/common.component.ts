@@ -9,14 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CommonComponent implements OnInit {
   // status: boolean = false;
   constructor(private route: Router) { }
-  url;
+  
   ngOnInit() {
-    this.url = this.route.url;
-    // || 'find-rfp' || '' || '' || '' || '' || '' || '' || ''
-    console.log("url: "+this.url);
-    if (this.url == 'latest-rfp') {
-      // this.status = true;
-    }
+    
   }
 
   w3_open() {

@@ -298,7 +298,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       //   var page_num: number = Number(localStorage.getItem('page'));
       //   this.onSubmit(page_num);
       // } else {
-        this.onSubmit(this.pageSize);
+        this.onSubmit(1);
       // }
     }
     else {
@@ -520,13 +520,13 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     }
 
     // this.onPaginateChange(1);
-    if (localStorage.getItem('page')) {
-      var page_num: number = Number(localStorage.getItem('page'));
-      this.onSubmit(page_num);
-    }
-    else {
+    // if (localStorage.getItem('page')) {
+    //   var page_num: number = Number(localStorage.getItem('page'));
+    //   this.onSubmit(page_num);
+    // }
+    // else {
       this.onSubmit(1);
-    }
+    // }
 
     this.endRequest = this.homeServ.rfpstate().subscribe(
       data => {
