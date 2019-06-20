@@ -3319,7 +3319,15 @@ padding: 0 5px;
   
   /* ...............................Quries Start....................................... */
   @media (max-width:991px) {
-  
+    .history-table{
+        margin: 18px 0;
+    }
+    .history-heading {
+        max-width: 100% !important; 
+    }
+    .card-responsive {
+        max-width: 100% !important;
+      }
       #accordion .panel-heading .panel-title {
           font-size: 16px
       }
@@ -4155,7 +4163,7 @@ padding: 0 5px;
         margin-bottom: 30px
     }
     .page-title {
-        margin: 0 0 35px
+        margin: 10px 0;
     }
     .term {
         padding: 5px
@@ -4616,6 +4624,12 @@ padding: 0 5px;
 }
 
 @media (min-width:992px) and (max-width:1024px) {
+    .history-heading {
+        max-width: 100% !important; 
+    }
+    .card-responsive {
+        max-width: 100% !important;
+      }
     #f-c .com-table td {
         font-size: 15px!important
     }
@@ -4749,7 +4763,7 @@ padding: 0 5px;
 }
 
 @media (min-width:768px) and (max-width:991px) {
-
+    
     .com-table>table {
         min-width: 750px
     }
@@ -4948,5 +4962,24 @@ padding: 0 5px;
   .svg_map {
     width: 60%  !important;
 }
+
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    z-index: 99;
+    right: 10px;
+    border: none;
+    outline: 0;
+    background-color: #c00;
+    /* box-shadow: 0 0 12px #c00; */
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px
 }
 /* End  Responsive.css */

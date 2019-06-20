@@ -45,7 +45,7 @@
                     number}}</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                  <a  onclick="topFunction()"(click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
+                  <a  onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
                     type="Next">
                     <i class="fa fa-angle-right top-set"></i>
                   </a>
@@ -67,10 +67,10 @@
                   <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
                   (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
                   name="pageSize">
-                  <mat-option value="10" selected="true">10</mat-option>
-                  <mat-option value="20">20 </mat-option>
-                  <mat-option value="35">35</mat-option>
-                  <mat-option value="50">50</mat-option>
+                  <mat-option onclick="topFunction()" value="10" selected="true">10</mat-option>
+                  <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                  <mat-option onclick="topFunction()" value="35">35</mat-option>
+                  <mat-option onclick="topFunction()" value="50">50</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -196,42 +196,42 @@
         <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right">
           <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
             <li [ngClass]="{hide:pager.currentPage === 1}">
-              <a (click)="setPage(1)" class="view-1s" class="btn btn-fill">
+              <a onclick="topFunction()" (click)="setPage(1)" class="view-1s" class="btn btn-fill">
                 <i class="fa fa-angle-double-left"></i>
               </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === 1}">
-              <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+              <a  onclick="topFunction()" (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                 <i class="fa fa-angle-left"></i>
               </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage <= 30}">
-              <a (click)="setPage(pager.currentPage - 30)">...</a>
+              <a  onclick="topFunction()" (click)="setPage(pager.currentPage - 30)">...</a>
             </li>
             <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-              <a (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+              <a  onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"
               *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-              <a (click)="setPage(pager.currentPage + 3)">...</a>
+              <a  onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages |
+              <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages |
                 number}}</a>
             </li>
             <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
             <li *ngIf="pager.currentPage === pager.totalPages">
-              <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages |
+              <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages |
                 number}}</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill" type="Next">
+              <a  onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill" type="Next">
                 <i class="fa fa-angle-right top-set"></i>
               </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(pager.totalPages)" class="view-plan-details" class="btn btn-fill" type="Next">
+              <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" class="btn btn-fill" type="Next">
                 <i class="fa fa-angle-double-right"></i>
               </a>
             </li>
@@ -247,10 +247,10 @@
               <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
               (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
               name="pageSize">
-              <mat-option value="10" selected="true">10</mat-option>
-              <mat-option value="20">20 </mat-option>
-              <mat-option value="35">35</mat-option>
-              <mat-option value="50">50</mat-option>
+              <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+              <mat-option  onclick="topFunction()" value="20">20 </mat-option>
+              <mat-option  onclick="topFunction()" value="35">35</mat-option>
+              <mat-option  onclick="topFunction()" value="50">50</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
