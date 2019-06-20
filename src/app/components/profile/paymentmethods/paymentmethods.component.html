@@ -1,6 +1,6 @@
 <div class="sh-payment container-fluid">
     <div class="row margin-0 ">        
-        <div class="col-md-offset-3 col-lg-10 col-md-10 col-sm-12 col-xs-12 center-admin-form" >
+        <div class="col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12 col-xs-12 center-admin-form" >
             <div class="container ">
                 <div class="card-content">
                     <div class="checkout">
@@ -55,7 +55,7 @@
                   
                         <!-- <input type="checkbox" [(ngModel)]="check_value" name="check_value"  (change)="ShowButton(check_value,$event)"> -->
                   
-                        <form class=" sh-signup-form-fix edit-profile" [formGroup]="form2" #f="ngForm">
+                        <form class="sh-signup-form-fix edit-profile" [formGroup]="form2" #f="ngForm">
                           <div class="col-md-12 padding-0">
                             <div class="col-md-4 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                               <mat-form-field>
@@ -68,7 +68,7 @@
                             </div>
                           </div>
                         </form>
-                          <form class=" sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
+                          <form class="floting-label sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                             [ngClass]="displayFieldCss(form, 'cardnumber')">
                             <mat-form-field>
@@ -162,15 +162,17 @@
                                 <mat-error *ngIf="form.controls.expirydate.hasError('pattern')">
                                   Expiry date must be in MM/YY format.
                                 </mat-error>
+                                
                                
                               </mat-error>
-                              <span *ngIf="expirydate <= '19'" class="clr_red">
-                                  Invalid Expiry Date
-                              </span>
+                              
                               <!-- <div *ngIf="expirydate <= '19'">
                                   Invalid Expiry Date
                               </div> -->
                             </mat-form-field>
+                            <p *ngIf="expirydate <= '19'" class="clr_red">
+                                Invalid Expiry Date
+                            </p>
                             <!-- <span class="card-error" >
                              
                             </span> -->
@@ -307,11 +309,11 @@
                           <td>{{card.expiryDate | slice:0:2 }}/20{{card.expiryDate | slice:2:4 }} </td>
                          
                           <td>
-                            <h3 class="edit-payment">
+                            <span class="edit-payment">
                               <a class="delete" (click)="deleteSingleCard(card.id)">
                                 <i class="fa fa-trash"></i>
                               </a>
-                            </h3>
+                            </span>
                           </td>
                         </tr>
                       </tbody>
