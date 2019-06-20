@@ -68,7 +68,27 @@ export class AdvanceService {
     return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/');
   }
   advancesearch(Rfpnum, title, status, enterdate, duedate, state, agency, cat, items, page, subcate) {
-    return this.http.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+      
+    let headers = new Headers();
+    if(localStorage.getItem('currentUser')){
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      headers.append('Content-Type', 'application/json');
+    return this._https.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+      JSON.stringify({
+        "rfp_key": Rfpnum,
+        "title": title,
+        "status": status,
+        "posted_from": enterdate,
+        "posted_to": duedate,
+        "state": state,
+        "agency": agency,
+        "category": cat,
+        "sub_category": subcate
+      }), { headers: headers }).map((response: Response) => response.json());
+    }
+    else
+    {
+      return this.http.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
       JSON.stringify({
         "rfp_key": Rfpnum,
         "title": title,
@@ -80,6 +100,7 @@ export class AdvanceService {
         "category": cat,
         "sub_category": subcate
       }), { headers: this.authInterceptor.setHeaders() });
+    }
 
   }
   searchrfprecord(Rfpnum, title, status, enterdate, duedate, state, agency, cat, items, page, subcat, submissionfrom, submissionto) {
