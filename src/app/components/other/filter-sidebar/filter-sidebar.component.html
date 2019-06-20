@@ -8,6 +8,7 @@
                         <h3 style="text-align: center" class="search-filters-hd">Search Filters</h3>
                         <button type="submit" class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res"
                             title="Refresh Results">Refresh Results</button>
+                            <button (click)="formclear(f)">Clear</button>
                     </div>
                     <div class="col-sm-12" style="margin-top: -10px">
 
@@ -21,7 +22,7 @@
                     </div>
                     <div class="col-sm-12">
                         <mat-form-field class="sh-sidebar-date">
-                            <input matInput placeholder="Posted Date" (click)="picker.open()" name="enterdate"
+                            <input matInput placeholder="From Posted Date" (click)="picker.open()" name="enterdate"
                                 (focus)="picker.open()" [matDatepicker]="picker" [(ngModel)]="enterdate"
                                 (ngModelChange)="onSubmit()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -32,7 +33,7 @@
                     <div class="col-sm-12">
 
                         <mat-form-field class="example-full-width mat-size sh-sidebar-date">
-                            <input placeholder="Due Date" matInput (click)="picker2.open()" name="duedate"
+                            <input placeholder="To Posted Date" matInput (click)="picker2.open()" name="duedate"
                                 (focus)="picker2.open()" [matDatepicker]="picker2" [(ngModel)]="duedate"
                                 (ngModelChange)="onSubmit()">
                             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>

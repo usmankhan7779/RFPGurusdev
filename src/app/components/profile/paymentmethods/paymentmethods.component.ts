@@ -145,7 +145,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         error => {
           swal({
             type: 'error',
-            title: 'Invalid Zipcode!',
+            title: 'Invalid Zipcode',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -255,20 +255,20 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   deleteSingleCard(id) {
     swal({
-      title: 'Are you sure you want to delete this Card? <br> You will not be able to revert this!',
+      title: 'Are you sure you want to delete this Card? <br> You will not be able to revert this',
       type: 'question',
       showCancelButton: true,
       width: '512px',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it'
     }).then((result) => {
       if (result == true) {
 
         this.serv.deleteCard(id).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Credit Card Is Deleted!',
+            title: 'Credit Card Is Deleted',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -278,7 +278,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
             if (error.status == 204) {
               swal({
                 type: 'error',
-                title: 'No Credit Card Found!',
+                title: 'No Credit Card Found',
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               })
@@ -286,14 +286,14 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
             else if (error.status == 500) {
               swal(
                 'Sorry',
-                'Server Is Under Maintenance!',
+                'Server Is Under Maintenance',
                 'error'
               )
             }
             else {
               swal(
                 'Sorry',
-                'Some Thing Went Worrng!',
+                'Some Thing Went Worrng',
                 'error'
               )
             }
@@ -340,7 +340,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
            
           swal({
             type: 'success',
-            title: 'Payment Method Is Listed!',
+            title: 'Payment Method Is Listed',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -355,7 +355,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       else {
         swal({
           type: 'error',
-          title: 'Please Enter Valid Field',
+          title: 'Invalid Details',
           showConfirmButton: false,
           timer: 1500, width: '512px',
         })
@@ -370,7 +370,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Payment Method Is Listed!',
+            title: 'Payment Method Is Listed',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           });
@@ -385,7 +385,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       else {
         swal({
           type: 'error',
-          title: 'Invalid Details!',
+          title: 'Invalid Details',
           showConfirmButton: false,
           timer: 1500, width: '512px',
         })
@@ -405,7 +405,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         if (error.status == 404) {
           swal({
             type: 'error',
-            title: 'Credit Card Not Found!',
+            title: 'Credit Card Not Found',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -413,7 +413,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         else if (error.status == 500) {
           swal(
             'Sorry',
-            'Server Is Under Maintenance!',
+            'Server Is Under Maintenance',
             'error'
           )
         }
