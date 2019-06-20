@@ -1,12 +1,16 @@
 <div class="row margin-0">
     <div class="col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
         <div *ngIf="!pkgsub" class=" history-heading">
-            <div class="history-header" *ngIf="result">
-                <h2>Subscription</h2>
+            <div class="page-title" *ngIf="result">
+                <span>Subscription</span>
             </div>
-            <div class="history-header" *ngIf="trial">
-                <h2>Trial Subscription</h2>
+            
+
+            <div class="page-title">
+                <span>Trial Subscription</span>
             </div>
+
+
             <table class="table table-striped history-table" *ngIf="trial">
                 <thead>
                     <tr>
@@ -26,7 +30,7 @@
                         <td><span>$</span>{{trial.package_detail.pkg_price}} </td>
                         <td>{{trial.timecreated | date:'EEEE, MMM dd, y'}}</td>
                         <td>{{trial.endtime | date:'EEEE, MMM dd, y'}}</td>
-                        <td><button class="btn btn-success sh-btn-success" title="Active">Active
+                        <td><button class="btn btn-rose" title="Active">Active
                             </button></td>
 
                     </tr>
