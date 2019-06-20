@@ -143,7 +143,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register, 'phone')">
-                    <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  formControlName="phone" placeholder="Phone no" required>
+                    <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
                     </int-phone-prefix>
                   </div>
                 </div>

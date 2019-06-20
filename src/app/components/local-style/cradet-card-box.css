@@ -7,7 +7,7 @@
     -moz-perspective: 1000;
     perspective: 1000;
     width: 400px;
-    height: 280px;
+    height: 225px;
     position: absolute;
     top: -112px;
     left: 50%;
@@ -17,6 +17,7 @@
     -o-transform: translateX(-50%);
     transform: translateX(-50%)
 }
+
 
 .credit-card-box.hover .flip,
 .credit-card-box:hover .flip {

@@ -106,7 +106,7 @@ export class AllRfpsComponent implements OnInit {
   memberonly() {
 
     if (!this.local) {
-      this._nav.navigate(['login']);
+      this._nav.navigate(['pricing']);
       localStorage.setItem('member', 'latest-rfp');
     }
     else if (!this.subscribe) {

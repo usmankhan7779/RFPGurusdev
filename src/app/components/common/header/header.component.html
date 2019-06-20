@@ -149,7 +149,6 @@
                     <i class="fa fa-times"></i>
                   </div>
                   <div class="heart-main-div">
-                    <!-- <img src="{{Imageurl}}{{data?.course.course_thumbnail}}" class="heart-img" alt="Course"> -->
                     <div class="heart-contact">
                       <a [routerLink]="['rfp']" [queryParams]="{query:data?.wrfp.seoTitleUrl}">
                         <div class="heart-heading curser-pointer">
@@ -158,7 +157,7 @@
                       </a>
                       <div class="heart-detail plan-detail curser-pointer" [routerLink]="['rfp']"
                         [queryParams]="{query:data?.wrfp.seoTitleUrl}">
-                        <h5><i class="fa fa-university"></i>Category : <span>{{data?.wrfp.new_category}}</span></h5>
+                        <h5 class="ellipsis"><i class="fa fa-university"></i>Category : <span>{{data?.wrfp.new_category}}</span></h5>
                         <h5><i class="fa fa-fort-awesome"></i>State : <span> {{data?.wrfp.state}}</span></h5>
                         <h5 *ngIf="data?.wrfp.agency"><i class="fa fa-building-o"></i>Agency :
                           <span>{{data?.wrfp.agency}}</span></h5>
@@ -168,10 +167,6 @@
                   </div>
 
                 </div>
-
-
-
-
               </div >
               <!-- <div *ngIf="shown == true && total == 1">  -->
               <div class="wishlist-btn-div" *ngIf="check_login()">
@@ -233,10 +228,7 @@
                               {{item.timecreated | date }}
                           </div>
                         </div>
-                        <br/>
-                        
                       </a>
-
                     </div>
                   </div>
                 </div>
