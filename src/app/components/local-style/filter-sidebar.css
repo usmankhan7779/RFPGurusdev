@@ -33,7 +33,7 @@
   font-size: 22px !important
 }
 .cat-sidebar-heading{
-  margin: 15px 0 5px;
+  margin: 15px 0 5px !important;
 }
 .sidebar-user .btn {
   width: 100%;

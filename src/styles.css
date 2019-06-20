@@ -3661,7 +3661,11 @@ body {
     margin-right: 20px !important;
   }
 }
-
+@media (max-width:1024px){
+  .sh-payment .container {
+    width: 660px !important;
+}
+}
 @media (min-width:1281px) {
   .pagination {
     margin-right: 18% !important;
