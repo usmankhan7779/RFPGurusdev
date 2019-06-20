@@ -240,9 +240,9 @@ export class CategoryRfpComponent implements OnInit {
   }
   id;
   doc;
-  check_trial(url) {
+  check_trial(id,url) {
     if (this.subscribe == "Trial Subscription user") {
-      this._adserv.trial_document(this.id).subscribe(
+      this._adserv.trial_document(id).subscribe(
         data => {
           if (data['status'] == 'True') {
             this.doc = data['status'];

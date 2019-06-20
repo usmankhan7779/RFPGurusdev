@@ -174,7 +174,7 @@
                           </li>
                           <ng-template #pdf>
 
-                            <li (click)="check_trial(rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
+                            <li (click)="check_trial(rfp.id,rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                               <a>
                                   <i class="material-icons">insert_drive_file</i>
                                   View Documents
@@ -182,7 +182,7 @@
                            
                           </li>
                           <ng-template #link>
-                            <li (click)="check_trial(rfp.web_info)">
+                            <li (click)="check_trial(rfp.id,rfp.web_info)">
                               
                               <a>
                                 <i class="material-icons">insert_drive_file</i>

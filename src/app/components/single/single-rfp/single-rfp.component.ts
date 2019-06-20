@@ -250,7 +250,6 @@ export class SingleRfpComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      alert('shameem')
       window.open(url, '_blank');
     }
   }

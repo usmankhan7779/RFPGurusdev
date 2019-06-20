@@ -9,9 +9,15 @@ import { Http, Headers, Response } from '@angular/http';
 export class AdvanceService {
 
   constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
+  // trial_document(id) {
+  //   return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
+  // }
   trial_document(id) {
-    return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
-  }
+    let headers = new Headers();
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      headers.append('Content-Type', 'application/json');
+    return this._https.get('https://apis.rfpgurus.com/document_trial/' + id,  {headers:headers}).map((response: Response) => response.json())
+}
   dropdown(state, agency, category, sub_category) {
         
     return this.http.post('https://apis.rfpgurus.com/rf_p/drop_down/', JSON.stringify({
