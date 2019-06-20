@@ -17,7 +17,7 @@ padding: 15px
     margin-top: 30px;
 }
 #display_advance .card{
-    width: 880px;
+    max-width: 880px;
     margin: 0;
     margin-bottom: 20px;
     float: none;
