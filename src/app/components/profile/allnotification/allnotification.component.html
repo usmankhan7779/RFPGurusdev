@@ -113,6 +113,9 @@
                   <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
+                    <div>
+                        {{item.timecreated | date }}
+                    </div>
                 </div>
               </a>
               <a class="heart-heading"

@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'address')">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field>
                       <textarea matInput type="text" id="address" class="resize-no"
                         formControlName="address" placeholder="Address" required></textarea>
@@ -87,11 +87,11 @@
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'zipcode')">
                     <mat-form-field class="zipCodee">
-                      <input matInput type="number" maxlength="5" id="zipcode"
+                      <input matInput type="number" maxlength="5" id="zipcode" min="0"
                         (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
-                        placeholder="Zip Code"required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;"/>
+                        placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;"/>
                       <mat-error *ngIf="register.controls.zipcode.value == ''">
                         <strong>Zipcode cannot be empty</strong>
                       </mat-error>
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
                       <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
@@ -173,7 +173,7 @@
                         <!-- <mat-error *ngIf="register.controls.username.maxlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error> -->
-                        <mat-error *ngIf="register.controls.username.errors?.minlength">
+                        <mat-error class="right-float" *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
                       <mat-error *ngIf="register.controls.username.value == ''">
