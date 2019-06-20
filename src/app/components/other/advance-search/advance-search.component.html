@@ -59,8 +59,8 @@
                     <div class="col-sm-4 col-xs-12">
                         <mat-form-field class="adv-placeholder">
                             <mat-select class="adv-placeholder" [(ngModel)]="states" name="states"
-                                placeholder="Search by State" (ngModelChange)="select_state()">
-                                <input class="inp" type="text" [(ngModel)]="statsearch"
+                                placeholder="Search by State" >
+                                <input class="inp" type="text" [(ngModel)]="statsearch" (click)="select_state()"
                                     [ngModelOptions]="{standalone: true}" class="search-allstates"
                                     placeholder="Search by State">
                                 <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
@@ -73,9 +73,8 @@
                     </div>
                     <div class="col-sm-4 col-xs-12">
                         <mat-form-field class="adv-placeholder">
-                            <mat-select [(ngModel)]="agencies" name="agencies" placeholder="Search by Agency"
-                                (ngModelChange)="select_agency()">
-                                <input class="inp" type="text" [(ngModel)]="agensearch"
+                            <mat-select [(ngModel)]="agencies" name="agencies" placeholder="Search by Agency" >
+                                <input class="inp" type="text" [(ngModel)]="agensearch"  (click)="select_agency()"
                                     [ngModelOptions]="{standalone: true}" class="search-allstates"
                                     placeholder="Search by Agency">
                                 <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
@@ -87,9 +86,8 @@
                     </div>
                     <div class="col-sm-4 col-xs-12">
                         <mat-form-field class="adv-placeholder">
-                            <mat-select [(ngModel)]=cates name="cates" placeholder="Search by Category"
-                                (ngModelChange)="select_category()">
-                                <input class="inp" type="text" [(ngModel)]="catsearch"
+                            <mat-select [(ngModel)]=cates name="cates" placeholder="Search by Category">
+                                <input class="inp" type="text" [(ngModel)]="catsearch"  (click)="select_category()"
                                     [ngModelOptions]="{standalone: true}" placeholder="Search by Category"
                                     class="search-allstates">
                                 <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
@@ -102,8 +100,8 @@
                     <div class="col-sm-4 col-xs-12">
                         <mat-form-field class="adv-placeholder">
                             <mat-select placeholder="Search by Sub Category" [(ngModel)]=subcate name="subcate"
-                                [disabled]="!cates || cates=='all'" (ngModelChange)="select_category()">
-                                <input class="inp" type="text" [(ngModel)]="subcatsearch"
+                                [disabled]="!cates || cates=='all'" >
+                                <input class="inp" type="text" [(ngModel)]="subcatsearch" (click)="select_category()"
                                     [ngModelOptions]="{standalone: true}" placeholder="Search by Sub Category"
                                     class="search-allstates" style="width: 100%; border-radius: 7px">
                                 <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
@@ -198,12 +196,12 @@
                             <label class="product-label">Items per page:
                             </label>
                             <mat-form-field>
-                                <mat-select class="width-sec" placeholder="" selected="10" (ngModelChange)="page(pageSize)"
+                                <mat-select class="width-sec" placeholder="" selected="10" 
                                     value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
                                     <mat-option value="10" selected="true">10</mat-option>
-                                    <mat-option value="20">20 </mat-option>
-                                    <mat-option value="35">35</mat-option>
-                                    <mat-option value="50">50</mat-option>
+                                    <mat-option value="20" (click)="page(pageSize)">20 </mat-option>
+                                    <mat-option value="35" (click)="page(pageSize)">35</mat-option>
+                                    <mat-option value="50" (click)="page(pageSize)">50</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
