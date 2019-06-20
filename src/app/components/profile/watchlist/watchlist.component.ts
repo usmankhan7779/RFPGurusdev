@@ -150,9 +150,9 @@ export class WatchlistComponent implements OnInit {
   uname;
   subscribe;
   doc;
-  check_trial(url) {
+  check_trial(id,url) {
     if (this.subscribe == "Trial Subscription user") {
-      this.advanceServ.trial_document(this.id).subscribe(
+      this.advanceServ.trial_document(id).subscribe(
         data => {
           if (data['status'] == 'True') {
             this.doc = data['status'];

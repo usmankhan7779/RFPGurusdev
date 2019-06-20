@@ -9,9 +9,15 @@ import { Http, Headers, Response } from '@angular/http';
 export class AdvanceService {
 
   constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
+  // trial_document(id) {
+  //   return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
+  // }
   trial_document(id) {
-    return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
-  }
+    let headers = new Headers();
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      headers.append('Content-Type', 'application/json');
+    return this._https.get('https://apis.rfpgurus.com/document_trial/' + id,  {headers:headers}).map((response: Response) => response.json())
+}
   dropdown(state, agency, category, sub_category) {
         
     return this.http.post('https://apis.rfpgurus.com/rf_p/drop_down/', JSON.stringify({
@@ -62,7 +68,27 @@ export class AdvanceService {
     return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/');
   }
   advancesearch(Rfpnum, title, status, enterdate, duedate, state, agency, cat, items, page, subcate) {
-    return this.http.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+      
+    let headers = new Headers();
+    if(localStorage.getItem('currentUser')){
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      headers.append('Content-Type', 'application/json');
+    return this._https.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+      JSON.stringify({
+        "rfp_key": Rfpnum,
+        "title": title,
+        "status": status,
+        "posted_from": enterdate,
+        "posted_to": duedate,
+        "state": state,
+        "agency": agency,
+        "category": cat,
+        "sub_category": subcate
+      }), { headers: headers }).map((response: Response) => response.json());
+    }
+    else
+    {
+      return this.http.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
       JSON.stringify({
         "rfp_key": Rfpnum,
         "title": title,
@@ -74,6 +100,7 @@ export class AdvanceService {
         "category": cat,
         "sub_category": subcate
       }), { headers: this.authInterceptor.setHeaders() });
+    }
 
   }
   searchrfprecord(Rfpnum, title, status, enterdate, duedate, state, agency, cat, items, page, subcat, submissionfrom, submissionto) {
