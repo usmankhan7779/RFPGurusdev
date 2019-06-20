@@ -165,7 +165,7 @@ export class PurchaseHistoryComponent implements OnInit {
     deactive() {
         this._serv.deactivetrial().subscribe(
             data => {
-                if (data['message'] == 'Your trail is deactivated') {
+                if (data['message'] == 'Your trail subscription is deactivated') {
                     swal(
                         'Your Trail Subscription is deactivated',
                         '',
