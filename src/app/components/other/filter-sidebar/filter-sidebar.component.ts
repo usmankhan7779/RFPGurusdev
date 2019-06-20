@@ -6,6 +6,7 @@ import { SharedData } from '../../../services/shared-service';
 import { AdvanceService } from '../advance-search/advance.service';
 import { DatePipe } from '@angular/common';
 import { AllCategoryService } from '../../all/all-category/all-category.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-sidebar',
@@ -156,18 +157,28 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
   submission_from;
   submission_to;
 
-  formclear() {
+  formclear(f : NgForm) {
     delete this.status;
     delete this.enterdate;
     delete this.duedate;
     delete this.states;
     delete this.agencies;
     delete this.cates;
-    delete this.enterdate;
-    delete this.duedate;
+    // delete this.enterdate;
+    // delete this.duedate;
     delete this.subcates;
     delete this.submission_from;
     delete this.submission_to;
+    localStorage.removeItem('status');
+    localStorage.removeItem('enterdate');
+    localStorage.removeItem('duedate');
+    localStorage.removeItem('states');
+    localStorage.removeItem('agencies');
+    localStorage.removeItem('subcates');
+    localStorage.removeItem('submission_from');
+    localStorage.removeItem('submission_to');
+    // console.log(this.status);
+f.resetForm();
   }
   
   onSubmit() {
@@ -203,11 +214,11 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
       });
     // }
   }
-
+f;
   catRfp(item) {
 
     this._shareData.categoryInfo(item);
-    this.formclear();
+    this.formclear(this.f);
     let sth = 'category';
     // sth=sth.replace(/&/g,'and').replace(/\s+/g, '-').toLowerCase();
     this._nav.navigate([sth], { queryParams: { cat: item } });
@@ -215,7 +226,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
 
   rfpState(state) {
     this._shareData.stateInfo(state);
-    this.formclear();
+    this.formclear(this.f);
 
     let sth = 'state';
     // sth=sth.replace(/&/g,'and').replace(/\s+/g, '-').toLowerCase();
