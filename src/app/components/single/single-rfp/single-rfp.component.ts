@@ -86,7 +86,7 @@ export class SingleRfpComponent implements OnInit {
       data => {
         if (data['status'] = "200") {
           swal(
-            'File Downloaded Successfully!',
+            'File Downloaded Successfully',
             '',
             'success'
           )
