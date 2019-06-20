@@ -6,7 +6,7 @@
     line-height: 26px;
 }
 .sh-advnce-search {
-    margin-top: 30px;
+    margin: 30px auto;
 }
 .srch-result {
   margin: 0!important;
@@ -58,8 +58,6 @@ padding: 6px 36px;
 -webkit-border-radius: 50px;
 border-radius: 50px
 }
-
-
 .sh-advnce-search .btn.btn-lg:hover {
 padding: 6px 36px
 }
@@ -70,3 +68,4 @@ padding: 6px 36px
   -webkit-box-shadow: 0 6px 6px #ccc;
   box-shadow: 0 6px 6px #ccc
 }
+
