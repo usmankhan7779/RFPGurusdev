@@ -57,7 +57,7 @@ const routes: Routes = [
     children: [
 
       { path: 'latest-rfp', loadChildren: './components/all/all-rfps/all-rfps.module#AllRfpsModule' },
-      { path: 'find-rfp', loadChildren: './components/other/find-rfp/find-rfp.module#FindRfpModule' },
+      { path: 'find-rfps', loadChildren: './components/other/find-rfp/find-rfp.module#FindRfpModule' },
       { path: 'searched-data', loadChildren: './components/other/results/results.module#ResultsModule' },
 
       // =========== Single ===========    

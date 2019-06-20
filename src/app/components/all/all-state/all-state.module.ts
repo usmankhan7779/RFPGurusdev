@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UsMapModule } from 'angular-us-map';
+ 
 
 const routes: Routes = [
   { path: '', component: AllStateComponent }
