@@ -1481,7 +1481,9 @@
       margin-bottom: 0!important
   }
   
-  
+  .mb-8px {
+    margin-bottom: 8px
+    }
   .mb-60px {
       margin-bottom: 60px
   }

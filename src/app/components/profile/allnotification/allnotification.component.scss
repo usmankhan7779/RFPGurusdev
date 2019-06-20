@@ -6,7 +6,7 @@
   background: #f2f3f5!important
 }
 .sh-notification-div .heart-detail {
-  margin: 10px 0!important
+  margin: 3px!important
 }
 .center-admin-form{
   margin-top:30px;
@@ -27,16 +27,19 @@
 .curser-pointer{
   white-space: pre-line;
   word-break: break-word;
+  margin-bottom: 0px;
 }
 .heart-heading {
   // color: #fff;
   // background: rgba(0, 0, 0, .6509803921568628);
   width: 100%;
-  padding: 0 25px 0 5px;
+  // padding: 0 25px 0 5px;
   border-radius: 0;
   font-weight: 400 !important;
   font-size: 14px;
   overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 .heart-detail {
   color: #767676;
@@ -51,9 +54,8 @@
   z-index: 9999;
 }
 .sh-notification-div .heart-heading:hover {
-  color: #c00;
   text-decoration: none;
-  background: #fff;
+  background: none;
 }
 .sh-del {
   top: 10px;
@@ -67,4 +69,19 @@
 }
 .pd-top-20px{
   padding-top: 20px;
+}
+.heart-heading p{
+  position: relative;
+  margin: 0;
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+.heart-heading .sh-del{
+  position: absolute;
+  top: 3px;
+}
+.heart-heading .sh-del i{
+  color: #fff;
 }

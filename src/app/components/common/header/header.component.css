@@ -230,7 +230,12 @@
     font-size: 14px;
     overflow: hidden;
   }
-
+.heart-detail h5{
+  margin: 0;
+}
+.heart-detail div{
+  text-align: right;
+}
   .heart-new-price {
     color: #c00;
     font-size: 22px
