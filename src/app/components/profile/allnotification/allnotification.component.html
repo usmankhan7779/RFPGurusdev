@@ -18,14 +18,14 @@
                 <div class="heart-heading curser-pointer">
                  Type of Notification
                 </div>
-                <div class="heart-detail plan-detail curser-pointer" >
+                <div class="heart-detail  curser-pointer" >
                   <h5 > Description</h5>
                   <div>
                     date
                 </div>
                 </div> -->
                 <!-- ------------Notification Seen Start------------ -->
-                <!-- <div class="heart-detail plan-detail sh-notification-seen" >
+                <!-- <div class="heart-detail  sh-notification-seen" >
                   <h5 > Descritpion</h5>
                   <div>
                    Time
@@ -38,13 +38,13 @@
                 <div class="heart-heading curser-pointer">
                  type of notification
                 </div>
-                <div class="heart-detail plan-detail curser-pointer">
+                <div class="heart-detail  curser-pointer">
                   <h5 > Descritpion</h5>
                   <div>
                    Date
                 </div>
                 </div>
-                <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                <div class="heart-detail  sh-notification-seen" *ngIf="item.read == true">
                   <h5 (click)="updatenofication(item?.id)">Description</h5>
                   <div>
                      Date
@@ -66,12 +66,14 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
                 routerLink="/purchase-history" (click)="deletenofication(item?.id)">
+                <p class="">
                 {{item.type_of_notification}}
 
                 <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-times"></i>
                 </span>
-                <div class="heart-detail plan-detail">
+                </p>
+                <div class="heart-detail ">
 
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
@@ -80,12 +82,14 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
                 [routerLink]="['/rfp']" [queryParams]="{query:item.target}" (click)="move();deletenofication(item?.id)">
+                <p class="">
                 {{item.type_of_notification}}
 
                 <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
+                  <i class="fa fa-times"></i>
                 </span>
-                <div class="heart-detail plan-detail">
+                </p>
+                <div class="heart-detail ">
 
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
@@ -98,12 +102,14 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
                 routerLink="/purchase-history" (click)="deletenofication(item?.id)">
-                {{item.type_of_notification}}
+                <p>
+                  {{item.type_of_notification}}
 
-                <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
-                </span>
-                <div class="heart-detail plan-detail">
+                  <span class="sh-del " (click)="deletenofication(item?.id)">
+                    <i class="fa fa-times"></i>
+                  </span>
+                </p>
+                <div class="heart-detail ">
                   <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
                     {{item.description}}</h5>
@@ -112,13 +118,14 @@
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
                 [routerLink]="['/rfp']" [queryParams]="{query:item.target}" (click)="move();deletenofication(item?.id)">
-                {{item.type_of_notification}}
+                <p>
+                  {{item.type_of_notification}}
 
-                <span class="sh-del " (click)="deletenofication(item?.id)">
-                  <i class="fa fa-trash"></i>
-                </span>
-
-                <div class="heart-detail plan-detail ">
+                  <span class="sh-del " (click)="deletenofication(item?.id)">
+                    <i class="fa fa-times"></i>
+                  </span>
+                </p>
+                <div class="heart-detail  ">
                   <!-- (click)="single(item.target);updatenofication(item?.id)" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>
                   <!-- <h5 > {{item.description}}</h5> -->
@@ -139,13 +146,13 @@
                 <div class="heart-heading curser-pointer">
                   {{item.type_of_notification}}
                 </div>
-                <div class="heart-detail plan-detail curser-pointer" *ngIf="item.read == false">
+                <div class="heart-detail  curser-pointer" *ngIf="item.read == false">
                   <h5 (click)="updatenofication(item.id)"> {{item.description}}</h5>
                   <div>
                     {{item.timecreated | date }}
                   </div>
                 </div>
-                <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                <div class="heart-detail  sh-notification-seen" *ngIf="item.read == true">
                   <h5 (click)="updatenofication(item?.id)"> {{item.description}}</h5>
                   <div>
                     {{item.timecreated | date }}
@@ -158,13 +165,13 @@
                 <div class="heart-heading curser-pointer">
                   {{item.type_of_notification}}
                 </div>
-                <div class="heart-detail plan-detail curser-pointer" *ngIf="item.read == false">
+                <div class="heart-detail  curser-pointer" *ngIf="item.read == false">
                   <h5 (click)="updatenofication(item.id)"> {{item.description}}</h5>
                   <div>
                     {{item.timecreated | date }}
                   </div>
                 </div>
-                <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                <div class="heart-detail  sh-notification-seen" *ngIf="item.read == true">
                   <h5 (click)="updatenofication(item?.id)"> {{item.description}}</h5>
                   <div>
                     {{item.timecreated | date }}
