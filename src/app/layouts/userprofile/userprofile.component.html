@@ -1,16 +1,29 @@
 <!-- ===================== user side bar ===================== -->
-<div async class="col-lg-2 col-md-2 col-sm-3 col-xs-6 w3-animate-left user-panel" id="mySidebar">
+<!-- <div async class="col-lg-2 col-md-2 col-sm-3 col-xs-6 w3-animate-left user-panel" id="mySidebar">
   <div class="sidebar custom">
     <div class="col-sm-12 text-right padding-0 sidebar-close-btn"><button class="btn btn-close"
         (click)="w3_close()">X</button></div>
-    <user-sidebar></user-sidebar>
+    
   </div>
 </div>
 
 <div async class="minHeight">
-  <router-outlet></router-outlet>
-  </div>
+
+  </div> -->
  <!-- <div  [class.dashboard-footer]="status != 'none'"> -->
   <!-- <app-footer async></app-footer> -->
   <!-- <app-footercmp  ></app-footercmp> -->
   <!-- </div> -->
+
+
+  <div class="container-fluid padding-0">
+    <div class="sidebar-outlet">
+      <div async class="sidebar custom sh-sidebar w3-animate-left " id="mySidebar">
+        <div class="col-sm-12 text-right padding-0 sidebar-close-btn"><button class="btn btn-close" (click)="w3_close()">X</button></div>
+        <user-sidebar></user-sidebar>
+      </div>
+    </div>
+    <div class="content-router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
