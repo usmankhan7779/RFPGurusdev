@@ -1,6 +1,6 @@
 <div class="sh-payment container-fluid">
     <div class="row margin-0 ">        
-        <div class="col-md-offset-3 col-lg-10 col-md-10 col-sm-12 col-xs-12 center-admin-form" >
+        <div class="col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12 col-xs-12 center-admin-form" >
             <div class="container ">
                 <div class="card-content">
                     <div class="checkout">
@@ -55,7 +55,7 @@
                   
                         <!-- <input type="checkbox" [(ngModel)]="check_value" name="check_value"  (change)="ShowButton(check_value,$event)"> -->
                   
-                        <form class=" sh-signup-form-fix edit-profile" [formGroup]="form2" #f="ngForm">
+                        <form class="sh-signup-form-fix edit-profile" [formGroup]="form2" #f="ngForm">
                           <div class="col-md-12 padding-0">
                             <div class="col-md-4 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                               <mat-form-field>
@@ -68,7 +68,7 @@
                             </div>
                           </div>
                         </form>
-                          <form class=" sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
+                          <form class="floting-label sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                             [ngClass]="displayFieldCss(form, 'cardnumber')">
                             <mat-form-field>
@@ -164,9 +164,9 @@
                                 </mat-error>
                                
                               </mat-error>
-                              <!-- <p *ngIf="expirydate <= '19'" class="clr_red">
+                              <span *ngIf="expirydate <= '19'" class="clr_red">
                                   Invalid Expiry Date
-                                </p> -->
+                              </span>
                               <!-- <div *ngIf="expirydate <= '19'">
                                   Invalid Expiry Date
                               </div> -->
@@ -238,14 +238,14 @@
                               <input matInput class="sh-text-capt" type="text" placeholder="Cardholder Name" maxlength="12" formControlName="cardnickname">
                               <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
                                 <mat-error *ngIf="form.controls.cardnickname.errors.required">
-                                  Cardholder Name cannot be empty
+                                  Card holder Name cannot be empty
                                 </mat-error>
                                 <mat-error *ngIf="form.controls.cardnickname.errors.minlength">
-                                  Cardholder Name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}} characters
+                                  Card holder Name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}} characters
                                   long.
                                 </mat-error>
                                 <mat-error *ngIf="form.controls.cardnickname.errors.maxlength">
-                                  Cardholder Name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}} characters
+                                  Card holder Name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}} characters
                                   long.
                                 </mat-error>
                                 <!-- <mat-error *ngIf="form.controls.cardnickname.errors.cannotContainSpace">
@@ -259,15 +259,17 @@
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'nickname')">
                             <mat-form-field>
-                              <input matInput class="sh-text-capt" placeholder="Nick Name" type="text" formControlName="nickname" maxlength="12" minlength="2">
+                              <input matInput class="sh-text-capt" placeholder="Nickname" type="text" formControlName="nickname" maxlength="12" minlength="2">
                               <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
                                 <mat-error *ngIf="form.controls.nickname.errors.required">
-                                  Nick name cannot be empty
+                                  Nickname cannot be empty
                                 </mat-error>
                                 <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                                  Nick name should be atleast 2 letters.
+                                  Nickname should be atleast 2 letters.
                                 </mat-error>
-                                
+                                <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
+                                  Nickname must be only in Alphabet.
+                                </mat-error>
                               </mat-error>
                             </mat-form-field>
                           </div>
@@ -305,11 +307,11 @@
                           <td>{{card.expiryDate | slice:0:2 }}/20{{card.expiryDate | slice:2:4 }} </td>
                          
                           <td>
-                            <h3 class="edit-payment">
+                            <span class="edit-payment">
                               <a class="delete" (click)="deleteSingleCard(card.id)">
                                 <i class="fa fa-trash"></i>
                               </a>
-                            </h3>
+                            </span>
                           </td>
                         </tr>
                       </tbody>
