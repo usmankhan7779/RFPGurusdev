@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PartnershipComponent } from './partnership.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,6 +19,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [PartnershipComponent]
 })
 export class PartnershipModule { }
