@@ -1270,7 +1270,7 @@ btn.btn-success.dropdown-toggle:focus {
 .phonee .form-control {
   font-weight: 600 !important;
   height: 45px !important;
-  padding: 22px 10px 0;
+  padding: 22px 10px 5px;
   border: none;
   box-shadow: none;
   border-bottom: 1px solid rgba(0, 0, 0, .42);
@@ -2063,7 +2063,6 @@ button {
 .mg-top-10px {
   margin-top: 10px
 }
-
 .edit-profile .card .card-content {
   padding: 15px 20px 0
 }
@@ -2871,7 +2870,8 @@ body {
   background-color: #c00;
   color: #fff;
   cursor: pointer;
-  padding: 18px 10px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
 }
 
@@ -3459,9 +3459,9 @@ body {
 }
 
 .main_heading {
-  font-size: 34px !important;
+  font-size: 42px !important;
   margin: 10px 0 20px !important;
-  color: #333;
+  color: #000;
   font-weight: 600 !important;
   text-align: center
 }
@@ -3614,6 +3614,11 @@ body {
 .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
   background: #000000;
 }
+
+
+
+
+
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {
