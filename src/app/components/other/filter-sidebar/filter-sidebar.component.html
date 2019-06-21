@@ -1,13 +1,16 @@
 <div class="sidebar-user sh-sidebar-user ">
 
+    <nav>
         <div class="card-content sh-card-content" >
             <form (ngSubmit)="onSubmit()" novalidate class="sh-sidebar-more-condense sh-date ">
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <h3 style="text-align: center" class="search-filters-hd">Search Filters</h3>
                         <button type="submit" class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res"
-                            title="Refresh Results">Refresh Results</button>
-                            <button (click)="formclear(f)">Clear</button>
+                            title="Refresh Results"
+                            
+                            >Refresh Results</button>
+                            <button class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res" (click)="formclear(f)">Clear</button>
                     </div>
                     <div class="col-sm-12" style="margin-top: -10px">
 
@@ -142,8 +145,9 @@
             </form>
         </div>
         <ul class="list-category" style="margin-top: -10px">
+
             <li>
-                <h5>
+                <h5 class="mg-top-10px">
                     <span>States</span>
                 </h5>
             </li>
@@ -231,5 +235,5 @@
                 All Categories</button>
 
         </ul>
-  
+    </nav>
 </div>

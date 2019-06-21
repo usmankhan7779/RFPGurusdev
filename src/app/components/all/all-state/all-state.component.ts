@@ -6,6 +6,7 @@ import { SharedData } from '../../../services/shared-service';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { States } from '../../arrays';
+ 
 
 @Component({
   selector: 'app-all-state',

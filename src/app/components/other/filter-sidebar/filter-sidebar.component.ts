@@ -215,7 +215,7 @@ f.resetForm();
     if (this.agencies) { localStorage.setItem('agencies', this.agencies) }
     if (this.cates) { localStorage.setItem('cates', this.cates) }
     if (this.subcates) { localStorage.setItem('subcat', this.subcates) }
-    let searchUrl = 'find-rfp';
+    let searchUrl = 'find-rfps';
 
     this._nav.navigate([searchUrl],
 

@@ -158,11 +158,9 @@ export class SingleRfpComponent implements OnInit {
       this._serv.postWatchlist(this.id).subscribe(
 
         data => {
-          this.statuss = data['message'];
-          // this.statuss = data.message;
-          // alert(this.statuss)
+          this.statuss = data.message;
           this.wrfp = data['result'];
-          this.total = data['total']
+          this.total = data.total
           //  this.global.getGolbalWishListCourses(this.GlobalWishListCourses);
           if (!data['message'] && data['result']) {
             this._shareData.watchtotal(this.total);
