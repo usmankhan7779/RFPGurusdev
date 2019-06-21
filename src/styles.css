@@ -2063,6 +2063,7 @@ button {
 .mg-top-10px {
   margin-top: 10px
 }
+
 .edit-profile .card .card-content {
   padding: 15px 20px 0
 }
@@ -2771,6 +2772,15 @@ body {
 
 /* .........................Signup-form-fix start................................. */
 
+.partner-form .mat-form-field-label {
+  color: rgb(255, 255, 255) !important;
+}
+
+.partner-form textarea {
+  height: 75px !important;
+  resize: none !important;
+}
+
 .mat-form-field-suffix .mat-icon,
 .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
   font-size: 125% !important
@@ -3459,8 +3469,8 @@ body {
 }
 
 .main_heading {
-  font-size: 42px !important;
-  margin: 10px 0 20px !important;
+  font-size: 42px;
+  margin: 10px 10px !important;
   color: #000;
   font-weight: 600 !important;
   text-align: center
@@ -3605,15 +3615,20 @@ body {
 .sh-n-table .mat-form-field-infix {
   padding: 12px 0;
 }
+
 .sh-tb-select .mat-form-field-underline {
   bottom: 21px;
-} 
-.sh-n-table .mat-select{
+}
+
+.sh-n-table .mat-select {
   background: transparent;
 }
-.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
   background: #000000;
 }
+
 .form-control:focus {
   border-color: transparent;
   outline: 0;
@@ -3631,8 +3646,12 @@ body {
 
 @media (max-width:1280px) {
   .card .card-title {
-    font-size: 19px !important;
+    font-size: 16px !important;
     line-height: 19px !important;
+  }
+
+  .card [data-background-color] {
+    padding: 6px !important;
   }
 
   .reg .pd-left-30 {
@@ -3658,19 +3677,23 @@ body {
   .header .pagination {
     margin-right: 20px !important;
   }
+
   .cat-elips {
     max-width: 70% !important;
   }
-  .sh-products-area .plan-detail > h5 {
+
+  .sh-products-area .plan-detail>h5 {
     font-size: 14px !important;
-}
-}
-@media (max-width:1024px){
-  .sh-payment .container {
-    width: 660px !important;
+  }
 }
 
+@media (max-width:1024px) {
+  .sh-payment .container {
+    width: 660px !important;
+  }
+
 }
+
 @media (min-width:1281px) {
   .pagination {
     margin-right: 18% !important;
@@ -3805,18 +3828,30 @@ body {
     line-height: 34px;
     margin: 20px 0
   }
+
   .sidebarToggle {
     display: block;
     width: 160px;
   }
+  .signup-form-row > div {
+    padding: 0 5px;
+}
+.sh-signin-signup i{
+  width: 12px !important;
+}
 }
 
 @media (max-width:768px) {
+  .about-4 .main_heading {
+    font-size: 36px;
+    margin: 0px 10px 10px !important;
+  }
   #what-is-rfp p{
     font-size: 15px;
     line-height: 20px;
     margin: 0 0 5px;
   }
+
   #contact {
     padding: 0 10px;
   }
