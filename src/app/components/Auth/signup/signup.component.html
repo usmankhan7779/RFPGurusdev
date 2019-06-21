@@ -194,7 +194,7 @@
               </div>
               <div class="row signup-form-row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'password')">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'password')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" maxlength="32" [type]="hide ? 'password' : 'text'"
                       onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -211,7 +211,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'confirmPassword')">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'confirmPassword')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
                       <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
