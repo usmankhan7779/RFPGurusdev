@@ -94,7 +94,7 @@
                         {{rfp.title}}</a>
                     </h3>
                     <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i> Agency :
-                      <a [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a></h5>
+                      <a class="cat-elips" routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a></h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :
                       <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat: rfp.new_category}">{{ rfp.new_category}}</a>
@@ -142,7 +142,7 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-xs-6">
+                    <div class="col-sm-6 col-md-12 col-xs-6">
                       <ul class="list-normal">
                         <li *ngIf="!subscribe; else pdf">
                           <a routerLink="/pricing">
@@ -166,7 +166,7 @@
                         </ng-template>
                       </ul>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-md-6 col-sm-12 col-xs-6">
                       <div *ngIf="!subscribe" class="col-md-2 col-sm-12 col-xs-12 term top-margin-25">
                         <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
                         </button>

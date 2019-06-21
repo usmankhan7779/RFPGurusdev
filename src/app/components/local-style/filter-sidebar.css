@@ -33,7 +33,7 @@
   font-size: 22px !important
 }
 .cat-sidebar-heading{
-  margin: 15px 0 5px;
+  margin: 15px 0 5px !important;
 }
 .sidebar-user .btn {
   width: 100%;
@@ -99,6 +99,9 @@
   display: inline-block;
   vertical-align: middle;
   font-size: 17px;
+  position: absolute;
+  right: 0;
+  top: 14px;
 }
 .sh-btn-fixed {
 font-size: 16px!important;
@@ -152,4 +155,3 @@ font-weight: 400!important
   color: #333;
   font-weight: 600;
 }
-

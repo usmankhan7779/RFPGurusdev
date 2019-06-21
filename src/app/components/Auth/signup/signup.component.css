@@ -72,9 +72,24 @@ a:hover {
 .right-float{
   float: right;
 }
+.zip-address{
+  margin-top:10px !important;
+}
+@media (max-width:1280px){
+  .signup-form-row > div{
+    min-height: 74px !important;
+  }
+  .zip-address{
+    margin-top:0 !important;
+  }
+  .form-footer {
+    padding: 6px 0 20px !important;
+}
+}
 @media (max-width:1024px) {
   .recaptcha-style {
       margin: 0 0 20px
   }
+  
 }
 

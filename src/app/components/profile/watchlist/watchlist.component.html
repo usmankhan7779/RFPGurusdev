@@ -41,7 +41,7 @@
                       <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
                         (click)="move()"> {{ rfp?.wrfp.title}}</a>
                     </h3>
-                    <h5 *ngIf="rfp?.wrfp.agency"><i class="fa fa-building-o"></i> Agency : <a [routerLink]="['/agency']"
+                    <h5 *ngIf="rfp?.wrfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips" [routerLink]="['/agency']"
                         [queryParams]="{ agency: rfp?.wrfp.agency}"><span><b>{{rfp?.wrfp.agency}}</b></span></a></h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :
@@ -79,7 +79,7 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <ul class="list-normal">
                         <li *ngIf="!subscribe; else pdf">
                           <a routerLink="/pricing">
@@ -109,7 +109,7 @@
                         </ng-template>
                       </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div *ngIf="!subscribe" class="col-md-2 col-sm-3 col-xs-7 term top-margin-25">
                         <button routerLink="pricing" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
                           

@@ -283,7 +283,7 @@
                             <div class="col-lg-12">
                                 <div attr.id="View{{rfp.id}}" class="panel-details collapse">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
-                                        <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a
+                                        <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a  class="cat-elips"
                                                 [routerLink]="['/agency']"
                                                 [queryParams]="{ agency: rfp.agency}"><span><b>{{rfp.agency}}</b></span></a>
                                         </h5>
@@ -298,7 +298,7 @@
                                                         {{ rfp.state}}</b></span></a>
                                         </h5>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+                                    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12 term top-margin-25">
                                         <ul class="list-normal">
                                             <li *ngIf="!subscribe; else pdf">
                                                 <a routerLink="/pricing">
