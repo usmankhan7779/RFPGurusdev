@@ -3787,6 +3787,9 @@ body {
   .sidebar-user {
     padding: 0 10px !important;
   }
+  .content-router-outlet{
+    display: block !important;
+}
   #display_advance {
     margin: 10px auto 30px !important;
 }

@@ -90,9 +90,9 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                   <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'zipcode')">
                     <mat-form-field class="zipCodee">
-                      <input matInput type="number" maxlength="5" id="zipcode" min="0"
+                      <input matInput type="number" maxlength="5" id="zipcode" min="0" 
                         (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
-                        placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;"/>
+                        placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
                       <mat-error *ngIf="register.controls.zipcode.value == ''">
                         <strong>Zipcode cannot be empty</strong>
                       </mat-error>
@@ -103,12 +103,15 @@
                         Only 5 Numbers.
                       </mat-error>
                     </mat-form-field>
-                    <p class="clr_red" *ngIf="invalid">
-                      Invalid Zipcode.
+                    <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                      Invalid Zipcode
                     </p>
-                    
+                    <p class="clr_red" *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                      
+                    </p>
                   </div>
                 </div>
+                
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                   <div class="form-group label-floating zip-address " [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
