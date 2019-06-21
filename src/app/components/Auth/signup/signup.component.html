@@ -14,7 +14,7 @@
               </h4>
             </div>
             <div class="card-content">
-              <div class="row signup-form-row">
+              <div class="row ">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
                     <mat-form-field>
@@ -73,6 +73,8 @@
                     </mat-form-field>
                   </div>
                 </div>
+              </div>
+              <div class="row signup-form-row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field>
@@ -85,7 +87,7 @@
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                   <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'zipcode')">
                     <mat-form-field class="zipCodee">
                       <input matInput type="number" maxlength="5" id="zipcode" min="0"
@@ -103,9 +105,8 @@
                     </mat-form-field>
                   </div>
                 </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'city')">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                  <div class="form-group label-floating zip-address " [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
                       <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
@@ -115,7 +116,8 @@
                     </mat-form-field>
                   </div>
                 </div>
-
+              </div>
+              <div class="row ">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                     <mat-form-field>
@@ -147,7 +149,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row signup-form-row">
+              <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
                     <mat-form-field>

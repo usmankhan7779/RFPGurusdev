@@ -73,14 +73,11 @@ a:hover {
   float: right;
 }
 .zip-address{
-  margin-top:10px !important;
+  margin-top: 10px !important;
 }
 @media (max-width:1280px){
   .signup-form-row > div{
     min-height: 74px !important;
-  }
-  .zip-address{
-    margin-top:0 !important;
   }
   .form-footer {
     padding: 6px 0 20px !important;
