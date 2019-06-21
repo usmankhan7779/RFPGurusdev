@@ -103,7 +103,10 @@ export class SignupComponent implements OnInit, OnDestroy {
         },
           error => {
             error.status== 400
-            this.invalid=error.status
+            this.invalid=error.status;
+            delete this.vin_Data.city;
+            delete this.vin_Data.state;
+            delete this.vin_Data.country;
       });
     }
   }
