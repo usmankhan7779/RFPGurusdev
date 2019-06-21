@@ -111,17 +111,16 @@ margin-right: 3px
 }
 @media (max-width:991px) {
   .sh-pg-container {
-    margin: 15px 0;
+    margin: 15px 0 !important;
   }
 }
 @media (max-width:768px) {
   .sh-pg-container>div {
-    padding: 0 5px;
+    padding: 0 5px !important;
     text-align: center
 }
     .sh-pg-container .pagination,
 .sh-pg-container .sh-select-list {
-    float: none!important;
     text-align: center!important
 }
 .sh-pg-container .product-label,

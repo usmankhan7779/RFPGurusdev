@@ -634,7 +634,10 @@ h3 {
 }
 
 .page-title {
-  margin: 10px 0 25px
+  margin: 10px 0 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 41px;
 }
 
 .page-title span {
@@ -1515,9 +1518,10 @@ btn.btn-success.dropdown-toggle:focus {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   font-size: 24px !important;
-  margin: 0 !important;
+  margin: 0 auto!important;
   max-height: 300px !important;
-  overflow-y: scroll !important
+  overflow-y: scroll !important;
+  width: 90%;
 }
 
 .svg {
@@ -3641,11 +3645,65 @@ body {
 }
 
 .form-control:focus {
-  border-color: transparent;
   outline: 0;
   box-shadow: none;
 }
+.has-error .form-control:focus {
+  border-color: #843534;
+  box-shadow: none;
+}
+.has-error .input-group-addon {
+  color: #a94442;
+  background-color: transparent;
+  border-color: #a94442;
+}
 
+.w3-animate-left {
+  animation: animateleft .4s
+}
+
+@keyframes animateleft {
+  from {
+      left: -300px;
+      opacity: 0
+  }
+  to {
+      left: 0;
+      opacity: 1
+  }
+}
+@-webkit-keyframes animateleft {
+  from {
+      left: -300px;
+      opacity: 0
+  }
+  to {
+      left: 0;
+      opacity: 1
+  }
+}
+
+@-moz-keyframes animateleft {
+  from {
+      left: -300px;
+      opacity: 0
+  }
+  to {
+      left: 0;
+      opacity: 1
+  }
+}
+
+@-o-keyframes animateleft {
+  from {
+      left: -300px;
+      opacity: 0
+  }
+  to {
+      left: 0;
+      opacity: 1
+  }
+}
 
 /* ...............................Quries Start....................................... */
 
@@ -3716,17 +3774,73 @@ body {
 }
 
 @media (max-width:991px) {
+  #display_advance {
+    margin: 10px auto 30px !important;
+}
+  .sh-sidebar{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .srch-result{
+    font-size: 22px;
+  }
+  .sh-sort label {
+    font-size: 16px;
+    margin: 5px 5px;
+}
+  .play-store-img2 li {
+    margin-left: 10px;
+}
+  .play-store-img2 {
+    bottom: 20px !important;
+    left: 39%  !important;
+}
+
+  .play-store-img2 .iosBadge,.play-store-img2 .androidBadge {
+    max-width: 15% !important;
+} 
+  .home.pw-solutions ul li {
+    width: 50%  !important;
+  }
+  .last-3-para p {
+    font-size: 14px !important;
+    padding: 5px 0 !important;
+  }
+  .top-lists ul li {
+    font-size: 14px !important;
+  }
+  .tab-mt-top-10px{
+    margin-top: 10px !important;
+  }
+  .how-rfp-help p {
+    padding: 0 0 20px !important;
+  }
+  .interest-area {
+    padding: 10px 0 !important;
+}
+  .leftRsBanner, .rightRsBanner{
+    font-size: 15px !important;
+  }
+  .main_heading {
+    font-size: 32px !important;
+    margin: 10px 0 !important;
+  }
   #accordion .panel-heading .panel-title {
     font-size: 16px
   }
-
+  #CategoryDiv{
+    display: none;
+  }
+  .slide {
+    min-height: auto !important;
+  }
   .rfp-back,
   .tab-text-center {
     text-align: center
   }
 
   .sidebar-close-btn {
-    padding: 0
+    padding: 10px 0 0;
   }
 
   .tab-mg-top-20px {
@@ -3742,7 +3856,7 @@ body {
   }
 
   .page-title {
-    margin: 0 0 35px
+    margin: 0
   }
 
   .term {
@@ -3843,6 +3957,8 @@ body {
   .sidebarToggle {
     display: block;
     width: 160px;
+    height: 55px;
+    margin-left: 30px;
   }
   .signup-form-row > div {
     padding: 0 5px;
@@ -3885,8 +4001,6 @@ body {
   .sh-n-table {
     overflow-x: scroll !important
   }
-
-  #mySidebar,
   .sh-signin-signup>li:last-child:before {
     display: none !important
   }
@@ -3944,6 +4058,10 @@ body {
     float: right !important;
     background: #333 !important
   }
+.mySidebar{
+  transition: 1s ease-in-out all;}
+
+
 
   .prod-select-list {
     padding: 0 5px !important
@@ -4011,7 +4129,9 @@ body {
 }
 
 @media (max-width:640px) {
-
+  .home.pw-solutions ul li {
+    width: 90%  !important;
+  }
   .must-login {
     font-size: 26px
   }
@@ -4154,15 +4274,15 @@ body {
   .sh-f-c p {
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px
+    line-height: 18px !important
   }
 
   .how-rfp-help>div>.row {
-    padding: 0 10px
+    padding: 0 10px !important
   }
 
   .how-rfp-help {
-    padding: 10px 0 0
+    padding: 10px 0 0  !important
   }
 
   .how-rfp-help>div>.row>h3 {
@@ -4484,8 +4604,9 @@ body {
 }
 
 @media (min-width:992px) {
+
   #mySidebar {
-    width: 260px !important;
+    display: table-cell !important;
   }
 
   .sidebar-close-btn {
@@ -4504,7 +4625,6 @@ body {
 }
 
 @media (min-width:768px) and (max-width:991px) {
-
   .com-table>table {
     min-width: 750px
   }
@@ -4525,10 +4645,6 @@ body {
   .how-rfp-help h3 {
     font-size: 24px !important;
     line-height: 28px
-  }
-
-  .how-rfp-help {
-    padding: 30px 20px 0
   }
 
   .pw-solutions h3 {
@@ -4553,7 +4669,7 @@ body {
 
   .footer-container>.row>div,
   .footer-upper {
-    padding: 0
+    padding: 0 !important;
   }
 
   .bannerCarousel {
@@ -4561,7 +4677,7 @@ body {
   }
 
   .download-btns>a img {
-    width: 100px
+    width: 100px !important
   }
 
   .bannerCarousel .buttons.leftRs {
@@ -4591,7 +4707,7 @@ body {
   }
 
   .choose-criteria ul li {
-    padding: 0 10px 0 41px
+    padding: 0 10px 0 41px !important;
   }
 
   .footer {
@@ -4725,6 +4841,12 @@ body {
   .sh-mt-70 {
     margin-bottom: 0 !important
   }
+  .header .pagination {
+    margin-right: 0 !important;
+}
+.sh-pg-container .pagination, .sh-pg-container .sh-select-list {
+  float: right !important;
+}
 }
 
 /* End  Responsive.css */

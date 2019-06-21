@@ -624,5 +624,8 @@
     .nav-home ul li+li {
       border-top: 1px solid #333;
     }
+    .navbar-nav > li > a {
+      padding: 10px !important;
+  }
   }
  
