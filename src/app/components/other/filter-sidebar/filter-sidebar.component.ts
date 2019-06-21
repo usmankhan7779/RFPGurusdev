@@ -63,20 +63,38 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
         this.loaded = true;
       })
   }
-  select_state() {
-    if (this.states) {
-      localStorage.removeItem('agencies');
-      localStorage.removeItem('cates');
-      localStorage.removeItem('subcat');
-      delete this.agencies
-      delete this.cates;
-      delete this.subcates;
-    }
-    if (this.states == 'all') {
 
-    } else {
+  changestate(states) {
+
+    this.states = states;
+    localStorage.setItem('states', this.states)
+    if(localStorage.getItem('pages')){
+    var page_num:number=Number(localStorage.getItem('pages'));
+    // this.onPaginateChange(page_num);
+    }else{
+    // this.onPaginateChange(1);
+    }
+    this.onSubmit();
+    }
+
+    
+
+  select_state() {
+    // if (this.states) {
+    //   localStorage.removeItem('agencies');
+    //   localStorage.removeItem('cates');
+    //   localStorage.removeItem('subcat');
+    //   delete this.agencies
+    //   delete this.cates;
+    //   delete this.subcates;
+    // }
+    // if (this.states == 'all') {
+
+    // } else {
+
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
+
           if (data['States']) {
             this.state = data['States'];
             console.log(data['States'])
@@ -87,31 +105,32 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
             console.log(data['Categories'])
           }
           if (data['Agencies']) {
+            this.agency = data['Agencies'];
             // this.agency = data['Agencies'];
-            this.agency = data['Result'];
-            console.log(data['Result'].json())
+            console.log(data['Agencies'].json())
+            // console.log(data['Agencies'])
 
           }
           if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
 
         })
 
-    }
+    // }
     this.onSubmit();
 
   }
   select_agency() {
-    if (this.agencies) {
-      delete this.cates;
-      delete this.subcates;
-      localStorage.removeItem('cates');
-      localStorage.removeItem('subcat');
-    }
-    if (this.agencies == 'all') {
+    // if (this.agencies) {
+    //   delete this.cates;
+    //   delete this.subcates;
+    //   localStorage.removeItem('cates');
+    //   localStorage.removeItem('subcat');
+    // }
+    // if (this.agencies == 'all') {
 
-    }
+    // }
 
-    else {
+    // else {
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
           if (data['States']) {
@@ -122,15 +141,16 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
             this.cat = data['Categories'];
           }
           if (data['Agencies']) {
-            // this.agency = data['Agencies'];
-            this.agency = data['Result'];
+            this.agency = data['Agencies'];
+            // this.agency = data['Result'];
+            console.log(data['Agencies'])
 
           }
           if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
 
         })
 
-    }
+    // }
     this.onSubmit();
 
   }
@@ -146,7 +166,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
         }
         if (data['Agencies']) {
           // this.agency = data['Agencies'];
-          this.agency = data['Result'];
+          this.agency = data['Agencies'];
 
         }
         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
@@ -184,9 +204,9 @@ f.resetForm();
   onSubmit() {
 
     // if (F.valid == true) {
-    if (this.status) {
-      localStorage.setItem('status', this.status)
-    }
+    // if (this.status) {
+    //   localStorage.setItem('status', this.status)
+    // }
     if (this.enterdate) { localStorage.setItem('enterdate', this.datePipe.transform(this.enterdate, "yyyy-MM-dd h:mm:ss a ")) }
     if (this.duedate) { localStorage.setItem('duedate', this.datePipe.transform(this.duedate, "yyyy-MM-dd h:mm:ss a ")) }
     if (this.submission_from) { localStorage.setItem('submission_from', this.datePipe.transform(this.submission_from, "yyyy-MM-dd h:mm:ss a ")) }
@@ -258,14 +278,15 @@ f;
       data => {
         this.state = data['Result'];
       });
+      this.endRequest = this.filterServ.agencies().subscribe(
+        data => {
+          this.agency = data['Result'];
+        });
     this.endRequest = this.homeServ.rfpcategory().subscribe(
       data => {
         this.cat = data;
       });
-    this.endRequest = this.filterServ.agencies().subscribe(
-      data => {
-        this.agency = data['Result'];
-      });
+   
   }
 
   check_login() {
