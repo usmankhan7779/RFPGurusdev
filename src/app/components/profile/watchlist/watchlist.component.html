@@ -41,7 +41,7 @@
                       <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
                         (click)="move()"> {{ rfp?.wrfp.title}}</a>
                     </h3>
-                    <h5 *ngIf="rfp?.wrfp.agency"><i class="fa fa-building-o"></i> Agency : <a [routerLink]="['/agency']"
+                    <h5 *ngIf="rfp?.wrfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips" [routerLink]="['/agency']"
                         [queryParams]="{ agency: rfp?.wrfp.agency}"><span><b>{{rfp?.wrfp.agency}}</b></span></a></h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :

@@ -14,7 +14,7 @@ export class RfpService {
     headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
     return this._https.post('https://apis.rfpgurus.com/rf_p/watchlist/', JSON.stringify({
       "rfp": rfpid
-    }),{headers:headers});
+    }),{headers:headers}).map((res: Response) => res.json() );
   }
 
   rfprecord(id, val) {

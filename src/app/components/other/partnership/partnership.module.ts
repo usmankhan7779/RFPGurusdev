@@ -5,6 +5,8 @@ import { PartnershipComponent } from './partnership.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { MatInputModule, MatFormFieldModule } from '@angular/material';
+ 
 const routes: Routes = [
   {
     path: '', component: PartnershipComponent
@@ -17,7 +19,9 @@ const routes: Routes = [
     FormsModule,
     TextMaskModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [PartnershipComponent]
