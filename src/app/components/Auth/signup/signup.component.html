@@ -41,10 +41,10 @@
                     <mat-form-field>
                       <input class="sh-text-capt" matInput type="text" (keydown.space)="$event.preventDefault()" minlength="2" maxlength="64" id="lastname"
                         formControlName="lastname" placeholder="Last Name" required />
-                        <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                        <mat-error *ngIf="register.controls.lastname.errors?.minlength">
                           Last Name must be between 2 to 64 characters
                         </mat-error>
-                        <mat-error *ngIf="register.controls.firstname.errors?.maxlength">
+                        <mat-error *ngIf="register.controls.lastname.errors?.maxlength">
                           Last Name must be between 2 to 64 characters
                         </mat-error>
                       <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
