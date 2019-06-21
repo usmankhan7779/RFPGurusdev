@@ -94,7 +94,7 @@
                         {{rfp.title}}</a>
                     </h3>
                     <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i> Agency :
-                      <a class="cat-elips" routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a></h5>
+                      <a class="cat-elips" [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a></h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :
                       <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat: rfp.new_category}">{{ rfp.new_category}}</a>
