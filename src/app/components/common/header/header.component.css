@@ -144,8 +144,9 @@
   }
 
   .heart-li sup {
-    top: -10px;
-    left: -5px
+    top: -5px;
+    left: 8px;
+    position: absolute;
   }
 
   .heart-li:hover .heart-sub-meun {
@@ -476,6 +477,9 @@
   }
 
   @media (max-width:1024px) {
+    .heart-li sup {
+      top: 0px;
+    }
     .nav-home ul {
       font-size: 16px;
       padding: 23px 0 0
@@ -541,6 +545,9 @@
   }
 
   @media (max-width:991px) {
+    .heart-li sup {
+      top: 12px;
+    }
     .logo img {
       margin-top: 5px
     }
@@ -594,9 +601,6 @@
       padding: 0 10px
     }
 
-    .nav-home ul li {
-      padding: 5px 0
-    }
 
     .navbar-nav>li>a {
       padding: 10px 1px !important;
@@ -621,6 +625,9 @@
   }
 
   @media (max-width:767px) {
+    .header-home {
+      min-height: 50px;
+    }
     .nav-home ul li+li {
       border-top: 1px solid #333;
     }

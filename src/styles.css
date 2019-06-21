@@ -3774,6 +3774,19 @@ body {
 }
 
 @media (max-width:991px) {
+  .com-table,
+  .sh-n-table {
+    overflow-x: scroll !important
+  }
+  .Find-rfp .main-heading{
+    margin: 0;
+  }
+  .Find-rfp .sh-pg-container{
+    margin: 0;
+  }
+  .sidebar-user {
+    padding: 0 10px !important;
+  }
   #display_advance {
     margin: 10px auto 30px !important;
 }
@@ -3957,7 +3970,7 @@ body {
   .sidebarToggle {
     display: block;
     width: 160px;
-    height: 55px;
+    height: 44px;
     margin-left: 30px;
   }
   .signup-form-row > div {
@@ -3995,11 +4008,6 @@ body {
   .com-table td {
     padding: 5px !important;
     font-size: 13px !important
-  }
-
-  .com-table,
-  .sh-n-table {
-    overflow-x: scroll !important
   }
   .sh-signin-signup>li:last-child:before {
     display: none !important
@@ -4491,7 +4499,7 @@ body {
   }
 
   .header-home {
-    min-height: 55px
+    min-height: 55px !important
   }
 
   .bannerCarousel {
@@ -4816,7 +4824,8 @@ body {
     -ms-transform: none !important;
     -moz-transform: none !important;
     -o-transform: none !important;
-    transform: none
+    transform: none;
+    z-index: 99;
   }
 
   #mySidebar {
