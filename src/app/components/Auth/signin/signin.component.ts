@@ -193,8 +193,9 @@ export class SigninComponent implements OnInit {
                   this._nav.navigate([url]);
                 }
                 else {
-                  var val = 'rfp/' + url
-                  this._nav.navigate([val]);
+                  // var val = 'rfp/' + url
+                  // this._nav.navigate([val]);
+                this._nav.navigate(['rfp/'], { queryParams: { query: url } });
                 }
               } else {
                 this._nav.navigate(['/']);

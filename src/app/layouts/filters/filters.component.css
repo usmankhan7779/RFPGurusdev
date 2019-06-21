@@ -3,7 +3,8 @@
   min-height: 100vh;
 } */
 .content-router-outlet{
-  width: calc(100% - 260px);
+  /* width: calc(100% - 260px); */
+  width: 100%;
   min-height: 400px;
   vertical-align: top;
   display: table-cell;

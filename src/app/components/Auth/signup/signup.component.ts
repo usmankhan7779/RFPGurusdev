@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   type: FormGroup;
   // [ ~`!@#$%^&*()-_+={}[]|\;:"<>,./?]
   digitsOnly = '^[0-9,-]+$';
-  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*(),.?":{}|<>]).{8,}$';
+  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[[!@#$%^&*();/,.?":{}|<>]]).{8,}$';
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   usernameOnly = '[a-zA-Z0-9_.]+';
   // textonly='/^([a-z]+\s)*[a-z]+$/';
@@ -64,6 +64,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   emailexist: boolean = false;
   usernameexist: boolean = false;
   isequal;
+  meaasge;
   btnSubmit;
   terms:boolean;
   matcher = new errorMatcher();
@@ -90,7 +91,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
  
    
-
+  invalid
 
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
@@ -99,7 +100,14 @@ export class SignupComponent implements OnInit, OnDestroy {
           this.vin_Data.city = data['city'];
           this.vin_Data.state = data['state'];
           this.vin_Data.country = data['country'];
-        });
+        },
+          error => {
+            error.status== 400
+            this.invalid=error.status;
+            delete this.vin_Data.city;
+            delete this.vin_Data.state;
+            delete this.vin_Data.country;
+      });
     }
   }
   usernameCheck(username1) {

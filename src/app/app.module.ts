@@ -42,6 +42,7 @@ export function provideConfig() {
 
 import { TextMaskModule } from 'angular2-text-mask';
 import { Http, HttpModule } from '@angular/http';
+import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
  
  
 

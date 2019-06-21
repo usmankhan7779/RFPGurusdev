@@ -571,6 +571,13 @@ export class PricingComponent implements OnInit {
                 'error'
               )
             }
+            else if(error.status==403){
+              swal(
+                'Sorry!',
+                'You have already subscribed',
+                'info'
+              )
+            }
           });
       }
     }
