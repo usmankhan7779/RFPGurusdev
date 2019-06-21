@@ -1,10 +1,11 @@
 import { SetHeaders } from './../../../AuthGuards/auth.interceptor';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Headers , Response} from '@angular/http'
 
 @Injectable()
 export class HeaderService {
-  constructor(private http: HttpClient, private authInterceptor: SetHeaders) { }
+  constructor(private http: HttpClient, private authInterceptor: SetHeaders, private _http:Http) { }
 
   logdetail() {
     return this.http.get('https://apis.rfpgurus.com/rf_p/logDetail/')
@@ -23,7 +24,11 @@ export class HeaderService {
       , { headers: this.authInterceptor.setHeaders() });
   }
   Watchlist() {
-    return this.http.get('https://apis.rfpgurus.com/rf_p/watchlist/');
+    let headers = new Headers();
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+    headers.append('Content-Type', 'application/json');
+    return this._http.get('https://apis.rfpgurus.com/rf_p/watchlist/',
+    {headers: headers}).map((response: Response) => response.json());
   }
 
   deleteallnotify() {
@@ -35,7 +40,12 @@ export class HeaderService {
   }
 
   AlldeleteWatchlist() {
-    return this.http.delete('https://apis.rfpgurus.com/rf_p/Delete_all_watch_list/');
+    let headers = new Headers();
+  if(localStorage.getItem('currentUser')){
+    headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+    }  
+  headers.append('Content-Type', 'application/json');
+    return this._http.delete('https://apis.rfpgurus.com/rf_p/Delete_all_watch_list/', {headers: headers}).map((response: Response) => response.json());
   }
 
   searchrecord(obj: string) {
