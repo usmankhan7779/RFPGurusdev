@@ -898,10 +898,11 @@ font-family: Helvetica!important
       margin-left: 0
   }
   .choose-criteria ul li h4 {
-    font-size: 22px
+    font-size: 22px !important;
   }
   .choose-criteria ul li p {
-    font-size: 14px
+    font-size: 14px;
+    line-height: 18px;
   }
   .custom-model {
     width: 90%

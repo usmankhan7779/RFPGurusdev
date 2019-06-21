@@ -68,4 +68,8 @@ padding: 6px 36px
   -webkit-box-shadow: 0 6px 6px #ccc;
   box-shadow: 0 6px 6px #ccc
 }
-
+@media (max-width:991px){
+  .sh-pg-container .product-label {
+    margin: 12px 10px 0 0;
+}
+}

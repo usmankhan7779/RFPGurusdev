@@ -95,3 +95,8 @@ a:hover {
     padding: 15px 0 20px !important;
 }
 }
+@media (max-width:767px){
+  .reg .pd-left-30 {
+    padding: 10px 0 !important;
+}
+}

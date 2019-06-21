@@ -26,49 +26,6 @@
 
 
 
-@-webkit-keyframes animateleft {
-    from {
-        left: -300px;
-        opacity: 0
-    }
-    to {
-        left: 0;
-        opacity: 1
-    }
-}
-
-@-moz-keyframes animateleft {
-    from {
-        left: -300px;
-        opacity: 0
-    }
-    to {
-        left: 0;
-        opacity: 1
-    }
-}
-
-@-o-keyframes animateleft {
-    from {
-        left: -300px;
-        opacity: 0
-    }
-    to {
-        left: 0;
-        opacity: 1
-    }
-}
-
-@keyframes animateleft {
-    from {
-        left: -300px;
-        opacity: 0
-    }
-    to {
-        left: 0;
-        opacity: 1
-    }
-}
 
 .sidebar-close-btn button {
     background: #fff;
@@ -86,15 +43,10 @@
     background: #fff;
 }
   @media (max-width:991px) {
-  .All-RFPs-Comp {
-    margin-top: 20px
-  }
-  .All-RFPs-Comp .page-title>div {
-  margin: 10px 0 0;
-  padding: 0
-  }
-  .latest-rfps-title {
-    text-align: center;
-    padding-left: 50px
-}
+    .main-content.custom {
+      margin: 0 !important;
+    }
+    .page-title {
+      margin: 0;
+    }
 }

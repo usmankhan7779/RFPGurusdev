@@ -14,8 +14,4 @@ export class CommonComponent implements OnInit {
     
   }
 
-  w3_open() {
-    document.getElementById("mySidebar").style.width = "250px";
-  }
-
 }
