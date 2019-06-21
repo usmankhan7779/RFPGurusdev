@@ -107,7 +107,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
           if (data['Agencies']) {
             this.agency = data['Agencies'];
             // this.agency = data['Agencies'];
-            console.log(data['Agencies'].json())
+            console.log(data['Agencies'])
             // console.log(data['Agencies'])
 
           }
