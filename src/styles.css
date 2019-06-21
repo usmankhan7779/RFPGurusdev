@@ -634,7 +634,10 @@ h3 {
 }
 
 .page-title {
-  margin: 10px 0 25px
+  margin: 10px 0 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 41px;
 }
 
 .page-title span {
@@ -1515,9 +1518,10 @@ btn.btn-success.dropdown-toggle:focus {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   font-size: 24px !important;
-  margin: 0 !important;
+  margin: 0 auto!important;
   max-height: 300px !important;
-  overflow-y: scroll !important
+  overflow-y: scroll !important;
+  width: 90%;
 }
 
 .svg {
