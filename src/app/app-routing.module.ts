@@ -14,9 +14,10 @@ const routes: Routes = [
 
   // =========== Auths ===========
   { path: 'signin', loadChildren: './components/Auth/signin/signin.module#SigninModule', canActivate: [AuthLogin] },
+ 
   { path: 'signup', loadChildren: './components/Auth/signup/signup.module#SignupModule' },
   { path: 'activateaccount/:query1', loadChildren: './components/Auth/accountActivation/accountActivation.module#AccountActivationModule' },
-
+  // 
   // =========== Static pages ===========
   { path: 'who-are-we', loadChildren: './components/static/about/about.module#AboutModule' },
   { path: 'contact-us', loadChildren: './components/static/contact-us/contact-us.module#ContactUsModule' },
@@ -74,6 +75,8 @@ const routes: Routes = [
   { path: 'partnership', loadChildren: './components/other/partnership/partnership.module#PartnershipModule' },
   { path: 'unsubscribe/:query1', loadChildren: './components/other/unsubscribe/unsubscribe.module#UnsubscribeModule' },
   { path: 'pricing', loadChildren: './components/other/pricing/pricing.module#PricingModule' },
+  { path: 'pdfviewer', loadChildren: './components/other/pdf-viewer/pdf-viewer.module#PdfViewerModule' },
+
 
   // =========== Not Found Page ===========  
   { path: '**', loadChildren: './components/static/page404/page404.module#Page404Module' },
