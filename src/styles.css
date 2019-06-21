@@ -3812,6 +3812,11 @@ body {
 }
 
 @media (max-width:768px) {
+  #what-is-rfp p{
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0 0 5px;
+  }
   #contact {
     padding: 0 10px;
   }
@@ -3911,7 +3916,7 @@ body {
   }
 
   .pw-solutions.works-blocks ul li {
-    width: 90% !important;
+    width: 50% !important;
     margin: 10px auto !important
   }
 
@@ -4489,7 +4494,7 @@ body {
   }
 
   .holder {
-    min-height: 26pc !important
+    min-height: 21pc !important
   }
 
   .custom-model .modal-body {
