@@ -1,7 +1,7 @@
 <section class="partnership">
   <div class="container">
     <div class="row">
-      <div class="col-sm-offset-7 col-sm-5">
+      <div class="col-lg-offset-7 col-lg-5 col-md-offset-6 col-md-6 col-sm-12">
         <h1><small class="become-a">Become a</small> <br /> RFPGurus Partner</h1>
         <p class="elevate">Elevate your RFP Bidding experience to a whole new level</p>
         <!-- <form [formGroup]="partnership" (ngSubmit)="onSubmit()">
@@ -64,7 +64,7 @@
 
 
 
-          <form class="sh-signup-form-fix"[formGroup]="partnership" (ngSubmit)="onSubmit()">
+          <form class="partner-form sh-signup-form-fix"[formGroup]="partnership" (ngSubmit)="onSubmit()">
 
 
 
@@ -76,7 +76,7 @@
             <mat-form-field>
               <input matInput placeholder="Name" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text">
             </mat-form-field>
-            <div *ngIf="firstname.touched && !firstname.valid">
+            <div class="error-mat" *ngIf="firstname.touched && !firstname.valid">
                 <div *ngIf="firstname.errors.required">
                   <strong>First name cannot be empty</strong>
                 </div>
@@ -87,9 +87,9 @@
           </div>
           <div class="form-group" [ngClass]="displayFieldCss(partnership, 'email')">
           <mat-form-field>
-              <input matInput placeholder="Email"  id=email class="form-control " formControlName="email" placeholder=" Email">
+              <input matInput placeholder="Email"  id="email" formControlName="email" placeholder="Email">
             </mat-form-field>
-            <div *ngIf="email.touched && !email.valid">
+            <div class="error-mat" *ngIf="email.touched && !email.valid">
                 <div *ngIf="email.errors.required">
                   <strong>Email cannot be empty</strong>
                 </div>
@@ -100,9 +100,9 @@
             </div>
             <div  class="form-group" [ngClass]="displayFieldCss(partnership, 'cName')">
             <mat-form-field>
-                <input matInput placeholder="Company Name" class="form-control  sh-text-capt" maxlength="20"   formControlName="cName">
+                <input matInput placeholder="Company Name" maxlength="20"   formControlName="cName">
               </mat-form-field>
-              <div *ngIf="cName.touched && !cName.valid">
+              <div class="error-mat" *ngIf="cName.touched && !cName.valid">
                   <div *ngIf="cName.errors.required">
                     <strong> Company name cannot be empty</strong>
                   </div>

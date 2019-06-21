@@ -2771,6 +2771,13 @@ body {
 
 /* .........................Signup-form-fix start................................. */
 
+.partner-form .mat-form-field-label {
+  color: rgb(255, 255, 255) !important;
+}
+.partner-form textarea{
+  height: 75px !important;
+  resize: none !important;
+}
 .mat-form-field-suffix .mat-icon,
 .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
   font-size: 125% !important
