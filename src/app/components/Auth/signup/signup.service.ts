@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Headers , Response} from '@angular/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private _http:Http) { }
 
   email_exist(email) {
     return this.http.post('https://apis.rfpgurus.com/email_exist/', {
@@ -37,7 +38,8 @@ export class SignupService {
   }
 
   zipcode(zip) {
-    return this.http.get('https://apis.rfpgurus.com/zipcode/' + zip + '/');
+   
+    return this._http.get('https://apis.rfpgurus.com/zipcode/' + zip + '/').map((response: Response) => response.json());
   }
 
 

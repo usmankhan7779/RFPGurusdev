@@ -64,6 +64,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   emailexist: boolean = false;
   usernameexist: boolean = false;
   isequal;
+  meaasge;
   btnSubmit;
   terms:boolean;
   matcher = new errorMatcher();
@@ -90,7 +91,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
  
    
-
+  invalid
 
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
@@ -99,7 +100,11 @@ export class SignupComponent implements OnInit, OnDestroy {
           this.vin_Data.city = data['city'];
           this.vin_Data.state = data['state'];
           this.vin_Data.country = data['country'];
-        });
+        },
+          error => {
+            error.status== 400
+            this.invalid=error.status
+      });
     }
   }
   usernameCheck(username1) {
