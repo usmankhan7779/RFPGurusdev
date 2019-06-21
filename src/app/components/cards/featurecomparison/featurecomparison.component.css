@@ -108,15 +108,15 @@
   }
 }
 @media (max-width:991px) {
+
   #f-c>.container-wide>h2 {
-    font-size: 24px
+    font-size: 24px !important
   }
   #f-c>.container-wide>p {
-    font-size: 14px
+    font-size: 14px !important
   }
   #f-c .com-table th {
-    font-size: 18px;
-    padding: 15px 5px!important
+    font-size: 18px !important;
 }
 #f-c .com-table td {
     font-size: 14px;
