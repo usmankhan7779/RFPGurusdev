@@ -3614,9 +3614,11 @@ body {
 .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
   background: #000000;
 }
-
-
-
+.form-control:focus {
+  border-color: transparent;
+  outline: 0;
+  box-shadow: none;
+}
 
 
 /* ...............................Quries Start....................................... */
@@ -3660,11 +3662,13 @@ body {
   .header .pagination {
     margin-right: 20px !important;
   }
+
 }
 @media (max-width:1024px){
   .sh-payment .container {
     width: 660px !important;
 }
+
 }
 @media (min-width:1281px) {
   .pagination {
