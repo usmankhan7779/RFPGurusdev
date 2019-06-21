@@ -19,7 +19,7 @@
           </div>
           <div class="form-group" [ngClass]="displayFieldCss(partnership, 'email')">
             <label for="email">Email *</label>
-            <!-- <mat-form-field> -->
+            <mat-form-field> -->
               <!-- <input  id=email class="form-control " formControlName="email" placeholder=" Email"  /> -->
               <!-- <div *ngIf="email.touched && !email.valid"> -->
                   <!-- <div *ngIf="email.errors.required"> -->
@@ -59,9 +59,21 @@
           <!-- </div> -->
         <!-- </form> -->
         <div class="example-container">
-          <form [formGroup]="partnership" (ngSubmit)="onSubmit()">
-              <div class="form-group" [ngClass]="displayFieldCss(partnership, 'firstname')">
-          <mat-form-field>
+
+
+
+
+
+          <form class="sh-signup-form-fix"[formGroup]="partnership" (ngSubmit)="onSubmit()">
+
+
+
+
+
+
+
+          <div class="form-group" [ngClass]="displayFieldCss(partnership, 'firstname')">
+            <mat-form-field>
               <input matInput placeholder="Name" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text">
             </mat-form-field>
             <div *ngIf="firstname.touched && !firstname.valid">
