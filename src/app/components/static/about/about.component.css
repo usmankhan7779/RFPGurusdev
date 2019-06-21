@@ -27,14 +27,15 @@
   background-position: bottom;
   -webkit-background-size: 100% auto;
   background-size: 100% auto;
-  padding: 20px;
+  padding: 10px;
   position: relative;
   z-index: 1;
   text-align: center
 }
 
 .about-3 p {
-  margin: 0 0 20px
+  margin: 0 0 6px;
+  text-align: left;
 }
 
 .about-3:before {
@@ -52,7 +53,7 @@
   font-size: 16px;
   line-height: 22px;
   background: #fff;
-  padding: 50px 0
+  padding: 20px 0
 }
 
 .count-on {

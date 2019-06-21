@@ -3466,8 +3466,8 @@ body {
 }
 
 .main_heading {
-  font-size: 42px !important;
-  margin: 10px 0 20px !important;
+  font-size: 42px;
+  margin: 10px 10px !important;
   color: #000;
   font-weight: 600 !important;
   text-align: center
@@ -3819,6 +3819,10 @@ body {
 }
 
 @media (max-width:768px) {
+  .about-4 .main_heading {
+    font-size: 36px;
+    margin: 0px 10px 10px !important;
+  }
   #what-is-rfp p{
     font-size: 15px;
     line-height: 20px;
