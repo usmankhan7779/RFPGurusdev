@@ -107,7 +107,7 @@ export class SigninComponent implements OnInit {
           else if (url == 'advanced-search') {
             this._nav.navigate([url]);
           }
-          else if (url == 'latest-rfp') {
+          else if (url == 'latest-rfps') {
             this._nav.navigate([url]);
           }
           else {
@@ -189,7 +189,7 @@ export class SigninComponent implements OnInit {
                 else if (url == 'advanced-search') {
                   this._nav.navigate([url]);
                 }
-                else if (url == 'latest-rfp') {
+                else if (url == 'latest-rfps') {
                   this._nav.navigate([url]);
                 }
                 else {
@@ -250,7 +250,7 @@ export class SigninComponent implements OnInit {
       html: ' Enter your email address to receive a link allowing you to reset your password. First, verify your email address to signin',
       input: 'email',
       confirmButtonColor: "#000", width: '512px',
-      inputPlaceholder: 'Enter your email address'
+      inputPlaceholder: 'Email'
     }).then((email) => {
       this.forgetPassword(email)
     })

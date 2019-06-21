@@ -210,7 +210,7 @@ export class PurchaseHistoryComponent implements OnInit {
                     '',
                     'success'
                 )
-                let url = 'find-rfp';
+                let url = 'find-rfps';
                 this._nav.navigate([url]);
             },
             error => {

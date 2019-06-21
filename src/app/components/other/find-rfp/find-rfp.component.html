@@ -155,12 +155,11 @@
                         <tbody *ngIf="search == false && items">
                             <tr *ngFor="let data of items;let i=index">
                                 <td>
-                                    <a class="curser-pointer clr_red" [routerLink]="['/rfp']"
+                                    <a class="curser-pointer " [routerLink]="['/rfp']"
                                         [queryParams]="{query:data.seoTitleUrl}"
                                         (click)="move()"><span>{{data.rfpkey | titlecase}}</span></a>
                                 </td>
                                 <td><span class="block-ellipsis"> {{data. title}}</span></td>
-
                                 <td><a class="category-name"  class="cat-elips" [routerLink]="['/category']"
                                         [queryParams]="{ cat: data.new_category}"><span>{{data.new_category}}</span></a>
                                 </td>

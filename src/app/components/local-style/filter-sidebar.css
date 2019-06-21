@@ -33,11 +33,11 @@
   font-size: 22px !important
 }
 .cat-sidebar-heading{
-  margin: 15px 0 5px;
+  margin: 15px 0 5px !important;
 }
 .sidebar-user .btn {
   width: 100%;
-  box-shadow: 0 6px 10px #ccc !important;
+  box-shadow: 0 3px 6px 2px #ccc !important;
   font-weight: 600 !important;
 }
 
@@ -99,6 +99,9 @@
   display: inline-block;
   vertical-align: middle;
   font-size: 17px;
+  position: absolute;
+  right: 0;
+  top: 14px;
 }
 .sh-btn-fixed {
 font-size: 16px!important;
@@ -110,7 +113,7 @@ font-weight: 400!important
 .sh-refresh-res {
 font-size: 18px!important;
 margin-top: 0;
-margin-bottom: 20px;
+margin-bottom: 10px;
 }
 .list-category li a {
   cursor: pointer;
@@ -152,4 +155,3 @@ font-weight: 400!important
   color: #333;
   font-weight: 600;
 }
-
