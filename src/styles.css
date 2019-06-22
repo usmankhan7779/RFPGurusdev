@@ -3772,8 +3772,41 @@ body {
     max-width: 1100px;
   }
 }
-
 @media (max-width:991px) {
+  .sticky {
+    top: 60px;
+  }
+  .user-sidebar{
+    padding: 0;
+  }
+  .search-holder .fa-microphone {
+    font-size: 35px;
+    right: 15px;
+    top: 13px;
+  }
+  .search-holder{
+    padding: 0;
+  }
+  .search-holder input {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .com-table,
+  .sh-n-table {
+    overflow-x: scroll !important
+  }
+  .Find-rfp .main-heading{
+    margin: 0;
+  }
+  .Find-rfp .sh-pg-container{
+    margin: 0;
+  }
+  .sidebar-user {
+    padding: 0 10px !important;
+  }
+  .content-router-outlet{
+    display: block !important;
+}
   #display_advance {
     margin: 10px auto 30px !important;
 }
@@ -3834,7 +3867,7 @@ body {
   .slide {
     min-height: auto !important;
   }
-  .rfp-back,
+
   .tab-text-center {
     text-align: center
   }
@@ -3957,7 +3990,7 @@ body {
   .sidebarToggle {
     display: block;
     width: 160px;
-    height: 55px;
+    height: 44px;
     margin-left: 30px;
   }
   .signup-form-row > div {
@@ -3995,11 +4028,6 @@ body {
   .com-table td {
     padding: 5px !important;
     font-size: 13px !important
-  }
-
-  .com-table,
-  .sh-n-table {
-    overflow-x: scroll !important
   }
   .sh-signin-signup>li:last-child:before {
     display: none !important
@@ -4491,7 +4519,7 @@ body {
   }
 
   .header-home {
-    min-height: 55px
+    min-height: 55px !important
   }
 
   .bannerCarousel {
@@ -4664,7 +4692,7 @@ body {
   }
 
   .footer-container {
-    padding: 0 28px
+    padding: 10px 28px;
   }
 
   .footer-container>.row>div,
@@ -4816,7 +4844,8 @@ body {
     -ms-transform: none !important;
     -moz-transform: none !important;
     -o-transform: none !important;
-    transform: none
+    transform: none;
+    z-index: 99;
   }
 
   #mySidebar {
