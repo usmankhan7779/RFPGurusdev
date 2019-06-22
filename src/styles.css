@@ -3704,7 +3704,12 @@ body {
       opacity: 1
   }
 }
-
+textarea::-webkit-scrollbar {
+  cursor:pointer;
+}
+.zip-address{
+  margin-top: 10px !important;
+}
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {

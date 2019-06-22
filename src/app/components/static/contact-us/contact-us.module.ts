@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule } from '@angular/material';
 import { TextMaskModule } from 'angular2-text-mask';
+import { RecapchaModule } from '../../Auth/recapcha/recapcha.module';
+
 const routes: Routes = [
   {
     path: '', component: ContactUsComponent
@@ -18,6 +20,7 @@ const routes: Routes = [
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
+    RecapchaModule,
     TextMaskModule,
     HttpClientModule,
     RouterModule.forChild(routes)
