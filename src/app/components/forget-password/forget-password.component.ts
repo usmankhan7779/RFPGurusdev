@@ -42,7 +42,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
   model: any = {};
   param;
   code;
-  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*(),.?":{}|<>]).{8,}$';
+  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\[\\]\\-\'<>~|@_{}]).{8,}$';
 
   constructor(private formBuilder: FormBuilder, private _serv: ForgetPasswordService,
     private route: ActivatedRoute,
