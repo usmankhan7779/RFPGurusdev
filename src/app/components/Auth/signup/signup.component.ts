@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   login: FormGroup;
   type: FormGroup;
   digitsOnly = '^[0-9,-]+$';
-  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\[\\]\\-\'<>~|@_{}]).{8,}$';
+  password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\\\[\\]\\-\'<>~|@_{}]).{8,}$';
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   usernameOnly = '[a-zA-Z0-9_.]+';
   textonly = '[a-zA-Z]+'
