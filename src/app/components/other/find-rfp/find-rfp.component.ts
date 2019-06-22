@@ -97,7 +97,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
       .subscribe(params => {
         // this.CatName = params['CatName'] || '0';
         // this.cates = params['cat']
-        alert(params['cat'])
+        // alert(params['cat'])
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
