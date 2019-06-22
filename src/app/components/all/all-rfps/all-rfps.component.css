@@ -23,10 +23,6 @@
     -o-animation: animateleft .4s;
     animation: animateleft .4s
 }
-
-
-
-
 .sidebar-close-btn button {
     background: #fff;
     font-size: 26px;
@@ -41,6 +37,9 @@
 }
 .sidebar-close-btn button:hover{
     background: #fff;
+}
+.mg-top-5{
+  margin-top: 5px;
 }
   @media (max-width:991px) {
     .main-content.custom {

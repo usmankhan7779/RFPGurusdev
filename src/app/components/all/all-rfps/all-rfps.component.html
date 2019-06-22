@@ -142,11 +142,11 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-sm-6 col-md-12 col-xs-6">
+                    <div class="col-sm-12 col-md-6 col-xs-6">
                       <ul class="list-normal">
                         <li *ngIf="!subscribe; else pdf">
                           <a routerLink="/pricing">
-                            <i class="fafa-credit-card"></i> Pricing/Package Details
+                            <i class="fa fa-credit-card"></i> Pricing/Package Details
                           </a>
                         </li>
                         <ng-template #pdf>
@@ -167,7 +167,7 @@
                       </ul>
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-6">
-                      <div *ngIf="!subscribe" class="col-md-2 col-sm-12 col-xs-12 term top-margin-25">
+                      <div *ngIf="!subscribe" class=" term mg-top-5">
                         <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
                         </button>
                       </div>

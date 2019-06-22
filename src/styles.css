@@ -399,7 +399,9 @@ router-outlet {
   display: block
 }
 
-.card a,
+.card a{
+  vertical-align: middle;
+}
 img {
   vertical-align: top
 }
@@ -607,9 +609,7 @@ h3 {
 }
 
 .list-normal li a {
-  color: #337ab7;
-  text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .list-normal li a:hover {
@@ -2599,7 +2599,7 @@ body {
 
 .resize-no {
   resize: none;
-  height: 41px !important;
+  min-height: 41px !important;
 }
 
 .sh-select-list {
@@ -2859,10 +2859,6 @@ body {
 
 .sh-signup-form-fix.edit-profile .mat-input-placeholder.mat-empty {
   top: 1.28125em !important
-}
-
-.signup-form .mat-input-element {
-  font-size: 24px !important;
 }
 
 .signup-form .mat-form-field-underline {
@@ -3704,7 +3700,12 @@ body {
       opacity: 1
   }
 }
-
+.sh-products-area .plan-detail>h3 >a{
+  font-weight: normal;
+}
+.sh-products-area .plan-detail>h5 a {
+  font-weight: normal;
+}
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {
@@ -3712,7 +3713,7 @@ body {
     width: 60% !important;
   }
 }
-@media (min-width:1300px){
+@media (min-width:1600px){
   .max-width-1000{
     max-width: 1000px;
     margin: 0 auto;
@@ -3725,7 +3726,10 @@ body {
     font-size: 16px !important;
     line-height: 19px !important;
   }
-
+  .sh-products-area .plan-detail>h5 a {
+    line-height: 14px;
+    vertical-align: bottom !important;
+  }
   .card [data-background-color] {
     padding: 6px !important;
   }
@@ -3743,7 +3747,7 @@ body {
   }
 
   .sh-pg-container.top-page {
-    max-width: 1100px;
+    max-width: 972px;
   }
 
   .pagination {
