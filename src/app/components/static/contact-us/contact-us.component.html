@@ -14,8 +14,13 @@
             <div class="col-sm-6 col-md-6">
                 <div class="form-group label-floating">
                   <mat-form-field class="example-full-width">
-                    <input class="sh-text-capt" matInput placeholder="Name" type="text" name="name" maxlength="25" formControlName="name" required>
-                    <mat-error *ngIf="form.controls.name.valid == false"><strong>Name cannot be empty or invalid</strong></mat-error>
+                    <input class="sh-text-capt" matInput placeholder="Name" type="text" name="name" maxlength="25" minlength="2" formControlName="name" pattern="[a-zA-Z ]+" required>
+                    <!-- <mat-error *ngIf="form.controls.name.valid == false"><strong>Name cannot be empty or invalid</strong></mat-error> -->
+                    <mat-error *ngIf="form.controls.name.value==''">
+                      <strong>Name cannot be empty</strong>
+                  </mat-error>
+                    <mat-error *ngIf="form.controls.name.errors?.minlength"><strong>Name should be between 2 to 64 characters</strong></mat-error>
+                    <mat-error *ngIf="form.controls.name.hasError('pattern')"><strong>Name must be only in alphabets</strong></mat-error>
                   </mat-form-field>
                 </div>
                 <div class="form-group label-floating">
@@ -35,8 +40,11 @@
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Message" formControlName="message" required></textarea>
-                    <mat-error *ngIf="form.controls.message.valid == false"><strong>Message cannot be empty or invalid</strong></mat-error>
+                    <textarea matInput placeholder="Message" formControlName="message" minlength="20" required></textarea>
+                    <mat-error *ngIf="form.controls.message.value==''">
+                      <strong>Message is required</strong>
+                  </mat-error>
+                    <mat-error *ngIf="form.controls.message.errors?.minlength"><strong>Message should be atleast 20 characters</strong></mat-error>
                   </mat-form-field>
                 </div>
                 <div>
