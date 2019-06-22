@@ -213,6 +213,7 @@ vertical-align: baseline
 }
 
 .sh-subscribe .alert {
+  border: none;
 padding: 5px;
 line-height: 20px;
 font-size: 13px;

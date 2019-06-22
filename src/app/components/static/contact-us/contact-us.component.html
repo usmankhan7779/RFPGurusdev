@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group label-floating">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder=" Mobile No." type="text" required name="phone" [textMask]="{mask: phoneMask}"
+                    <input matInput placeholder="Phone No.*" type="text" required name="phone" [textMask]="{mask: phoneMask}"
                       formControlName="phone">
                     <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
                   </mat-form-field>
