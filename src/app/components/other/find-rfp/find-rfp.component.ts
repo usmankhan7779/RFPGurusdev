@@ -95,7 +95,9 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     }
     this.route.queryParams
       .subscribe(params => {
-
+        // this.CatName = params['CatName'] || '0';
+        // this.cates = params['cat']
+        // alert(params['cat'])
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
@@ -121,11 +123,16 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         else if (localStorage.getItem('states') == null) {
           delete this.states;
         }
-        if (localStorage.getItem('agencies')) { this.agencies = localStorage.getItem('agencies') }
+        if (localStorage.getItem('agencies')) { 
+          // alert(localStorage.getItem('agencies'))
+          this.agencies = localStorage.getItem('agencies') }
         else if (localStorage.getItem('agencies') == null) {
           delete this.agencies;
         }
-        if (localStorage.getItem('cates')) { this.cates = localStorage.getItem('cates') }
+        if (localStorage.getItem('cates')) {
+          // alert(localStorage.getItem('cates'))
+           this.cates = localStorage.getItem('cates') 
+        }
         else if (localStorage.getItem('cates') == null) {
           delete this.cates;
         }
@@ -308,14 +315,14 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // localStorage.removeItem('status')
-    // localStorage.removeItem('enterdate')
-    // localStorage.removeItem('duedate')
-    // localStorage.removeItem('states');
+    localStorage.removeItem('status')
+    localStorage.removeItem('enterdate')
+    localStorage.removeItem('duedate')
+    localStorage.removeItem('states');
 
-    // localStorage.removeItem('agencies')
-    // localStorage.removeItem('cates')
-    // localStorage.removeItem('subcat')
+    localStorage.removeItem('agencies')
+    localStorage.removeItem('cates')
+    localStorage.removeItem('subcat')
 
   }
 }

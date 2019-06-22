@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { MatInputModule, MatFormFieldModule } from '@angular/material';
 import { PdfViewerComponent } from './pdf-viewer.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
  
 const routes: Routes = [
   {
@@ -22,9 +23,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    PdfViewerModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [PdfViewerComponent]
 })
-export class PdfViewerModule { }
+export class PdfViewerssModule { }
