@@ -48,6 +48,8 @@
                   </mat-form-field>
                 </div>
                 <div>
+                    <app-recapcha class="recaptcha-style"></app-recapcha>
+
                   <button type="submit" (click)="fun_send_message()" class="btn btn-primary" [disabled]="!form.valid"><i
                       class="fa fa-arrow-up" aria-hidden="true" title="Send Message"></i>Send Message</button>
                 </div>
