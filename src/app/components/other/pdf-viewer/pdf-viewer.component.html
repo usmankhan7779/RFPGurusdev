@@ -4,8 +4,12 @@
 <pdf-viewer [src]="pdfSrc" 
               [render-text]="true"
               style="display: block;"
+              [render-text]="true"
+              [rotation]="rotation"
+              
   ></pdf-viewer>
-  <pdf-viewer
+  
+  <!-- <pdf-viewer
   [src]="pdfSrc"
   [(page)]="page"
   [rotation]="rotation"
@@ -21,4 +25,4 @@
   (error)="onError($event)"
   (on-progress)="onProgress($event)"
   (page-rendered)="pageRendered($event)"
-></pdf-viewer>
+></pdf-viewer> -->
