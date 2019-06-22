@@ -79,58 +79,147 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
 
     
 
+  // select_state() {
+  //   if (this.states) {
+  //     localStorage.removeItem('agencies');
+  //     localStorage.removeItem('cates');
+  //     localStorage.removeItem('subcat');
+  //     delete this.agencies
+  //     delete this.cates;
+  //     delete this.subcates;
+  //   }
+  //   if (this.states == 'all') {
+
+  //   } else {
+
+  //     this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
+  //       data => {
+
+  //         if (data['States']) {
+  //           this.state = data['States'];
+  //           console.log(data['States'])
+
+  //         }
+  //         if (data['Categories']) {
+  //           this.cat = data['Categories'];
+  //           console.log(data['Categories'])
+  //         }
+  //         if (data['Agencies']) {
+  //           this.agency = data['Agencies'];
+  //           // this.agency = data['Agencies'];
+  //           console.log(data['Agencies'])
+  //           // console.log(data['Agencies'])
+
+  //         }
+  //         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
+
+  //       })
+
+  //   }
+  //   this.onSubmit();
+
+  // }
+  // select_agency() {
+  //   if (this.agencies) {
+  //     delete this.cates;
+  //     delete this.subcates;
+  //     localStorage.removeItem('cates');
+  //     localStorage.removeItem('subcat');
+  //   }
+  //   if (this.agencies == 'all') {
+
+  //   }
+
+  //   else {
+  //     this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
+  //       data => {
+  //         if (data['States']) {
+  //           this.state = data['States'];
+
+  //         }
+  //         if (data['Categories']) {
+  //           this.cat = data['Categories'];
+  //         }
+  //         if (data['Agencies']) {
+  //           this.agency = data['Agencies'];
+  //           // this.agency = data['Result'];
+  //           console.log(data['Agencies'])
+
+  //         }
+  //         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
+
+  //       })
+
+  //   }
+  //   this.onSubmit();
+
+  // }
+  // select_category() {
+  //   this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
+  //     data => {
+  //       if (data['States']) {
+  //         this.state = data['States'];
+
+  //       }
+  //       if (data['Categories']) {
+  //         this.cat = data['Categories'];
+  //       }
+  //       if (data['Agencies']) {
+  //         // this.agency = data['Agencies'];
+  //         this.agency = data['Agencies'];
+
+  //       }
+  //       if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
+
+  //     })
+  //   this.onSubmit();
+  // }
   select_state() {
-    // if (this.states) {
-    //   localStorage.removeItem('agencies');
-    //   localStorage.removeItem('cates');
-    //   localStorage.removeItem('subcat');
-    //   delete this.agencies
-    //   delete this.cates;
-    //   delete this.subcates;
-    // }
-    // if (this.states == 'all') {
+    if (this.states) {
+      localStorage.removeItem('agencies');
+      localStorage.removeItem('cates');
+      localStorage.removeItem('subcat');
+      delete this.agencies
+      delete this.cates;
+      delete this.subcates;
+    }
+    if (this.states == 'all') {
 
-    // } else {
-
+    } else {
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
-
           if (data['States']) {
             this.state = data['States'];
-            console.log(data['States'])
 
           }
           if (data['Categories']) {
             this.cat = data['Categories'];
-            console.log(data['Categories'])
           }
           if (data['Agencies']) {
-            this.agency = data['Agencies'];
             // this.agency = data['Agencies'];
-            console.log(data['Agencies'])
-            // console.log(data['Agencies'])
+            this.agency = data['Agencies'];
 
           }
           if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
 
         })
 
-    // }
+    }
     this.onSubmit();
 
   }
   select_agency() {
-    // if (this.agencies) {
-    //   delete this.cates;
-    //   delete this.subcates;
-    //   localStorage.removeItem('cates');
-    //   localStorage.removeItem('subcat');
-    // }
-    // if (this.agencies == 'all') {
+    if (this.agencies) {
+      delete this.cates;
+      delete this.subcates;
+      localStorage.removeItem('cates');
+      localStorage.removeItem('subcat');
+    }
+    if (this.agencies == 'all') {
 
-    // }
+    }
 
-    // else {
+    else {
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
           if (data['States']) {
@@ -141,20 +230,20 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
             this.cat = data['Categories'];
           }
           if (data['Agencies']) {
+            // this.agency = data['Agencies'];
             this.agency = data['Agencies'];
-            // this.agency = data['Result'];
-            console.log(data['Agencies'])
 
           }
           if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
 
         })
 
-    // }
+    }
     this.onSubmit();
 
   }
   select_category() {
+    localStorage.setItem('cates', this.cates)
     this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
       data => {
         if (data['States']) {
@@ -184,11 +273,14 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     delete this.states;
     delete this.agencies;
     delete this.cates;
+    
+    
     // delete this.enterdate;
     // delete this.duedate;
     delete this.subcates;
     delete this.submission_from;
     delete this.submission_to;
+    localStorage.removeItem('cates');
     localStorage.removeItem('status');
     localStorage.removeItem('enterdate');
     localStorage.removeItem('duedate');
@@ -204,9 +296,9 @@ f.resetForm();
   onSubmit() {
 
     // if (F.valid == true) {
-    // if (this.status) {
-    //   localStorage.setItem('status', this.status)
-    // }
+    if (this.status) {
+      localStorage.setItem('status', this.status)
+    }
     if (this.enterdate) { localStorage.setItem('enterdate', this.datePipe.transform(this.enterdate, "yyyy-MM-dd h:mm:ss a ")) }
     if (this.duedate) { localStorage.setItem('duedate', this.datePipe.transform(this.duedate, "yyyy-MM-dd h:mm:ss a ")) }
     if (this.submission_from) { localStorage.setItem('submission_from', this.datePipe.transform(this.submission_from, "yyyy-MM-dd h:mm:ss a ")) }

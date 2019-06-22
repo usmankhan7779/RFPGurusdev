@@ -221,11 +221,11 @@ export class AllRfpsComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      // window.open(web_info, '_blank');
+      window.open(web_info, '_blank');
      
        
         // this._nav.navigate(['/pdfviewer'], { queryParams: { query: web_info } });
-        this._nav.navigate(['/pdfviewer']);
+        // this._nav.navigate(['/pdfviewer']);
      
      
 
