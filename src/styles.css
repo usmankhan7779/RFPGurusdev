@@ -3717,6 +3717,13 @@ textarea::-webkit-scrollbar {
     width: 60% !important;
   }
 }
+@media (min-width:1300px){
+  .max-width-1000{
+    max-width: 1000px;
+    margin: 0 auto;
+    float: none;
+  }
+}
 
 @media (max-width:1280px) {
   .card .card-title {
@@ -3762,6 +3769,12 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:1024px) {
+  .sh-n-table table thead tr th {
+    padding: 0;
+  }
+  .sticky {
+    top: 54px;
+  }
   .sh-payment .container {
     width: 660px !important;
   }
@@ -3778,8 +3791,14 @@ textarea::-webkit-scrollbar {
   }
 }
 @media (max-width:991px) {
+  #myBtn{
+    display: none !important;
+  }
+  .sh-pg-container.header {
+    margin: 0  !important;
+  }
   .sticky {
-    top: 60px;
+    top: 67px;
   }
   .user-sidebar{
     padding: 0;
@@ -3804,7 +3823,7 @@ textarea::-webkit-scrollbar {
     margin: 0;
   }
   .Find-rfp .sh-pg-container{
-    margin: 0;
+    margin: 0 !important;
   }
   .sidebar-user {
     padding: 0 10px !important;
@@ -3864,17 +3883,17 @@ textarea::-webkit-scrollbar {
     margin: 10px 0 !important;
   }
   #accordion .panel-heading .panel-title {
-    font-size: 16px
+    font-size: 16px !important;
   }
   #CategoryDiv{
-    display: none;
+    display: none ;
   }
   .slide {
     min-height: auto !important;
   }
 
   .tab-text-center {
-    text-align: center
+    text-align: center !important;
   }
 
   .sidebar-close-btn {
@@ -4007,6 +4026,9 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:768px) {
+  .sticky {
+    top: 73px;
+}
   .about-4 .main_heading {
     font-size: 36px;
     margin: 0px 10px 10px !important;

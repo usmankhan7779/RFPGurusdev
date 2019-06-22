@@ -49,7 +49,7 @@
 }
 
 .sh-pg-container.header {
-  margin-bottom: 0  !important;
+  margin: 0  !important;
 }
 
 .sh-pg-container .product-label {
@@ -129,9 +129,7 @@
 }
 
 @media (max-width:991px) {
-  .sh-pg-container {
-    margin: 15px 0 !important;
-  }
+  
   .header .pagination {
     margin-right: 0% !important;
 }
@@ -164,7 +162,8 @@
   }
 
   .sh-pg-container {
-    padding: 10px 0
+    padding: 10px 0;
+    margin: 0 !important;
   }
 }
 
@@ -175,7 +174,7 @@
   }
 
   .sh-pg-container .product-label {
-    margin: 0
+    margin: 5px 0 !important;
   }
 
   .sh-pg-container>div {
