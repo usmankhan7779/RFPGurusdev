@@ -94,7 +94,7 @@ export class WatchlistComponent implements OnInit {
   }
   deletewatchlist() {
     swal({
-      title: 'Are you sure you want to delete from Watch List? <br> You will not be able to revert this!',
+      title: 'Are you sure you want to delete this RFP from Watch List?',
       type: 'question',
       showCancelButton: true,
       width: '512px',
@@ -116,7 +116,7 @@ export class WatchlistComponent implements OnInit {
   }
   All_deletewatchlist() {
     swal({
-      title: 'Are you sure you want to delete Watch List? <br> You will not be able to revert this!',
+      title: 'Are you sure you want to delete your Watch List?',
       type: 'question',
       showCancelButton: true,
       width: '512px',
