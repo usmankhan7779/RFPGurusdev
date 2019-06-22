@@ -1,6 +1,6 @@
 <!-- <app-loader></app-loader> -->
 
-<div class="main-panel agency-rfp" [ngClass]="status ? 'sidebarActive' : ''">
+<div class="main-panel max-width-1000 agency-rfp" [ngClass]="status ? 'sidebarActive' : ''">
     <div class="main-content custom">
         <div class="container-fluid">
             <div class="row">
@@ -95,7 +95,7 @@
                     <div class="products-area sh-products-area">
                         <div *ngFor="let rfp of record" class="card">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 ">
                                     <div class="card-header card-header-text" data-background-color="purple">
                                         <a style="cursor:pointer" [routerLink]="['/rfp']"
                                             [queryParams]="{query:rfp.seoTitleUrl}" (click)="move()">
