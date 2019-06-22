@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FooterService } from './footer.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import swal from 'sweetalert2';
 
 @Component({
@@ -40,7 +40,7 @@ export class FooterComponent {
     ngOnInit() {
       
     }
-    onSubmit(email) {
+    onSubmit(email, f: NgForm) {
         this._serv.subcribe(email).subscribe(
             data => {
                 swal({
@@ -57,5 +57,6 @@ export class FooterComponent {
                     'error'
                 )
             })
+            f.resetForm();
     }
 }

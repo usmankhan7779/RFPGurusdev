@@ -36,7 +36,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     hide = true;
     hide1 = true;
     hide2 = true;
-    password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*(),.?":{}|<>]).{8,}$';
+    password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\[\\]\\-\'<>~|@_{}]).{8,}$';
 
     public typeValidation: User;
     register: FormGroup;
