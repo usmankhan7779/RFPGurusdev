@@ -1,4 +1,4 @@
-<div class="main-panel" [ngClass]="status ? 'sidebarActive' : ''">
+<div class="main-panel max-width-1000" [ngClass]="status ? 'sidebarActive' : ''">
     <div class="main-content custom">
         <div class="container-fluid">
             <div class="rfp-back">
@@ -10,7 +10,7 @@
                     <div class="products-area sh-products-area tab-mg-top-20px">
                         <div *ngFor="let rfp of record" class="card">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 ">
                                     <div class="card-header card-header-text" data-background-color="red">
                                         <h4 class="card-title">{{rfp.rfpkey}}</h4>
                                     </div>

@@ -1,5 +1,5 @@
 <!-- <app-loader></app-loader> -->
-<div class="main-panel" [ngClass]="status ? 'sidebarActive' : ''">
+<div class="main-panel max-width-1000" [ngClass]="status ? 'sidebarActive' : ''">
 
   <div class="main-content custom">
     <div class="container-fluid">
@@ -27,9 +27,6 @@
                   <mat-option value="due_date"  (click)="sort(sorted,1)" >By Due Date</mat-option>
                 </mat-select>
               </mat-form-field>
-
-
-
             </div>
           </div>
           <div id="MYHeader" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header sh-pg-container">
@@ -111,7 +108,7 @@
             </div>
             <div *ngFor="let rfp of record" class="card">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 max-width-1000">
                   <div class="card-header card-header-text" data-background-color="purple">
                     <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
                       (click)="move()">

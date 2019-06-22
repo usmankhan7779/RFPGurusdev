@@ -273,7 +273,9 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     delete this.states;
     delete this.agencies;
     delete this.cates;
-    
+    delete this.subcates;
+    delete this.submission_from;
+    delete this.submission_to;
     
     // delete this.enterdate;
     // delete this.duedate;
