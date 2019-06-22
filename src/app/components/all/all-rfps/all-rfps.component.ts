@@ -221,11 +221,11 @@ export class AllRfpsComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      // window.open(web_info, '_blank');
+      window.open(web_info, '_blank');
      
        
         // this._nav.navigate(['/pdfviewer'], { queryParams: { query: web_info , skipLocationChange: true  }});
-        this._nav.navigate(['/pdfviewer']);
+        // this._nav.navigate(['/pdfviewer']);
      
      
 
@@ -233,7 +233,7 @@ export class AllRfpsComponent implements OnInit {
 
       // let sth = urls + web_info;
       // this._nav.navigate([sth]);
-      localStorage.setItem('web_info',web_info)
+      // localStorage.setItem('web_info',web_info)
     
     }
   }
