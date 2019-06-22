@@ -70,6 +70,7 @@ padding: 6px 36px
 }
 @media (max-width:991px){
   .sh-pg-container .product-label {
-    margin: 12px 10px 0 0;
+    margin: 12px 10px 0 0 !important;
 }
+
 }

@@ -1,5 +1,6 @@
 .sh-ad-to-watchlist {
-  padding: 5px 10px!important
+  padding: 5px 10px!important;
+  margin: 10px 0;
 }
 
 .rfp-back a {
@@ -41,7 +42,4 @@
 }
 .single-rfp-title{
   font-size: 20px !important;
-}
-.sh-ad-to-watchlist{
-  text-transform: inherit !important;
 }

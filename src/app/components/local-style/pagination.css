@@ -49,7 +49,7 @@
 }
 
 .sh-pg-container.header {
-  margin-bottom: 0
+  margin-bottom: 0  !important;
 }
 
 .sh-pg-container .product-label {
