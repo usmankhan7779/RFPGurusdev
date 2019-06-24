@@ -634,7 +634,7 @@ h3 {
 }
 
 .page-title {
-  margin: 10px 0 25px;
+  margin: 10px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   min-height: 41px;
@@ -2654,7 +2654,12 @@ body {
 
 /* End style.css */
 /* ...................Global Style Start................................. */
-
+.latest-rfps-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 41px;
+}
 .main-panel {
   position: relative;
   -webkit-transition: all .33s cubic-bezier(.685, .0473, .346, 1);

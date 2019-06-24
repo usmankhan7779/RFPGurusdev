@@ -40,17 +40,17 @@
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Message" formControlName="message" minlength="20" required></textarea>
+                    <textarea class="con-textarea" matInput placeholder="Message" formControlName="message" minlength="20" required></textarea>
                     <mat-error *ngIf="form.controls.message.value==''">
                       <strong>Message is required</strong>
                   </mat-error>
                     <mat-error *ngIf="form.controls.message.errors?.minlength"><strong>Message should be atleast 20 characters</strong></mat-error>
                   </mat-form-field>
                 </div>
-                <div>
+                <div class="recaptcha-btn">
                     <app-recapcha class="recaptcha-style"></app-recapcha>
-
-                  <button type="submit" (click)="fun_send_message()" class="btn btn-primary" [disabled]="!form.valid"><i
+                
+                  <button type="submit" (click)="fun_send_message()" class="btn btn-primary pull-right" [disabled]="!form.valid"><i
                       class="fa fa-arrow-up" aria-hidden="true" title="Send Message"></i>Send Message</button>
                 </div>
               </div>
