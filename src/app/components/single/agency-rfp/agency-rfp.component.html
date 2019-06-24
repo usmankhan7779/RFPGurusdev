@@ -71,14 +71,24 @@
                 </label>
                 <mat-form-field>
     
-                    <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
-                        value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
-                        <mat-option value="10" selected="true">10</mat-option>
-                        <mat-option value="20">20 </mat-option>
-                        <mat-option value="35">35</mat-option>
-                        <mat-option value="50">50</mat-option>
-                    </mat-select>
+                  <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                  (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                  name="pageSize">
+                  <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+              <mat-option onclick="topFunction()" value="20">20 </mat-option>
+              <mat-option onclick="topFunction()" value="35">35</mat-option>
+              <mat-option onclick="topFunction()" value="50">50</mat-option>
+              </mat-select>
                 </mat-form-field>
+<!-- 
+                  <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                <mat-option onclick="topFunction()" value="50">50</mat-option>
+                                </mat-select> -->
     
     
     
@@ -281,13 +291,21 @@
             <label class="product-label" >Items per page:
             </label>
             <mat-form-field>
-                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
+                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                name="pageSize">
+                <mat-option  onclick="topFunction()" value="10" selected="true">10</mat-option>
+            <mat-option onclick="topFunction()" value="20">20 </mat-option>
+            <mat-option onclick="topFunction()" value="35">35</mat-option>
+            <mat-option onclick="topFunction()" value="50">50</mat-option>
+            </mat-select>
+                <!-- <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
                     value="pageSize" required [(ngModel)]="pageSize" name="pageSize">
                     <mat-option value="10" selected="true">10</mat-option>
                     <mat-option value="20">20 </mat-option>
                     <mat-option value="35">35</mat-option>
                     <mat-option value="50">50</mat-option>
-                </mat-select>
+                </mat-select> -->
             </mat-form-field>
         </div>
     </div>

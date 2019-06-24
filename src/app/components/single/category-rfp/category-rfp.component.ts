@@ -123,7 +123,7 @@ export class CategoryRfpComponent implements OnInit {
       .subscribe(params => {
         this.cat = params.cat
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['signin']);
           localStorage.setItem('member', 'category' + this.cat)
         }
         else if (!this.subscribe) {
