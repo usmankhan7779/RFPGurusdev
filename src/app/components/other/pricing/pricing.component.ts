@@ -37,7 +37,7 @@ export class PricingComponent implements OnInit {
       this.prv_stepdetail("B", "M");
     }
     else {
-      this._nav.navigate(['login']);
+      this._nav.navigate(['signin']);
     }
   }
 
@@ -62,7 +62,7 @@ export class PricingComponent implements OnInit {
       $('#exampleModalCenter').modal('hide');
     }
     else {
-      this._nav.navigate(['login']);
+      this._nav.navigate(['signin']);
     }
   }
   pkgsub = false;

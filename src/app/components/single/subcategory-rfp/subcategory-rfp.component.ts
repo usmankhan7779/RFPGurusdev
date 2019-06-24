@@ -74,7 +74,7 @@ export class SubcategoryRfpComponent implements OnInit {
       .subscribe(params => {
         this.subcat = params.subcat
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['signin']);
           localStorage.setItem('member', 'subcategory' + this.subcat)
 
         }
