@@ -1,14 +1,14 @@
 <!-- <app-loader></app-loader> -->
-<div class="main-panel" [ngClass]="status ? 'sidebarActive' : ''">
+<div class="main-panel max-width-1000" [ngClass]="status ? 'sidebarActive' : ''">
     <div class="main-content custom">
       <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title">
-                        <div class="col-sm-6" style="margin:10px 0px">
+                        <div class="col-sm-6 col-xs-6" >
                             <span>{{subcat}}</span>
                         </div>
-                        <div class="col-sm-6 text-right" style="margin:10px 0px">
+                        <div class="col-sm-6 col-xs-6 text-right" >
                             <span *ngIf="item">No of RFPs: <b>{{item | number}}</b></span>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     <div class="products-area sh-products-area">
                         <div *ngFor="let rfp of record" class="card">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 ">
                                     <div class="card-header card-header-text" data-background-color="purple">
                                         <a style="cursor:pointer" [routerLink]="['/rfp']"
                                             [queryParams]="{query:rfp.seoTitleUrl}" (click)="move()">

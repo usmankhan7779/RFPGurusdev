@@ -71,7 +71,7 @@ export class PricingComponent implements OnInit {
   CCV: FormGroup;
   CardNumber = '^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$';
   ExpiryDate = '([0-9]{2}[/]?){2}';
-
+  vin_Data = { city: "", state: "", country: "" };
   Mplan = true;
   Yplan = true;
   Fplan = true;
@@ -159,7 +159,8 @@ export class PricingComponent implements OnInit {
 
   ]);
   Holdername = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.pattern('[a-zA-Z]+'),
   ]);
   CardtypeForm = new FormControl('', [
     Validators.required,
@@ -191,7 +192,7 @@ export class PricingComponent implements OnInit {
   ]);
   nickname = new FormControl('', [
     Validators.required,
-
+    Validators.pattern('[a-zA-Z]+'),
   ]);
   // TotalAmountForm = new FormControl('', [
   //   Validators.required
@@ -201,6 +202,7 @@ export class PricingComponent implements OnInit {
   changed(val) {
     this.setautopay = val.checked
   }
+  invalid;
   zipcodeCheck(zipcode1) {
    
     if (zipcode1.length > 4) {
@@ -210,25 +212,33 @@ export class PricingComponent implements OnInit {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
+          this.vin_Data.city = data['city'];
+          this.vin_Data.state = data['state'];
+          this.vin_Data.country = data['country'];
           this.readonly=true;
-         
         },
         
         error => {
-          if (error.status == 500) {
-            swal(
-              'Oops...',
-              'Internal server error!',
-              'error'
-            )
-          }
-          else if (error.status == 400) {
-            swal(
-              'Sorry!',
-              'No City, State or Country Found.',
-              'error'
-            )
-          }
+          // if (error.status == 500) {
+          //   swal(
+          //     'Oops...',
+          //     'Internal server error!',
+          //     'error'
+          //   )
+          // }
+          // else if (error.status == 400) {
+          //   swal(
+          //     'Sorry!',
+          //     'No City, State or Country Found.',
+          //     'error'
+          //   )
+          // }
+          error.status== 400
+          this.invalid=error.status;
+          delete this.vin_Data.city;
+          delete this.vin_Data.state;
+          delete this.vin_Data.country;
+
         });
     }
   }

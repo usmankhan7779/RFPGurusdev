@@ -1,19 +1,22 @@
 
 
-<div class="main-panel agency-rfp" [ngClass]="status ? 'sidebarActive' : ''">
+<div class="main-panel agency-rfp max-width-1000" [ngClass]="status ? 'sidebarActive' : ''">
   <div class="main-content custom">
     <div class="container-fluid">
-     
       <div class="row">
         <div class="col-sm-12">
           <div class="page-title">
-            <div class="col-sm-6" style="margin:10px 0px">
+            <div class="col-sm-6 col-xs-6" >
               <span>{{agency}}</span>
             </div>
-            <div class="col-sm-6 text-right" style="margin:10px 0px">
+            <div class="col-sm-6 text-right col-xs-6" >
               <span *ngIf="item">No of RFPs:  <b>{{item | number}}</b></span>
             </div>
-          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          
           <div id="MYHeader" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header sh-pg-container">
 
           <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
@@ -89,7 +92,7 @@
           <div class="products-area sh-products-area">
             <div *ngFor="let rfp of record" class="card">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 ">
                   <div class="card-header card-header-text" data-background-color="purple">
                     <a style="cursor:pointer" [routerLink]="['/rfp']"[queryParams]="{query:rfp.seoTitleUrl}" (click)="move()">
                       <h4 class="card-title">{{rfp.rfpkey}}</h4>
@@ -151,71 +154,75 @@
                     </div>
 
                   </div>
-                  <div class="col-lg-12">
-
-                    <div attr.id="View{{rfp.id}}" class="panel-details collapse">
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
-                          <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips" [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}"><span><b>{{rfp.agency}}</b></span></a></h5>
-                                                            <h5>
-                                                              <i class="fa fa-university"></i> Category :
-                                                              <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat: rfp.new_category}"><span><b>{{ rfp.new_category}}</b></span></a>
-                                                            </h5>
-                                                            <h5>
-                                                              <i class="fa fa-fort-awesome"></i> State : <a [routerLink]="['/state']" [queryParams]="{ state: rfp.state}"><span><b> {{ rfp.state}}</b></span></a>
-                                                            </h5>
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
-                        <ul class="list-normal">
-                          <li *ngIf="!subscribe; else pdf">
-                            <a routerLink="/pricing">
-                              <i class="fa fa-credit-card"></i>
-                              View Pricing/Package Details
-                            </a>
-                          </li>
-                          <ng-template #pdf>
-
-                            <li (click)="check_trial(rfp.id,rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
-                              <a>
-                                  <i class="material-icons">insert_drive_file</i>
-                                  View Documents
-                                </a>
-                           
-                          </li>
-                          <ng-template #link>
-                            <li (click)="check_trial(rfp.id,rfp.web_info)">
-                              
-                              <a>
-                                <i class="material-icons">insert_drive_file</i>
-                                View Documents
-                              </a>
-                            </li> 
-                            </ng-template>
-                          </ng-template>
-                        </ul>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="subscribe">
-                          <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag == null">
-                              <h3 class="description-detail">Description:</h3>
-                           
-                              <div [innerHTML]="rfp.deescription"></div>
-                             
-                          </div>
-                          <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag != null">
-                              <h3 class="description-detail">Description:</h3>
-                            
-                              <div [innerHTML]="rfp.descriptionTag"></div>
-                          </div>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="!subscribe">
-                        <h5 ><i class="fa fa-info dscrption-icon"></i> Description:
-                           <a style="cursor:pointer" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member Only</a>
-                        </h5>
-                        <h5 ><i class="fa fa-file"></i> Bid Documents:
-                           <a style="cursor:pointer" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member Only</a>
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
+  <div class="col-lg-12">
+    <div attr.id="View{{rfp.id}}" class="panel-details collapse">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
+        <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips" [routerLink]="['/agency']"
+            [queryParams]="{ agency: rfp.agency}"><span><b>{{rfp.agency}}</b></span></a></h5>
+        <h5>
+          <i class="fa fa-university"></i> Category :
+          <a class="cat-elips" [routerLink]="['/category']"
+            [queryParams]="{ cat: rfp.new_category}"><span><b>{{ rfp.new_category}}</b></span></a>
+        </h5>
+        <h5>
+          <i class="fa fa-fort-awesome"></i> State : <a [routerLink]="['/state']"
+            [queryParams]="{ state: rfp.state}"><span><b> {{ rfp.state}}</b></span></a>
+        </h5>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+        <ul class="list-normal">
+          <li *ngIf="!subscribe; else pdf">
+            <a routerLink="/pricing">
+              <i class="fa fa-credit-card"></i>
+              View Pricing/Package Details
+            </a>
+          </li>
+          <ng-template #pdf>
+  
+            <li (click)="check_trial(rfp.id,rfp.web_info)" *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
+              <a>
+                <i class="material-icons">insert_drive_file</i>
+                View Documents
+              </a>
+  
+            </li>
+            <ng-template #link>
+              <li (click)="check_trial(rfp.id,rfp.web_info)">
+  
+                <a>
+                  <i class="material-icons">insert_drive_file</i>
+                  View Documents
+                </a>
+              </li>
+            </ng-template>
+          </ng-template>
+        </ul>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="subscribe">
+        <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag == null">
+          <h3 class="description-detail">Description:</h3>
+  
+          <div [innerHTML]="rfp.deescription"></div>
+  
+        </div>
+        <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag != null">
+          <h3 class="description-detail">Description:</h3>
+  
+          <div [innerHTML]="rfp.descriptionTag"></div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="!subscribe">
+        <h5><i class="fa fa-info dscrption-icon"></i> Description:
+          <a style="cursor:pointer" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
+            Only</a>
+        </h5>
+        <h5><i class="fa fa-file"></i> Bid Documents:
+          <a style="cursor:pointer" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
+            Only</a>
+        </h5>
+      </div>
+    </div>
+  </div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import swal from 'sweetalert2';
 
 @Injectable()
 export class RecapchaService {
@@ -93,7 +94,15 @@ export class RecapchaService {
         if (this.imgText === text) {
             return true
         } else {
-            this.resetImg()
+            this.resetImg();
+            
+      swal({
+        type: 'error',
+        title: 'Please confirm you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
         }
         // this.resetImg()
         // return status

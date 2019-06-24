@@ -18,6 +18,9 @@
   line-height: 25px;
   -webkit-line-clamp: 3
 }
+.cat-elips{
+  word-break: break-all;
+}
 @media (min-width:1025px) and (max-width:1280px) {
   .sh-n-table table tbody tr td {
     font-size: 12px;

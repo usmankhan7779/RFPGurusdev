@@ -83,7 +83,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   destroy_value;
   public cardmask;
   //  public cardsmask;
-  vin_Data = { "city": "", "state": "" };
+  // vin_Data = { "city": "", "state": "" };
+  vin_Data = { city: "", state: "", country: "" };
   private sub: Subscription;
   flipclass = 'credit-card-box';
   constructor(private pricingServ: PricingService, private _home :HomeService, private formBuilder: FormBuilder, private _nav: Router, private serv: PaymentmethodsService, private router: Router, private route: ActivatedRoute, private signupServ: SignupService, private seoService: SeoService) {
@@ -134,26 +135,29 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.ccv = true;
     }
   }
+  invalid;
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
-      this.signupServ.zipcode(zipcode1).subscribe(
+      this.endRequest =this.signupServ.zipcode(zipcode1).subscribe(
         data => {
           this.form.controls['city'].setValue(data['city']);
           this.form.controls['state'].setValue(data['state']);
           this.form.controls['country'].setValue(data['country']);
+          this.vin_Data.city = data['city'];
+          this.vin_Data.state = data['state'];
+          this.vin_Data.country = data['country'];
         },
         error => {
-          swal({
-            type: 'error',
-            title: 'Invalid Zipcode',
-            showConfirmButton: false,
-            timer: 1500, width: '512px',
-          })
+          error.status== 400
+            this.invalid=error.status;
+            delete this.vin_Data.city;
+            delete this.vin_Data.state;
+            delete this.vin_Data.country;
 
-        });
+        }
+        );
     }
   }
-
   updefault;
 
   isFieldValid(form: FormGroup, field: string) {
@@ -340,7 +344,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
            
           swal({
             type: 'success',
-            title: 'Payment Method Is Listed',
+            title: 'Payment Method Is Listed Successfully',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })

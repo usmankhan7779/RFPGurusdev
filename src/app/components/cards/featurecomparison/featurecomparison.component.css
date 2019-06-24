@@ -104,7 +104,8 @@
       max-width: 1024px
   }
   .com-table>table {
-      min-width: 800px
+      min-width: 800px;
+      margin-bottom: 0px;
   }
 }
 @media (max-width:991px) {
@@ -116,10 +117,18 @@
     font-size: 14px !important
   }
   #f-c .com-table th {
-    font-size: 18px !important;
+    font-size: 16px !important;
 }
 #f-c .com-table td {
     font-size: 14px;
     padding: 5px!important
 }
 }
+@media (max-wdith:767px){
+  #f-c .com-table th {
+    font-size: 12px !important;
+    vertical-align: middle !important;
+  }
+}
+
+

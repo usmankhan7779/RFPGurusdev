@@ -73,9 +73,47 @@ a:hover {
   float: left;
   margin-top: 13px;
 }
-.zip-address{
-  margin-top: 10px !important;
+#main{
+  position: relative;
 }
+.text-area-placeholder{
+  margin-top: 15px !important;
+}
+/* --------------Video Start----------------- */
+.signup-main {
+  position: relative;
+  background-color: black;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .signup-main {
+    background: url('https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4') black no-repeat center center scroll;
+  }
+  .signup-main video {
+    display: none;
+  }
+}
+/* ---------------Video END-------------- */
+
+
+
 @media (max-width:1280px){
   .form-footer {
     padding: 6px 0 20px !important;
@@ -99,4 +137,13 @@ a:hover {
   .reg .pd-left-30 {
     padding: 10px 0 !important;
 }
+  .sh-adress > div{
+    margin-top:0 !important;
+  }
+  .tb-text-center{
+    text-align: center !important;
+  }
+  .tb-text-center .checkbox{
+    text-align: left !important;
+  }
 }

@@ -33,8 +33,21 @@
   margin-right: 5px
 }
 .contact-section textarea {
-  height: 148px
+  resize: none;
+  height: 115px
 }
 .sh-edit-profile{
-  margin-bottom: 10px
-;}
+  margin-bottom: 10px;
+}
+.margin-t-10 {
+  margin-top: 10px !important;
+}
+.recaptcha-btn{
+  display: block;
+}
+.recaptcha-btn .recaptcha-style{
+  display: inline-block;
+}
+.recaptcha-btn .btn{
+  margin-top: 33px;
+}
