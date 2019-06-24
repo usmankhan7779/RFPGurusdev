@@ -2596,10 +2596,9 @@ body {
   background: 0 0;
   padding: 0
 }
-
 .resize-no {
-  resize: none;
-  min-height: 41px !important;
+  resize: none !important;
+  height: 41px !important;
 }
 
 .sh-select-list {
@@ -3706,6 +3705,13 @@ body {
 .sh-products-area .plan-detail>h5 a {
   font-weight: normal;
 }
+
+.text-area-placeholder .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
+  transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
+  -ms-transform: translateY(-1.78125em) scale(.75) !important;
+}
+
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {

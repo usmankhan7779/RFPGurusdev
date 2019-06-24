@@ -76,6 +76,9 @@ a:hover {
 .zip-address{
   margin-top: 10px !important;
 }
+.text-area-placeholder{
+  margin-top: 15px !important;
+}
 @media (max-width:1280px){
   .form-footer {
     padding: 6px 0 20px !important;
@@ -99,4 +102,13 @@ a:hover {
   .reg .pd-left-30 {
     padding: 10px 0 !important;
 }
+  .sh-adress > div{
+    margin-top:0 !important;
+  }
+  .tb-text-center{
+    text-align: center !important;
+  }
+  .tb-text-center .checkbox{
+    text-align: left !important;
+  }
 }
