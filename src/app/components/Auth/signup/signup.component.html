@@ -108,7 +108,7 @@
                     <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
                       Invalid Zipcode
                     </p>
-                    <p class="clr_red" *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                    <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
                       
                     </p>
                   </div>
