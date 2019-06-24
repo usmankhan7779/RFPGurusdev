@@ -107,19 +107,19 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv" [ngClass]="displayFieldCss(form, 'ccv')">
                 <mat-form-field>
                   <input matInput type="password" maxlength="3" minlength="3" placeholder="CCV No."
-                    formControlName="ccv">
+                    formControlName="CVV No">
                   <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
                     <mat-error *ngIf="form.controls.ccv.errors.required">
-                      CCV cannot be empty
+                      CVV No cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv.errors.minlength">
-                      CCV must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
+                      CVV No must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv.errors.maxlength">
-                      CCV must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
+                      CVV No must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv.hasError('pattern')">
-                      CCV must be only in digits.
+                      CVV No must be only in digits.
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
@@ -174,8 +174,8 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
-                  <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zip"
-                    (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1>
+                  <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zip" min="0"
+                    (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;">
                   <mat-error *ngIf="form.controls.zip.touched && form.controls.zip.invalid">
                     <mat-error *ngIf="form.controls.zip.errors.cannotContainSpace">
                       Zip Code cannot contain spaces
@@ -188,6 +188,12 @@
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
+                <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                  Invalid Zipcode
+                </p>
+                <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                  
+                </p>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
                 <mat-form-field>
