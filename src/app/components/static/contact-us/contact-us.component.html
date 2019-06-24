@@ -9,7 +9,7 @@
     <div class="container">
       <form name="form" role="form"  [formGroup]="form" (ngSubmit)="onSubmit(
         form.controls.name.value, form.controls.email.value, form.controls.phone.value, form.controls.message.value)"
-        class="sh-signup-form-fix sh-edit-profile edit-profile">
+        class="sh-signup-form-fix sh-edit-profile">
         <div class="row signup-form-row">
             <div class="col-sm-6 col-md-6">
                 <div class="form-group label-floating">
@@ -23,7 +23,7 @@
                     <mat-error *ngIf="form.controls.name.hasError('pattern')"><strong>Name must be only in alphabets</strong></mat-error>
                   </mat-form-field>
                 </div>
-                <div class="form-group label-floating">
+                <div class="form-group label-floating margin-t-10">
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder=" Email" type="email" name="email" formControlName="email" required>
                     <mat-error *ngIf="form.controls.email.valid == false"><strong>E-mail cannot be invalid</strong></mat-error>
@@ -48,6 +48,8 @@
                   </mat-form-field>
                 </div>
                 <div>
+                    <app-recapcha class="recaptcha-style"></app-recapcha>
+
                   <button type="submit" (click)="fun_send_message()" class="btn btn-primary" [disabled]="!form.valid"><i
                       class="fa fa-arrow-up" aria-hidden="true" title="Send Message"></i>Send Message</button>
                 </div>

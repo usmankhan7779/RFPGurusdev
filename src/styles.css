@@ -664,7 +664,7 @@ h3 {
 }
 
 .about-1 .large strong {
-  font-size: 44px;
+  font-size: 30px;
   line-height: 48px;
   display: block;
   font-weight: 600;
@@ -3479,8 +3479,8 @@ body {
 }
 
 .main_heading {
-  font-size: 42px;
-  margin: 10px 10px !important;
+  font-size: 36px;
+  margin: 18px 10px !important;
   color: #000;
   font-weight: 600 !important;
   text-align: center
@@ -3705,7 +3705,12 @@ body {
 .sh-products-area .plan-detail>h5 a {
   font-weight: normal;
 }
-
+textarea::-webkit-scrollbar {
+  cursor:pointer;
+}
+.zip-address{
+  margin-top: 10px !important;
+}
 .text-area-placeholder .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
   transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
@@ -3774,12 +3779,22 @@ body {
 }
 
 @media (max-width:1024px) {
+  .pricing-table2{
+    padding: 15px 10px !important;
+  }
+  .main_heading{
+    font-size: 34px;
+  }
+  .com-table th {
+    font-size: 14px !important;
+  }
   .sh-n-table table thead tr th {
     padding: 0;
   }
   .sticky {
     top: 54px;
   }
+
   .sh-payment .container {
     width: 660px !important;
   }
@@ -3795,7 +3810,11 @@ body {
     max-width: 1100px;
   }
 }
+
 @media (max-width:991px) {
+  #f-c .container-wide{
+    width: 100% !important;
+  }
   #myBtn{
     display: none !important;
   }
@@ -3816,10 +3835,15 @@ body {
   .search-holder{
     padding: 0;
   }
-  .search-holder input {
-    font-size: 34px;
-    line-height: 40px;
+  .container {
+    width: 100%;
   }
+
+  .our-team h3 {
+    font-size: 22px;
+    margin-bottom: 7px !important;
+}
+  
   .com-table,
   .sh-n-table {
     overflow-x: scroll !important
@@ -3884,8 +3908,8 @@ body {
     font-size: 15px !important;
   }
   .main_heading {
-    font-size: 32px !important;
-    margin: 10px 0 !important;
+    font-size: 27px !important;
+    margin: 17px 0 !important;
   }
   #accordion .panel-heading .panel-title {
     font-size: 16px !important;
@@ -3896,7 +3920,7 @@ body {
   .slide {
     min-height: auto !important;
   }
-
+  .rfp-back,
   .tab-text-center {
     text-align: center !important;
   }
@@ -4031,9 +4055,19 @@ body {
 }
 
 @media (max-width:768px) {
-  .sticky {
-    top: 73px;
+  .pricing_heading{
+    font-size: 22px !important;
+  }
+.pricing-table2 {
+  padding: 15px 5px !important;
 }
+.all-cats .col{
+  min-height: 25px !important;
+}
+.sticky {
+  top: 73px;
+}
+
   .about-4 .main_heading {
     font-size: 36px;
     margin: 0px 10px 10px !important;
@@ -4054,7 +4088,7 @@ body {
 
   .com-table table tr th {
     padding: 5px 0 !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 
   .com-table td {
@@ -4625,7 +4659,7 @@ body {
   }
 
   .footer-upper {
-    padding: 0 10px !important;
+    padding:10px !important;
   }
 
   .w-r-w {
@@ -4724,7 +4758,7 @@ body {
   }
 
   .footer-container {
-    padding: 10px 28px;
+    padding: 0 28px
   }
 
   .footer-container>.row>div,

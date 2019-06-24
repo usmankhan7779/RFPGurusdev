@@ -36,5 +36,8 @@
   height: 148px
 }
 .sh-edit-profile{
-  margin-bottom: 10px
-;}
+  margin-bottom: 10px;
+}
+.margin-t-10 {
+  margin-top: 10px !important;
+}

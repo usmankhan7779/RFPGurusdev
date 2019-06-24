@@ -4,6 +4,9 @@ import { ContactUsService } from './contact-us.service';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { SeoService } from '../../../services/seoService';
+import { RecapchaService } from '../../Auth/recapcha/recapcha.service';
+import { RecapchaComponent } from '../../Auth/recapcha/recapcha.component';
+import { ViewChild } from '@angular/core';
 
 const normalPattern = /^[a-zA-Z0-9_.-]+?/;
 @Component({
@@ -14,11 +17,13 @@ const normalPattern = /^[a-zA-Z0-9_.-]+?/;
 })
 export class ContactUsComponent implements OnInit {
   form;
+  @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
+
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   endRequest;
  name= '[a-zA-Z0-9_.]+';
-  constructor(private _serv: ContactUsService, private _nav: Router, private seoService: SeoService) { }
+  constructor(public recapcha: RecapchaService, private _serv: ContactUsService, private _nav: Router, private seoService: SeoService) { }
   ngOnInit() {
     window.scroll(0, 0);
     // --------------- SEO Service ---------------
@@ -57,6 +62,7 @@ export class ContactUsComponent implements OnInit {
     });
   }
   onSubmit(name, email, phone, message) {
+    if(this.recapcha.check()){
     this.endRequest = this._serv.contact(name, email, phone, message).subscribe(data => {
       swal({
         type: 'success',
@@ -68,6 +74,7 @@ export class ContactUsComponent implements OnInit {
       let url = '/';
       this._nav.navigate([url]);
     })
+  }
   }
   fun_send_message() {
   }
