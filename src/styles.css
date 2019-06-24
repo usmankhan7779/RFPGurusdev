@@ -9311,11 +9311,11 @@ textarea::-webkit-scrollbar {
   }
 
   .footer-upper {
-    padding: 0 20px !important;
+    padding: 0 20px
   }
 
   .footer-upper h2 {
-    text-align: left !important;
+    text-align: left
   }
 
   .nav-vanders {
