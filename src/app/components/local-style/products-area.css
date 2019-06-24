@@ -188,23 +188,24 @@ padding-top: 0
 }
 
 .sh-products-area .plan-detail>h3 {
-  font-size: 18px!important;
+  font-size: 16px!important;
   font-weight: normal !important;
-  max-height: 55px;
-  min-height: 55px;
+  max-height: 69px;
 }
-
+.term > .table{
+  margin-bottom: 5px;
+}
 .sh-products-area .plan-detail>h5 {
 margin: 5px 0 0;
-font-size: 16px
+font-size: 14px
 }
 .sh-products-area .plan-detail>h5 i{
   width: 20px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 .memberOnly {
-  font-size: 14px;
+  font-size: 12px;
   color: #004a93
 }
 
@@ -215,21 +216,17 @@ font-size: 16px
 .lock-icon {
   color: #ffbc00!important;
   width: auto;
-width: 15px !important;   
+width: 14px !important;   
 }
 @media (max-width:991px) {
-  .sh-products-area .plan-detail>h3 {
-    font-size: 16px!important;
-    line-height: 18px
-}
 .sh-products-area .plan-detail>h5 {
-  font-size: 14px
+  font-size: 13px
 }
 .products-area span {
   font-size: 13px
 }
 .sh-products-area .list-normal li a {
-  font-size: 14px
+  font-size: 13px
 }
 .sh-products-area .card {
   margin: 10px 0

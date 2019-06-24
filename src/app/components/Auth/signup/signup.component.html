@@ -1,7 +1,9 @@
 <!-- <app-loader></app-loader> -->
-
 <main id="main " class="signup-main" role="main">
-  <div class="main-content signup-main">
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4" type="video/mp4">
+    </video>
+  <div class="main-content ">
     <div class="container">
       <div class="col-sm-12 margin-t-17">
         <div class="card">
@@ -76,7 +78,7 @@
               </div>
               <div class="row signup-form-row sh-adress">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
+                  <div class="form-group text-area-placeholder label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field>
                       <textarea matInput type="text" id="address" class="resize-no"
                         formControlName="address" placeholder="Address" required></textarea>
@@ -237,7 +239,7 @@
                 <div class="form-group col-sm-3 col-md-2 col-xs-12 padding-0 pd-left-0">
                   <app-recapcha class="recaptcha-style"></app-recapcha>
                 </div>
-                <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12">
+                <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12 tb-text-center">
                   <div class="checkbox padding-0 mg-0">
                     <mat-slide-toggle (change)="changeCheck($event)"></mat-slide-toggle>
                     By clicking on the "Signup" button below, you understand and agree that the use of this Website,
