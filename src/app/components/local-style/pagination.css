@@ -184,18 +184,21 @@
 }
 
 @media (max-width:640px) {
-
   .pagination>li>a,
   .pagination>li>span {
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    -moz-transition: all .3s;
     transition: all .3s;
-    padding: 0 8px;
+    padding: 0;
     margin: 0 3px;
     min-width: 20px;
     height: 20px;
-    line-height: 24px;
-    font-size: 14px
+    line-height: 21px;
+    font-size: 14px;
   }
+  .sh-pg-container .btn:not(.btn-just-icon):not(.btn-fab) .fa {
+    font-size: 14px;
+    left: 0;
+    top: 0;
+    top: 0;
+}
+
 }

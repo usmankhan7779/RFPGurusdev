@@ -4220,8 +4220,35 @@ textarea::-webkit-scrollbar {
   }
 
 }
-
+@media (max-width:767px){
+  .sidebar-outlet {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 9;
+}
+.sh-h2-resources{
+  margin-left: 0 !important;
+}
+}
 @media (max-width:640px) {
+  .header .sh-select-list{
+    padding-top: 5px !important;
+  }
+  
+  .page-title span {
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    padding: 5px 0;
+}
+.sticky {
+  top: 50px !important;
+}
+.header .pagination {
+  margin-right: 0% !important;
+  float: none !important;
+}
   .home.pw-solutions ul li {
     width: 90%  !important;
   }
@@ -4415,11 +4442,11 @@ textarea::-webkit-scrollbar {
   }
 
   .footer-upper {
-    padding: 0 20px
+    padding: 0 20px !important;
   }
 
   .footer-upper h2 {
-    text-align: left
+    text-align: left !important;
   }
 
   .nav-vanders {
