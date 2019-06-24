@@ -609,7 +609,8 @@ h3 {
 }
 
 .list-normal li a {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: normal
 }
 
 .list-normal li a:hover {
@@ -2417,11 +2418,6 @@ body {
   display: none;
 }
 
-.card .card-content {
-  padding: 15px 20px;
-  position: relative;
-}
-
 .card [data-background-color=purple] {
   background: #000 !important;
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
@@ -3710,6 +3706,9 @@ textarea::-webkit-scrollbar {
 }
 .zip-address{
   margin-top: 10px !important;
+}
+.text-area-placeholder > textarea{
+  resize: none
 }
 .text-area-placeholder .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;

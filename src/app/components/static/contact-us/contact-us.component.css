@@ -33,7 +33,8 @@
   margin-right: 5px
 }
 .contact-section textarea {
-  height: 148px
+  height: 148px;
+  resize: none;
 }
 .sh-edit-profile{
   margin-bottom: 10px;
