@@ -147,7 +147,7 @@
                     Partner
                     in Government RFP Bidding.</p>
                 <!-- <div > -->
-                <form class="input-group sh-subscribe " [formGroup]="form" name="form" (ngSubmit)="onSubmit(form.controls.email.value)">
+                <form class="input-group sh-subscribe " [formGroup]="form" name="form" #f="ngForm" (ngSubmit)="onSubmit(form.controls.email.value , f)">
 
 
 

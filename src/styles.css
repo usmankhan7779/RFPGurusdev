@@ -3704,12 +3704,24 @@ body {
       opacity: 1
   }
 }
-
+textarea::-webkit-scrollbar {
+  cursor:pointer;
+}
+.zip-address{
+  margin-top: 10px !important;
+}
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important;
+  }
+}
+@media (min-width:1300px){
+  .max-width-1000{
+    max-width: 1000px;
+    margin: 0 auto;
+    float: none;
   }
 }
 
@@ -3766,7 +3778,12 @@ body {
   .com-table th {
     font-size: 14px !important;
   }
-
+  .sh-n-table table thead tr th {
+    padding: 0;
+  }
+  .sticky {
+    top: 54px;
+  }
 
   .sh-payment .container {
     width: 660px !important;
@@ -3788,6 +3805,26 @@ body {
   #f-c .container-wide{
     width: 100% !important;
   }
+  #myBtn{
+    display: none !important;
+  }
+  .sh-pg-container.header {
+    margin: 0  !important;
+  }
+  .sticky {
+    top: 67px;
+  }
+  .user-sidebar{
+    padding: 0;
+  }
+  .search-holder .fa-microphone {
+    font-size: 35px;
+    right: 15px;
+    top: 13px;
+  }
+  .search-holder{
+    padding: 0;
+  }
   .container {
     width: 100%;
   }
@@ -3805,7 +3842,7 @@ body {
     margin: 0;
   }
   .Find-rfp .sh-pg-container{
-    margin: 0;
+    margin: 0 !important;
   }
   .sidebar-user {
     padding: 0 10px !important;
@@ -3865,17 +3902,17 @@ body {
     margin: 17px 0 !important;
   }
   #accordion .panel-heading .panel-title {
-    font-size: 16px
+    font-size: 16px !important;
   }
   #CategoryDiv{
-    display: none;
+    display: none ;
   }
   .slide {
     min-height: auto !important;
   }
   .rfp-back,
   .tab-text-center {
-    text-align: center
+    text-align: center !important;
   }
 
   .sidebar-close-btn {
@@ -4017,7 +4054,9 @@ body {
 .all-cats .col{
   min-height: 25px !important;
 }
-
+.sticky {
+  top: 73px;
+}
 
   .about-4 .main_heading {
     font-size: 36px;

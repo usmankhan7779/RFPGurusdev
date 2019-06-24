@@ -83,7 +83,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>State</th>
-                                <th>Posted Date</th>
+                                <th> From Posted Date</th>
                                 <th>From Submission Date</th>
                             </tr>
                             <tr>
@@ -102,7 +102,7 @@
                                 <td>
                                     <mat-form-field class="sh-tb-select">
                                         <mat-select [(ngModel)]=cates name="cates" placeholder="Category"
-                                            (ngModelChange)="onPaginateChange(1)">
+                                            (ngModelChange)="  changecates(cates)">
                                             <input class="inp" type="text" [(ngModel)]="catsearch"
                                                 [ngModelOptions]="{standalone: true}" placeholder="Search By Category"
                                                 class="search-allstates">

@@ -75,7 +75,7 @@ const routes: Routes = [
   { path: 'partnership', loadChildren: './components/other/partnership/partnership.module#PartnershipModule' },
   { path: 'unsubscribe/:query1', loadChildren: './components/other/unsubscribe/unsubscribe.module#UnsubscribeModule' },
   { path: 'pricing', loadChildren: './components/other/pricing/pricing.module#PricingModule' },
-  { path: 'pdfviewer', loadChildren: './components/other/pdf-viewer/pdf-viewer.module#PdfViewerModule' },
+  { path: 'pdfviewer', loadChildren: './components/other/pdf-viewer/pdf-viewer.module#PdfViewerssModule', canActivate: [AuthGuard]  },
 
 
   // =========== Not Found Page ===========  
