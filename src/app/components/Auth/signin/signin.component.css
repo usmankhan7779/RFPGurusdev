@@ -152,12 +152,3 @@ video {
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
-
-@media (pointer: coarse) and (hover: none) {
-  .login-form-1-img {
-    background: url('https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4') black no-repeat center center scroll;
-  }
-  .login-form-1-img video {
-    display: none;
-  }
-}

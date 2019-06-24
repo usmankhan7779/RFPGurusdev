@@ -37,17 +37,8 @@
   background-color: #c00;
   color: #fff;
   font-weight: 600;
+  text-align: center;
 }
-
-.pagination>.active>a:focus,
-.pagination>.active>a:hover,
-.pagination>.active>span,
-.pagination>.active>span:focus,
-.pagination>.active>span:hover,
-.sh-pg-container .pagination>.active>a {
-  background-color: #c00;
-}
-
 .sh-pg-container.header {
   margin: 0  !important;
 }
@@ -138,7 +129,7 @@
 @media (max-width:768px) {
   .sh-pg-container>div {
     padding: 0 5px !important;
-    text-align: center
+    text-align: center !important;
   }
 
   .sh-pg-container .pagination,
@@ -176,7 +167,9 @@
   .sh-pg-container .product-label {
     margin: 5px 0 !important;
   }
-
+  .sh-advnce-search .sh-pg-container .product-label {
+    margin: 10px 0 !important;
+}
   .sh-pg-container>div {
     padding: 0 5px;
     text-align: left

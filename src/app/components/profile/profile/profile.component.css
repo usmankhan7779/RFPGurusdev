@@ -28,3 +28,12 @@
 .phonee .form-control {
   height: 37px!important;
 }
+@media (max-width:991px){
+  .card{
+    max-width: 90%;
+    margin: 20px auto;
+    float: none;
+    display: block;
+    margin-top: 0;
+  }
+}
