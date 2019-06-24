@@ -30,14 +30,14 @@ a:hover {
 }
 .checkbox label{padding-left: 0}
 
-.login-form-1-img {
+/* .login-form-1-img {
   background-image: url(../../../../assets/img/login.gif);
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
   z-index: 1
-}
+} */
 .login-form-1-img .error-block {
 color: red;
 }
@@ -50,13 +50,11 @@ margin-top: 0
 font-weight: 700;
 font-size: 16px
 }
-.login-form-1-img {
-background-color: #fafafa
-}
 .login-form-1-center {
   width: 400px;
   margin: 70px auto;
   max-width: 400px;
+  display: block;
 }
 
 .login-form-1 {
@@ -65,8 +63,6 @@ background-color: #fafafa
   padding: 10px 20px 10px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 0 25px #ccc;
-  box-shadow: 0 0 25px #ccc
 }
 .login-form-1-header {
   position: relative;
@@ -129,5 +125,39 @@ margin: 0 10px
 @media (min-width:1025px) and (max-width:1280px) {
   .login-form-1-center {
       width: 390px
+  }
+}
+/* --------------Video Start----------------- */
+.card .card-content{
+  padding: 0 ;
+}
+.login-form-1-img {
+  position: relative;
+  background-color: black;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .login-form-1-img {
+    background: url('https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4') black no-repeat center center scroll;
+  }
+  .login-form-1-img video {
+    display: none;
   }
 }
