@@ -186,6 +186,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     if (this.states == 'all') {
 
     } else {
+     
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
           if (data['States']) {
@@ -243,40 +244,45 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
 
   }
   select_category() {
-    localStorage.setItem('cates', this.cates)
-    this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
-      data => {
-        if (data['States']) {
-          this.state = data['States'];
+   
+    if (this.cat == 'all') {
 
-        }
-        if (data['Categories']) {
-          this.cat = data['Categories'];
-        }
-        if (data['Agencies']) {
-          // this.agency = data['Agencies'];
-          this.agency = data['Agencies'];
-
-        }
-        if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
-
-      })
+    }
+    else
+    {
+      alert('else');
+      localStorage.setItem('cates', this.cates)
+      this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
+        data => {
+          if (data['States']) {
+            this.state = data['States'];
+  
+          }
+          if (data['Categories']) {
+            this.cat = data['Categories'];
+          }
+          if (data['Agencies']) {
+            // this.agency = data['Agencies'];
+            this.agency = data['Agencies'];
+  
+          }
+          if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
+  
+        })
+    }
+   
     this.onSubmit();
   }
   submission_from;
   submission_to;
 
   formclear(f : NgForm) {
+    delete this.cat;
     delete this.status;
     delete this.enterdate;
     delete this.duedate;
     delete this.states;
     delete this.agencies;
-    delete this.cates;
-    
-    
-    // delete this.enterdate;
-    // delete this.duedate;
     delete this.subcates;
     delete this.submission_from;
     delete this.submission_to;
@@ -339,8 +345,8 @@ f;
   rfpState(state) {
     this._shareData.stateInfo(state);
     this.formclear(this.f);
-
     let sth = 'state';
+    
     // sth=sth.replace(/&/g,'and').replace(/\s+/g, '-').toLowerCase();
     this._nav.navigate([sth], { queryParams: { state: state, } });
   }
@@ -402,9 +408,8 @@ f;
     localStorage.removeItem('duedate')
     localStorage.removeItem('submission_from')
     localStorage.removeItem('submission_to')
-    localStorage.removeItem('states');
+    localStorage.removeItem('states')
     localStorage.removeItem('subcat')
-
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     delete this.status;

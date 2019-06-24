@@ -114,7 +114,7 @@
                             <mat-select placeholder="Search By State" [(ngModel)]="states" name="states"
                                 (ngModelChange)="select_state()">
                                 <input class="inp" type="text" [(ngModel)]="statsearch"
-                                    [ngModelOptions]="{standalone: true}" class="search-allstates"
+                                    [ngModelOptions]="{standalone: false}" class="search-allstates"
                                     placeholder="Search By State">
                                 <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
                                 <mat-option value='all'>Select All</mat-option>
