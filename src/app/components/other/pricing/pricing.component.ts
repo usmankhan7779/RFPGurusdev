@@ -4,9 +4,9 @@ import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RfpService } from '../../single/single-rfp/rfp.service';
 import { PaymentmethodsService } from '../../profile/paymentmethods/paymentmethods.service';
-import { Location } from '@angular/common';
+import { Location, NgForOf } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
-import { FormGroup, Validators, FormControl,FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormControl,FormBuilder, NgForm } from '@angular/forms';
 import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
 declare var $: any;
@@ -158,8 +158,6 @@ export class PricingComponent implements OnInit {
   }
   res;
   status;
-  // cardtype;
-  // holdername
   usernameOnly = '[a-zA-Z]+';
 
   public model: any = {};
@@ -173,61 +171,6 @@ export class PricingComponent implements OnInit {
   ];
   
 
-  // ExpiryDateForm = new FormControl('', [
-  //   Validators.required,
-  //   Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$'),
-  // ]);
-
-  // CardNumberForm = new FormControl('', [
-  //   Validators.required,
-  // ]);
-  // CardNumberForm2 = new FormControl('', [
-  //   Validators.required,
-  // ]);
-
-  // CardCodeForm = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // Holdername = new FormControl('', [
-  //   Validators.required,
-  //   Validators.pattern('[a-zA-Z]+'),
-  // ]);
-  // CardtypeForm = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // Address = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // Carddefault = new FormControl('', [
-
-
-  // ]);
-  // zipcode = new FormControl('', [
-  //   Validators.required,
-  //   Validators.minLength(5)
-  // ]);
-  // city = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // state = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // country = new FormControl('', [
-  //   Validators.required,
-
-  // ]);
-  // nickname = new FormControl('', [
-  //   Validators.required,
-  //   Validators.pattern('[a-zA-Z]+'),
-  // ]);
-  // TotalAmountForm = new FormControl('', [
-  //   Validators.required
-  // ]);
   setautopay: boolean = false;
 
   changed(val) {
@@ -353,7 +296,7 @@ export class PricingComponent implements OnInit {
   date;
   default: boolean = false;
 
-  proceed() {
+  proceed(f: NgForm) {
     this.local = localStorage.getItem('currentUser');
     let pars = JSON.parse(this.local);
     this.uname = pars.username
@@ -396,7 +339,9 @@ export class PricingComponent implements OnInit {
                 } else {
                   this._nav.navigate(['/']);
                 }
+                f.resetForm()
               },
+            
                 error => {
                   if (error.status == 500) {
                     swal(
@@ -429,6 +374,7 @@ export class PricingComponent implements OnInit {
             )
           }
         })
+        f.resetForm()
       } else if (this.isright == false) {
         this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
           .subscribe(data => {
@@ -462,6 +408,7 @@ export class PricingComponent implements OnInit {
             } else {
               this._nav.navigate(['/']);
             }
+            f.resetForm()
           },
             error => {
               if (error.status == 500) {
@@ -533,6 +480,7 @@ export class PricingComponent implements OnInit {
                 } else {
                   this._nav.navigate(['/']);
                 }
+                f.resetForm()
               },
 
               error => {
@@ -583,6 +531,7 @@ export class PricingComponent implements OnInit {
             } else {
               this._nav.navigate(['/']);
             }
+            f.resetForm()
           },
 
           error => {
@@ -620,7 +569,6 @@ export class PricingComponent implements OnInit {
 
 
   }
-
   ngOnDestroy() {
     $('#exampleModalCenter').modal('hide');
   }

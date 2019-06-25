@@ -341,8 +341,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
           this.cardtype,
           this.form.value['setautopay'], 
           this.form.value['nickname']).subscribe(Data => {
-          console.log(this.form.value),
-           
           swal({
             type: 'success',
             title: 'Payment Method Is Listed Successfully',
