@@ -28,7 +28,7 @@
   padding-left: 20px;
   padding-right: 5px;
   font-size: 20px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
 }
 
 .side-bar-component .user-sidebar ul li a:hover {
@@ -42,7 +42,6 @@
   border-bottom: 1px solid #ccc; 
   text-decoration: none;
 }
-
 
 /* ................... */
 .sidebar-dashboard-title {

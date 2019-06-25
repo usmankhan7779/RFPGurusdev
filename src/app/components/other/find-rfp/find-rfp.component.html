@@ -128,8 +128,8 @@
                                         </mat-select>
                                     </mat-form-field>
                                 </td>
-                                <td>
-                                    <mat-form-field class="sh-table-date">
+                                <td class="sh-table-date">
+                                    <mat-form-field >
                                         <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()"
                                             name="enterdate" [(ngModel)]="enterdate"   placeholder="MM/DD/YYYY"
                                             (ngModelChange)="changeenterdate(enterdate)" />
@@ -137,8 +137,8 @@
                                         <mat-datepicker #startPicker></mat-datepicker>
                                     </mat-form-field>
                                 </td>
-                                <td>
-                                    <mat-form-field class="example-full-width mat-size sh-table-date ">
+                                <td class="sh-table-date">
+                                    <mat-form-field class="example-full-width mat-size ">
                                         <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()"
                                             name="submission_from" [(ngModel)]="submission_from" 
                                             placeholder="MM/DD/YYYY"  (ngModelChange)="changeduedate(submission_from)" />

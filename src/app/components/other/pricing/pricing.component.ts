@@ -212,32 +212,18 @@ export class PricingComponent implements OnInit {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
-          this.vin_Data.city = data['city'];
-          this.vin_Data.state = data['state'];
-          this.vin_Data.country = data['country'];
+          // this.vin_Data.city = data['city'];
+          // this.vin_Data.state = data['state'];
+          // this.vin_Data.country = data['country'];
           this.readonly=true;
         },
         
         error => {
-          // if (error.status == 500) {
-          //   swal(
-          //     'Oops...',
-          //     'Internal server error!',
-          //     'error'
-          //   )
-          // }
-          // else if (error.status == 400) {
-          //   swal(
-          //     'Sorry!',
-          //     'No City, State or Country Found.',
-          //     'error'
-          //   )
-          // }
           error.status== 400
           this.invalid=error.status;
-          delete this.vin_Data.city;
-          delete this.vin_Data.state;
-          delete this.vin_Data.country;
+          delete  this.model.city;
+          delete  this.model.state;
+          delete this.model.country;
 
         });
     }
@@ -273,6 +259,7 @@ export class PricingComponent implements OnInit {
   }
 
   ShowButton(var_type_atm) {
+    alert(var_type_atm)
     this.model.cardtype = var_type_atm;
     if (var_type_atm == "American Express") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
