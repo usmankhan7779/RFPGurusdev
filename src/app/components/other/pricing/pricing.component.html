@@ -321,15 +321,15 @@
                         </div>
                       </div>
                     </div>
-                    <form #f="ngForm" id="videoform" class="edit-profile floting-label row sh-signup-form-fix" name="videoform"
+                    <form #f="ngForm" id="videoform" class="edit-profile floting-label row sh-signup-form-fix" name="videoform" [formGroup]="form"
                       method="post">
                       <div class="col-lg-12 center-div col-md-12">
                         <div class="contact_form">
                           <div class="panel-body margin-top-145 padding-bottom-">
                             <div class="col-sm-12 col-xs-12 Saved-card-sel-list">
                               <mat-form-field class="col-lg-12 width-half padding-zero mat-size">
-                                <mat-select placeholder="Card Type" [(ngModel)]="model.cardtype"
-                                  [formControl]="CardtypeForm" (valueChange)="ShowButton(CardtypeForm.value)">
+                                <mat-select placeholder="Card Type" [(ngModel)]="model.cardtype" #val
+                                  formControlName="CardtypeForm" (valueChange)="ShowButton(val.value)">
                                   <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation"
                                     [value]="card_get_datat.value">
                                     {{card_get_datat.viewValue}}</mat-option>
@@ -337,99 +337,126 @@
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
-                              <mat-form-field class=" mat-size">
-                                <input matInput placeholder="Credit Card Number" [textMask]="{mask: cardmask}"
-                                  [formControl]="CardNumberForm" [(ngModel)]="model.cardNumber" required>
-                                <mat-error *ngIf="CardNumberForm.hasError('pattern')">
-                                  Please
-                                  enter a valid card number. Only Numerics are
-                                  Allowed.
+                              <mat-form-field class=" mat-size" *ngIf="CardNumberForm">
+                                <input matInput placeholder="16 digits Credit Card Number" [textMask]="{mask: cardmask}"
+                                formControlName="CardNumberForm" [(ngModel)]="model.cardNumber" required>
+                                <mat-error *ngIf="form.controls.CardNumberForm.touched && form.controls.CardNumberForm.invalid">
+                                  <mat-error *ngIf="form.controls.CardNumberForm.errors.required">
+                                    Card number cannot be empty
+                                  </mat-error>
+                                  <mat-error *ngIf="form.controls.CardNumberForm.hasError('pattern')">
+                                    Card number must be only in digits.
+                                  </mat-error>
                                 </mat-error>
-                                <mat-error *ngIf="CardNumberForm.hasError('required')">
-                                  Card
-                                  number is required </mat-error>
+                              </mat-form-field>
+                              <mat-form-field class=" mat-size" *ngIf="CardNumberForm2"> 
+                                <input matInput placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
+                                formControlName="CardNumberForm2" [(ngModel)]="model.cardNumber" required>
+                                <mat-error *ngIf="form.controls.CardNumberForm.touched && form.controls.CardNumberForm.invalid">
+                                  <mat-error *ngIf="form.controls.CardNumberForm.errors.required">
+                                    Card number cannot be empty
+                                  </mat-error>
+                                  <mat-error *ngIf="form.controls.CardNumberForm.hasError('pattern')">
+                                    Card number must be only in digits.
+                                  </mat-error>
+                                </mat-error>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
-                                <mat-form-field class=" mat-size">
-                                  <input matInput placeholder="CVV" [formControl]="CardCodeForm"
-                                    [(ngModel)]="model.cardcod" required [textMask]="{mask: ccvmask}">
-                                  <mat-error *ngIf="CardCodeForm.hasError('minlength')">
-                                    Maximum
-                                    Length of CVV can be 3 characters
-                                  </mat-error>
-                                  <mat-error *ngIf="CardCodeForm.hasError('maxlength')">
-                                    Maximum
-                                    Length of CVV can be 4 characters
-                                  </mat-error>
+                                <mat-form-field class=" mat-size" *ngIf="CardCodeForm">
+                                  <input matInput placeholder="CVV No" formControlName="CardCodeForm" minlength="3" maxlength="3"
+                                    [(ngModel)]="model.cardcod" type="password" required>
+                                    <mat-error *ngIf="form.controls.CardCodeForm.touched && form.controls.CardCodeForm.invalid">
+                                      <mat-error *ngIf="form.controls.CardCodeForm.errors.required">
+                                        CVV No cannot be empty
+                                      </mat-error>
+                                      <mat-error *ngIf="form.controls.CardCodeForm.errors.minlength">
+                                        CVV No must be atleast 3 digits long
+                                      </mat-error>
+                                      <mat-error *ngIf="form.controls.CardCodeForm.hasError('pattern')">
+                                        CVV No must be only in digits.
+                                      </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                              <mat-form-field class=" mat-size" *ngIf="CardCodeForm2">
+                                  <input matInput placeholder="CVV No" type="password" formControlName="CardCodeForm2" minlength="4" maxlength="4"
+                                    [(ngModel)]="model.cardcod" required>
+                                    <mat-error *ngIf="form.controls.CardCodeForm2.touched && form.controls.CardCodeForm2.invalid">
+                                      <mat-error *ngIf="form.controls.CardCodeForm2.errors.required">
+                                        CVV No cannot be empty
+                                      </mat-error>
+                                      <mat-error *ngIf="form.controls.CardCodeForm2.errors?.minlength">
+                                        CVV No must be atleast 4 digits long.
+                                      </mat-error>
+                                      <mat-error *ngIf="form.controls.CardCodeForm2.hasError('pattern')">
+                                        CVV No must be only in digits.
+                                      </mat-error>
+                                    </mat-error>
                                 </mat-form-field>
                               </div>
                               
+                              
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size">
-                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="ExpiryDateForm"
+                                <input matInput placeholder="Expiry Date (MM/YY)" formControlName="ExpiryDateForm"
                                   [(ngModel)]="model.expirationdate" [textMask]="{mask: mask}" #exp
                                   (change)="chek(exp.value)" required>
-                                <mat-error *ngIf="ExpiryDateForm.hasError('required')">
-                                  Expiry
-                                  Date is required </mat-error>
-                                <mat-error *ngIf="ExpiryDateForm.hasError('pattern')">
-                                  Expiry
-                                  Date should in MM/YY </mat-error>
+                                  <mat-error *ngIf="form.controls.ExpiryDateForm.touched && form.controls.ExpiryDateForm.invalid">
+                                    <mat-error *ngIf="form.controls.ExpiryDateForm.errors.required">
+                                      Expiry date cannot be empty
+                                    </mat-error>
+                                    <mat-error *ngIf="form.controls.ExpiryDateForm.hasError('pattern')">
+                                      Expiry date must be in MM/YY format.
+                                    </mat-error>
+                                  </mat-error>
                               </mat-form-field>
-                              <span class="card-error" *ngIf="ExpiryDateForm <='19'"> Invalid Expiry Date
-                              </span>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                              <mat-form-field class=" mat-size">
-                                <input matInput placeholder="CVV No" [formControl]="CardCodeForm" minlength="3"
-                                  [(ngModel)]="model.cardcod" required [textMask]="{mask: ccvmask}">
-                                <mat-error *ngIf="CardCodeForm.hasError('minlength')">
-                                  Maximum
-                                  Length of CVV No can be 3 characters
-                                </mat-error>
-                                <!-- <mat-error *ngIf="CardCodeForm.hasError('maxlength')">
-                                  Maximum
-                                  Length of CVV No can be 4 characters
-                                </mat-error> -->
-                              </mat-form-field>
+                              <p *ngIf="expirydate <= '19'" class="clr_red">
+                                Invalid Expiry Date
+                              </p>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input  class="sh-text-capt" matInput placeholder="Cardholder Name"
-                                  [formControl]="Holdername" [(ngModel)]="model.holdername" minlength="2" maxlength="64" required>
-                                  <mat-error *ngIf="Holdername.hasError('required')">
-                                    Card Holdername cannot be empty
-                                  </mat-error>
-                                    <mat-error *ngIf="Holdername.hasError('minlength')">
-                                      Card Holdername must be between 2 and 64 characters
-                                      characters
-                                      long.
+                                  formControlName="Holdername" [(ngModel)]="model.holdername" minlength="2" maxlength="64" required>
+                                  <mat-error *ngIf="form.controls.Holdername.touched && form.controls.Holdername.invalid">
+                                    <mat-error *ngIf="form.controls.Holdername.errors.required">
+                                      Card holder Name cannot be empty
                                     </mat-error>
-                                    <mat-error *ngIf="Holdername.hasError('pattern')">
-                                      Card Holdername must be only in Alphabet.
+                                    <mat-error *ngIf="form.controls.Holdername.errors.minlength">
+                                      Card holder Name must be between 2 and 64 characters
+                                    </mat-error>
+                                    <mat-error *ngIf="form.controls.Holdername.hasError('pattern')">
+                                      Cardholder Name must be only in Alphabet.
+                                    </mat-error>
                                     </mat-error>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input class="sh-text-capt" matInput placeholder="Street Address"
-                                  [formControl]="Address" maxlength="300" type="text" [(ngModel)]="model.address"
+                                formControlName="Address" maxlength="300" type="text" [(ngModel)]="model.address"
                                   required>
-                                <mat-error *ngIf="Address.hasError('required')">
-                                  Street Address cannot be empty
-                                </mat-error>
+                                  <mat-error *ngIf="form.controls.Address.touched && form.controls.Address.invalid">
+                                    <mat-error *ngIf="form.controls.Address.errors.required">
+                                      Street Address cannot be empty
+                                    </mat-error>
+                                  </mat-error>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size">
-                                <input matInput placeholder="Zip Code" maxlength="5" type="text" [formControl]="zipcode"
+                                <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zipcode"
                                   [(ngModel)]="model.zipcode" required (ngModelChange)="zipcodeCheck(zipcode1.value)"
                                   (keypress)="keyPress($event)" step="1" #zipcode1>
-                                <mat-error *ngIf="zipcode.hasError('required')">
-                                  Zipcode cannot be empty
-                                </mat-error>
-                                <mat-error *ngIf="zipcode.hasError('minlength')">
-                                  5 digit zipcode required!
-                                </mat-error>
+                                  <mat-error *ngIf="form.controls.zipcode.touched && form.controls.zipcode.invalid">
+                                    <mat-error *ngIf="form.controls.zipcode.errors.cannotContainSpace">
+                                      Zip Code cannot contain spaces
+                                    </mat-error>
+                                    <mat-error *ngIf="form.controls.zipcode.errors.required">
+                                      Zip code cannot be empty
+                                    </mat-error>
+                                    <mat-error *ngIf="form.controls.zipcode.hasError('pattern')">
+                                      Zip Code must be only in digits.
+                                    </mat-error>
+                                  </mat-error>
                               </mat-form-field>
                               <p class="clr_red text-align left" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
                                 Invalid Zipcode
@@ -440,32 +467,32 @@
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input matInput placeholder="City" [disabled]="true"
-                                  type="text" [formControl]="city" [(ngModel)]="model.city" required readonly>
+                                  type="text" formControlName="city" [(ngModel)]="model.city" required readonly>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input matInput placeholder="State" type="text"
-                                  [disabled]="true" [formControl]="state" [(ngModel)]="model.state" required readonly>
+                                  [disabled]="true" formControlName="state" [(ngModel)]="model.state" required readonly>
                                </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input matInput placeholder="Country" type="text" readonly
-                                  [disabled]="true" [formControl]="country" [(ngModel)]="model.country" required>
+                                  [disabled]="true" formControlName="country" [(ngModel)]="model.country" required>
                               </mat-form-field>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input class="sh-text-capt" matInput placeholder="Nick Name" type="text"
-                                  [formControl]="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64">
-                                <mat-error *ngIf="nickname.hasError('required')">
-                                  Nickname cannot be empty
-                                </mat-error>
-                                  <mat-error *ngIf="nickname.hasError('minlength')">
-                                    Nickname must be between 2 and 64 characters
-                                    characters
-                                    long.
+                                formControlName="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64">
+                                <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
+                                  <mat-error *ngIf="form.controls.nickname.errors.required">
+                                    Nick Name cannot be empty
                                   </mat-error>
-                                  <mat-error *ngIf="nickname.hasError('pattern')">
-                                    Nickname must be only in Alphabet.
+                                  <mat-error *ngIf="form.controls.nickname.errors.minlength">
+                                    Nick Name must be between 2 and 64 characters
+                                  </mat-error>
+                                  <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
+                                    Nick Name must be only in Alphabet.
+                                  </mat-error>
                                   </mat-error>
                               </mat-form-field>
                             </div>
