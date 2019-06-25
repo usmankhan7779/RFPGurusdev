@@ -52,7 +52,7 @@
             </div>
             <form class="sh-signup-form-fix edit-profile" [formGroup]="form2" #f="ngForm">
               <div class="col-md-12 padding-0">
-                <div class="col-md-4 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
+                <div class="col-md-4  padding-0 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
                     <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val
                       (valueChange)="ShowButton(val.value,f)">
@@ -64,6 +64,7 @@
               </div>
           </form>
         <form class="floting-label sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
+          <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
@@ -101,46 +102,48 @@
                 </mat-form-field>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv" [ngClass]="displayFieldCss(form, 'ccv')">
-                <mat-form-field>
-                  <input matInput type="password" [(ngModel)]="model.ccv" maxlength="3" minlength="3" placeholder="CVV No."
-                    formControlName="ccv">
-                  <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
-                    <mat-error *ngIf="form.controls.ccv.errors.required">
-                      CVV No cannot be empty
+                  <mat-form-field>
+                    <input matInput type="password" [(ngModel)]="model.ccv" maxlength="3" minlength="3" placeholder="CVV No."
+                      formControlName="ccv">
+                    <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
+                      <mat-error *ngIf="form.controls.ccv.errors.required">
+                        CVV No cannot be empty
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv.errors.minlength">
+                        CVV No must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv.errors.maxlength">
+                        CVV No must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv.hasError('pattern')">
+                        CVV No must be only in digits.
+                      </mat-error>
                     </mat-error>
-                    <mat-error *ngIf="form.controls.ccv.errors.minlength">
-                      CVV No must be atleast {{form.controls.ccv.errors.minlength.requiredLength}} digits long.
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv2" [ngClass]="displayFieldCss(form, 'ccv2')">
+                  <mat-form-field>
+                    <input matInput type="password" maxlength="4" minlength="4" placeholder="CVV No."
+                      formControlName="ccv2">
+                    <mat-error *ngIf="form.controls.ccv2.touched && form.controls.ccv2.invalid">
+                      <mat-error *ngIf="form.controls.ccv2.errors.required">
+                        CVV cannot be empty
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv2.errors.minlength">
+                        CVV must be atleast {{form.controls.ccv2.errors.minlength.requiredLength}} digits long.
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv2.errors.maxlength">
+                        CVV must be at atmost {{form.controls.ccv2.errors.maxlength.requiredLength}} digits long.
+                      </mat-error>
+                      <mat-error *ngIf="form.controls.ccv2.hasError('pattern')">
+                        CVV must be only in digits.
+                      </mat-error>
                     </mat-error>
-                    <mat-error *ngIf="form.controls.ccv.errors.maxlength">
-                      CVV No must be at atmost {{form.controls.ccv.errors.maxlength.requiredLength}} digits long.
-                    </mat-error>
-                    <mat-error *ngIf="form.controls.ccv.hasError('pattern')">
-                      CVV No must be only in digits.
-                    </mat-error>
-                  </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv2" [ngClass]="displayFieldCss(form, 'ccv2')">
-                <mat-form-field>
-                  <input matInput type="password" maxlength="4" minlength="4" placeholder="CVV No."
-                    formControlName="ccv2">
-                  <mat-error *ngIf="form.controls.ccv2.touched && form.controls.ccv2.invalid">
-                    <mat-error *ngIf="form.controls.ccv2.errors.required">
-                      CVV cannot be empty
-                    </mat-error>
-                    <mat-error *ngIf="form.controls.ccv2.errors.minlength">
-                      CVV must be atleast {{form.controls.ccv2.errors.minlength.requiredLength}} digits long.
-                    </mat-error>
-                    <mat-error *ngIf="form.controls.ccv2.errors.maxlength">
-                      CVV must be at atmost {{form.controls.ccv2.errors.maxlength.requiredLength}} digits long.
-                    </mat-error>
-                    <mat-error *ngIf="form.controls.ccv2.hasError('pattern')">
-                      CVV must be only in digits.
-                    </mat-error>
-                  </mat-error>
-                </mat-form-field>
-              </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
+                  </mat-form-field>
+                </div>
+          </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
                 <mat-form-field>
                   <input matInput placeholder="Expiry Date (MM/YY) *" [textMask]="{mask: mask,keepCharPositions:true}"
                     type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
@@ -168,6 +171,8 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+            </div>
+            <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
                   <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zip" min="0"
@@ -196,6 +201,8 @@
                   <input matInput class="sh-text-capt" placeholder="City *" [(ngModel)]="model.city" type="text" formControlName="city" readonly>
                 </mat-form-field>
               </div>
+            </div>
+            <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
                 <mat-form-field>
                   <input matInput class="text-uppercase" placeholder="State *" [(ngModel)]="model.state"  type="text" formControlName="state"
@@ -218,6 +225,8 @@
                               </mat-error> -->
                 </mat-form-field>
               </div>
+            </div>
+            <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'cardnickname')">
                 <mat-form-field>
                   <input matInput class="sh-text-capt" type="text" placeholder="Cardholder Name *" maxlength="12"
@@ -262,6 +271,8 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+            </div>
+            <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 enroll-chckbox">
                 <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true"></mat-slide-toggle>
                 <p>Enroll in Autopay - Set this card as recurring payment method</p>
@@ -269,6 +280,7 @@
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-20-0">
                 <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="add(f)">Add</button>
               </div>
+            </div>
             </form>
           </div>
         </div>
