@@ -1,15 +1,13 @@
-/* .................................................... */
-
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2')
 }
 
 .material-icons {
   font-family: 'Material Icons';
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-size: 24px;
   line-height: 1;
@@ -21,332 +19,292 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-  vertical-align: middle;
+  vertical-align: middle
 }
 
-/* .......................Hind Madurai Start......................... */
-/* tamil */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 300;
   src: local('Hind Madurai Light'), local('HindMadurai-Light'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfXaUXaMEpAJ0.woff2) format('woff2');
-  unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC;
+  unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC
 }
 
-/* latin-ext */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 300;
   src: local('Hind Madurai Light'), local('HindMadurai-Light'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfXaUXcMEpAJ0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 300;
   src: local('Hind Madurai Light'), local('HindMadurai-Light'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfXaUXfsEp.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* tamil */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 600;
   src: local('Hind Madurai SemiBold'), local('HindMadurai-SemiBold'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfKaMXaMEpAJ0.woff2) format('woff2');
-  unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC;
+  unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC
 }
 
-/* latin-ext */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 600;
   src: local('Hind Madurai SemiBold'), local('HindMadurai-SemiBold'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfKaMXcMEpAJ0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
   font-family: 'Hind Madurai';
   font-style: normal;
   font-weight: 600;
   src: local('Hind Madurai SemiBold'), local('HindMadurai-SemiBold'), url(https://fonts.gstatic.com/s/hindmadurai/v4/f0Xu0e2p98ZvDXdZQIOcpqjfKaMXfsEp.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* -------------Hind Madurai End------------------- */
-/* -----------Roboto Start------------ */
-/* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2')
 }
 
-/* cyrillic-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
 }
 
-/* cyrillic */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
 }
 
-/* greek-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2) format('woff2');
-  unicode-range: U+1F00-1FFF;
+  unicode-range: U+1F00-1FFF
 }
 
-/* greek */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
+  unicode-range: U+0370-03FF
 }
 
-/* vietnamese */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB
 }
 
-/* latin-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* cyrillic-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
 }
 
-/* cyrillic */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu5mxKOzY.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
 }
 
-/* greek-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');
-  unicode-range: U+1F00-1FFF;
+  unicode-range: U+1F00-1FFF
 }
 
-/* greek */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
+  unicode-range: U+0370-03FF
 }
 
-/* vietnamese */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu7WxKOzY.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB
 }
 
-/* latin-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* cyrillic-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
 }
 
-/* cyrillic */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
 }
 
-/* greek-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2) format('woff2');
-  unicode-range: U+1F00-1FFF;
+  unicode-range: U+1F00-1FFF
 }
 
-/* greek */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
+  unicode-range: U+0370-03FF
 }
 
-/* vietnamese */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB
 }
 
-/* latin-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* cyrillic-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
 }
 
-/* cyrillic */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
 }
 
-/* greek-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2) format('woff2');
-  unicode-range: U+1F00-1FFF;
+  unicode-range: U+1F00-1FFF
 }
 
-/* greek */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
+  unicode-range: U+0370-03FF
 }
 
-/* vietnamese */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB
 }
 
-/* latin-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
 
-/* latin */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
-/* -----------Roboto End----------- */
 .Halvetica {
   font-family: Helvetica !important
 }
 
-/* Start main.css */
 *,
 .btn,
 .material-icons {
@@ -387,7 +345,7 @@ ul {
 }
 
 h2 {
-  margin: 10px 0;
+  margin: 10px 0
 }
 
 .clearfix,
@@ -402,7 +360,7 @@ router-outlet {
 }
 
 .card a {
-  vertical-align: middle;
+  vertical-align: middle
 }
 
 img {
@@ -494,10 +452,8 @@ ul li {
   padding: 0 !important;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
-  background: #fff;
+  background: #fff
 }
-
-
 
 .header-home,
 .sidebar.custom {
@@ -526,9 +482,8 @@ h3 {
 }
 
 .heading {
-  margin: 20px 0 !important;
+  margin: 20px 0 !important
 }
-
 
 @-webkit-keyframes popupDown {
   35% {
@@ -578,7 +533,6 @@ h3 {
 
 .about-1,
 .about-1-sm,
-
 .page-title span,
 .view-more {
   font-weight: 500
@@ -613,7 +567,7 @@ h3 {
 
 .list-normal li a {
   font-size: 16px;
-  font-weight: normal
+  font-weight: 400
 }
 
 .list-normal li a:hover {
@@ -641,7 +595,7 @@ h3 {
   margin: 10px 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 41px;
+  min-height: 41px
 }
 
 .page-title span {
@@ -672,7 +626,7 @@ h3 {
   line-height: 48px;
   display: block;
   font-weight: 600;
-  margin: 20px 0;
+  margin: 20px 0
 }
 
 .about-1-sm,
@@ -818,7 +772,7 @@ h3 {
   font-size: 22px;
   font-weight: 500;
   height: 40px;
-  color: #000;
+  color: #000
 }
 
 hr {
@@ -875,7 +829,7 @@ text tspan {
 }
 
 .search-allstates:focus {
-  outline: none;
+  outline: 0
 }
 
 .s-icon-all-states {
@@ -919,7 +873,7 @@ label {
 .mat-select-panel .mat-option {
   line-height: 32px !important;
   height: 30px !important;
-  font-size: 16px !important;
+  font-size: 16px !important
 }
 
 .padding-zero {
@@ -990,7 +944,6 @@ a.sort.desc::after {
   padding: 0 10px !important
 }
 
-
 .btn {
   -webkit-border-radius: 50px !important;
   border-radius: 50px !important
@@ -1042,7 +995,7 @@ a.sort.desc::after {
 }
 
 .text-uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase
 }
 
 .btn,
@@ -1052,17 +1005,17 @@ button {
 }
 
 .mat-slide-toggle-bar {
-  background-color: rgba(0, 0, 0, .38);
+  background-color: rgba(0, 0, 0, .38)
 }
 
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-  background-color: rgba(0, 0, 0, .47) !important;
+  background-color: rgba(0, 0, 0, .47) !important
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background,
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-  background-color: #000 !important;
+  background-color: #000 !important
 }
 
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
@@ -1153,8 +1106,6 @@ button {
   line-height: 23px
 }
 
-/* End main.css */
-/* Start demo.css */
 #wrapper.search-active:after,
 .credit-card-box .chip::before,
 .select::after {
@@ -1172,15 +1123,15 @@ button {
 }
 
 .margin-t-10 {
-  margin-top: 10px;
+  margin-top: 10px
 }
 
 .margin-t-17 {
-  margin-top: 17px;
+  margin-top: 17px
 }
 
 .margin-t-mines15 {
-  margin-top: -15px;
+  margin-top: -15px
 }
 
 .panel-body ul li label {
@@ -1287,13 +1238,18 @@ btn.btn-success.dropdown-toggle:focus {
 .phonee .dropbtn {
   box-shadow: 0 0 5px #ccc
 }
-.phonee .dropbtn:focus{
-  outline: none !important;
+
+<<<<<<< HEAD
+.phonee .dropbtn:focus {
+  outline: 0 !important
 }
+
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 .flagInput {
   vertical-align: bottom;
   border: none;
-  background: #fff;
+  background: #fff
 }
 
 .phonee button {
@@ -1309,7 +1265,7 @@ btn.btn-success.dropdown-toggle:focus {
 .profile-phonee .form-control {
   height: 37px !important;
   font-size: 16px;
-  padding: 10px 10px 0;
+  padding: 10px 10px 0
 }
 
 .Profile .sh-signup-form-fix .mat-form-field-underline {
@@ -1334,7 +1290,6 @@ btn.btn-success.dropdown-toggle:focus {
   border-top: 5px solid transparent
 }
 
-
 .sub {
   padding: 1px 10px
 }
@@ -1344,7 +1299,6 @@ btn.btn-success.dropdown-toggle:focus {
   width: 90%;
   position: relative
 }
-
 
 #iconClose,
 .search-holder .fa-microphone {
@@ -1480,7 +1434,7 @@ btn.btn-success.dropdown-toggle:focus {
 }
 
 .search-holder input[type=search]:focus {
-  outline: none;
+  outline: 0
 }
 
 .search-holder input[type=search]::-webkit-input-placeholder {
@@ -1527,7 +1481,7 @@ btn.btn-success.dropdown-toggle:focus {
   margin: 0 auto !important;
   max-height: 300px !important;
   overflow-y: scroll !important;
-  width: 90%;
+  width: 90%
 }
 
 .svg {
@@ -1567,7 +1521,7 @@ btn.btn-success.dropdown-toggle:focus {
 }
 
 .mtb-10 {
-  margin: 10px 0;
+  margin: 10px 0
 }
 
 .leftRsBanner:hover,
@@ -1617,7 +1571,6 @@ btn.btn-success.dropdown-toggle:focus {
   margin-bottom: 0 !important
 }
 
-
 .mb-60px {
   margin-bottom: 60px
 }
@@ -1643,11 +1596,6 @@ btn.btn-success.dropdown-toggle:focus {
 .mg-0 {
   margin: 0
 }
-
-
-/* End demo.css */
-
-/* Start style.css */
 
 app-header {
   position: -webkit-sticky;
@@ -1732,11 +1680,11 @@ a:hover {
   left: 0;
   top: 40%;
   border-radius: 100%;
-  background: rgba(0, 0, 0, 0.7490196078431373);
+  background: rgba(0, 0, 0, .7490196078431373);
   border: none;
   font-size: 18px;
   padding: 5px 10px;
-  color: #fff;
+  color: #fff
 }
 
 .rightRsBanner {
@@ -1744,20 +1692,20 @@ a:hover {
   right: 0;
   top: 40%;
   border-radius: 100%;
-  background: rgba(0, 0, 0, 0.7490196078431373);
+  background: rgba(0, 0, 0, .7490196078431373);
   border: none;
   font-size: 18px;
   padding: 5px 10px;
-  color: #fff;
+  color: #fff
 }
 
 .sh-pkg-holder .leftRsBanner,
 .sh-pkg-holder .rightRsBanner {
-  top: 40% !important;
+  top: 40% !important
 }
 
 .sh-pkg-holder .slick-track {
-  padding: 20px 0;
+  padding: 20px 0
 }
 
 .subscribe>p {
@@ -1767,9 +1715,6 @@ a:hover {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis
 }
-
-
-
 
 .login-form-1.sh-signup-form-fix.sh .form-group {
   padding-bottom: 0 !important;
@@ -1834,8 +1779,6 @@ a:hover {
   background: #000
 }
 
-
-
 .card [data-background-color=red],
 .mat-option:hover {
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(0, 0, 0, .4) !important;
@@ -1872,19 +1815,18 @@ a:hover {
 .open>.navbar .navbar-nav>li>a.btn.btn-rose.dropdown-toggle:hover {
   background-color: #000;
   color: #fff;
-  outline: none;
+  outline: 0;
   border: none
 }
 
-button:focus,
-a.btn:focus {
-  outline: none;
+a.btn:focus,
+button:focus {
+  outline: 0
 }
 
 .subscribe .input-group .input-group-btn {
   padding: 0 !important
 }
-
 
 .mat-option:hover {
   background: #c00 !important;
@@ -1919,13 +1861,13 @@ a.btn:focus {
   font-weight: 600 !important;
   -webkit-box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(156, 39, 176, .2);
   box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(156, 39, 176, .2);
-  border: none;
+  border: none
 }
 
 .checkbox label,
 .form-group.is-focused .checkbox label {
   color: rgba(0, 0, 0, .79);
-  padding-left: 0;
+  padding-left: 0
 }
 
 .form .btn.sh {
@@ -1945,8 +1887,6 @@ a.btn:focus {
   font-size: 16px;
   font-weight: 600 !important
 }
-
-
 
 .sh-refresh-res,
 .sh-sort label {
@@ -2009,7 +1949,6 @@ button {
   text-transform: capitalize !important
 }
 
-
 .card-error {
   color: #c00
 }
@@ -2023,7 +1962,7 @@ button {
 
 .seclect-label label {
   margin: 0;
-  line-height: 30px;
+  line-height: 30px
 }
 
 .edit-profile .mat-select,
@@ -2086,7 +2025,6 @@ button {
   -webkit-box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2) !important;
   box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2) !important
 }
-
 
 .mg-top-100 {
   margin-top: 100px
@@ -2152,8 +2090,6 @@ button {
   display: block !important
 }
 
-
-
 .btn:not(.btn-just-icon):not(.btn-fab) .fa {
   padding: 0 !important
 }
@@ -2165,7 +2101,7 @@ button {
 
 .btn:hover {
   background: #c00 !important;
-  border: none;
+  border: none
 }
 
 .form-group.is-focused .form-control {
@@ -2198,7 +2134,6 @@ button {
   text-decoration: underline
 }
 
-
 .mat-select-panel {
   max-width: 240px;
   min-width: 100% !important
@@ -2229,7 +2164,6 @@ button {
   border-top: 0
 }
 
-
 .dp-inline {
   display: inline-block
 }
@@ -2245,7 +2179,7 @@ button {
 }
 
 .signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.98125em;
+  top: 1.98125em
 }
 
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
@@ -2255,13 +2189,12 @@ button {
   -ms-transform: translateY(15px) scale(.75) !important
 }
 
-
 .sh-ad-date .mat-input-placeholder.mat-empty {
   top: 23px
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, .25)
 }
 
 .sh-ad-date .mat-datepicker-toggle {
@@ -2272,21 +2205,20 @@ button {
   -webkit-transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-1.28125em) scale(.75);
-  width: 133.33333%;
+  width: 133.33333%
 }
 
 .sh-ad-date .mat-form-field-underline {
-  bottom: 12px !important;
+  bottom: 12px !important
 }
 
 .sh-ad-date .mat-form-field-label {
-  top: 1.78125em !important;
+  top: 1.78125em !important
 }
 
 .sh-ad-date input {
-  padding: 5px;
+  padding: 5px
 }
-
 
 .signup-main .mat-select:hover {
   -webkit-box-shadow: none;
@@ -2309,16 +2241,13 @@ button {
   padding: 0
 }
 
-
-
 .sh-select-list {
   text-align: right !important
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-wrapper {
-  padding-bottom: 0;
+  padding-bottom: 0
 }
-
 
 .elpsis-agency {
   overflow: hidden;
@@ -2349,11 +2278,11 @@ button {
   height: 33px;
   text-align: center;
   line-height: 33px;
-  color: #fff;
+  color: #fff
 }
 
 .card .card-header.card-header-icon+.card-content .card-title {
-  padding-bottom: 15px;
+  padding-bottom: 15px
 }
 
 body {
@@ -2362,26 +2291,23 @@ body {
   display: block !important
 }
 
-/* End style.css */
-/* ...................Global Style Start................................. */
-
 .main-panel {
   position: relative;
   -webkit-transition: all .33s cubic-bezier(.685, .0473, .346, 1);
   -o-transition: all .33s cubic-bezier(.685, .0473, .346, 1);
   transition: all .33s cubic-bezier(.685, .0473, .346, 1);
-  height: 100%;
+  height: 100%
 }
 
 .panel .panel-heading i {
-  float: right;
+  float: right
 }
 
 .btn.btn-just-icon,
 .navbar .navbar-nav>li>a.btn.btn-just-icon {
   font-size: 20px;
   padding: 11px;
-  line-height: 1em;
+  line-height: 1em
 }
 
 .btn.btn-white,
@@ -2391,7 +2317,7 @@ body {
 .navbar .navbar-nav>li>a.btn.btn-white:focus,
 .navbar .navbar-nav>li>a.btn.btn-white:hover {
   background-color: #fff;
-  color: #999;
+  color: #999
 }
 
 .btn .material-icons {
@@ -2400,7 +2326,7 @@ body {
   position: relative;
   width: 20px;
   vertical-align: middle;
-  display: inline-block;
+  display: inline-block
 }
 
 .ripple-container {
@@ -2412,22 +2338,22 @@ body {
   overflow: hidden;
   border-radius: inherit;
   position: absolute;
-  pointer-events: none;
+  pointer-events: none
 }
 
 .visible-on-sidebar-mini {
-  display: none !important;
+  display: none !important
 }
 
 .sidebarToggle {
-  display: none;
+  display: none
 }
 
 .card [data-background-color=purple] {
   background: #000 !important;
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
-  color: #fff;
+  color: #fff
 }
 
 .card {
@@ -2436,19 +2362,17 @@ body {
   color: rgba(0, 0, 0, .87);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
   background: #fff;
-  border-radius: 5px;
+  border-radius: 5px
 }
 
 .card:focus {
-  outline: none;
+  outline: 0
 }
 
 .card,
 .card .card-header.card-header-text {
-  display: inline-block;
+  display: inline-block
 }
-
-
 
 .dashboard-footer {
   float: right;
@@ -2458,42 +2382,36 @@ body {
 }
 
 .dashboard-footer .footer-upper h2 {
-  font-size: 24px !important;
+  font-size: 24px !important
 }
 
 .dashboard-footer .subscribe>p {
-  max-height: 270px;
+  max-height: 270px
 }
 
 .packages-holder .ngxcarousel .ngxcarousel-inner {
-  padding: 20px 0 0;
+  padding: 20px 0 0
 }
 
-/* ...................Global Style End................................. */
-
-/* Start  Responsive.css */
-
-
-/* .........................Signup-form-fix start................................. */
 .floting-label .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(.001px) !important;
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(.001px) !important;
-  -ms-transform: translateY(-16px) scale(.75) !important;
+  -ms-transform: translateY(-16px) scale(.75) !important
 }
 
 .edit-profile .mat-form-field-label-wrapper {
-  overflow: visible;
+  overflow: visible
 }
 
 .signup-form .has-error .form-control:focus {
   border-color: none;
-  box-shadow: none;
+  box-shadow: none
 }
 
 .signup-form .has-error .input-group-addon {
   color: #fff;
   background-color: #fff;
-  border-color: #fff;
+  border-color: #fff
 }
 
 .mat-form-field-suffix .mat-icon,
@@ -2503,9 +2421,12 @@ body {
 
 .sh-signup-form-fix .clr_red {
   font-size: 12px;
-  margin: -9px 0 0;
+  margin: -19px 0 0;
   font-weight: 700 !important;
-  text-align: left;
+<<<<<<< HEAD
+  text-align: left
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 }
 
 .sh-signup-form-fix.edit-profile .form-group {
@@ -2516,7 +2437,7 @@ body {
 .sh-signup-form-fix .mat-input-element {
   font-size: 16px;
   padding: 6px 0;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .mg-right-5px {
@@ -2524,7 +2445,7 @@ body {
 }
 
 .signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.98125em !important;
+  top: 1.98125em !important
 }
 
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
@@ -2534,13 +2455,12 @@ body {
   -ms-transform: translateY(15px) scale(.75) !important
 }
 
-
 .sh-ad-date .mat-input-placeholder.mat-empty {
   top: 23px
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, .25)
 }
 
 .sh-ad-date .mat-datepicker-toggle {
@@ -2551,21 +2471,20 @@ body {
   -webkit-transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-1.28125em) scale(.75);
-  width: 133.33333%;
+  width: 133.33333%
 }
 
 .sh-ad-date .mat-form-field-underline {
-  bottom: 12px !important;
+  bottom: 12px !important
 }
 
 .sh-ad-date .mat-form-field-label {
-  top: 1.78125em !important;
+  top: 1.78125em !important
 }
 
 .sh-ad-date input {
-  padding: 5px;
+  padding: 5px
 }
-
 
 .signup-main .mat-select:hover {
   -webkit-box-shadow: none;
@@ -2590,7 +2509,7 @@ body {
 
 .resize-no {
   resize: none !important;
-  height: 41px !important;
+  height: 41px !important
 }
 
 .sh-select-list {
@@ -2598,9 +2517,8 @@ body {
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-wrapper {
-  padding-bottom: 0;
+  padding-bottom: 0
 }
-
 
 .elpsis-agency {
   overflow: hidden;
@@ -2631,11 +2549,11 @@ body {
   height: 33px;
   text-align: center;
   line-height: 33px;
-  color: #fff;
+  color: #fff
 }
 
 .card .card-header.card-header-icon+.card-content .card-title {
-  padding-bottom: 15px;
+  padding-bottom: 15px
 }
 
 body {
@@ -2644,13 +2562,11 @@ body {
   display: block !important
 }
 
-/* End style.css */
-/* ...................Global Style Start................................. */
 .latest-rfps-title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-height: 41px;
+  min-height: 41px
 }
 
 .main-panel {
@@ -2658,14 +2574,14 @@ body {
   -webkit-transition: all .33s cubic-bezier(.685, .0473, .346, 1);
   -o-transition: all .33s cubic-bezier(.685, .0473, .346, 1);
   transition: all .33s cubic-bezier(.685, .0473, .346, 1);
-  height: 100%;
+  height: 100%
 }
 
 .btn.btn-just-icon,
 .navbar .navbar-nav>li>a.btn.btn-just-icon {
   font-size: 20px;
   padding: 11px;
-  line-height: 1em;
+  line-height: 1em
 }
 
 .btn.btn-white,
@@ -2675,7 +2591,7 @@ body {
 .navbar .navbar-nav>li>a.btn.btn-white:focus,
 .navbar .navbar-nav>li>a.btn.btn-white:hover {
   background-color: #fff;
-  color: #999;
+  color: #999
 }
 
 .btn .material-icons {
@@ -2684,7 +2600,7 @@ body {
   position: relative;
   width: 20px;
   vertical-align: middle;
-  display: inline-block;
+  display: inline-block
 }
 
 .ripple-container {
@@ -2696,31 +2612,31 @@ body {
   overflow: hidden;
   border-radius: inherit;
   position: absolute;
-  pointer-events: none;
+  pointer-events: none
 }
 
 .visible-on-sidebar-mini {
-  display: none !important;
+  display: none !important
 }
 
 .sidebarToggle {
-  display: none;
+  display: none
 }
 
 .sticky .pagination {
-  margin-right: 80px !important;
+  margin-right: 80px !important
 }
 
 .card .card-content {
   padding: 15px 20px;
-  position: relative;
+  position: relative
 }
 
 .card [data-background-color=purple] {
   background: #000 !important;
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
-  color: #fff;
+  color: #fff
 }
 
 .card {
@@ -2729,21 +2645,21 @@ body {
   color: rgba(0, 0, 0, .87);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
   background: #fff;
-  border-radius: 5px;
+  border-radius: 5px
 }
 
 .card:focus {
-  outline: none;
+  outline: 0
 }
 
 .card,
 .card .card-header.card-header-text {
-  display: inline-block;
+  display: inline-block
 }
 
 .card [data-background-color],
 .card [data-background-color] a {
-  color: #fff;
+  color: #fff
 }
 
 .card [data-background-color] .card-title {
@@ -2754,8 +2670,7 @@ body {
 .card [data-background-color] {
   margin: -15px 15px 0;
   border-radius: 3px;
-  padding: 15px;
-
+  padding: 15px
 }
 
 .dashboard-footer {
@@ -2766,31 +2681,24 @@ body {
 }
 
 .dashboard-footer .footer-upper h2 {
-  font-size: 24px !important;
+  font-size: 24px !important
 }
 
 .dashboard-footer .subscribe>p {
-  max-height: 270px;
+  max-height: 270px
 }
 
 .packages-holder .ngxcarousel .ngxcarousel-inner {
-  padding: 20px 0 0;
+  padding: 20px 0 0
 }
 
-/* ...................Global Style End................................. */
-
-/* Start  Responsive.css */
-
-
-/* .........................Signup-form-fix start................................. */
-
 .partner-form .mat-form-field-label {
-  color: rgb(255, 255, 255) !important;
+  color: #fff !important
 }
 
 .partner-form textarea {
   height: 75px !important;
-  resize: none !important;
+  resize: none !important
 }
 
 .mat-form-field-suffix .mat-icon,
@@ -2798,16 +2706,13 @@ body {
   font-size: 125% !important
 }
 
-
 .sh-signup-form-fix.edit-profile .form-group {
   padding-bottom: 0 !important;
   margin: 0 !important
 }
 
-
-
 .sh-signup-form-fix .mat-form-field-infix {
-  border-top: 0px solid transparent;
+  border-top: 0 solid transparent;
   padding: 6px 0;
   margin-top: 2px
 }
@@ -2847,17 +2752,23 @@ body {
 }
 
 .signup-form .mat-form-field-underline {
-  bottom: 18px;
+  bottom: 18px
 }
 
 .sh-signup-form-fix .mat-select {
-  box-shadow: none;
+  box-shadow: none
 }
- 
+<<<<<<< HEAD
+=======
 
-/* .........................Signup-form-fix End................................. */
+.sh-signup-form-fix .clr_red {
+  color: #c00;
+  margin: -20px 0 -4px;
+  font-size: 12px;
+  font-weight: 700 !important;
+}
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 
-/* .........................Go to Top Button Start................................. */
 #myBtn {
   display: none;
   position: fixed;
@@ -2872,14 +2783,11 @@ body {
   cursor: pointer;
   width: 60px;
   height: 60px;
-  border-radius: 50px;
+  border-radius: 50px
 }
 
-/* .........................Go to Top Button End................................. */
-
-/* .........................Sidebar more Condence Start................................. */
-.sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
+.sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense mat-form-field.mat-form-field {
   font-size: 13px !important;
   top: 12px;
@@ -2890,16 +2798,16 @@ body {
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-12px) scale(.75);
+  -ms-transform: translateY(-12px) scale(.75)
 }
 
 .sh-sidebar-more-condense .mat-select {
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+  box-shadow: none !important
 }
 
 .sh-sidebar-more-condense .mat-select-value {
-  padding: 4px 0px;
+  padding: 4px 0
 }
 
 .sh-sidebar-date .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -2919,12 +2827,8 @@ body {
 }
 
 .sidebar.custom label {
-  color: #555 !important;
+  color: #555 !important
 }
-
-/* .........................Sidebar More Condence End................................. */
-
-/* .........................Advance Search Start................................. */
 
 .adv-placeholder .mat-form-field-wrapper {
   height: 30px;
@@ -2936,7 +2840,7 @@ body {
 }
 
 .sh-advanceSearch .mat-form-field-underline {
-  bottom: -6px;
+  bottom: -6px
 }
 
 .sh-advanceSearch .mat-input-placeholder.mat-empty {
@@ -2946,7 +2850,7 @@ body {
 .sh-advanceSearch .mat-input-element {
   font-size: 16px;
   color: #000;
-  padding: 12px 0 0px;
+  padding: 12px 0 0
 }
 
 .sh-advanceSearch>.row>div {
@@ -2965,7 +2869,7 @@ body {
 .mat-select-value,
 .sh-advanceSearch .mat-select-trigger {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
@@ -2977,12 +2881,8 @@ body {
 
 .sh-advanceSearch .mat-form-field-appearance-legacy .mat-form-field-label {
   font-size: 16px;
-  top: 0.98125em;
+  top: .98125em
 }
-
-/* .........................Advance Search End................................. */
-
-/* .........................Pagination Start................................. */
 
 .sh-pg-container .mat-select-value-text span {
   font-size: 15px
@@ -2995,7 +2895,7 @@ body {
 .sh-pg-container .mat-select-panel .mat-optgroup-label {
   line-height: 32px !important;
   height: 30px !important;
-  font-size: 16px !important;
+  font-size: 16px !important
 }
 
 .sh-pg-container .btn:not(.btn-just-icon):not(.btn-fab) .fa {
@@ -3005,11 +2905,11 @@ body {
 .sh-pg-container mat-form-field.mat-form-field {
   max-width: 70px;
   border: none;
-  margin-top: -24px;
+  margin-top: -24px
 }
 
 .sh-pg-container .mat-form-field-wrapper {
-  padding: 0;
+  padding: 0
 }
 
 .sh-pg-container .mat-select {
@@ -3017,7 +2917,7 @@ body {
 }
 
 .sh-pg-container .mat-form-field-appearance-legacy .mat-form-field-underline {
-  bottom: 7px;
+  bottom: 7px
 }
 
 .sh-pg-container .mat-form-field-underline {
@@ -3028,10 +2928,6 @@ body {
   border-top: 0 solid transparent;
   padding: 0
 }
-
-/* .........................Pagination End................................. */
-
-/* .........................Sidebar Start................................. */
 
 .sidebar-user mat-slider {
   width: 100%;
@@ -3085,7 +2981,7 @@ body {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6
 }
 
 .sidebar-user .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
@@ -3096,13 +2992,12 @@ body {
   padding-bottom: 10px !important
 }
 
-
 .sh-ad-date .mat-input-placeholder.mat-empty {
   top: 23px
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, .25)
 }
 
 .sh-ad-date .mat-datepicker-toggle {
@@ -3113,21 +3008,20 @@ body {
   -webkit-transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-26px) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-1.28125em) scale(.75);
-  width: 133.33333%;
+  width: 133.33333%
 }
 
 .sh-ad-date .mat-form-field-underline {
-  bottom: 12px !important;
+  bottom: 12px !important
 }
 
 .sh-ad-date .mat-form-field-label {
-  top: 1.78125em !important;
+  top: 1.78125em !important
 }
 
 .sh-ad-date input {
-  padding: 5px;
+  padding: 5px
 }
-
 
 .signup-main .mat-select:hover {
   -webkit-box-shadow: none;
@@ -3137,11 +3031,11 @@ body {
 .sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label {
   font-size: 16px;
   top: 1.58125em;
-  font-weight: bold;
+  font-weight: 700
 }
 
 .sh-signup-form-fix .mat-form-field-infix {
-  border-top: 0px solid transparent;
+  border-top: 0 solid transparent;
   padding: 6px 0;
   margin-top: 2px
 }
@@ -3156,9 +3050,9 @@ body {
 
 .sh-signup-form-fix .mat-error {
   font-size: 12px;
-  padding-top: 0px;
+  padding-top: 0;
   color: #f44336;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
@@ -3188,22 +3082,19 @@ body {
 }
 
 .signup-form .mat-input-element {
-  font-size: 24px !important;
+  font-size: 24px !important
 }
 
 .signup-form .mat-form-field-underline {
-  bottom: 18px;
+  bottom: 18px
 }
 
 .sh-signup-form-fix .mat-select {
-  box-shadow: none;
+  box-shadow: none
 }
 
-/* .........................Signup-form-fix End................................. */
-
-/* .........................Sidebar more Condence Start................................. */
-.sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
+.sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense mat-form-field.mat-form-field {
   font-size: 13px !important;
   top: 12px;
@@ -3214,22 +3105,22 @@ body {
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-12px) scale(.75);
+  -ms-transform: translateY(-12px) scale(.75)
 }
 
 .sh-sidebar-more-condense .mat-select {
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+  box-shadow: none !important
 }
 
 .sh-sidebar-more-condense .mat-select-value {
-  padding: 4px 0px;
+  padding: 4px 0
 }
 
 .sidebar {
   z-index: 10;
   width: 250px;
-  background: #fff;
+  background: #fff
 }
 
 .sh-sidebar-date .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -3249,12 +3140,8 @@ body {
 }
 
 .sidebar.custom label {
-  color: #555 !important;
+  color: #555 !important
 }
-
-/* .........................Sidebar More Condence End................................. */
-
-/* .........................Advance Search Start................................. */
 
 .adv-placeholder .mat-form-field-wrapper {
   height: 30px;
@@ -3266,7 +3153,7 @@ body {
 }
 
 .sh-advanceSearch .mat-form-field-underline {
-  bottom: -6px;
+  bottom: -6px
 }
 
 .sh-advanceSearch .mat-input-placeholder.mat-empty {
@@ -3276,7 +3163,7 @@ body {
 .sh-advanceSearch .mat-input-element {
   font-size: 16px;
   color: #000;
-  padding: 12px 0 0px;
+  padding: 12px 0 0
 }
 
 .sh-advanceSearch>.row>div {
@@ -3295,7 +3182,7 @@ body {
 .mat-select-value,
 .sh-advanceSearch .mat-select-trigger {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
@@ -3307,12 +3194,8 @@ body {
 
 .sh-advanceSearch .mat-form-field-appearance-legacy .mat-form-field-label {
   font-size: 16px;
-  top: 0.98125em;
+  top: .98125em
 }
-
-/* .........................Advance Search End................................. */
-
-/* .........................Pagination Start................................. */
 
 .sh-pg-container .mat-select-value-text span {
   font-size: 15px
@@ -3325,7 +3208,7 @@ body {
 .sh-pg-container .mat-select-panel .mat-optgroup-label {
   line-height: 32px !important;
   height: 30px !important;
-  font-size: 16px !important;
+  font-size: 16px !important
 }
 
 .sh-pg-container .btn:not(.btn-just-icon):not(.btn-fab) .fa {
@@ -3335,11 +3218,11 @@ body {
 .sh-pg-container mat-form-field.mat-form-field {
   max-width: 70px;
   border: none;
-  margin-top: -24px;
+  margin-top: -24px
 }
 
 .sh-pg-container .mat-form-field-wrapper {
-  padding: 0;
+  padding: 0
 }
 
 .sh-pg-container .mat-select {
@@ -3347,7 +3230,7 @@ body {
 }
 
 .sh-pg-container .mat-form-field-appearance-legacy .mat-form-field-underline {
-  bottom: 7px;
+  bottom: 7px
 }
 
 .sh-pg-container .mat-form-field-underline {
@@ -3358,10 +3241,6 @@ body {
   border-top: 0 solid transparent;
   padding: 0
 }
-
-/* .........................Pagination End................................. */
-
-/* .........................Sidebar Start................................. */
 
 .sidebar-user mat-slider {
   width: 100%;
@@ -3381,7 +3260,7 @@ body {
 .sh-sidebar-user .mat-form-field-flex {
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  border-bottom: 1px solid #e6e6e6 !important;
+  border-bottom: 1px solid #e6e6e6 !important
 }
 
 .sh-sidebar-user .mat-option {
@@ -3451,12 +3330,11 @@ body {
   padding: 0 !important
 }
 
-/* ........................Find RFPs Table End................................. */
 .contact-section .mat-input-element {
   font-size: 24px;
   color: #555;
   padding: 9px 0 2px;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .main_heading {
@@ -3469,139 +3347,132 @@ body {
 
 .s-areaCarousel .leftRsBanner,
 .s-areaCarousel .rightRsBanner {
-  top: 0 !important;
+  top: 0 !important
 }
 
 .sh-pref-selectlist .mat-form-field-appearance-legacy .mat-form-field-underline {
-  bottom: 0;
+  bottom: 0
 }
 
 .sh-pref-selectlist .mat-form-field-label {
-  color: rgba(0, 0, 0, 0.61) !important;
-  font-weight: 600;
+  color: rgba(0, 0, 0, .61) !important;
+  font-weight: 600
 }
 
 .edit-profile-comp .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.58125em !important;
+  top: 1.58125em !important
 }
 
-/* .sh-payment .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
-  margin-top: 0;
-} */
 .sh-payment .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
   transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
-  -ms-transform: translateY(-1.28124em) scale(.75);
+  -ms-transform: translateY(-1.28124em) scale(.75)
 }
 
 .selectlist-payment .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 0.98125em;
+  top: .98125em
 }
 
 .selectlist-payment .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
   transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
-  -ms-transform: translateY(-1.28124em) scale(.75);
+  -ms-transform: translateY(-1.28124em) scale(.75)
 }
 
 .sh-n-table .mat-form-field-appearance-legacy .mat-form-field-label {
   top: 1.98125em;
-  padding: 0 5px;
+  padding: 0 5px
 }
 
 .sh-n-table .sh-table-date .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.78125em !important;
+  top: 1.78125em !important
 }
 
 .s-areaCarousel .leftRsBanner,
 .s-areaCarousel .rightRsBanner {
-  top: 0 !important;
+  top: 0 !important
 }
 
 .sh-pref-selectlist .mat-form-field-appearance-legacy .mat-form-field-underline {
-  bottom: 0;
+  bottom: 0
 }
 
 .sh-pref-selectlist .mat-form-field-label {
-  color: rgba(0, 0, 0, 0.61) !important;
-  font-weight: 600;
+  color: rgba(0, 0, 0, .61) !important;
+  font-weight: 600
 }
 
 .edit-profile-comp .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.58125em !important;
+  top: 1.58125em !important
 }
 
-/* .sh-payment .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
-    margin-top: 0;
-  } */
 .sh-payment .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
   transform: translateY(-1.18125em) scale(.75) perspective(100px) translateZ(.00101px);
-  -ms-transform: translateY(-1.28124em) scale(.75);
+  -ms-transform: translateY(-1.28124em) scale(.75)
 }
 
 .selectlist-payment .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 0.98125em;
+  top: .98125em
 }
 
 .selectlist-payment .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
   transform: translateY(-1.08125em) scale(.75) perspective(100px) translateZ(.00101px);
-  -ms-transform: translateY(-1.28124em) scale(.75);
+  -ms-transform: translateY(-1.28124em) scale(.75)
 }
 
 .sh-n-table input {
   font-weight: 600 !important;
   color: #000 !important;
-  font-size: 16px !important;
+  font-size: 16px !important
 }
 
-
 .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
-  margin-top: 3px;
+  margin-top: 3px
 }
 
 .login-form-1 .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 2.38125em;
+  top: 2.38125em
 }
 
 .login-form-1 .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.98125em) scale(.75) perspective(100px) translateZ(.001px) !important;
   transform: translateY(-1.98125em) scale(.75) perspective(100px) translateZ(.001px) !important;
-  -ms-transform: translateY(-1.98125em) scale(.75) !important;
+  -ms-transform: translateY(-1.98125em) scale(.75) !important
 }
 
 .form-footer {
-  padding-top: 20px;
+  padding-top: 20px
 }
 
 .description-detail {
-  font-size: 20px;
-  margin: 10px 0 !important;
+  font-size: 16px;
+  margin: 10px 0 !important
 }
 
 .sh-sort .mat-form-field-appearance-legacy .mat-form-field-underline {
   height: 1px;
-  display: none;
+  display: none
 }
 
 .Saved-card-sel-list .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 0.68125em !important;
-  line-height: 24px !important;
+  top: .68125em !important;
+  line-height: 24px !important
 }
 
 .yearly-mnthly .mat-select-value {
-  padding: 3px 0;
+  padding: 3px 0
 }
 
 .Saved-card-sel-list .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-10px) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-10px) scale(.75);
+  -ms-transform: translateY(-10px) scale(.75)
 }
 
 .minHeight {
-  min-height: 450px;
+  min-height: 450px
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
@@ -3609,36 +3480,36 @@ body {
 }
 
 .sh-n-table .mat-form-field-infix {
-  padding: 12px 0;
+  padding: 12px 0
 }
 
 .sh-tb-select .mat-form-field-underline {
-  bottom: 21px;
+  bottom: 21px
 }
 
 .sh-n-table .mat-select {
-  background: transparent;
+  background: 0 0
 }
 
 .mat-primary .mat-pseudo-checkbox-checked,
 .mat-primary .mat-pseudo-checkbox-indeterminate {
-  background: #000000;
+  background: #000
 }
 
 .form-control:focus {
   outline: 0;
-  box-shadow: none;
+  box-shadow: none
 }
 
 .has-error .form-control:focus {
   border-color: #843534;
-  box-shadow: none;
+  box-shadow: none
 }
 
 .has-error .input-group-addon {
   color: #a94442;
   background-color: transparent;
-  border-color: #a94442;
+  border-color: #a94442
 }
 
 .w3-animate-left {
@@ -3694,39 +3565,38 @@ body {
 }
 
 .sh-products-area .plan-detail>h3>a {
-  font-weight: normal;
+  font-weight: 400
 }
 
 .sh-products-area .plan-detail>h5 a {
-  font-weight: normal;
+  font-weight: 400
 }
 
 textarea::-webkit-scrollbar {
-  cursor: pointer;
+  cursor: pointer
 }
 
 .zip-address {
-  margin-top: 10px !important;
+  margin-top: 10px !important
 }
-.text-area-placeholder > textarea{
+
+.text-area-placeholder>textarea {
   resize: none
 }
 
 .text-area-placeholder .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
   transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
-  -ms-transform: translateY(-1.78125em) scale(.75) !important;
+  -ms-transform: translateY(-1.78125em) scale(.75) !important
 }
 
 .mat-form-field.mat-form-field-invalid .mat-form-field-label {
-  color: #f44336 !important;
+  color: #f44336 !important
 }
-
-/* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {
   .svg_map {
-    width: 60% !important;
+    width: 60% !important
   }
 }
 
@@ -3734,106 +3604,130 @@ textarea::-webkit-scrollbar {
   .max-width-1000 {
     max-width: 1000px;
     margin: 0 auto;
-    float: none;
+    float: none
   }
 }
 
 @media (max-width:1280px) {
-
   .card .card-title {
     font-size: 16px !important;
-    line-height: 19px !important;
+    line-height: 19px !important
   }
 
   .sh-products-area .plan-detail>h5 a {
     line-height: 14px;
-    vertical-align: bottom !important;
+    vertical-align: bottom !important
   }
 
   .card [data-background-color] {
-    padding: 6px !important;
+    padding: 6px !important
   }
 
   .reg .pd-left-30 {
-    padding-left: 50px;
+    padding-left: 50px
   }
 
   .regester-btn {
-    margin-top: 0px !important;
+    margin-top: 0 !important
   }
 
   .nav-home ul {
-    padding: 17px 0 0 !important;
+    padding: 17px 0 0 !important
   }
 
   .sh-pg-container.top-page {
-    max-width: 972px;
+    max-width: 972px
   }
 
   .pagination {
-    margin-right: 0% !important;
+    margin-right: 0 !important
   }
 
   .header .pagination {
-    margin-right: 20px !important;
+    margin-right: 20px !important
   }
 
   .cat-elips {
-    max-width: 70% !important;
+    max-width: 70% !important
   }
 
   .sh-products-area .plan-detail>h5 {
-    font-size: 14px !important;
+    font-size: 14px !important
   }
 }
 
 @media (max-width:1024px) {
+  .slide {
+    min-height: auto !important
+  }
+  .androidBadge, .iosBadge {
+    max-width: 18% !important;
+}
   .pricing-table2 {
-    padding: 15px 10px !important;
+    padding: 15px 10px !important
   }
 
   .main_heading {
-    font-size: 34px;
+    font-size: 34px
   }
 
   .com-table th {
-    font-size: 14px !important;
+    font-size: 14px !important
   }
 
   .sh-n-table table thead tr th {
-    padding: 0;
+    padding: 0
   }
 
   .sticky {
-    top: 54px;
+    top: 54px
   }
 
   .sh-payment .container {
-    width: 660px !important;
+    width: 660px !important
   }
-
+  .history-table th {
+    font-size: 16px!important;
+  }
+  .history-table tbody tr td {
+    padding: 5px 0 !important;
+}
+  .form-home {
+    top: 0px !important;
+  }
+  .pricing-tenure-switcher .pts-right{
+    margin: 0 5px;
+  }
+  .width-half {
+    float: left;
+}
 }
 
 @media (min-width:1281px) {
   .pagination {
-    margin-right: 18% !important;
+    margin-right: 18% !important
   }
 
   .sh-pg-container.top-page {
-    max-width: 1100px;
+    max-width: 1100px
   }
 }
 
 @media (max-width:991px) {
-  #f-c .com-table th,#f-c .com-table td{
-    vertical-align: middle !important;
+
+  #f-c .com-table td,
+  #f-c .com-table th {
+    vertical-align: middle !important
   }
+
   .leftRsBanner {
-    left: 15px;
+    left: 15px
   }
+
   .rightRsBanner {
-    right: 15px;
+    right: 15px
   }
+
   .sidebar.custom {
     position: fixed !important;
     left: 0 !important;
@@ -3848,75 +3742,75 @@ textarea::-webkit-scrollbar {
     -moz-transform: none !important;
     -o-transform: none !important;
     transform: none;
-    z-index: 99;
+    z-index: 99
   }
 
   .products-area h4 {
-    font-size: 14px !important;
+    font-size: 14px !important
   }
 
   #f-c .container-wide {
-    width: 100% !important;
+    width: 100% !important
   }
 
   #myBtn {
-    display: none !important;
+    display: none !important
   }
 
   .sh-pg-container.header {
-    margin: 0 !important;
+    margin: 0 !important
   }
 
   .sticky {
-    top: 67px;
+    top: 67px
   }
 
   .user-sidebar {
-    padding: 0 !important;
+    padding: 0 !important
   }
 
   .search-holder .fa-microphone {
     font-size: 35px;
     right: 15px;
-    top: 13px;
+    top: 13px
   }
 
   .search-holder input[type=search] {
     font-size: 30px;
-    line-height: 30px;
+    line-height: 30px
   }
 
   .search-holder input[type=search]::-webkit-input-placeholder {
     font-size: 30px;
-    line-height: 30px;
+    line-height: 30px
   }
 
   .search-holder input[type=search]:-moz-placeholder {
     font-size: 30px;
-    line-height: 30px;
+    line-height: 30px
   }
 
   .search-holder input[type=search]::-moz-placeholder {
     font-size: 30px;
-    line-height: 30px;
+    line-height: 30px
   }
 
   .search-holder input[type=search]:-ms-input-placeholder {
     font-size: 30px;
-    line-height: 30px;
+    line-height: 30px
   }
 
   .search-holder {
-    padding: 0;
+    padding: 0
   }
 
   .container {
-    width: 100%;
+    width: 100%
   }
 
   .our-team h3 {
     font-size: 22px !important;
-    margin-bottom: 7px !important;
+    margin-bottom: 7px !important
   }
 
   .com-table,
@@ -3925,107 +3819,107 @@ textarea::-webkit-scrollbar {
   }
 
   .Find-rfp .main-heading {
-    margin: 0;
+    margin: 0
   }
 
   .Find-rfp .sh-pg-container {
-    margin: 0 !important;
+    margin: 0 !important
   }
 
   .sidebar-user {
-    padding: 0 10px !important;
+    padding: 0 10px !important
   }
 
   .content-router-outlet {
-    display: block !important;
+    display: block !important
   }
 
   #display_advance {
-    margin: 25px auto 30px !important;
+    margin: 25px auto 30px !important
   }
 
   .sh-sidebar {
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden
   }
 
   .srch-result {
-    font-size: 22px;
+    font-size: 22px
   }
 
   .sh-sort label {
     font-size: 16px;
-    margin: 5px 5px;
+    margin: 5px 5px
   }
 
   .play-store-img2 li {
-    margin-left: 10px;
+    margin-left: 10px
   }
 
   .play-store-img2 {
     bottom: 20px !important;
-    left: 39% !important;
+    left: 39% !important
   }
 
-  .play-store-img2 .iosBadge,
-  .play-store-img2 .androidBadge {
-    max-width: 15% !important;
+  .play-store-img2 .androidBadge,
+  .play-store-img2 .iosBadge {
+    max-width: 15% !important
   }
 
   .home.pw-solutions ul li {
-    width: 50% !important;
+    width: 50% !important
   }
 
   .last-3-para p {
     font-size: 14px !important;
-    padding: 5px 0 !important;
+    padding: 5px 0 !important
   }
 
   .top-lists ul li {
-    font-size: 14px !important;
+    font-size: 14px !important
   }
 
   .tab-mt-top-10px {
-    margin-top: 10px !important;
+    margin-top: 10px !important
   }
 
   .how-rfp-help p {
-    padding: 0 0 20px !important;
+    padding: 0 0 20px !important
   }
 
   .interest-area {
-    padding: 10px 0 !important;
+    padding: 10px 0 !important
   }
 
   .leftRsBanner,
   .rightRsBanner {
-    font-size: 15px !important;
+    font-size: 15px !important
   }
 
   .main_heading {
     font-size: 27px !important;
-    margin: 17px 0 !important;
+    margin: 17px 0 !important
   }
 
   #accordion .panel-heading .panel-title {
-    font-size: 16px !important;
+    font-size: 16px !important
   }
 
   #CategoryDiv {
-    display: none;
+    display: none
   }
 
   .slide {
-    min-height: auto !important;
+    min-height: auto !important
   }
 
   .rfp-back,
   .tab-text-center {
-    text-align: center !important;
+    text-align: center !important
   }
 
   .sidebar-close-btn {
-    padding: 10px 0 0;
+    padding: 10px 0 0
   }
 
   .tab-mg-top-20px {
@@ -4143,48 +4037,48 @@ textarea::-webkit-scrollbar {
     display: block;
     width: 160px;
     height: 44px;
-    margin-left: 30px;
+    margin-left: 30px
   }
 
   .signup-form-row>div {
-    padding: 0 5px;
+    padding: 0 5px
   }
 
   .sh-signin-signup i {
-    width: 12px !important;
+    width: 12px !important
   }
 }
 
 @media (max-width:768px) {
   .pricing_heading {
-    font-size: 22px !important;
+    font-size: 22px !important
   }
 
   .pricing-table2 {
-    padding: 15px 5px !important;
+    padding: 15px 5px !important
   }
 
   .all-cats .col {
-    min-height: 25px !important;
+    min-height: 25px !important
   }
 
   .sticky {
-    top: 67px;
+    top: 67px
   }
 
   .about-4 .main_heading {
     font-size: 36px;
-    margin: 0px 10px 10px !important;
+    margin: 0 10px 10px !important
   }
 
   #what-is-rfp p {
     font-size: 15px;
     line-height: 20px;
-    margin: 0 0 5px;
+    margin: 0 0 5px
   }
 
   #contact {
-    padding: 0 10px;
+    padding: 0 10px
   }
 
   .com-table>table {
@@ -4193,7 +4087,7 @@ textarea::-webkit-scrollbar {
 
   .com-table table tr th {
     padding: 5px 0 !important;
-    font-size: 14px !important;
+    font-size: 14px !important
   }
 
   .com-table td {
@@ -4260,10 +4154,8 @@ textarea::-webkit-scrollbar {
   }
 
   .mySidebar {
-    transition: 1s ease-in-out all;
+    transition: 1s ease-in-out all
   }
-
-
 
   .prod-select-list {
     padding: 0 5px !important
@@ -4327,77 +4219,88 @@ textarea::-webkit-scrollbar {
   .search-holderinput[type=search] {
     font-size: 23px !important
   }
-
 }
 
 @media (max-width:767px) {
   .form-home {
-    top: 0px;
+    top: 0
   }
+
   .choose-criteria {
-    display: none !important;
-}
+    display: none !important
+  }
+
   .sidebar.custom {
-    top: 50px !important;
+    top: 50px !important
   }
 
   .sidebar-outlet {
     position: absolute;
     left: 0;
     top: 50px;
-    z-index: 9;
+    z-index: 9
   }
 
   .sh-h2-resources {
-    margin-left: 0 !important;
+    margin-left: 0 !important
   }
 }
 
 @media (max-width:640px) {
-  .about-main .main_heading , .about-3 .title{
-    font-size: 20px !important;
+<<<<<<< HEAD
+
+  .about-3 .title,
+  .about-main .main_heading {
+    font-size: 20px !important
   }
-  .about-main p{
+
+  .about-main p {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 20px
   }
+
   .sh-how-it-works p {
     font-size: 14px !important;
     line-height: 20px !important;
-    padding: 0 !important;
+    padding: 0 !important
   }
-  .pw-solutions.works-blocks ul li{
-    width: 100% !important;
+
+  .pw-solutions.works-blocks ul li {
+    width: 100% !important
   }
-  .pw-solutions ul{
-    margin: 0px !important;
+
+  .pw-solutions ul {
+    margin: 0 !important
   }
+
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
   #contact-map {
-    padding: 0 !important;
+    padding: 0 !important
   }
 
   .header .sh-select-list {
-    padding-top: 5px !important;
+    padding-top: 5px !important
   }
 
   .page-title span {
     font-size: 16px;
     line-height: 24px;
     position: relative;
-    padding: 5px 0;
+    padding: 5px 0
   }
 
   .sticky {
-    top: 50px !important;
+    top: 50px !important
   }
 
   .header .pagination {
-    margin-right: 0% !important;
-    float: none !important;
+    margin-right: 0 !important;
+    float: none !important
   }
 
   .home.pw-solutions ul li {
-    width: 90% !important;
+    width: 90% !important
   }
 
   .must-login {
@@ -4471,7 +4374,7 @@ textarea::-webkit-scrollbar {
   }
 
   .download-btns>a img {
-    width: 50px !important;
+    width: 50px !important
   }
 
   .CategorySlider {
@@ -4550,7 +4453,7 @@ textarea::-webkit-scrollbar {
   }
 
   .how-rfp-help {
-    padding: 10px!important
+    padding: 10px !important
   }
 
   .how-rfp-help>div>.row>h3 {
@@ -4590,7 +4493,7 @@ textarea::-webkit-scrollbar {
   }
 
   .footer-upper {
-    padding: 0 20px !important;
+    padding: 0 20px !important
   }
 
   .footer-upper h2 {
@@ -4709,20 +4612,27 @@ textarea::-webkit-scrollbar {
     padding: 5px 15px
   }
 }
-@media (max-width:320px){
+
+<<<<<<< HEAD
+@media (max-width:320px) {
   .recaptcha-btn .btn {
     margin-top: 11px !important;
     display: block;
     text-align: center;
-    width: 100%;
+    width: 100%
   }
-  .recaptcha-btn .card-recap{
-    margin: 0 auto !important;
+
+  .recaptcha-btn .card-recap {
+    margin: 0 auto !important
   }
+
   .recaptcha-btn .recaptcha-style {
-    display: block !important;
+    display: block !important
   }
 }
+
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 @media (min-width:992px) and (max-width:1024px) {
   #f-c .com-table td {
     font-size: 15px !important
@@ -4780,7 +4690,7 @@ textarea::-webkit-scrollbar {
   }
 
   .download-btns>a img {
-    width: 100px !important;
+    width: 100px !important
   }
 
   .bannerCarousel .buttons {
@@ -4846,7 +4756,7 @@ textarea::-webkit-scrollbar {
   }
 
   .footer-upper {
-    padding: 10px !important;
+    padding: 10px !important
   }
 
   .w-r-w {
@@ -4868,26 +4778,25 @@ textarea::-webkit-scrollbar {
   }
 
   .pagination {
-    margin-right: 0% !important;
+    margin-right: 0 !important
   }
 
   .header .pagination {
-    margin-right: 20px !important;
+    margin-right: 20px !important
   }
 
   .sh-pg-container.top-page {
-    max-width: 900px;
+    max-width: 900px
   }
 
   .pagination {
-    margin-right: 7% !important;
+    margin-right: 7% !important
   }
 }
 
 @media (min-width:992px) {
-
   #mySidebar {
-    display: table-cell !important;
+    display: table-cell !important
   }
 
   .sidebar-close-btn {
@@ -4896,12 +4805,12 @@ textarea::-webkit-scrollbar {
 
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .icon-prev {
-    margin-left: -65px !important;
+    margin-left: -65px !important
   }
 
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-prev {
-    margin-right: -65px !important;
+    margin-right: -65px !important
   }
 }
 
@@ -4950,7 +4859,7 @@ textarea::-webkit-scrollbar {
 
   .footer-container>.row>div,
   .footer-upper {
-    padding: 0 !important;
+    padding: 0 !important
   }
 
   .bannerCarousel {
@@ -4988,11 +4897,11 @@ textarea::-webkit-scrollbar {
   }
 
   .choose-criteria ul li {
-    padding: 0 10px 0 41px !important;
+    padding: 0 10px 0 41px !important
   }
 
   .footer {
-    padding: 0 !important;
+    padding: 0 !important
   }
 
   .choose-criteria ul li i {
@@ -5084,10 +4993,8 @@ textarea::-webkit-scrollbar {
     text-align: center
   }
 
-
-
   #mySidebar {
-    width: 0 !important;
+    width: 0 !important
   }
 
   #mySidebar>button {
@@ -5110,14 +5017,11 @@ textarea::-webkit-scrollbar {
   }
 
   .header .pagination {
-    margin-right: 0 !important;
+    margin-right: 0 !important
   }
 
   .sh-pg-container .pagination,
   .sh-pg-container .sh-select-list {
-    float: right !important;
+    float: right !important
   }
 }
-
-
-/* End  Responsive.css */

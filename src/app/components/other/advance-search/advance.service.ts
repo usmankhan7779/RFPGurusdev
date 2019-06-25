@@ -18,6 +18,12 @@ export class AdvanceService {
       headers.append('Content-Type', 'application/json');
     return this._https.get('https://apis.rfpgurus.com/document_trial/' + id,  {headers:headers}).map((response: Response) => response.json())
 }
+downloadRfp(){
+  let headers = new Headers();
+      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+      headers.append('Content-Type', 'application/json');
+    return this._https.get('https://apis.rfpgurus.com/rf_p/document_link/',  {headers:headers}).map((response: Response) => response.json())
+}
   dropdown(state, agency, category, sub_category) {
         
     return this.http.post('https://apis.rfpgurus.com/rf_p/drop_down/', JSON.stringify({
