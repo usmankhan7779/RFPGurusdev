@@ -24,7 +24,7 @@
                     <div class="col-sm-12">
                         <mat-form-field class="sh-sidebar-date">
                             <input matInput placeholder="From Posted Date" (click)="picker.open()" name="enterdate"
-                                (focus)="picker.open()" [matDatepicker]="picker" [(ngModel)]="enterdate"
+                                (focus)="picker.open()" mask="[00]\[000]" [matDatepicker]="picker" [(ngModel)]="enterdate"
                                 (ngModelChange)="onSubmit()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker class="sh-date-top-fix" #picker></mat-datepicker>
