@@ -98,7 +98,7 @@
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field class="example-full-width">
                       <input matInput class="sh-text-capt" placeholder="City" type="text" id="city" formControlName="city"
-                        [(ngModel)]="personal.city" value="{{personal.city}}" required>
+                        [(ngModel)]="personal.city" value="{{personal.city}}" required readonly>
                       <mat-error *ngIf="register.controls.city.value == ''">
                         <strong>City cannot be empty</strong>
                       </mat-error>
@@ -110,7 +110,7 @@
                 <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                     <mat-form-field class="example-full-width">
-                      <input matInput class="text-uppercase" placeholder="State" type="text" id="state"
+                      <input matInput class="text-uppercase" placeholder="State" type="text" id="state" readonly
                         formControlName="state" [(ngModel)]="personal.state" value="{{personal.state}}" required>
                       <mat-error *ngIf="register.controls.state.value == ''">
                         <strong>State cannot be empty</strong>
@@ -121,7 +121,7 @@
                 <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
                     <mat-form-field class="example-full-width">
-                      <input matInput class="sh-text-capt" placeholder="Country" type="text" id="country"
+                      <input matInput class="sh-text-capt" placeholder="Country" type="text" id="country" readonly
                         formControlName="country" [(ngModel)]="personal.country" value="{{personal.country}}" required>
                       <mat-error *ngIf="register.controls.country.value == ''">
                         <strong>Country cannot be empty</strong>

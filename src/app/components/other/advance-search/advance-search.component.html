@@ -280,7 +280,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 padding-0">
                                 <div attr.id="View{{rfp.id}}" class="panel-details collapse">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
                                         <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a  class="cat-elips"
@@ -355,7 +355,7 @@
                 <!--<mat-paginator #paginatorBottom [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="paginatorTop.pageIndex = $event.pageIndex; pageEvent = $event; onPaginateChange($event)">-->
                 <!--</mat-paginator>-->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container">
-                    <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right">
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 text-right">
                         <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
                             <li [ngClass]="{hide:pager.currentPage === 1}">
                                 <a onclick="topFunction()" (click)="onSubmit(1)" class="view-1s" class="btn btn-fill">
@@ -402,7 +402,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 prod-select-list sec-list sh-select-list"
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 prod-select-list sec-list sh-select-list"
                         *ngIf="pager.pages && pager.pages.length">
                         <label class="product-label">Items per page:
                         </label>
