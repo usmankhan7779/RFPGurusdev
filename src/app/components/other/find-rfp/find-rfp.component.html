@@ -109,7 +109,7 @@
                                             <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
                                             <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
                                             <mat-option class="sh-tb-option"
-                                                *ngFor="let catitem of cat | filter:catsearch"
+                                                *ngFor="let catitem of cat "
                                                 [value]="catitem.category_name">{{catitem.category_name}}</mat-option>
                                         </mat-select>
                                     </mat-form-field>
@@ -124,13 +124,13 @@
                                             <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
                                             <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
                                             <mat-option class="sh-tb-option"
-                                                *ngFor="let item of state | filter:statsearch" [value]="item.state">
+                                                *ngFor="let item of state " [value]="item.state">
                                                 {{item.state}}</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </td>
-                                <td>
-                                    <mat-form-field class="sh-table-date">
+                                <td class="sh-table-date">
+                                    <mat-form-field >
                                         <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()"
                                             name="enterdate" [(ngModel)]="enterdate" placeholder="MM/DD/YYYY"
                                             (ngModelChange)="changeenterdate(enterdate)" />
@@ -138,8 +138,8 @@
                                         <mat-datepicker #startPicker></mat-datepicker>
                                     </mat-form-field>
                                 </td>
-                                <td>
-                                    <mat-form-field class="example-full-width mat-size sh-table-date ">
+                                <td class="sh-table-date">
+                                    <mat-form-field class="example-full-width mat-size ">
                                         <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()"
                                             name="submission_from" [(ngModel)]="submission_from"
                                             placeholder="MM/DD/YYYY" (ngModelChange)="changeduedate(submission_from)" />
