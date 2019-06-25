@@ -35,18 +35,16 @@
                       viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
                       <g>
                         <g>
-
                         </g>
                       </g>
                     </svg>
-
                   </div>
                   <div class="card-expiration-date">
                     <label>Expiry Date</label>
                     <div>{{form.controls.expirydate.value}}</div>
                   </div>
                   <div class="ccv">
-                    <label>CCV</label>
+                    <label>CVV</label>
                     <div>{{form.controls.ccv.value}}{{form.controls.ccv2.value}}</div>
                   </div>
                 </div>
@@ -56,7 +54,7 @@
               <div class="col-md-12 padding-0">
                 <div class="col-md-4 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
-                    <mat-select placeholder="Card Type" formControlName="var_type_atm" #val
+                    <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val
                       (valueChange)="ShowButton(val.value,f)">
                       <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                         [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
@@ -64,12 +62,12 @@
                   </mat-form-field>
                 </div>
               </div>
-            </form>
-            <form class="floting-label sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
+          </form>
+        <form class="floting-label sh-signup-form-fix edit-profile" [formGroup]="form" #f="ngForm">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
-                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder="Credit Card Number"
+                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder="Credit Card Number *"
                     formControlName="cardnumber">
                   <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                     <mat-error *ngIf="form.controls.cardnumber.errors.required">
@@ -87,7 +85,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2"
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
-                  <input matInput type="text" placeholder="Credit Card Number" [textMask]="{mask: cardmask}"
+                  <input matInput type="text" placeholder="Credit Card Number *" [textMask]="{mask: cardmask}"
                     formControlName="cardnumber2">
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
@@ -102,12 +100,10 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-
-
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv" [ngClass]="displayFieldCss(form, 'ccv')">
                 <mat-form-field>
-                  <input matInput type="password" maxlength="3" minlength="3" placeholder="CCV No."
-                    formControlName="CVV No">
+                  <input matInput type="password" maxlength="3" minlength="3" placeholder="CVV No."
+                    formControlName="ccv">
                   <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
                     <mat-error *ngIf="form.controls.ccv.errors.required">
                       CVV No cannot be empty
@@ -126,27 +122,27 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv2" [ngClass]="displayFieldCss(form, 'ccv2')">
                 <mat-form-field>
-                  <input matInput type="password" maxlength="4" minlength="4" placeholder="CCV No."
+                  <input matInput type="password" maxlength="4" minlength="4" placeholder="CVV No."
                     formControlName="ccv2">
                   <mat-error *ngIf="form.controls.ccv2.touched && form.controls.ccv2.invalid">
                     <mat-error *ngIf="form.controls.ccv2.errors.required">
-                      CCV cannot be empty
+                      CVV cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv2.errors.minlength">
-                      CCV must be atleast {{form.controls.ccv2.errors.minlength.requiredLength}} digits long.
+                      CVV must be atleast {{form.controls.ccv2.errors.minlength.requiredLength}} digits long.
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv2.errors.maxlength">
-                      CCV must be at atmost {{form.controls.ccv2.errors.maxlength.requiredLength}} digits long.
+                      CVV must be at atmost {{form.controls.ccv2.errors.maxlength.requiredLength}} digits long.
                     </mat-error>
                     <mat-error *ngIf="form.controls.ccv2.hasError('pattern')">
-                      CCV must be only in digits.
+                      CVV must be only in digits.
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
                 <mat-form-field>
-                  <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: mask,keepCharPositions:true}"
+                  <input matInput placeholder="Expiry Date (MM/YY) *" [textMask]="{mask: mask,keepCharPositions:true}"
                     type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
 
                   <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
@@ -164,7 +160,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'address')">
                 <mat-form-field>
-                  <input matInput placeholder="Street Address" maxlength="300" type="text" formControlName="address">
+                  <input matInput placeholder="Street Address *" maxlength="300" type="text" formControlName="address">
                   <mat-error *ngIf="form.controls.address.touched && form.controls.address.invalid">
                     <mat-error *ngIf="form.controls.address.errors.required">
                       Street Address cannot be empty
@@ -197,7 +193,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
                 <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="City" type="text" formControlName="city" readonly>
+                  <input matInput class="sh-text-capt" placeholder="City *" type="text" formControlName="city" readonly>
                   <!-- <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
                                 <mat-error *ngIf="form.controls.city.errors.required">
                                   City cannot be empty
@@ -208,7 +204,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
                 <mat-form-field>
-                  <input matInput class="text-uppercase" placeholder="State" type="text" formControlName="state"
+                  <input matInput class="text-uppercase" placeholder="State *" type="text" formControlName="state"
                     readonly>
                   <!-- <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
                                 <mat-error *ngIf="form.controls.state.errors.required">
@@ -219,7 +215,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
                 <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="Country" type="text" formControlName="country"
+                  <input matInput class="sh-text-capt" placeholder="Country *" type="text" formControlName="country"
                     readonly>
                   <!-- <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
                                 <mat-error *ngIf="form.controls.country.errors.required">
@@ -230,7 +226,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'cardnickname')">
                 <mat-form-field>
-                  <input matInput class="sh-text-capt" type="text" placeholder="Cardholder Name" maxlength="12"
+                  <input matInput class="sh-text-capt" type="text" placeholder="Cardholder Name *" maxlength="12"
                     formControlName="cardnickname">
                   <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
                     <mat-error *ngIf="form.controls.cardnickname.errors.required">
@@ -257,7 +253,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'nickname')">
                 <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="Nickname" type="text" formControlName="nickname"
+                  <input matInput class="sh-text-capt" placeholder="Nickname *" type="text" formControlName="nickname"
                     maxlength="12" minlength="2">
                   <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
                     <mat-error *ngIf="form.controls.nickname.errors.required">
@@ -292,7 +288,7 @@
               <tr>
                 <th>Cardholder Name</th>
                 <th>Card Number</th>
-                <th>CCV</th>
+                <th>CVV</th>
                 <th>Expiry Date</th>
                 <th>Delete</th>
               </tr>
