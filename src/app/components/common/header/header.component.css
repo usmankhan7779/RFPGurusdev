@@ -545,6 +545,7 @@
   }
 
   @media (max-width:991px) {
+
     .heart-li sup {
       top: 12px;
     }
@@ -557,7 +558,13 @@
     }
 
     .nav-home ul li {
-      padding: 5px 0 0;
+      padding: 12px 0 0;
+    }
+    .sh-main-options li{
+      padding-top: 0 !important
+    }
+    .nav-vanders li{
+      padding: 0 !important;
     }
   }
 
@@ -573,10 +580,6 @@
 
     .navbar-toggle .icon-bar {
       background: #333 !important
-    }
-
-    .navbar-nav>li>a {
-      display: block
     }
 
     .why-rfp-sublist {
@@ -600,12 +603,6 @@
       font-size: 16px;
       padding: 0 10px
     }
-
-
-    .navbar-nav>li>a {
-      padding: 10px 1px !important;
-    }
-
     .navbar-right {
       float: none !important;
       margin-left: 5px;
