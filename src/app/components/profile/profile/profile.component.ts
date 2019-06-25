@@ -127,7 +127,7 @@ export class ProfileComponent implements OnInit {
             this.validateAllFormFields(this.register);
             swal(
                 'Oops...',
-                'Failed to Update Profile!',
+                'Failed to update profile',
                 'error'
             )
         }

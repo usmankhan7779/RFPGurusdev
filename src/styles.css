@@ -4337,7 +4337,7 @@ textarea::-webkit-scrollbar {
   }
 
   .download-btns>a img {
-    width: 50px
+    width: 50px !important;
   }
 
   .CategorySlider {
@@ -4633,7 +4633,7 @@ textarea::-webkit-scrollbar {
   }
 
   .download-btns>a img {
-    width: 100px
+    width: 100px !important;
   }
 
   .bannerCarousel .buttons {
@@ -4983,5 +4983,6 @@ textarea::-webkit-scrollbar {
   float: right !important;
 }
 }
+
 
 /* End  Responsive.css */
