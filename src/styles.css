@@ -1287,7 +1287,9 @@ btn.btn-success.dropdown-toggle:focus {
 .phonee .dropbtn {
   box-shadow: 0 0 5px #ccc
 }
-
+.phonee .dropbtn:focus{
+  outline: none !important;
+}
 .flagInput {
   vertical-align: bottom;
   border: none;
@@ -2501,8 +2503,9 @@ body {
 
 .sh-signup-form-fix .clr_red {
   font-size: 12px;
-  margin: -19px 0 0;
+  margin: -9px 0 0;
   font-weight: 700 !important;
+  text-align: left;
 }
 
 .sh-signup-form-fix.edit-profile .form-group {
@@ -2850,13 +2853,7 @@ body {
 .sh-signup-form-fix .mat-select {
   box-shadow: none;
 }
-
-.sh-signup-form-fix .clr_red {
-  color: #c00;
-  margin: -20px 0 -4px;
-  font-size: 12px;
-  font-weight: 700 !important;
-}
+ 
 
 /* .........................Signup-form-fix End................................. */
 
@@ -4357,6 +4354,24 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:640px) {
+  .about-main .main_heading , .about-3 .title{
+    font-size: 20px !important;
+  }
+  .about-main p{
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .sh-how-it-works p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 0 !important;
+  }
+  .pw-solutions.works-blocks ul li{
+    width: 100% !important;
+  }
+  .pw-solutions ul{
+    margin: 0px !important;
+  }
   #contact-map {
     padding: 0 !important;
   }
@@ -4694,7 +4709,20 @@ textarea::-webkit-scrollbar {
     padding: 5px 15px
   }
 }
-
+@media (max-width:320px){
+  .recaptcha-btn .btn {
+    margin-top: 11px !important;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .recaptcha-btn .card-recap{
+    margin: 0 auto !important;
+  }
+  .recaptcha-btn .recaptcha-style {
+    display: block !important;
+  }
+}
 @media (min-width:992px) and (max-width:1024px) {
   #f-c .com-table td {
     font-size: 15px !important
