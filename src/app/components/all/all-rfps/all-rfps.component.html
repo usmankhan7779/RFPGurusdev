@@ -154,14 +154,14 @@
                           </a>
                         </li>
                         <ng-template #pdf>
-                          <li (click)="check_trial(rfp.id, rfp.web_info);download(rfp.web_info)"
+                          <li (click)="check_trial(rfp.id, rfp.web_info);download(rfp.web_info);showPDF(rfp.id)"
                             *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                             <a >
                               <i class="material-icons">insert_drive_file</i> View Documents
                             </a>
                           </li>
                           <ng-template #link>
-                            <li (click)="check_trial(rfp.id, rfp.web_info);download(rfp.web_info)">
+                            <li (click)="check_trial(rfp.id, rfp.web_info);download(rfp.web_info);showPDF(rfp.id)">
                               <a>
                                 <i class="material-icons">insert_drive_file</i> View Documents
                               </a>
