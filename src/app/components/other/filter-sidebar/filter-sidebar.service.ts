@@ -9,6 +9,7 @@ export class FilterSidebarService {
         return this.http.get('https://apis.rfpgurus.com/rf_p/category/');
     }
     staterfp() {
+        alert("services");
         return this.http.get('https://apis.rfpgurus.com/rf_p/state/');
     }
 

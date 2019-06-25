@@ -165,7 +165,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       .subscribe(params => {
         this.cat = params.keyword
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['signin']);
           localStorage.setItem('member', 'searched-data' + this.cat);
         }
         else if (!this.subscribe) {

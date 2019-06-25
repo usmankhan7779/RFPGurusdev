@@ -286,6 +286,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.UserPreference = this.tempUserPreference;
         if (this.UserPreference.length == 0) {
             nulllist = null
+            alert(this.UserPreference)
         }
         this.statePreference = this.tempstatePreference
         if (this.statePreference.length == 0) {
@@ -305,6 +306,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         }
         this.endRequest = this._serv.peraferanceUpdate(this.register.value, this.UserPreference, this.statePreference, this.countyPreference, this.cityPreference, this.agencyPreference).subscribe(
             data => {
+                console.log(this.register.value, this.UserPreference, this.statePreference, this.countyPreference, this.cityPreference, this.agencyPreference)
                 swal({
                     type: 'success',
                     title: 'Updated Your RFP Preferences',

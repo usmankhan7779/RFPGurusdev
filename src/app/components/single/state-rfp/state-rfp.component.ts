@@ -144,7 +144,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
       .subscribe(params => {
         this.state = params.state
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['signin']);
           localStorage.setItem('member', 'state' + this.state)
 
         }

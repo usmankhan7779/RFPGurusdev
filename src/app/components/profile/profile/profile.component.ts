@@ -86,6 +86,7 @@ export class ProfileComponent implements OnInit {
             'has-feedback': this.isFieldValid(form, field)
         };
     }
+    invalid
     zipcodeCheck(zipcode1) {
         if (zipcode1.length > 4) {
             this.endRequest = this.signupServ.zipcode(zipcode1).subscribe(
@@ -93,6 +94,16 @@ export class ProfileComponent implements OnInit {
                     this.personal['city'] = data['city']
                     this.personal['state'] = data['state']
                     this.personal['country'] = data['country']
+                },
+                error=>{
+                    if(error.status==400)
+                    {
+                        this.invalid=error.status
+                        delete this.personal['city'];
+                        delete this.personal['state'];
+                        delete this.personal['country'];
+                    }
+
                 });
         }
     }
@@ -190,9 +201,9 @@ export class ProfileComponent implements OnInit {
             code: ['', Validators.required]
         });
         this.register = this.formBuilder.group({
-            firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-            lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-            companyname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+')]],
+            firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
+            lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
+            companyname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+'),Validators.minLength(3)]],
             address: ['', [Validators.required]],
             username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+')]],
             zipcode: ['', [Validators.required, Validators.pattern('^[0-9,-]+$'), Validators.minLength(5)]],

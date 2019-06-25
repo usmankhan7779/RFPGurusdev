@@ -50,7 +50,7 @@ export class AgencyRfpComponent implements OnInit, OnDestroy {
       .subscribe(params => {
         this.age = params.agency
         if (!this.local) {
-          this._nav.navigate(['login']);
+          this._nav.navigate(['signin']);
           localStorage.setItem('member', 'agency' + this.age)
         }
         else if (!this.subscribe) {
@@ -94,12 +94,12 @@ export class AgencyRfpComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      if (localStorage.getItem('agencypage')) {
-        var page_num: number = Number(localStorage.getItem('agencypage'));
-        this.subscribe_data(page_num);
-      } else {
+      // if (localStorage.getItem('agencypage')) {
+      //   var page_num: number = Number(localStorage.getItem('agencypage'));
+      //   this.subscribe_data(page_num);
+      // } else {
         this.subscribe_data(1);
-      }
+      // }
     }
     else {
       delete this.pageSize;

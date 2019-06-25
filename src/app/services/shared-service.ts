@@ -9,6 +9,7 @@ export class SharedData {
   stateSubject = new BehaviorSubject<any>('');
   agencySubject = new BehaviorSubject<any>('');
   searchSubject = new BehaviorSubject<any>('');
+  dateSubject = new BehaviorSubject<any>('');
   watchSubject = new BehaviorSubject<any>('');
   currentMessage = this.watchSubject.asObservable();
   update = new Subject<any>();
@@ -50,6 +51,9 @@ export class SharedData {
 
   categoryInfo(data) {
     this.categorySubject.next(data);
+  }
+  dateInfo(date) {
+    this.dateSubject.next(date);
   }
 
   returnCat() {
