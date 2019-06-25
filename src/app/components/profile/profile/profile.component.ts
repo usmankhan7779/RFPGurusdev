@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
                 data => {
                     this.personal = data;
            
-                    this.profile = data['user'];
+                    // this.profile = data['user'];
                     console.log(data['user'])
 
                 });

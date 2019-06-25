@@ -67,7 +67,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
-                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder=" 16 digits Credit Card Number *"
+                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
                     formControlName="cardnumber">
                   <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                     <mat-error *ngIf="form.controls.cardnumber.errors.required">
@@ -85,7 +85,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2"
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
-                  <input matInput type="text" placeholder="15 digits Credit Card Number *" [textMask]="{mask: cardmask}"
+                  <input matInput type="text" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
                     formControlName="cardnumber2">
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
