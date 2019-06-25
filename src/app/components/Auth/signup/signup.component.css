@@ -107,7 +107,7 @@ video {
 
 @media (max-width:1280px){
   .form-footer {
-    padding: 6px 0 20px !important;
+    padding: 16px 0 20px !important;
 }
 }
 @media (max-width:1024px) {
