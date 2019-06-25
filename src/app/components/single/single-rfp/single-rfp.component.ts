@@ -73,8 +73,8 @@ export class SingleRfpComponent implements OnInit {
         this._nav.navigate([url]);
       }
       else {
-        this._nav.navigate([url]);
-        alert("else");
+        this._nav.navigate(['/all-rfps']);
+      alert('asd');
      
       }
     }
