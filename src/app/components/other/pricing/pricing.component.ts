@@ -566,7 +566,7 @@ export class PricingComponent implements OnInit {
           });
       }
     }
-
+f.resetForm()
 
   }
   ngOnDestroy() {
