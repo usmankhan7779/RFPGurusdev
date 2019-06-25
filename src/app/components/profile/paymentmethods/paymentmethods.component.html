@@ -198,7 +198,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
                 <mat-form-field>
-                  <input matInput class="text-uppercase" placeholder="State *" type="text" formControlName="state"
+                  <input matInput class="text-uppercase" placeholder="State *"  type="text" formControlName="state"
                     readonly>
                   <!-- <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
                                 <mat-error *ngIf="form.controls.state.errors.required">
@@ -229,12 +229,12 @@
                     <mat-error *ngIf="form.controls.cardnickname.errors.minlength">
                       Card holder Name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}}
                       characters
-                      long.
+                      long
                     </mat-error>
                     <mat-error *ngIf="form.controls.cardnickname.errors.maxlength">
                       Card holder Name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}}
                       characters
-                      long.
+                      long
                     </mat-error>
                     <!-- <mat-error *ngIf="form.controls.cardnickname.errors.cannotContainSpace">
                                           Nick name cannot contain spaces
