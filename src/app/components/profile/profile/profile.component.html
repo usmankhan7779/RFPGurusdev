@@ -13,12 +13,15 @@
                     <mat-form-field class="example-full-width">
                       <input class="text-capitalize" matInput placeholder="First Name" type="text" id="firstname"
                         formControlName="firstname" [(ngModel)]="profile.first_name" value="{{profile?.first_name}}"
-                        required>
+                        minlength="2" maxlength="64" required>
                       <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
                         Only Alphabets
                       </mat-error>
                       <mat-error *ngIf="register.controls.firstname.value == ''">
                         <strong>First name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                        <strong>First name must be between 2 and 64 characters</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -26,13 +29,16 @@
                 <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'lastname')">
                     <mat-form-field class="example-full-width">
-                      <input class="text-capitalize" matInput placeholder="Last Name" type="text" id="lastname"
+                      <input class="text-capitalize" matInput placeholder="Last Name" type="text" id="lastname" minlength="2" maxlength="64"
                         formControlName="lastname" [(ngModel)]="profile.last_name" value="{{profile.last_name}}" required>
                       <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
                         Only Alphabets
                       </mat-error>
                       <mat-error *ngIf="register.controls.lastname.value == ''">
                         <strong>Last name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.lastname.errors?.minlength">
+                        <strong>Last name must be between 2 and 64 characters</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -42,10 +48,13 @@
                 <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field class="example-full-width">
-                      <input class="text-capitalize" matInput placeholder="Company Name" type="text" id="companyname"
+                      <input class="text-capitalize" matInput placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
                         formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
                       <mat-error *ngIf="register.controls.companyname.value == ''">
                         <strong>Company name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.companyname.errors?.minlength">
+                        <strong>Company Name must be between 3 and 64 characters</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
@@ -79,6 +88,9 @@
                         <strong>Zip Code cannot be empty</strong>
                       </mat-error>
                     </mat-form-field>
+                    <p class="clr_red" *ngIf="invalid">
+                      Invalid Zipcode
+                    </p>
                   </div>
                 </div>
     
