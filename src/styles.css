@@ -3987,33 +3987,33 @@ textarea::-webkit-scrollbar {
   }
 
   .search-outer input::-webkit-input-placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer input::-moz-placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer input:-ms-input-placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer input:-moz-placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer input::-ms-input-placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer input::placeholder {
-    line-height: 44px !important;
-    font-size: 44px !important
+    line-height: 30px !important;
+    font-size: 30px !important
   }
 
   .search-outer {
@@ -4252,6 +4252,9 @@ textarea::-webkit-scrollbar {
 }
 }
 @media (max-width:640px) {
+  #contact-map {
+    padding: 0 !important;
+}
   .header .sh-select-list{
     padding-top: 5px !important;
   }
