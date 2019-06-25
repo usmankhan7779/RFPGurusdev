@@ -431,7 +431,7 @@
                                   5 digit zipcode required!
                                 </mat-error>
                               </mat-form-field>
-                              <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                              <p class="clr_red text-align left" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
                                 Invalid Zipcode
                               </p>
                               <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
