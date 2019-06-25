@@ -326,16 +326,19 @@
                       <div class="col-lg-12 center-div col-md-12">
                         <div class="contact_form">
                           <div class="panel-body margin-top-145 padding-bottom-">
+                          <div class="row">
                             <div class="col-sm-12 col-xs-12 Saved-card-sel-list">
                               <mat-form-field class="col-lg-12 width-half padding-zero mat-size">
                                 <mat-select placeholder="Card Type" [(ngModel)]="model.cardtype"
-                                  [formControl]="CardtypeForm" (change)="ShowButton(CardtypeForm.value)">
+                                  [formControl]="CardtypeForm" (valueChange)="ShowButton(CardtypeForm.value)">
                                   <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation"
                                     [value]="card_get_datat.value">
                                     {{card_get_datat.viewValue}}</mat-option>
                                 </mat-select>
                               </mat-form-field>
                             </div>
+                          </div>
+                          <div class="row">
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size">
                                 <input matInput placeholder="Credit Card Number" [textMask]="{mask: cardmask}"
@@ -363,8 +366,9 @@
                                     Length of CVV can be 4 characters
                                   </mat-error>
                                 </mat-form-field>
-                              </div>
-                              
+                            </div>
+                          </div>
+                          <div class="row">
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size">
                                 <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="ExpiryDateForm"
@@ -394,6 +398,8 @@
                                 </mat-error> -->
                               </mat-form-field>
                             </div>
+                          </div>
+                          <div class="row">
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input  class="sh-text-capt" matInput placeholder="Cardholder Name"
                                   [formControl]="Holdername" [(ngModel)]="model.holdername" minlength="2" maxlength="64" required>
@@ -419,7 +425,9 @@
                                 </mat-error>
                               </mat-form-field>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6 col-xs-12 mt25px">
                               <mat-form-field class=" mat-size">
                                 <input matInput placeholder="Zip Code" maxlength="5" type="text" [formControl]="zipcode"
                                   [(ngModel)]="model.zipcode" required (ngModelChange)="zipcodeCheck(zipcode1.value)"
@@ -430,19 +438,23 @@
                                 <mat-error *ngIf="zipcode.hasError('minlength')">
                                   5 digit zipcode required!
                                 </mat-error>
+                               
+                                
                               </mat-form-field>
-                              <p class="clr_red text-align left" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
-                                Invalid Zipcode
-                              </p>
+                              <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                                  Invalid Zipcode
+                                </p>
                               <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
                                 
                               </p>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-6 col-xs-12 mt25px">
                               <mat-form-field class=" mat-size"> <input matInput placeholder="City" [disabled]="true"
                                   type="text" [formControl]="city" [(ngModel)]="model.city" required readonly>
                               </mat-form-field>
                             </div>
+                          </div>
+                          <div class="row">
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input matInput placeholder="State" type="text"
                                   [disabled]="true" [formControl]="state" [(ngModel)]="model.state" required readonly>
@@ -453,6 +465,8 @@
                                   [disabled]="true" [formControl]="country" [(ngModel)]="model.country" required>
                               </mat-form-field>
                             </div>
+                          </div>
+                          <div class="row">
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input class="sh-text-capt" matInput placeholder="Nick Name" type="text"
                                   [formControl]="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64">
@@ -475,6 +489,7 @@
                               <p>Enroll in Autopay - Set this card as recurring payment
                                 method</p>
                             </div>
+                          </div>
                           </div>
                         </div>
                       </div>

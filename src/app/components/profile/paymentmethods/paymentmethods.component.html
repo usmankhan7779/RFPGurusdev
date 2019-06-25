@@ -67,7 +67,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
-                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder=" 16 digits Credit Card Number *"
+                  <input matInput type="text" [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
                     formControlName="cardnumber">
                   <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                     <mat-error *ngIf="form.controls.cardnumber.errors.required">
@@ -85,7 +85,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2"
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
-                  <input matInput type="text" placeholder="15 digits Credit Card Number *" [textMask]="{mask: cardmask}"
+                  <input matInput type="text" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
                     formControlName="cardnumber2">
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
@@ -140,7 +140,7 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
                 <mat-form-field>
                   <input matInput placeholder="Expiry Date (MM/YY) *" [textMask]="{mask: mask,keepCharPositions:true}"
                     type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
@@ -194,12 +194,6 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
                 <mat-form-field>
                   <input matInput class="sh-text-capt" placeholder="City *" type="text" formControlName="city" readonly>
-                  <!-- <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
-                                <mat-error *ngIf="form.controls.city.errors.required">
-                                  City cannot be empty
-                                </mat-error>
-                  
-                              </mat-error> -->
                 </mat-form-field>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">

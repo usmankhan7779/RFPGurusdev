@@ -259,6 +259,7 @@ export class PricingComponent implements OnInit {
   }
 
   ShowButton(var_type_atm) {
+    alert(var_type_atm)
     this.model.cardtype = var_type_atm;
     if (var_type_atm == "American Express") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
