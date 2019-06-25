@@ -46,7 +46,7 @@ export class SingleRfpComponent implements OnInit {
   }
   back() {
     if (localStorage.getItem('location')) {
-      alert('back');
+      
       let url = localStorage.getItem('location')
       let last = url.length
       let ur = url.slice(0, 13)
@@ -59,24 +59,26 @@ export class SingleRfpComponent implements OnInit {
           this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); 
         }
       else if (state == 'state') {
-        alert(state);
+        // alert(state);
         this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
       }
       else if (category == 'category') {
-        alert(category)
+        // alert(category)
         this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
       }
       else if (agency == 'agency') {
-        alert(agency)
+        // alert(agency)
         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
       } else if (url == 'admin-panel') {
         this._nav.navigate([url]);
       }
-      else {
-        this._nav.navigate(['/all-rfps']);
-      alert('asd');
-     
+      else if (url == 'latest-rfps')  {
+        this._nav.navigate(['/latest-rfps']);     
       }
+      else if (url == 'find-rfp')  {
+        this._nav.navigate(['/find-rfps']);     
+      }
+      // find-rfp
     }
     else {
       this._nav.navigate(['/']);
