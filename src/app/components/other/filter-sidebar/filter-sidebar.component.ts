@@ -155,7 +155,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     }
     else
     {
-      alert('else');
+     
       localStorage.setItem('cates', this.cates)
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
@@ -182,7 +182,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
   submission_to;
 
   formclear(f : NgForm) {
-    delete this.cat;
+    delete this.cates;
     delete this.status;
     delete this.enterdate;
     delete this.duedate;

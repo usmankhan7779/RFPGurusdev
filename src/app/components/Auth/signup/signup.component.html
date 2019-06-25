@@ -197,10 +197,9 @@
                       </mat-error>
                     </mat-form-field>
                     <p *ngIf="usernameexist && register.controls.username.value != ''" class="clr_red">
-                        Username already exists.
-                        </p>
+                    Username already exists.
+                    </p>
                   </div>
-                 
                 </div>
               </div>
               <div class="row signup-form-row">
@@ -228,8 +227,8 @@
                       <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                       <mat-error
                         *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
-                       Password must match
-                        
+                        <strong>Password must match
+                        </strong>
                       </mat-error>
                      
                     </mat-form-field>
