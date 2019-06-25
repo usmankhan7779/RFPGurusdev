@@ -107,16 +107,16 @@ export class AllRfpsComponent implements OnInit {
 
     if (!this.local) {
       this._nav.navigate(['pricing']);
-      localStorage.setItem('member', 'latest-rfp');
+      localStorage.setItem('member', 'latest-rfps');
     }
     else if (!this.subscribe) {
       this._nav.navigate(['pricing']);
-      localStorage.setItem('member', 'latest-rfp');
+      localStorage.setItem('member', 'latest-rfps');
 
     }
   }
   move() {
-    localStorage.setItem('location', 'latest-rfp')
+    localStorage.setItem('location', 'latest-rfps')
   }
   page(pageSize) {
     if (pageSize) {

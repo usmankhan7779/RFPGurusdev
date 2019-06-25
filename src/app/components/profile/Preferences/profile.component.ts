@@ -286,7 +286,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.UserPreference = this.tempUserPreference;
         if (this.UserPreference.length == 0) {
             nulllist = null
-            alert(this.UserPreference)
+            // alert(this.UserPreference)
         }
         this.statePreference = this.tempstatePreference
         if (this.statePreference.length == 0) {

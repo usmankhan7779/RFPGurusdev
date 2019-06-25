@@ -79,102 +79,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
 
     
 
-  // select_state() {
-  //   if (this.states) {
-  //     localStorage.removeItem('agencies');
-  //     localStorage.removeItem('cates');
-  //     localStorage.removeItem('subcat');
-  //     delete this.agencies
-  //     delete this.cates;
-  //     delete this.subcates;
-  //   }
-  //   if (this.states == 'all') {
-
-  //   } else {
-
-  //     this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
-  //       data => {
-
-  //         if (data['States']) {
-  //           this.state = data['States'];
-  //           console.log(data['States'])
-
-  //         }
-  //         if (data['Categories']) {
-  //           this.cat = data['Categories'];
-  //           console.log(data['Categories'])
-  //         }
-  //         if (data['Agencies']) {
-  //           this.agency = data['Agencies'];
-  //           // this.agency = data['Agencies'];
-  //           console.log(data['Agencies'])
-  //           // console.log(data['Agencies'])
-
-  //         }
-  //         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
-
-  //       })
-
-  //   }
-  //   this.onSubmit();
-
-  // }
-  // select_agency() {
-  //   if (this.agencies) {
-  //     delete this.cates;
-  //     delete this.subcates;
-  //     localStorage.removeItem('cates');
-  //     localStorage.removeItem('subcat');
-  //   }
-  //   if (this.agencies == 'all') {
-
-  //   }
-
-  //   else {
-  //     this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
-  //       data => {
-  //         if (data['States']) {
-  //           this.state = data['States'];
-
-  //         }
-  //         if (data['Categories']) {
-  //           this.cat = data['Categories'];
-  //         }
-  //         if (data['Agencies']) {
-  //           this.agency = data['Agencies'];
-  //           // this.agency = data['Result'];
-  //           console.log(data['Agencies'])
-
-  //         }
-  //         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
-
-  //       })
-
-  //   }
-  //   this.onSubmit();
-
-  // }
-  // select_category() {
-  //   this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
-  //     data => {
-  //       if (data['States']) {
-  //         this.state = data['States'];
-
-  //       }
-  //       if (data['Categories']) {
-  //         this.cat = data['Categories'];
-  //       }
-  //       if (data['Agencies']) {
-  //         // this.agency = data['Agencies'];
-  //         this.agency = data['Agencies'];
-
-  //       }
-  //       if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
-
-  //     })
-  //   this.onSubmit();
-  // }
-  select_state() {
+    select_state() {
     if (this.states) {
       localStorage.removeItem('agencies');
       localStorage.removeItem('cates');
@@ -250,7 +155,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     }
     else
     {
-      alert('else');
+     
       localStorage.setItem('cates', this.cates)
       this.advanceService.dropdown(this.states, this.agencies, this.cates, this.subcates).subscribe(
         data => {
@@ -277,7 +182,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
   submission_to;
 
   formclear(f : NgForm) {
-    delete this.cat;
+    delete this.cates;
     delete this.status;
     delete this.enterdate;
     delete this.duedate;

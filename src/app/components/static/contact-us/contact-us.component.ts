@@ -22,7 +22,7 @@ export class ContactUsComponent implements OnInit {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   endRequest;
- name= '[a-zA-Z0-9_.]+';
+ name= '^[a-zA-Z _.]+$';
   constructor(public recapcha: RecapchaService, private _serv: ContactUsService, private _nav: Router, private seoService: SeoService) { }
   ngOnInit() {
     window.scroll(0, 0);
