@@ -168,12 +168,13 @@
                       <mat-error *ngIf="register.controls.email.value == ''">
                         <strong>Email cannot be empty</strong>
                       </mat-error>
+                      
                       <mat-error *ngIf="register.controls.email.hasError('email')">
                         Please enter a valid email address
                       </mat-error>
                     </mat-form-field>
                     <p class="clr_red" *ngIf="emailexist && register.controls.email.value !=''">
-                      Email already exists.
+                      Email already exists
                     </p>
                   </div>
                 </div>
@@ -190,7 +191,7 @@
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
                         <mat-error  *ngIf="usernameexist && register.controls.username.value != ''">
-                          <strong>  Username already exists. </strong>
+                          <strong>  Username already exists </strong>
                         </mat-error>
                       <mat-error *ngIf="register.controls.username.value == ''">
                         Username cannot be empty

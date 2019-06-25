@@ -70,7 +70,9 @@ export class SignupComponent implements OnInit, OnDestroy {
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) {
+    window.scroll(0,0);
+   }
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
