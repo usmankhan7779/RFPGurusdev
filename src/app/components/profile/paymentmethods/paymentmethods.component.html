@@ -106,8 +106,8 @@
 
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv" [ngClass]="displayFieldCss(form, 'ccv')">
                 <mat-form-field>
-                  <input matInput type="password" maxlength="3" minlength="3" placeholder="CCV No."
-                    formControlName="CVV No">
+                  <input matInput type="password" maxlength="3" minlength="3" placeholder="CVV No."
+                    formControlName="ccv">
                   <mat-error *ngIf="form.controls.ccv.touched && form.controls.ccv.invalid">
                     <mat-error *ngIf="form.controls.ccv.errors.required">
                       CVV No cannot be empty
@@ -126,7 +126,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv2" [ngClass]="displayFieldCss(form, 'ccv2')">
                 <mat-form-field>
-                  <input matInput type="password" maxlength="4" minlength="4" placeholder="CCV No."
+                  <input matInput type="password" maxlength="4" minlength="4" placeholder="CVV No."
                     formControlName="ccv2">
                   <mat-error *ngIf="form.controls.ccv2.touched && form.controls.ccv2.invalid">
                     <mat-error *ngIf="form.controls.ccv2.errors.required">
