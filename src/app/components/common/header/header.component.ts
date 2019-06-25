@@ -98,6 +98,13 @@ export class HeaderComponent implements OnInit {
     this._serv.deletenotify(id).subscribe(
       data => {
         this.notification();
+        swal({
+          type: 'success',
+          title: 'successfully deleted',
+          showConfirmButton: false,
+          confirmButtonColor: "#090200",
+          timer: 1500, width: '512px',
+        });
       });
   }
   updatenofication(id) {

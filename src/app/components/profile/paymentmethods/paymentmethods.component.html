@@ -292,7 +292,6 @@
               <tr>
                 <th>Cardholder Name</th>
                 <th>Card Number</th>
-                <th>CVV</th>
                 <th>Expiry Date</th>
                 <th>Delete</th>
               </tr>
@@ -301,8 +300,6 @@
               <tr *ngFor="let card of res">
                 <td>{{card.nickname}}</td>
                 <td>{{card.cardNumber}}</td>
-
-                <td>{{card.ccv}}</td>
                 <td>{{card.expiryDate | slice:0:2 }}/20{{card.expiryDate | slice:2:4 }} </td>
 
                 <td>
