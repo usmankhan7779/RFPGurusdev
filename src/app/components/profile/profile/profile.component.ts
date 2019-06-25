@@ -99,6 +99,9 @@ export class ProfileComponent implements OnInit {
                     if(error.status==400)
                     {
                         this.invalid=error.status
+                        delete this.personal['city'];
+                        delete this.personal['state'];
+                        delete this.personal['country'];
                     }
 
                 });
