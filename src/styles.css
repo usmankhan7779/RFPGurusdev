@@ -1287,7 +1287,9 @@ btn.btn-success.dropdown-toggle:focus {
 .phonee .dropbtn {
   box-shadow: 0 0 5px #ccc
 }
-
+.phonee .dropbtn:focus{
+  outline: none !important;
+}
 .flagInput {
   vertical-align: bottom;
   border: none;
