@@ -6,7 +6,7 @@ import { RfpService } from '../../single/single-rfp/rfp.service';
 import { PaymentmethodsService } from '../../profile/paymentmethods/paymentmethods.service';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl,FormBuilder } from '@angular/forms';
 import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
 declare var $: any;
@@ -76,7 +76,12 @@ export class PricingComponent implements OnInit {
   Yplan = true;
   Fplan = true;
   planSelected = false;
-
+  form: FormGroup;
+  CardNumberForm;
+  CardNumberForm2;
+  CardCodeForm;
+  CardCodeForm2;
+  ExpiryDateForm
   firststep(value) {
     window.scroll(0, 0);
     this.valuee = value;
@@ -101,6 +106,12 @@ export class PricingComponent implements OnInit {
     this.pkg_detail['dur'] = dur
     this.pkgsub = true;
   }
+  constructor(private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router, private _serv: PricingService, private _home :HomeService, private _serv2: SignupService, private _http6: PaymentmethodsService, private _location: Location, private seoService: SeoService) {
+    this.CardNumberForm=true;
+    this.CardNumberForm2=false;
+    this.CardCodeForm=true;
+    this.CardCodeForm2=false
+   }
   ngOnInit() {
     window.scroll(0, 0);
     // --------------- SEO Service ---------------
@@ -118,7 +129,23 @@ export class PricingComponent implements OnInit {
     this.seoService.updateTwitterTitle('Pricing');
 
     // --------------- SEO Service End ---------------
-
+    this.form = this.formBuilder.group({
+      CardNumberForm: ['', Validators.compose([Validators.required])],
+      CardNumberForm2: ['', Validators.compose([Validators.required])],
+      CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
+      CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
+      ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
+      city: ['', Validators.compose([Validators.required])],
+      country: ['', Validators.compose([Validators.required])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+      Validators.pattern('^[0-9]*$')])],
+      CardtypeForm: ['', Validators.compose([Validators.required])],
+      Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
+      Address: ['', Validators.compose([Validators.required])],
+      Carddefault:['', Validators.compose([Validators.required])],
+      state: ['', Validators.compose([Validators.required])],
+      })
     if (localStorage.getItem('currentUser')) {
       this._home.get_card_infos().subscribe(Data => {
         this.res = Data;
@@ -138,62 +165,66 @@ export class PricingComponent implements OnInit {
   public model: any = {};
   var_get_status; var_get_id;
   card_opeation = [
-    { value: 'Visa', viewValue: 'Visa Card' },
-    { value: 'Mastercard', viewValue: 'Master Card' },
+    { value: 'Visa', viewValue: 'Visa' },
+    { value: 'Mastercard', viewValue: 'Master' },
     { value: 'American Express', viewValue: 'American Express' },
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
+  
 
-  ExpiryDateForm = new FormControl('', [
-    Validators.required,
-    Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$'),
-  ]);
+  // ExpiryDateForm = new FormControl('', [
+  //   Validators.required,
+  //   Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$'),
+  // ]);
 
-  CardNumberForm = new FormControl('', [
-    Validators.required,
-  ]);
+  // CardNumberForm = new FormControl('', [
+  //   Validators.required,
+  // ]);
+  // CardNumberForm2 = new FormControl('', [
+  //   Validators.required,
+  // ]);
 
-  CardCodeForm = new FormControl('', [
-    Validators.required,
+  // CardCodeForm = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  Holdername = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[a-zA-Z]+'),
-  ]);
-  CardtypeForm = new FormControl('', [
-    Validators.required,
+  // ]);
+  // Holdername = new FormControl('', [
+  //   Validators.required,
+  //   Validators.pattern('[a-zA-Z]+'),
+  // ]);
+  // CardtypeForm = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  Address = new FormControl('', [
-    Validators.required,
+  // ]);
+  // Address = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  Carddefault = new FormControl('', [
+  // ]);
+  // Carddefault = new FormControl('', [
 
 
-  ]);
-  zipcode = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5)
-  ]);
-  city = new FormControl('', [
-    Validators.required,
+  // ]);
+  // zipcode = new FormControl('', [
+  //   Validators.required,
+  //   Validators.minLength(5)
+  // ]);
+  // city = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  state = new FormControl('', [
-    Validators.required,
+  // ]);
+  // state = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  country = new FormControl('', [
-    Validators.required,
+  // ]);
+  // country = new FormControl('', [
+  //   Validators.required,
 
-  ]);
-  nickname = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[a-zA-Z]+'),
-  ]);
+  // ]);
+  // nickname = new FormControl('', [
+  //   Validators.required,
+  //   Validators.pattern('[a-zA-Z]+'),
+  // ]);
   // TotalAmountForm = new FormControl('', [
   //   Validators.required
   // ]);
@@ -212,9 +243,6 @@ export class PricingComponent implements OnInit {
           this.model.city = data['city'];
           this.model.state = data['state'];
           this.model.country = data['country'];
-          // this.vin_Data.city = data['city'];
-          // this.vin_Data.state = data['state'];
-          // this.vin_Data.country = data['country'];
           this.readonly=true;
         },
         
@@ -247,7 +275,7 @@ export class PricingComponent implements OnInit {
 
   }
   endRequest;
-  public ccvmask = [/[0-9]/, /\d/, /\d/];
+  // public ccvmask = [/[0-9]/, /\d/, /\d/];
   public cardmask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   keyPress(event: any) {
@@ -257,33 +285,44 @@ export class PricingComponent implements OnInit {
       event.preventDefault();
     }
   }
-
+  cardtype
   ShowButton(var_type_atm) {
-    alert(var_type_atm)
-    this.model.cardtype = var_type_atm;
+    this.cardtype = var_type_atm;
     if (var_type_atm == "American Express") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
-      this.ccvmask = [/[0-9]/, /\d/, /\d/, /\d/];
-      this.model.cardNumber = '';
-      this.model.cardcod = '';
+      this.CardNumberForm = false;
+      this.form.controls.CardNumberForm.reset();
+      this.CardNumberForm2 = true;
+      this.CardCodeForm = false;
+      this.form.controls.CardCodeForm.reset();
+      this.CardCodeForm2 = true;
     
     }
     else if (var_type_atm == "Visa") {
       this.cardmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-      this.ccvmask = [/[0-9]/, /\d/, /\d/]
-      this.model.cardNumber = '';
-      this.model.cardcod = '';
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
     }
     else if (var_type_atm == "Mastercard") {
       this.cardmask = [/[5]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-      this.ccvmask = [/[0-9]/, /\d/, /\d/]
-      this.model.cardNumber = '';
-      this.model.cardcod = '';
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
     } else {
       this.cardmask = [/[6]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-      this.ccvmask = [/[0-9]/, /\d/, /\d/]
-      this.model.cardNumber = '';
-      this.model.cardcod = '';
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
     }
   }
   isright: boolean = false;
@@ -581,7 +620,7 @@ export class PricingComponent implements OnInit {
 
 
   }
-  constructor(private route: ActivatedRoute, private _serv1: RfpService, private _nav: Router, private _serv: PricingService, private _home :HomeService, private _serv2: SignupService, private _http6: PaymentmethodsService, private _location: Location, private seoService: SeoService) { }
+
   ngOnDestroy() {
     $('#exampleModalCenter').modal('hide');
   }
