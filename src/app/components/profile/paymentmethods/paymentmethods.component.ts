@@ -50,6 +50,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
+  model : any = {};
   public buttonName: any = 'Show';
   expirydate;
   public show2: boolean = false
@@ -140,19 +141,19 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     if (zipcode1.length > 4) {
       this.endRequest =this.signupServ.zipcode(zipcode1).subscribe(
         data => {
-          this.form.controls['city'].setValue(data['city']);
-          this.form.controls['state'].setValue(data['state']);
-          this.form.controls['country'].setValue(data['country']);
-          this.vin_Data.city = data['city'];
-          this.vin_Data.state = data['state'];
-          this.vin_Data.country = data['country'];
+          // this.form.controls['city'].setValue(data['city']);
+          // this.form.controls['state'].setValue(data['state']);
+          // this.form.controls['country'].setValue(data['country']);
+          this.model.city = data['city'];
+          this.model.state = data['state'];
+          this.model.country = data['country'];
         },
         error => {
           error.status== 400
             this.invalid=error.status;
-            delete this.vin_Data.city;
-            delete this.vin_Data.state;
-            delete this.vin_Data.country;
+            delete this.model.city;
+            delete this.model.state;
+            delete this.model.country;
 
         }
         );
