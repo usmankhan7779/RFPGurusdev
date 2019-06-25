@@ -215,11 +215,11 @@
 
   .heart-heading {
     color: #fff;
-    background: rgba(0, 0, 0, .6509803921568628);
+    background: #000;
     width: 100%;
     padding: 0 25px 0 5px;
     -webkit-border-radius: 0;
-    border-radius: 0;
+    border-radius: 4px;
     font-weight: 400 !important;
     font-size: 14px;
     overflow: hidden;
@@ -296,7 +296,7 @@
   .addtocart-time i {
     color: #fff;
     font-size: 14px;
-    margin-top: 0;
+    margin-top: -4px;
     vertical-align: middle;
     cursor: pointer
   }
