@@ -24,7 +24,7 @@
                                                 <mat-form-field>
                                                     <mat-select placeholder="Categories" [formControl]="catess"
                                                         [(ngModel)]="tempUserPreference" multiple
-                                                        (change)="valueSelected(catess.value, $event)">
+                                                        (ngModelChange)="valueSelected(catess.value, $event)">
                                                         <mat-option class="font-18px" *ngFor="let food of cat"
                                                             [value]="food.category_name">{{food.category_name}}
                                                         </mat-option>
@@ -53,7 +53,7 @@
                                                 <mat-form-field>
                                                     <mat-select placeholder="States" [(ngModel)]="tempstatePreference"
                                                         [formControl]="states" multiple
-                                                        (change)="valueSelected1(states.value, $event)">
+                                                        (ngModelChange)="valueSelected1(states.value, $event)">
                                                         <mat-option class="font-18px" *ngFor="let food of state"
                                                             [value]="food.state">{{food.state}}</mat-option>
                                                     </mat-select>
@@ -82,7 +82,7 @@
                                                 <mat-form-field>
                                                     <mat-select placeholder="Agencies"
                                                         [(ngModel)]="tempagencyPreference" [formControl]="agencies"
-                                                        multiple (change)="valueSelected4(agencies.value, $event)">
+                                                        multiple (ngModelChange)="valueSelected4(agencies.value, $event)">
                                                         <mat-option class="font-18px" *ngFor="let food of agency"
                                                             [value]="food.agency">{{food.agency}}</mat-option>
                                                     </mat-select>
@@ -113,7 +113,7 @@
                                                 <mat-form-field>
                                                     <mat-select placeholder="Counties"
                                                         [(ngModel)]="tempcountyPreference" [formControl]="counties"
-                                                        multiple (change)="valueSelected3(counties.value, $event)">
+                                                        multiple (ngModelChange)="valueSelected3(counties.value, $event)">
                                                         <mat-option class="font-18px" *ngFor="let food of county"
                                                             [value]="food.city_or_county">{{food.city_or_county}}
                                                         </mat-option>
@@ -143,7 +143,7 @@
                                                 <mat-form-field>
                                                     <mat-select placeholder="Cities" [(ngModel)]="tempcityPreference"
                                                         [formControl]="cities" multiple
-                                                        (change)="valueSelected2(cities.value, $event)">
+                                                        (ngModelChange)="valueSelected2(cities.value, $event)">
                                                         <mat-option class="font-18px" *ngFor="let food of city"
                                                             [value]="food.city">{{food.city}}</mat-option>
                                                     </mat-select>

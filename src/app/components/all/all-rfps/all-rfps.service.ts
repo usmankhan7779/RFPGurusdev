@@ -2,6 +2,7 @@ import { SetHeaders } from './../../../AuthGuards/auth.interceptor';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AllRfpsService {
@@ -32,6 +33,22 @@ export class AllRfpsService {
     downloadFile(id) {
         return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/')
     }
+    get_download_file(){
+        return this.http.get('http://192.168.29.237:8000/send_pdf/')
+    }
+    view_filedownload(id){
+        let headers = new Headers();
+        headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+        headers.append('Content-Type', 'application/json');
+        return this._https.get('http://192.168.29.223:8000/testpdf/'+id,{headers:headers})
+    }
+    public getPDF(): Observable<Blob> {   
+        //const options = { responseType: 'blob' }; there is no use of this
+            let uri = 'http://192.168.29.237:8000/send_pdf/';
+            // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+            return this.http.get(uri, { responseType: 'blob' });
+        }
+    // http://192.168.29.237:8000/send_pdf/
     fiter_rfp(val, model, page) {
         if (model == 'old') {
             return this.http.post('https://apis.rfpgurus.com/rf_p/filterforAdmin/old' + '?page=' + page, {
