@@ -1239,10 +1239,13 @@ btn.btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 5px #ccc
 }
 
+<<<<<<< HEAD
 .phonee .dropbtn:focus {
   outline: 0 !important
 }
 
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 .flagInput {
   vertical-align: bottom;
   border: none;
@@ -2418,9 +2421,12 @@ body {
 
 .sh-signup-form-fix .clr_red {
   font-size: 12px;
-  margin: -9px 0 0;
+  margin: -19px 0 0;
   font-weight: 700 !important;
+<<<<<<< HEAD
   text-align: left
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 }
 
 .sh-signup-form-fix.edit-profile .form-group {
@@ -2752,6 +2758,16 @@ body {
 .sh-signup-form-fix .mat-select {
   box-shadow: none
 }
+<<<<<<< HEAD
+=======
+
+.sh-signup-form-fix .clr_red {
+  color: #c00;
+  margin: -20px 0 -4px;
+  font-size: 12px;
+  font-weight: 700 !important;
+}
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 
 #myBtn {
   display: none;
@@ -4231,6 +4247,7 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:640px) {
+<<<<<<< HEAD
 
   .about-3 .title,
   .about-main .main_heading {
@@ -4256,6 +4273,8 @@ textarea::-webkit-scrollbar {
     margin: 0 !important
   }
 
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
   #contact-map {
     padding: 0 !important
   }
@@ -4594,6 +4613,7 @@ textarea::-webkit-scrollbar {
   }
 }
 
+<<<<<<< HEAD
 @media (max-width:320px) {
   .recaptcha-btn .btn {
     margin-top: 11px !important;
@@ -4611,6 +4631,8 @@ textarea::-webkit-scrollbar {
   }
 }
 
+=======
+>>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 @media (min-width:992px) and (max-width:1024px) {
   #f-c .com-table td {
     font-size: 15px !important

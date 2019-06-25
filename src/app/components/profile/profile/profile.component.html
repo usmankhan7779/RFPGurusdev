@@ -2,7 +2,7 @@
     <div class="row margin-0 ">
       <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
         <div class="card">
-          <form [formGroup]="register" class="floting-label sh-signup-form-fix edit-profile ">
+          <form [formGroup]="register" class="sh-signup-form-fix edit-profile ">
             <div class="card-header card-header-icon" data-background-color="rose">
               <i class="fa fa-user"></i> Edit Profile
             </div>
@@ -45,8 +45,8 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-6 zip-address">
-                  <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'companyname')">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field class="example-full-width">
                       <input class="text-capitalize" matInput placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
                         formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
@@ -59,7 +59,7 @@
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="col-sm-6 zip-address">
+                <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field class="example-full-width">
                       <input matInput placeholder="Address" type="text" id="address" formControlName="address"
@@ -88,11 +88,8 @@
                         <strong>Zip Code cannot be empty</strong>
                       </mat-error>
                     </mat-form-field>
-                    <p class="clr_red text-align left" *ngIf="invalid  && !personal.city && !personal.state && !personal.country">
+                    <p class="clr_red" *ngIf="invalid">
                       Invalid Zipcode
-                    </p>
-                    <p *ngIf="!invalid  && personal.city && personal.state && personal.country">
-                      
                     </p>
                   </div>
                 </div>
