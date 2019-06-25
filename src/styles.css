@@ -1,4 +1,3 @@
-
 /* .................................................... */
 
 @font-face {
@@ -402,9 +401,10 @@ router-outlet {
   display: block
 }
 
-.card a{
+.card a {
   vertical-align: middle;
 }
+
 img {
   vertical-align: top
 }
@@ -1522,7 +1522,7 @@ btn.btn-success.dropdown-toggle:focus {
   -webkit-border-radius: 30px;
   border-radius: 30px;
   font-size: 24px !important;
-  margin: 0 auto!important;
+  margin: 0 auto !important;
   max-height: 300px !important;
   overflow-y: scroll !important;
   width: 90%;
@@ -2478,18 +2478,22 @@ body {
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(.001px) !important;
   -ms-transform: translateY(-16px) scale(.75) !important;
 }
-.edit-profile .mat-form-field-label-wrapper{
+
+.edit-profile .mat-form-field-label-wrapper {
   overflow: visible;
 }
-.signup-form .has-error .form-control:focus{
+
+.signup-form .has-error .form-control:focus {
   border-color: none;
   box-shadow: none;
 }
+
 .signup-form .has-error .input-group-addon {
   color: #fff;
   background-color: #fff;
   border-color: #fff;
 }
+
 .mat-form-field-suffix .mat-icon,
 .sh-signup-form-fix .mat-form-field-prefix .mat-icon {
   font-size: 125% !important
@@ -2580,6 +2584,7 @@ body {
   background: 0 0;
   padding: 0
 }
+
 .resize-no {
   resize: none !important;
   height: 41px !important;
@@ -2638,12 +2643,13 @@ body {
 
 /* End style.css */
 /* ...................Global Style Start................................. */
-.latest-rfps-title{
+.latest-rfps-title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   min-height: 41px;
 }
+
 .main-panel {
   position: relative;
   -webkit-transition: all .33s cubic-bezier(.685, .0473, .346, 1);
@@ -3508,9 +3514,11 @@ body {
   top: 1.98125em;
   padding: 0 5px;
 }
+
 .sh-n-table .sh-table-date .mat-form-field-appearance-legacy .mat-form-field-label {
   top: 1.78125em !important;
 }
+
 .s-areaCarousel .leftRsBanner,
 .s-areaCarousel .rightRsBanner {
   top: 0 !important;
@@ -3627,10 +3635,12 @@ body {
   outline: 0;
   box-shadow: none;
 }
+
 .has-error .form-control:focus {
   border-color: #843534;
   box-shadow: none;
 }
+
 .has-error .input-group-addon {
   color: #a94442;
   background-color: transparent;
@@ -3643,56 +3653,65 @@ body {
 
 @keyframes animateleft {
   from {
-      left: -300px;
-      opacity: 0
+    left: -300px;
+    opacity: 0
   }
+
   to {
-      left: 0;
-      opacity: 1
+    left: 0;
+    opacity: 1
   }
 }
+
 @-webkit-keyframes animateleft {
   from {
-      left: -300px;
-      opacity: 0
+    left: -300px;
+    opacity: 0
   }
+
   to {
-      left: 0;
-      opacity: 1
+    left: 0;
+    opacity: 1
   }
 }
 
 @-moz-keyframes animateleft {
   from {
-      left: -300px;
-      opacity: 0
+    left: -300px;
+    opacity: 0
   }
+
   to {
-      left: 0;
-      opacity: 1
+    left: 0;
+    opacity: 1
   }
 }
 
 @-o-keyframes animateleft {
   from {
-      left: -300px;
-      opacity: 0
+    left: -300px;
+    opacity: 0
   }
+
   to {
-      left: 0;
-      opacity: 1
+    left: 0;
+    opacity: 1
   }
 }
-.sh-products-area .plan-detail>h3 >a{
+
+.sh-products-area .plan-detail>h3>a {
   font-weight: normal;
 }
+
 .sh-products-area .plan-detail>h5 a {
   font-weight: normal;
 }
+
 textarea::-webkit-scrollbar {
-  cursor:pointer;
+  cursor: pointer;
 }
-.zip-address{
+
+.zip-address {
   margin-top: 10px !important;
 }
 .mt25px{
@@ -3701,14 +3720,17 @@ textarea::-webkit-scrollbar {
 .text-area-placeholder > textarea{
   resize: none
 }
+
 .text-area-placeholder .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   -webkit-transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
   transform: translateY(-1.78125em) scale(.75) perspective(100px) translateZ(.001px) !important;
   -ms-transform: translateY(-1.78125em) scale(.75) !important;
 }
+
 .mat-form-field.mat-form-field-invalid .mat-form-field-label {
   color: #f44336 !important;
 }
+
 /* ...............................Quries Start....................................... */
 
 @media (min-width:1400px) {
@@ -3716,8 +3738,9 @@ textarea::-webkit-scrollbar {
     width: 60% !important;
   }
 }
-@media (min-width:1600px){
-  .max-width-1000{
+
+@media (min-width:1500px) {
+  .max-width-1000 {
     max-width: 1000px;
     margin: 0 auto;
     float: none;
@@ -3730,10 +3753,12 @@ textarea::-webkit-scrollbar {
     font-size: 16px !important;
     line-height: 19px !important;
   }
+
   .sh-products-area .plan-detail>h5 a {
     line-height: 14px;
     vertical-align: bottom !important;
   }
+
   .card [data-background-color] {
     padding: 6px !important;
   }
@@ -3772,18 +3797,22 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:1024px) {
-  .pricing-table2{
+  .pricing-table2 {
     padding: 15px 10px !important;
   }
-  .main_heading{
+
+  .main_heading {
     font-size: 34px;
   }
+
   .com-table th {
     font-size: 14px !important;
   }
+
   .sh-n-table table thead tr th {
     padding: 0;
   }
+
   .sticky {
     top: 54px;
   }
@@ -3805,55 +3834,91 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:991px) {
+  #f-c .com-table th,#f-c .com-table td{
+    vertical-align: middle !important;
+  }
+  .leftRsBanner {
+    left: 15px;
+  }
+  .rightRsBanner {
+    right: 15px;
+  }
+  .sidebar.custom {
+    position: fixed !important;
+    left: 0 !important;
+    top: 68px !important;
+    bottom: 0 !important;
+    -webkit-transition: .4s ease-in-out all !important;
+    -o-transition: .4s ease-in-out all !important;
+    -moz-transition: .4s ease-in-out all !important;
+    transition: .4s ease-in-out all !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    -moz-transform: none !important;
+    -o-transform: none !important;
+    transform: none;
+    z-index: 99;
+  }
+
   .products-area h4 {
     font-size: 14px !important;
-}
-  #f-c .container-wide{
+  }
+
+  #f-c .container-wide {
     width: 100% !important;
   }
-  #myBtn{
+
+  #myBtn {
     display: none !important;
   }
+
   .sh-pg-container.header {
-    margin: 0  !important;
+    margin: 0 !important;
   }
+
   .sticky {
     top: 67px;
   }
-  .user-sidebar{
+
+  .user-sidebar {
     padding: 0 !important;
   }
+
   .search-holder .fa-microphone {
     font-size: 35px;
     right: 15px;
     top: 13px;
   }
+
   .search-holder input[type=search] {
     font-size: 30px;
     line-height: 30px;
   }
+
   .search-holder input[type=search]::-webkit-input-placeholder {
     font-size: 30px;
     line-height: 30px;
   }
-  
+
   .search-holder input[type=search]:-moz-placeholder {
     font-size: 30px;
     line-height: 30px;
   }
-  
+
   .search-holder input[type=search]::-moz-placeholder {
     font-size: 30px;
     line-height: 30px;
   }
-  
+
   .search-holder input[type=search]:-ms-input-placeholder {
     font-size: 30px;
     line-height: 30px;
   }
-  .search-holder{
+
+  .search-holder {
     padding: 0;
   }
+
   .container {
     width: 100%;
   }
@@ -3861,84 +3926,108 @@ textarea::-webkit-scrollbar {
   .our-team h3 {
     font-size: 22px !important;
     margin-bottom: 7px !important;
-}
-  
+  }
+
   .com-table,
   .sh-n-table {
     overflow-x: scroll !important
   }
-  .Find-rfp .main-heading{
+
+  .Find-rfp .main-heading {
     margin: 0;
   }
-  .Find-rfp .sh-pg-container{
+
+  .Find-rfp .sh-pg-container {
     margin: 0 !important;
   }
+
   .sidebar-user {
     padding: 0 10px !important;
   }
-  .content-router-outlet{
+
+  .content-router-outlet {
     display: block !important;
-}
+  }
+
   #display_advance {
     margin: 25px auto 30px !important;
-}
-  .sh-sidebar{
+  }
+
+  .sh-sidebar {
     overflow-y: scroll;
     overflow-x: hidden;
   }
-  .srch-result{
+
+  .srch-result {
     font-size: 22px;
   }
+
   .sh-sort label {
     font-size: 16px;
     margin: 5px 5px;
-}
+  }
+
   .play-store-img2 li {
     margin-left: 10px;
-}
+  }
+
   .play-store-img2 {
     bottom: 20px !important;
-    left: 39%  !important;
-}
-
-  .play-store-img2 .iosBadge,.play-store-img2 .androidBadge {
-    max-width: 15% !important;
-} 
-  .home.pw-solutions ul li {
-    width: 50%  !important;
+    left: 39% !important;
   }
+
+  .play-store-img2 .iosBadge,
+  .play-store-img2 .androidBadge {
+    max-width: 15% !important;
+  }
+
+  .home.pw-solutions ul li {
+    width: 50% !important;
+  }
+
   .last-3-para p {
     font-size: 14px !important;
     padding: 5px 0 !important;
   }
+
   .top-lists ul li {
     font-size: 14px !important;
   }
-  .tab-mt-top-10px{
+
+  .tab-mt-top-10px {
     margin-top: 10px !important;
   }
+
   .how-rfp-help p {
     padding: 0 0 20px !important;
   }
+
   .interest-area {
     padding: 10px 0 !important;
-}
-  .leftRsBanner, .rightRsBanner{
+  }
+
+  .leftRsBanner,
+  .rightRsBanner {
     font-size: 15px !important;
   }
+
   .main_heading {
     font-size: 27px !important;
     margin: 17px 0 !important;
   }
+
   #accordion .panel-heading .panel-title {
     font-size: 16px !important;
   }
-  #CategoryDiv{
-    display: none ;
+
+  #CategoryDiv {
+    display: none;
   }
+
   .slide {
     min-height: auto !important;
   }
+
   .rfp-back,
   .tab-text-center {
     text-align: center !important;
@@ -4065,33 +4154,39 @@ textarea::-webkit-scrollbar {
     height: 44px;
     margin-left: 30px;
   }
-  .signup-form-row > div {
+
+  .signup-form-row>div {
     padding: 0 5px;
-}
-.sh-signin-signup i{
-  width: 12px !important;
-}
+  }
+
+  .sh-signin-signup i {
+    width: 12px !important;
+  }
 }
 
 @media (max-width:768px) {
-  .pricing_heading{
+  .pricing_heading {
     font-size: 22px !important;
   }
-.pricing-table2 {
-  padding: 15px 5px !important;
-}
-.all-cats .col{
-  min-height: 25px !important;
-}
-.sticky {
-  top: 73px;
-}
+
+  .pricing-table2 {
+    padding: 15px 5px !important;
+  }
+
+  .all-cats .col {
+    min-height: 25px !important;
+  }
+
+  .sticky {
+    top: 67px;
+  }
 
   .about-4 .main_heading {
     font-size: 36px;
     margin: 0px 10px 10px !important;
   }
-  #what-is-rfp p{
+
+  #what-is-rfp p {
     font-size: 15px;
     line-height: 20px;
     margin: 0 0 5px;
@@ -4114,6 +4209,7 @@ textarea::-webkit-scrollbar {
     padding: 5px !important;
     font-size: 13px !important
   }
+
   .sh-signin-signup>li:last-child:before {
     display: none !important
   }
@@ -4171,8 +4267,10 @@ textarea::-webkit-scrollbar {
     float: right !important;
     background: #333 !important
   }
-.mySidebar{
-  transition: 1s ease-in-out all;}
+
+  .mySidebar {
+    transition: 1s ease-in-out all;
+  }
 
 
 
@@ -4240,41 +4338,59 @@ textarea::-webkit-scrollbar {
   }
 
 }
-@media (max-width:767px){
+
+@media (max-width:767px) {
+  .form-home {
+    top: 0px;
+  }
+  .choose-criteria {
+    display: none !important;
+}
+  .sidebar.custom {
+    top: 50px !important;
+  }
+
   .sidebar-outlet {
     position: absolute;
     left: 0;
     top: 50px;
     z-index: 9;
+  }
+
+  .sh-h2-resources {
+    margin-left: 0 !important;
+  }
 }
-.sh-h2-resources{
-  margin-left: 0 !important;
-}
-}
+
 @media (max-width:640px) {
   #contact-map {
     padding: 0 !important;
-}
-  .header .sh-select-list{
+  }
+
+  .header .sh-select-list {
     padding-top: 5px !important;
   }
-  
+
   .page-title span {
     font-size: 16px;
     line-height: 24px;
     position: relative;
     padding: 5px 0;
-}
-.sticky {
-  top: 50px !important;
-}
-.header .pagination {
-  margin-right: 0% !important;
-  float: none !important;
-}
-  .home.pw-solutions ul li {
-    width: 90%  !important;
   }
+
+  .sticky {
+    top: 50px !important;
+  }
+
+  .header .pagination {
+    margin-right: 0% !important;
+    float: none !important;
+  }
+
+  .home.pw-solutions ul li {
+    width: 90% !important;
+  }
+
   .must-login {
     font-size: 26px
   }
@@ -4425,7 +4541,7 @@ textarea::-webkit-scrollbar {
   }
 
   .how-rfp-help {
-    padding: 10px 0 0  !important
+    padding: 10px!important
   }
 
   .how-rfp-help>div>.row>h3 {
@@ -4708,7 +4824,7 @@ textarea::-webkit-scrollbar {
   }
 
   .footer-upper {
-    padding:10px !important;
+    padding: 10px !important;
   }
 
   .w-r-w {
@@ -4946,22 +5062,7 @@ textarea::-webkit-scrollbar {
     text-align: center
   }
 
-  .sidebar.custom {
-    position: fixed !important;
-    left: 0 !important;
-    top: 80px !important;
-    bottom: 0 !important;
-    -webkit-transition: .4s ease-in-out all !important;
-    -o-transition: .4s ease-in-out all !important;
-    -moz-transition: .4s ease-in-out all !important;
-    transition: .4s ease-in-out all !important;
-    -webkit-transform: none !important;
-    -ms-transform: none !important;
-    -moz-transform: none !important;
-    -o-transform: none !important;
-    transform: none;
-    z-index: 99;
-  }
+
 
   #mySidebar {
     width: 0 !important;
@@ -4985,12 +5086,15 @@ textarea::-webkit-scrollbar {
   .sh-mt-70 {
     margin-bottom: 0 !important
   }
+
   .header .pagination {
     margin-right: 0 !important;
-}
-.sh-pg-container .pagination, .sh-pg-container .sh-select-list {
-  float: right !important;
-}
+  }
+
+  .sh-pg-container .pagination,
+  .sh-pg-container .sh-select-list {
+    float: right !important;
+  }
 }
 
 
