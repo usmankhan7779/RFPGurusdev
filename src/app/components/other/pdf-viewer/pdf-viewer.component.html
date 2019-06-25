@@ -5,9 +5,11 @@
               [render-text]="true"
               style="display: block;"
               [render-text]="true"
+              [(page)]="page"
             
               
   ></pdf-viewer>
+  <button (click)="showPDF()">please download now </button>
   rotation;
   <!-- [rotation]="rotation" -->
   <!-- <pdf-viewer

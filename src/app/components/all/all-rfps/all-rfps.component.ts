@@ -30,6 +30,8 @@ export class AllRfpsComponent implements OnInit {
   }
   state;
   record: any = [];
+  zip :any =[];
+  pdf;
   currentUser;
   length = 0;
   constructor(public homeServ: HomeService, public dialog: MatDialog, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
@@ -133,6 +135,7 @@ export class AllRfpsComponent implements OnInit {
     }
   }
   enter: any = [];
+  
   setPage(page) {
     localStorage.setItem('latestpage', page);
     this._serv.latestrfpecord(this.pageSize, page).subscribe(
@@ -141,7 +144,18 @@ export class AllRfpsComponent implements OnInit {
         this.record = data['results'];
 
         this.item = data['totalItems'];
+        // this.zip = data['results'].web_info
+        // // this.pdf = this.record.web_info
+        // console.log(this.zip.slice(-4))
+        // console.log(this.zip)
+        
+      let democompprods;
+      democompprods = data['results'];
 
+      for (let prods of democompprods) {
+        this.zip =prods.web_info;
+        console.log(this.zip.slice(-4))
+      }
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
@@ -178,7 +192,7 @@ export class AllRfpsComponent implements OnInit {
   //     });
   // }
   public showPDF(rfpkey): void {
-    this._serv.getPDF()
+    this._serv.getPDF(rfpkey)
         .subscribe(x => {
             // It is necessary to create a new blob object with mime-type explicitly set
             // otherwise only Chrome works like it should
@@ -226,7 +240,7 @@ export class AllRfpsComponent implements OnInit {
     this._nav.navigate([sth]);
   }
   doc;
-  check_trial(id, web_info) {
+  check_trial(id, web_info,title) {
     if (this.subscribe == "Trial Subscription user") {
       this._serv.trial_document(id).subscribe(
         data => {
@@ -266,19 +280,17 @@ export class AllRfpsComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      window.open(web_info, '_blank');
-     
+      // window.open(web_info, '_blank');
+    console.log(web_info.slice(-4))
        
-        // this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
+        this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
         // this._nav.navigate(['/pdfviewer']);
      
         // , skipLocationChange: true 
 
 
+      localStorage.setItem('title_infoo',title)
 
-      // let sth = urls + web_info;
-      // this._nav.navigate([sth]);
-      // localStorage.setItem('web_info',web_info)
     
     }
   }
