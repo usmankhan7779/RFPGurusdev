@@ -1239,13 +1239,6 @@ btn.btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 5px #ccc
 }
 
-<<<<<<< HEAD
-.phonee .dropbtn:focus {
-  outline: 0 !important
-}
-
-=======
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 .flagInput {
   vertical-align: bottom;
   border: none;
@@ -2423,10 +2416,6 @@ body {
   font-size: 12px;
   margin: -19px 0 0;
   font-weight: 700 !important;
-<<<<<<< HEAD
-  text-align: left
-=======
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 }
 
 .sh-signup-form-fix.edit-profile .form-group {
@@ -2758,8 +2747,6 @@ body {
 .sh-signup-form-fix .mat-select {
   box-shadow: none
 }
-<<<<<<< HEAD
-=======
 
 .sh-signup-form-fix .clr_red {
   color: #c00;
@@ -2767,7 +2754,6 @@ body {
   font-size: 12px;
   font-weight: 700 !important;
 }
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 
 #myBtn {
   display: none;
@@ -4247,34 +4233,6 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:640px) {
-<<<<<<< HEAD
-
-  .about-3 .title,
-  .about-main .main_heading {
-    font-size: 20px !important
-  }
-
-  .about-main p {
-    font-size: 14px;
-    line-height: 20px
-  }
-
-  .sh-how-it-works p {
-    font-size: 14px !important;
-    line-height: 20px !important;
-    padding: 0 !important
-  }
-
-  .pw-solutions.works-blocks ul li {
-    width: 100% !important
-  }
-
-  .pw-solutions ul {
-    margin: 0 !important
-  }
-
-=======
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
   #contact-map {
     padding: 0 !important
   }
@@ -4613,26 +4571,6 @@ textarea::-webkit-scrollbar {
   }
 }
 
-<<<<<<< HEAD
-@media (max-width:320px) {
-  .recaptcha-btn .btn {
-    margin-top: 11px !important;
-    display: block;
-    text-align: center;
-    width: 100%
-  }
-
-  .recaptcha-btn .card-recap {
-    margin: 0 auto !important
-  }
-
-  .recaptcha-btn .recaptcha-style {
-    display: block !important
-  }
-}
-
-=======
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
 @media (min-width:992px) and (max-width:1024px) {
   #f-c .com-table td {
     font-size: 15px !important
