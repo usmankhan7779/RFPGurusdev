@@ -88,8 +88,11 @@
                         <strong>Zip Code cannot be empty</strong>
                       </mat-error>
                     </mat-form-field>
-                    <p class="clr_red" *ngIf="invalid">
+                    <p class="clr_red text-align left" *ngIf="invalid  && !personal.city && !personal.state && !personal.country">
                       Invalid Zipcode
+                    </p>
+                    <p *ngIf="!invalid  && personal.city && personal.state && personal.country">
+                      
                     </p>
                   </div>
                 </div>

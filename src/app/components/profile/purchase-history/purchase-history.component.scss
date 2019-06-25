@@ -689,11 +689,7 @@ margin: 0
 .company-details>h2{
   margin: 0
 }
-.active-rfp{
-  font-size: 16px;
-  color: #028002;
-  font-weight: 600 !important;
-}
+
 .table {
   width: 100%;
   table-layout: fixed;
@@ -749,9 +745,8 @@ margin: 0
 }
 
 .history-table tbody tr td {
-  padding: 4 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   vertical-align: middle;
 }
@@ -761,4 +756,9 @@ margin: 0
 }
 .history-table tbody tr td {
   padding: 10px;
+}
+.active-rfp{
+  font-size: 16px !important;
+  color: #028002;
+  font-weight: 600 !important;
 }
