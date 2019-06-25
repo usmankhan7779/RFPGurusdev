@@ -140,7 +140,7 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
                 <mat-form-field>
                   <input matInput placeholder="Expiry Date (MM/YY) *" [textMask]="{mask: mask,keepCharPositions:true}"
                     type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
@@ -180,7 +180,7 @@
                       Zip code cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.zip.hasError('pattern')">
-                      Zip Code must be only in digits.
+                      Zip Code must be only in digits
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
@@ -194,12 +194,6 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
                 <mat-form-field>
                   <input matInput class="sh-text-capt" placeholder="City *" type="text" formControlName="city" readonly>
-                  <!-- <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
-                                <mat-error *ngIf="form.controls.city.errors.required">
-                                  City cannot be empty
-                                </mat-error>
-                  
-                              </mat-error> -->
                 </mat-form-field>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
