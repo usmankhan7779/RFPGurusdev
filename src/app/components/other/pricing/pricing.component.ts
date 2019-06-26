@@ -346,20 +346,20 @@ export class PricingComponent implements OnInit {
                   if (error.status == 500) {
                     swal(
                       'Oops...',
-                      'Internal server error!',
+                      'Internal server error',
                       'error'
                     )
                   }
                   else if (error.status == 404) {
                     swal(
-                      'You have already subscribed for free trial!',
+                      'You have already subscribed for free trial',
                       '',
                       'error'
                     )
                   }
                   else if (error.status == 400) {
                     swal(
-                      'Sorry!',
+                      'Sorry',
                       'Select payment card and subscription plan first',
                       'error'
                     )
@@ -369,7 +369,7 @@ export class PricingComponent implements OnInit {
           else {
             swal(
               'Oops...',
-              'Something went wrong! Please Try Again.',
+              'Something went wrong Please Try Again.',
               'error'
             )
           }
@@ -414,27 +414,27 @@ export class PricingComponent implements OnInit {
               if (error.status == 500) {
                 swal(
                   'Oops...',
-                  'Internal server error!',
+                  'Internal server error',
                   'error'
                 )
               }
               else if (error.status == 404) {
                 swal(
-                  'You have already subscribed for free trial!',
+                  'You have already subscribed for free trial',
                   '',
                   'error'
                 )
               }
               else if (error.status == 200) {
                 swal(
-                  'Your payment has been transferred!',
+                  'Your payment has been transferred',
                   '',
                   'success'
                 )
               }
               else if (error.status == 400) {
                 swal(
-                  'Sorry!',
+                  'Sorry',
                   'Select payment card and subscription plan first',
                   'error'
                 )
@@ -486,14 +486,14 @@ export class PricingComponent implements OnInit {
               error => {
                 swal(
                   'Oops...',
-                  'Something went wrong!',
+                  'Something went wrong',
                   'error'
                 )
               });
           } else {
             swal(
               'Oops...',
-              'Something went wrong! Please Try Again.',
+              'Something went wrong Please Try Again.',
               'error'
             )
           }
@@ -538,27 +538,27 @@ export class PricingComponent implements OnInit {
             if (error.status == 500) {
               swal(
                 'Oops...',
-                'Internal server error!',
+                'Internal server error',
                 'error'
               )
             }
             else if (error.status == 404) {
               swal(
-                'You have already subscribed for free trial!',
+                'You have already subscribed for free trial',
                 '',
                 'error'
               )
             }
             else if (error.status == 400) {
               swal(
-                'Sorry!',
+                'Sorry',
                 'Select payment card and subscription plan first',
                 'error'
               )
             }
             else if(error.status==403){
               swal(
-                'Sorry!',
+                'Sorry',
                 'You have already subscribed',
                 'info'
               )

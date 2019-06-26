@@ -170,7 +170,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
       data => {
         if (data['status'] = "200") {
           swal(
-            'File Downloaded Successfully!',
+            'File Downloaded Successfully',
             '',
             'success'
           )
@@ -250,7 +250,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "Bad request!",
+              title: "Bad request",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
