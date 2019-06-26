@@ -360,9 +360,8 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     this.enterdate = null;
     this.duedate = null;
     delete this.states;
-    this.agencies = undefined;
-    this.cates = undefined;
-    // this.search = false;
+    this.agencies = null;
+    this.cates = null;
     this.statsearch= null;
     this.agensearch = null;
     this.catsearch = null;
