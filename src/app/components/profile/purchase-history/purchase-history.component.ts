@@ -216,7 +216,7 @@ export class PurchaseHistoryComponent implements OnInit {
             error => {
                 swal(
                     'Oops...',
-                    'Something went wrong!',
+                    'Something went wrong',
                     'error'
                 )
             });
