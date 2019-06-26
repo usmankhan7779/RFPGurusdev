@@ -193,7 +193,7 @@ export class AllRfpsComponent implements OnInit {
   //     });
   // }
   public showPDF(rfpkey,title): void {
-    alert(rfpkey)
+    // alert(rfpkey)
     this._serv.getPDF(rfpkey)
         .subscribe(x => {
             // It is necessary to create a new blob object with mime-type explicitly set
