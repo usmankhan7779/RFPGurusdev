@@ -117,8 +117,8 @@
 
 
                                     </div>
-                                    <div class="col-md-12 padding-0">
-                                        <button title="Add to Watch List" type="submit"
+                                    <div class="col-md-12 padding-0"  *ngIf="rfp.descriptionTag !=null">
+                                        <button title="Add to Watch List" type="submit" 
                                             class="btn btn-primary btn-rose btn-lg sh-ad-to-watchlist"
                                             (click)="watchlist()" *ngIf="rfp.descriptionTag.length <= 1000">Add to
                                             Watch List</button>
