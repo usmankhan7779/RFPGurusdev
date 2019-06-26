@@ -2751,9 +2751,10 @@ body {
 
 .sh-signup-form-fix .clr_red {
   color: #c00;
-  margin: -20px 0 -4px;
+  margin: -8px 0 -4px;
   font-size: 12px;
   font-weight: 700 !important;
+  text-align: left;
 }
 
 #myBtn {
