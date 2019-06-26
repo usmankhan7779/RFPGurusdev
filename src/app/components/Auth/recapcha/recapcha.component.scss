@@ -16,7 +16,8 @@
     border-radius: 5px;
     padding: 8px;
     background: #fff;
-    box-shadow: 0 3px 10px #ccc
+    -webkit-box-shadow: 0 3px 10px #ccc;
+            box-shadow: 0 3px 10px #ccc
 }
 
 .refrash-button {

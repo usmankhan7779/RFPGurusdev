@@ -7,7 +7,6 @@
   margin: 0;
   background: #000;
   padding: 10px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   color: #f0f0f0;
   cursor: pointer;
@@ -15,8 +14,6 @@
 }
 
 .faq h3 span {
-  width: -webkit-calc(100% - 35px);
-  width: -moz-calc(100% - 35px);
   width: calc(100% - 35px);
   vertical-align: middle;
   color: #f0f0f0!important
@@ -44,7 +41,6 @@
   font-size: 16px;
   padding: 15px;
   margin: 0 10px;
-  -webkit-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px
 }
 

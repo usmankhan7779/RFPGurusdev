@@ -28,9 +28,7 @@
     -webkit-box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
     box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
     -webkit-transform: scale(1.01);
-    -moz-transform: scale(1.01);
     -ms-transform: scale(1.01);
-    -o-transform: scale(1.01);
     transform: scale(1.01);
     cursor: pointer;
     background-color: #fff
