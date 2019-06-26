@@ -28,6 +28,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   loaded = false;
   cat: any = [];
+  // public Rfp: any;
   catsearch;
   public query: any;
   public Rfp: any;
@@ -94,6 +95,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
     if (val != "") {
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
+        console.log(this.cat)
         this.item = this.cat.length
 
       });
