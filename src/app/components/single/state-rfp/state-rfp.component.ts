@@ -323,8 +323,24 @@ export class StateRfpComponent implements OnInit, OnDestroy {
         })
     } else if (this.subscribe == "Subscribe user") {
 
-      // window.open(url, '_blank');
-      this.showPDF(id,title)
+      this.advanceServ.downloadRfp().subscribe(
+        data=>{
+              // window.open(url, '_blank');
+              this.showPDF(id,title)
+  
+            },
+        error=>{
+          if(error.status==403){
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 500 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+      )
 
     }
 
