@@ -15,7 +15,7 @@ export class SeoService {
    }
 
    setTitle(name) {
-      this.titleService.setTitle(name + ' | RFP Gurus | Find RFP Bid Sites | Government Request for Proposal');
+      this.titleService.setTitle(name + ' | RFPGurus | Find RFP Bid Sites | Government Request for Proposal');
    }
 
    // ------------ CanonicalURL ------------
