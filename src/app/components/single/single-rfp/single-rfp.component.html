@@ -86,7 +86,7 @@
                                                 </li>
                                                 <ng-template #pdf>
 
-                                                    <li (click)="check_trial(rfp.web_info , rfp.id)"
+                                                    <li (click)="check_trial(rfp.id,rfp.web_info,rfp.title)"
                                                         *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                                                         <a>
                                                             <i class="material-icons">insert_drive_file</i>
@@ -95,7 +95,7 @@
 
                                                     </li>
                                                     <ng-template #link>
-                                                        <li (click)="check_trial(rfp.web_info)">
+                                                        <li (click)="check_trial(rfp.id,rfp.web_info,rfp.title)">
 
                                                             <a>
                                                                 <i class="material-icons">insert_drive_file</i>
@@ -117,7 +117,7 @@
 
 
                                     </div>
-                                    <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag !=null">
+                                    <div class="col-md-12 padding-0">
                                         <button title="Add to Watch List" type="submit"
                                             class="btn btn-primary btn-rose btn-lg sh-ad-to-watchlist"
                                             (click)="watchlist()" *ngIf="rfp.descriptionTag.length <= 1000">Add to

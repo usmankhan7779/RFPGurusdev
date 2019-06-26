@@ -15,6 +15,19 @@
             </div>
           </div>
         </div>
+        <!-- <div class="col-sm-4 col-xs-12 text-right tab-text-center">
+          <input type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
+            placeholder="Search Agencies" class="search-allstates">
+          <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loaded==true">
+      <div class="col-sm-12 text-center" *ngIf="(agency['Result'] | filter:agensearch).length==0">
+        <i class="fa fa-exclamation-triangle"></i>
+        <h3 class="text-center">No Record Found</h3>
+      </div>
+    </div> -->
         <div class="row">
           <div class="col-sm-12 text-center" *ngIf="(cat | filter:catsearch).length == 0">
             <i class="fa fa-exclamation-triangle"></i>

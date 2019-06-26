@@ -11,7 +11,7 @@ export class AllRfpsService {
         let headers = new Headers();
           headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
           headers.append('Content-Type', 'application/json');
-        return this._https.get('https://apis.rfpgurus.com/document_trial/' + id,  {headers:headers}).map((response: Response) => response.json())
+        return this._https.get('https://apis.rfpgurus.com/document_trial_for_web/' + id , '/' +JSON.parse(localStorage.getItem('currentUser')).userid ).map((response: Response) => response.json())
     }
     latestrfpecord(items, page) {
         let headers = new Headers();
@@ -36,18 +36,30 @@ export class AllRfpsService {
     get_download_file(){
         return this.http.get('http://192.168.29.237:8000/send_pdf/')
     }
-    view_filedownload(id){
-        let headers = new Headers();
-        headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
-        headers.append('Content-Type', 'application/json');
-        return this._https.get('http://192.168.29.223:8000/testpdf/'+id,{headers:headers})
-    }
-    public getPDF(): Observable<Blob> {   
+    // view_filedownload(id){
+    //     let headers = new Headers();
+    //     headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+    //     headers.append('Content-Type', 'application/json');
+    //     return this._https.get('http://192.168.29.223:8000/testpdf/'+id,{headers:headers})
+    // }
+    public getPDF(id): Observable<Blob> {   
         //const options = { responseType: 'blob' }; there is no use of this
-            let uri = 'http://192.168.29.237:8000/send_pdf/';
+        // let headers = new Headers();
+        // headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+        // headers.append('Content-Type', 'application/json');
+            let uri = 'https://apis.rfpgurus.com/rf_p/send_pdf/' + id +'/'+JSON.parse(localStorage.getItem('currentUser')).userid ;
             // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
-            return this.http.get(uri, { responseType: 'blob' });
+            return this.http.get(uri, { responseType: 'blob'});
         }
+        public trialgetPDF(id): Observable<Blob> {   
+            //const options = { responseType: 'blob' }; there is no use of this
+            // let headers = new Headers();
+            // headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+            // headers.append('Content-Type', 'application/json');
+                let uri = 'https://apis.rfpgurus.com/document_trial_for_web/' + id +'/'+JSON.parse(localStorage.getItem('currentUser')).userid ;
+                // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+                return this.http.get(uri, { responseType: 'blob'});
+            }
     // http://192.168.29.237:8000/send_pdf/
     fiter_rfp(val, model, page) {
         if (model == 'old') {

@@ -307,7 +307,7 @@
                                                 </a>
                                             </li>
                                             <ng-template #pdf>
-                                                <li (click)="downloadrfp(rfp.id,rfp.web_info)"
+                                                <li (click)="downloadrfp(rfp.id,rfp.web_info,rfp.title)"
                                                     *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                                                     <a>
                                                         <i class="material-icons">insert_drive_file</i>
@@ -316,7 +316,7 @@
 
                                                 </li>
                                                 <ng-template #link>
-                                                    <li (click)="downloadrfp(rfp.id,rfp.web_info)">
+                                                    <li (click)="downloadrfp(rfp.id,rfp.web_info,rfp.title)">
 
                                                         <a>
                                                             <i class="material-icons">insert_drive_file</i>

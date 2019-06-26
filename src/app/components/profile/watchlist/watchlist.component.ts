@@ -100,7 +100,7 @@ export class WatchlistComponent implements OnInit {
       width: '512px',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it'
     }).then((result) => {
       if (result == true) {
         this._serv.deleteWatchlist(this.id).subscribe(
@@ -122,7 +122,7 @@ export class WatchlistComponent implements OnInit {
       width: '512px',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it'
     }).then((result) => {
       // alert(result)
       if (result == true) {
@@ -154,16 +154,16 @@ export class WatchlistComponent implements OnInit {
     if (this.subscribe == "Trial Subscription user") {
       this.advanceServ.trial_document(id).subscribe(
         data => {
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(data['web_info'], '_blank');
-          }
+          // if (data['status'] == 'True') {
+          //   this.doc = data['status'];
+          //   window.open(data['web_info'], '_blank');
+          // }
         },
         error => {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "Bad request!",
+              title: "Bad request",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

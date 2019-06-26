@@ -11,6 +11,7 @@ import * as moment from 'moment';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { MatDialog } from '@angular/material';
+import { AdvanceService } from '../../other/advance-search/advance.service';
 
 @Component({
   selector: 'app-all-rfps',
@@ -30,9 +31,11 @@ export class AllRfpsComponent implements OnInit {
   }
   state;
   record: any = [];
+  zip :any =[];
+  pdf;
   currentUser;
   length = 0;
-  constructor(public homeServ: HomeService, public dialog: MatDialog, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
+  constructor(public homeServ: HomeService, public dialog: MatDialog, private __serv: AdvanceService, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
   }
   ngOnInit() {
@@ -133,15 +136,28 @@ export class AllRfpsComponent implements OnInit {
     }
   }
   enter: any = [];
+  
   setPage(page) {
     localStorage.setItem('latestpage', page);
     this._serv.latestrfpecord(this.pageSize, page).subscribe(
       data => {
 
         this.record = data['results'];
+        console.log(this.record['id'])
 
         this.item = data['totalItems'];
+        // this.zip = data['results'].web_info
+        // // this.pdf = this.record.web_info
+        // console.log(this.zip.slice(-4))
+        // console.log(this.zip)
+        
+      let democompprods;
+      democompprods = data['results'];
 
+      for (let prods of democompprods) {
+        this.zip =prods.web_info;
+        console.log(this.zip.slice(-4))
+      }
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
@@ -177,8 +193,10 @@ export class AllRfpsComponent implements OnInit {
   //       }
   //     });
   // }
-  public showPDF(rfpkey): void {
-    this._serv.getPDF()
+  
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this._serv.getPDF(rfpkey)
         .subscribe(x => {
             // It is necessary to create a new blob object with mime-type explicitly set
             // otherwise only Chrome works like it should
@@ -197,7 +215,7 @@ export class AllRfpsComponent implements OnInit {
 
             var link = document.createElement('a');
             link.href = data;
-            link.download = "Je kar.pdf";
+            link.download = title+".pdf";
             // this is necessary as link.click() does not work on the latest firefox
             link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
 
@@ -206,7 +224,21 @@ export class AllRfpsComponent implements OnInit {
                 window.URL.revokeObjectURL(data);
                 link.remove();
             }, 100);
-        });
+        }
+        ,
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available ",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
 }
   // get_download_file
   adminlogin;
@@ -226,20 +258,42 @@ export class AllRfpsComponent implements OnInit {
     this._nav.navigate([sth]);
   }
   doc;
-  check_trial(id, web_info) {
-    if (this.subscribe == "Trial Subscription user") {
-      this._serv.trial_document(id).subscribe(
-        data => {
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(data['web_info'], '_blank');
-          }
-        },
+  public trialshowPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this._serv.trialgetPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        } ,
         error => {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "Bad request!",
+              title: "Bad request",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -263,23 +317,31 @@ export class AllRfpsComponent implements OnInit {
               confirmButtonColor: "#090200",
             });
           }
-        })
-    }
+        }
+        );
+}
+  check_trial(id, web_info,title) {
+    if (this.subscribe == "Trial Subscription user") {
+      this.trialshowPDF(id,title)
+        }
     else if (this.subscribe == "Subscribe user") {
-      window.open(web_info, '_blank');
-     
-       
-        // this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
-        // this._nav.navigate(['/pdfviewer']);
-     
-        // , skipLocationChange: true 
-
-
-
-      // let sth = urls + web_info;
-      // this._nav.navigate([sth]);
-      // localStorage.setItem('web_info',web_info)
-    
+      this.__serv.downloadRfp().subscribe(
+        data=>{
+              // window.open(url, '_blank');
+              this.showPDF(id,title);
+            },
+        error=>{
+          if(error.status==403){
+            swal({
+              type: 'error',
+              title: "You have already downloaded 100 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+      )
     }
   }
   check_login() {

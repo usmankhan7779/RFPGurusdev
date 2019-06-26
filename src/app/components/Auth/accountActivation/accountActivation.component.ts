@@ -28,7 +28,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
         data => {
           swal({
             type: 'success',
-            title: 'Your account is verified!',
+            title: 'Your account is verified',
             showConfirmButton: false,
             timer: 2000,
             width: '512px',
@@ -39,7 +39,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
           if (error.status == 403) {
             swal({
               type: 'error',
-              title: 'Your account has already been activated!',
+              title: 'Your account has already been activated',
               showConfirmButton: false,
               timer: 2000,
               width: '512px',

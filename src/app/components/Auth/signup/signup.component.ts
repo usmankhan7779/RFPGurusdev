@@ -142,7 +142,7 @@ export class SignupComponent implements OnInit, OnDestroy {
 
       swal({
         type: 'error',
-        title: 'Please confirm you are not a robot!',
+        title: 'Please confirm you are not a robot',
         showConfirmButton: false,
         width: '512px',
         timer: 2000
@@ -186,7 +186,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.seoService.createLinkForCanonicalURL();
 
     // setting twitter
-    this.seoService.updateTwitterTitle('Signup ');
+    this.seoService.updateTwitterTitle('Signup');
 
     // --------------- SEO Service End ---------------
 

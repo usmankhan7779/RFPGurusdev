@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RfpService } from './rfp.service';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 const routes: Routes = [
     { path: '', component: SingleRfpComponent }
@@ -22,6 +23,6 @@ const routes: Routes = [
         RouterModule.forChild(routes),
     ],
     declarations: [SingleRfpComponent],
-    providers: [HomeService, AdvanceService, RfpService]
+    providers: [HomeService, AdvanceService, RfpService,AllRfpsService]
 })
 export class SingleRfpModule { }

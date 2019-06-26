@@ -273,7 +273,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         this.serv.deleteCard(id).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Credit Card Is Deleted',
+            title: 'Credit card is deleted',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -343,7 +343,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
           this.form.value['nickname']).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Payment Method Is Listed Successfully',
+            title: ' Payment Method is listed successfully',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })

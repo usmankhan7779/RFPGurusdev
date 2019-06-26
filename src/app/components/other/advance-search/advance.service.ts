@@ -13,10 +13,11 @@ export class AdvanceService {
   //   return this.http.get('https://apis.rfpgurus.com/document_trial/' + id);
   // }
   trial_document(id) {
-    let headers = new Headers();
-      headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
-      headers.append('Content-Type', 'application/json');
-    return this._https.get('https://apis.rfpgurus.com/document_trial/' + id,  {headers:headers}).map((response: Response) => response.json())
+    // let headers = new Headers();
+    //   headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+    //   headers.append('Content-Type', 'application/json');
+    let uri = 'https://apis.rfpgurus.com/document_trial_for_web/' + id + '/' +JSON.parse(localStorage.getItem('currentUser')).userid
+    return this.http.get(uri).map((response: Response) => response.json());
 }
 downloadRfp(){
   let headers = new Headers();
