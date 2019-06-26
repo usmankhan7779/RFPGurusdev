@@ -11,6 +11,7 @@ import * as moment from 'moment';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { MatDialog } from '@angular/material';
+import { AdvanceService } from '../../other/advance-search/advance.service';
 
 @Component({
   selector: 'app-all-rfps',
@@ -34,7 +35,7 @@ export class AllRfpsComponent implements OnInit {
   pdf;
   currentUser;
   length = 0;
-  constructor(public homeServ: HomeService, public dialog: MatDialog, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
+  constructor(public homeServ: HomeService, public dialog: MatDialog, private __serv: AdvanceService, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
   }
   ngOnInit() {
@@ -265,7 +266,7 @@ export class AllRfpsComponent implements OnInit {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "Your have already downloaded 5 documents",
+              title: "You have already downloaded 5 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -283,24 +284,23 @@ export class AllRfpsComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      // window.open(web_info, '_blank');
-      // alert(this.zip)
-      // if(this.zip == ".zip")
-      // {alert(this.zip)
-
-      // }else if(this.zip == ".pdf"){
-    // console.log(web_info.slice(-4))
-       this.showPDF(id,title);
-        // this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
-        // this._nav.navigate(['/pdfviewer']);
-     
-        // , skipLocationChange: true 
-
-
-      // localStorage.setItem('title_infoo',title)
-      // }
-
-    
+      this.__serv.downloadRfp().subscribe(
+        data=>{
+              // window.open(url, '_blank');
+              this.showPDF(id,title);
+            },
+        error=>{
+          if(error.status==403){
+            swal({
+              type: 'error',
+              title: "You have already downloaded 100 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+      )
     }
   }
   check_login() {
