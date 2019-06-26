@@ -33,11 +33,16 @@ declare interface User {
 export class ChangedPasswordComponent implements OnInit, OnDestroy {
     local;
     uname;
+    public password;
+    public oldpassword;
     hide = true;
     hide1 = true;
     hide2 = true;
     password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\\\[\\]\\-\'<>~|@_{}]).{8,}$';
-
+    public isInvalid: boolean = false;
+    public onChange(event: any): void {
+      this.isInvalid = this.oldpassword == this.password
+    }
     public typeValidation: User;
     register: FormGroup;
     login: FormGroup;

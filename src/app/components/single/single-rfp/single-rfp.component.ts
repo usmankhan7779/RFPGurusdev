@@ -78,7 +78,19 @@ export class SingleRfpComponent implements OnInit {
       else if (url == 'find-rfp')  {
         this._nav.navigate(['/find-rfps']);     
       }
-      // find-rfp
+      else if (url == 'advanced-search') {
+        
+        this._nav.navigate(['advanced-search']);     
+      }
+      else if (url == 'notifications')
+      {
+        this._nav.navigate(['notifications']);
+      }
+      else
+      {
+        this._nav.navigate(['my-watchlist']);
+      }
+     
     }
     else {
       this._nav.navigate(['/']);
