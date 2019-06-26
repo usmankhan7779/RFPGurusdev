@@ -18,6 +18,7 @@ import * as moment from 'moment';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { MatDialog } from '@angular/material';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 @Component({
   selector: 'app-advance-search',
@@ -27,7 +28,7 @@ import { MatDialog } from '@angular/material';
     '../../local-style/table-normal.css',
     '../../local-style/products-area.css'
   ],
-  providers: [PagerService, AdvanceService, SharedData, HeaderService, SpeechRecognitionService, HomeService]
+  providers: [PagerService, AdvanceService, SharedData, HeaderService, SpeechRecognitionService, HomeService,AllRfpsService]
 })
 export class AdvanceSearchComponent implements OnInit, OnDestroy {
   public blink = false;
@@ -88,7 +89,8 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   ];
   datashow: boolean = false;
   filtertext;
-  constructor(private filterServ: FilterSidebarService, private homeServ: HomeService, private datePipe: DatePipe, private speech: SpeechRecognitionService, public _shareData: SharedData, private _serv1: HeaderService, private pagerService: PagerService, private route: ActivatedRoute, private _nav: Router, private _serv: AdvanceService, private _location: Location, private seoService: SeoService, public dialog: MatDialog) {
+  constructor(private filterServ: FilterSidebarService, private homeServ: HomeService, private datePipe: DatePipe, private speech: SpeechRecognitionService, public _shareData: SharedData, private _serv1: HeaderService, private pagerService: PagerService, private route: ActivatedRoute, private _nav: Router, private _serv: AdvanceService,
+    private getfile :AllRfpsService, private _location: Location, private seoService: SeoService, public dialog: MatDialog) {
     localStorage.removeItem('member');
     if (localStorage.getItem('statuss')) {
       this.status = localStorage.getItem('statuss');
@@ -169,6 +171,51 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     this.status = status;
     // this.onSubmit(1);
   }
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.getPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        },
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available ",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
+}
   submission_from;
   submission_to;
   submissionfrom;
@@ -537,7 +584,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
 
   }
   doc;
-  downloadrfp(id,url){
+  downloadrfp(id,url,title){
     if (this.subscribe == "Trial Subscription user") {
       this._serv.trial_document(id).subscribe(
         data => {
@@ -580,7 +627,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
    else if (this.subscribe == "Subscribe user") {
     this._serv.downloadRfp().subscribe(
       data=>{
-            window.open(url, '_blank');
+            // window.open(url, '_blank');
+            this.showPDF(id,title)
+
           },
       error=>{
         if(error.status==403){
