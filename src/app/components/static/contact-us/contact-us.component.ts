@@ -19,7 +19,7 @@ export class ContactUsComponent implements OnInit {
   form;
   @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
 
-  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public phoneMask = ['+',/[1-9]/, ' ','(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   endRequest;
  name= '^[a-zA-Z _.]+$';
