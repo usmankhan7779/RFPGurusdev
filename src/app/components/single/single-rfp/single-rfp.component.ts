@@ -191,7 +191,7 @@ export class SingleRfpComponent implements OnInit {
           if (this.statuss == "This Rfp is already in your Watch List") {
             swal({
               type: 'info',
-              title: 'This RFP Is Already In Your Watchlist',
+              title: 'This RFP is already in your Watch List ',
               showConfirmButton: true,
               confirmButtonColor: "#090200",
               width: '512px',
@@ -201,7 +201,7 @@ export class SingleRfpComponent implements OnInit {
           else {
             swal({
               type: 'success',
-              title: 'RFP successfully added to your watch list',
+              title: 'RFP successfully added to your Watch List',
               showConfirmButton: true,
               confirmButtonColor: "#090200",
               width: '512px',

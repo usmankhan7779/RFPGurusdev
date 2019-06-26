@@ -1001,7 +1001,7 @@ a.sort.desc::after {
 .btn,
 .sh-text-capt,
 button {
-  text-transform: capitalize !important
+  /* text-transform: capitalize !important */
 }
 
 .mat-slide-toggle-bar {
@@ -1809,7 +1809,8 @@ a:hover {
   background-color: #000;
   color: #fff;
   outline: 0;
-  border: none
+  border: none;
+  margin: 20px 0;
 }
 
 a.btn:focus,
@@ -1933,13 +1934,13 @@ button:focus {
 .btn-group-lg .navbar .navbar-nav>li>a.btn,
 .btn.btn-lg,
 .navbar .navbar-nav>li>a.btn.btn-lg {
-  text-transform: capitalize
+  /* text-transform: capitalize */
 }
 
 .btn,
 .edit-profile .credit-card-box label,
 button {
-  text-transform: capitalize !important
+  /* text-transform: capitalize !important */
 }
 
 .card-error {

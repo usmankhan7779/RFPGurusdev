@@ -142,6 +142,7 @@ export class AllRfpsComponent implements OnInit {
       data => {
 
         this.record = data['results'];
+        console.log(this.record['id'])
 
         this.item = data['totalItems'];
         // this.zip = data['results'].web_info
@@ -191,7 +192,8 @@ export class AllRfpsComponent implements OnInit {
   //       }
   //     });
   // }
-  public showPDF(rfpkey): void {
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
     this._serv.getPDF(rfpkey)
         .subscribe(x => {
             // It is necessary to create a new blob object with mime-type explicitly set
@@ -211,7 +213,7 @@ export class AllRfpsComponent implements OnInit {
 
             var link = document.createElement('a');
             link.href = data;
-            link.download = "Je kar.pdf";
+            link.download = title+".pdf";
             // this is necessary as link.click() does not work on the latest firefox
             link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
 
@@ -281,15 +283,21 @@ export class AllRfpsComponent implements OnInit {
     }
     else if (this.subscribe == "Subscribe user") {
       // window.open(web_info, '_blank');
-    console.log(web_info.slice(-4))
-       
-        this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
+      // alert(this.zip)
+      // if(this.zip == ".zip")
+      // {alert(this.zip)
+
+      // }else if(this.zip == ".pdf"){
+    // console.log(web_info.slice(-4))
+       this.showPDF(id,title);
+        // this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
         // this._nav.navigate(['/pdfviewer']);
      
         // , skipLocationChange: true 
 
 
-      localStorage.setItem('title_infoo',title)
+      // localStorage.setItem('title_infoo',title)
+      // }
 
     
     }

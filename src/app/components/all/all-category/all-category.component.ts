@@ -26,6 +26,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
       }
     )
   }
+  loaded = false;
   cat: any = [];
   catsearch;
   public query: any;
@@ -65,6 +66,16 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
 
     // --------------- SEO Service End ---------------
   }
+  // item;
+  // filter(val) {
+  //     if (this.query !== "") {
+  //         this.endRequest = this._serv.searchrecord(val).subscribe(response => {
+  //             this.Rfp = response['results'];
+  //             this.item = response['totalItems']
+  //             this.loaded = true;
+  //         });
+  //     }
+  // }
   closeSearch() {
     if (this.mainSearch == 1) {
       this.mainSearch = 0;

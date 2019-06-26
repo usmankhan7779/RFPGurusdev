@@ -22,7 +22,7 @@
             <div *ngFor="let rfp of wrfp;let i=index" class="card">
               <div class="row sh-del-watchlist">
                 <div class="col-sm-12 max-width-1000">
-                  <div class="card-header card-header-text" data-background-color="purple">
+                  <div class="card-header card-header-text keyrfp"  data-background-color="purple">
                     <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
                       (click)="move()">
                       <h4 class="card-title">{{ rfp?.wrfp.rfpkey}}</h4>
@@ -144,7 +144,7 @@
             </div>
             <div class="col-sm-12 pd-20-0" *ngIf="wrfp">
                 <button class="btn btn-rose" (click)="All_deletewatchlist()"
-                  title="Clear All Watch List" type="submit">Clear All Watch List</button>
+                  title="Clear All Watch List" type="submit">Clear all Watch List</button>
             </div>
           </div>
         </div>

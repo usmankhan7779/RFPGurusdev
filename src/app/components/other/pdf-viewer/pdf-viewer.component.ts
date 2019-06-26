@@ -26,7 +26,7 @@ export class PdfViewerComponent implements OnInit {
       this.query = params['query']
     })
 this.title = localStorage.getItem('title_infoo')
-    this.pdfSrc = 'http://192.168.29.223:8000/testpdf/'+this.query
+    this.pdfSrc = 'https://apis.rfpgurus.com/rf_p/view_pdf/'+this.query +'/'+JSON.parse(localStorage.getItem('currentUser')).userid
   
   }
   public showPDF(): void {
