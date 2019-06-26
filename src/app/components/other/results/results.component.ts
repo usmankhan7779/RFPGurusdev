@@ -14,6 +14,8 @@ import { MatDialog } from '@angular/material';
 declare const $: any;
 import { Location } from '@angular/common';
 import { AdvanceService } from '../advance-search/advance.service';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,7 +25,7 @@ import { AdvanceService } from '../advance-search/advance.service';
   '../../local-style/pagination.css',
   '../../local-style/table-normal.css',
   '../../local-style/products-area.css'],
-  providers: [PagerService, HomeService, AdvanceService]
+  providers: [PagerService, HomeService, AdvanceService,AllRfpsService]
 })
 
 export class ResultsComponent implements OnInit, OnDestroy {
@@ -51,7 +53,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   uname;
   subscribe;
   sorted;
-  constructor(private advanceServ: AdvanceService, private homeServ: HomeService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: ResultsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
+  constructor(private advanceServ: AdvanceService, private homeServ: HomeService,private getfile :AllRfpsService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: ResultsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
   }
   // MatPaginator Inputs
@@ -68,6 +70,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
+
   download(info) {
     this.endRequest = this._serv.downloadFile(info).subscribe(
       data => {
@@ -193,32 +196,137 @@ export class ResultsComponent implements OnInit, OnDestroy {
     let sth = 'rfp/' + query;
     this._nav.navigate([sth]);
   }
-  id;
-  doc;
-  check_trial(id,url) {
-    if (this.subscribe == "Trial Subscription user") {
-      this.advanceServ.trial_document(id).subscribe(
-        data => {
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.getPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
 
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(url, '_blank');
-          } else {
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        },
+        error => {
+          if (error.status == 400) {
             swal({
               type: 'error',
-              title: "You can't download more documents",
+              title: "NO pdf Available ",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
             });
-
           }
+        }
+        
+        );
+}
+   
+  public trialshowPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.trialgetPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
 
-        })
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        } ,
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "Bad request",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 5 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Your free trial has been expired",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        );
+}
+  id;
+  doc;
+  check_trial(id,url,title) {
+    if (this.subscribe == "Trial Subscription user") {
+      this.trialshowPDF(id,title)
     } else if (this.subscribe == "Subscribe user") {
-
-      window.open(url, '_blank');
-
+      this.advanceServ.downloadRfp().subscribe(
+        data=>{
+              this.showPDF(id,title)
+  
+            },
+        error=>{
+          if(error.status==403){
+            swal({
+              type: 'error',
+              title: "You have already downloaded 100 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+      )
     }
 
   }
