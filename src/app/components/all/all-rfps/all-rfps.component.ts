@@ -192,6 +192,7 @@ export class AllRfpsComponent implements OnInit {
   //       }
   //     });
   // }
+  
   public showPDF(rfpkey,title): void {
     // alert(rfpkey)
     this._serv.getPDF(rfpkey)

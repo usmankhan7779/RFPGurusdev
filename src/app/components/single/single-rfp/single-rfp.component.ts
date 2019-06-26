@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { MatDialog } from '@angular/material';
 import { SeoService } from '../../../services/seoService';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 @Component({
   selector: 'app-data-table-cmp',
@@ -41,7 +42,8 @@ export class SingleRfpComponent implements OnInit {
   subscribe;
   currentUser;
   wrfp;
-  constructor(private advanceServ: AdvanceService, private homeServ: HomeService, public dialog: MatDialog, private _nav: Router, public _shareData: SharedData, private route: ActivatedRoute, private _serv: RfpService, private seoService: SeoService, ) {
+  constructor(private advanceServ: AdvanceService, 
+    private getfile :AllRfpsService,private homeServ: HomeService, public dialog: MatDialog, private _nav: Router, public _shareData: SharedData, private route: ActivatedRoute, private _serv: RfpService, private seoService: SeoService, ) {
     localStorage.removeItem('member');
   }
   back() {
@@ -119,6 +121,7 @@ export class SingleRfpComponent implements OnInit {
 
       })
   }
+
   adminlogin;
   ngOnInit() {
     window.scroll(0, 0);
@@ -162,6 +165,38 @@ export class SingleRfpComponent implements OnInit {
     this.check_login()
 
   }
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.getPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        });
+}
   total;
   watchlist() {
     if (localStorage.getItem('currentUser')) {
@@ -218,7 +253,7 @@ export class SingleRfpComponent implements OnInit {
       }
   }
   doc;
-  check_trial(url) {
+  check_trial(id,url,title) {
     if (this.subscribe == "Trial Subscription user") {
       this.advanceServ.trial_document(this.id).subscribe(
         data => {
@@ -258,7 +293,8 @@ export class SingleRfpComponent implements OnInit {
         })
     }
     else if (this.subscribe == "Subscribe user") {
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      this.showPDF(id,title)
     }
   }
   check_login() {
