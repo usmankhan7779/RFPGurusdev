@@ -186,7 +186,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.seoService.createLinkForCanonicalURL();
 
     // setting twitter
-    this.seoService.updateTwitterTitle('Signup ');
+    this.seoService.updateTwitterTitle('Signup');
 
     // --------------- SEO Service End ---------------
 
