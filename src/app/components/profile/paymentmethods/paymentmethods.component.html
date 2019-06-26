@@ -75,10 +75,10 @@
                       Card number cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.cardnumber.hasError('pattern')">
-                      Card number must be only in digits.
+                      Card number must be only in digits
                     </mat-error>
                     <mat-error *ngIf="cardexist">
-                      This Card Number already exist.
+                      This Card Number already exist
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
@@ -233,15 +233,15 @@
                     formControlName="cardnickname">
                   <mat-error *ngIf="form.controls.cardnickname.touched && form.controls.cardnickname.invalid">
                     <mat-error *ngIf="form.controls.cardnickname.errors.required">
-                      Card holder Name cannot be empty
+                      Cardholder Name cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.cardnickname.errors.minlength">
-                      Card holder Name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}}
+                      Cardholder Name must be atleast {{form.controls.cardnickname.errors.minlength.requiredLength}}
                       characters
                       long
                     </mat-error>
                     <mat-error *ngIf="form.controls.cardnickname.errors.maxlength">
-                      Card holder Name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}}
+                      Cardholder Name must be at atmost {{form.controls.cardnickname.errors.maxlength.requiredLength}}
                       characters
                       long
                     </mat-error>
