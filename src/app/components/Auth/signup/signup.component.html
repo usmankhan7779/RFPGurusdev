@@ -187,7 +187,7 @@
                         <!-- <mat-error *ngIf="register.controls.username.maxlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error> -->
-                        <mat-error  *ngIf="register.controls.username.errors?.minlength && !usernameexist">
+                        <mat-error  *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
 
