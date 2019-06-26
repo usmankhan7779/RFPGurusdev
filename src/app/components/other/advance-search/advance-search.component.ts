@@ -201,7 +201,20 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
                 window.URL.revokeObjectURL(data);
                 link.remove();
             }, 100);
-        });
+        },
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available ",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
 }
   submission_from;
   submission_to;
