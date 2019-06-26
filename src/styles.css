@@ -1001,7 +1001,7 @@ a.sort.desc::after {
 .btn,
 .sh-text-capt,
 button {
-  /* text-transform: capitalize !important */
+  text-transform: capitalize !important
 }
 
 .mat-slide-toggle-bar {
@@ -1809,8 +1809,7 @@ a:hover {
   background-color: #000;
   color: #fff;
   outline: 0;
-  border: none;
-  margin: 20px 0;
+  border: none
 }
 
 a.btn:focus,
@@ -1934,13 +1933,13 @@ button:focus {
 .btn-group-lg .navbar .navbar-nav>li>a.btn,
 .btn.btn-lg,
 .navbar .navbar-nav>li>a.btn.btn-lg {
-  /* text-transform: capitalize */
+  text-transform: capitalize
 }
 
 .btn,
 .edit-profile .credit-card-box label,
 button {
-  /* text-transform: capitalize !important */
+  text-transform: capitalize !important
 }
 
 .card-error {
@@ -2751,10 +2750,9 @@ body {
 
 .sh-signup-form-fix .clr_red {
   color: #c00;
-  margin: -8px 0 -4px;
+  margin: -20px 0 -4px;
   font-size: 12px;
   font-weight: 700 !important;
-  text-align: left;
 }
 
 #myBtn {
@@ -3597,6 +3595,15 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:1280px) {
+  .history-table th {
+    font-size: 16px!important;
+  }
+  .pricing2-section >.container{
+      width: 1070px;
+  }
+  .play-store-img2 {
+    left: 35% !important;
+  }
   .card .card-title {
     font-size: 16px !important;
     line-height: 19px !important
@@ -4235,6 +4242,31 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:640px) {
+
+  .about-3 .title,
+  .about-main .main_heading {
+    font-size: 20px !important
+  }
+
+  .about-main p {
+    font-size: 14px;
+    line-height: 20px
+  }
+
+  .sh-how-it-works p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 0 !important
+  }
+
+  .pw-solutions.works-blocks ul li {
+    width: 100% !important
+  }
+
+  .pw-solutions ul {
+    margin: 0 !important
+  }
+
   #contact-map {
     padding: 0 !important
   }
@@ -4570,6 +4602,23 @@ textarea::-webkit-scrollbar {
 
   .card [data-background-color] {
     padding: 5px 15px
+  }
+}
+
+@media (max-width:320px) {
+  .recaptcha-btn .btn {
+    margin-top: 11px !important;
+    display: block;
+    text-align: center;
+    width: 100%
+  }
+
+  .recaptcha-btn .card-recap {
+    margin: 0 auto !important
+  }
+
+  .recaptcha-btn .recaptcha-style {
+    display: block !important
   }
 }
 

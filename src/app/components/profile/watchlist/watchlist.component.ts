@@ -154,10 +154,10 @@ export class WatchlistComponent implements OnInit {
     if (this.subscribe == "Trial Subscription user") {
       this.advanceServ.trial_document(id).subscribe(
         data => {
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(data['web_info'], '_blank');
-          }
+          // if (data['status'] == 'True') {
+          //   this.doc = data['status'];
+          //   window.open(data['web_info'], '_blank');
+          // }
         },
         error => {
           if (error.status == 400) {
