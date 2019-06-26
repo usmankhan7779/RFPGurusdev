@@ -281,6 +281,11 @@ export class AllRfpsComponent implements OnInit {
     }
     else if (this.subscribe == "Subscribe user") {
       // window.open(web_info, '_blank');
+      // alert(this.zip)
+      // if(this.zip == ".zip")
+      // {alert(this.zip)
+
+      // }else if(this.zip == ".pdf"){
     console.log(web_info.slice(-4))
        
         this._nav.navigate(['/pdfviewer'], { queryParams: { query: id  }});
@@ -290,6 +295,7 @@ export class AllRfpsComponent implements OnInit {
 
 
       localStorage.setItem('title_infoo',title)
+      // }
 
     
     }

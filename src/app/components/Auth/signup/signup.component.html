@@ -190,12 +190,6 @@
                         <mat-error  *ngIf="register.controls.username.errors?.minlength">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
-<<<<<<< HEAD
-                        <mat-error  *ngIf="usernameexist && register.controls.username.value != ''">
-                          <strong>  Username already exists </strong>
-                        </mat-error>
-=======
->>>>>>> parent of 2b41fd9... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
                       <mat-error *ngIf="register.controls.username.value == ''">
                         Username cannot be empty
                       </mat-error>
