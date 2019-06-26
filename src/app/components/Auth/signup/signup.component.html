@@ -190,7 +190,6 @@
                         <mat-error  *ngIf="register.controls.username.errors?.minlength && !usernameexist">
                           <strong> Username must be between 3 and 64 characters </strong>
                         </mat-error>
-
                       <mat-error *ngIf="register.controls.username.value == ''">
                         Username cannot be empty
                       </mat-error>
