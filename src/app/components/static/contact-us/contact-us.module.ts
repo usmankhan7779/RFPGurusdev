@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule } from '@angular/material';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RecapchaModule } from '../../Auth/recapcha/recapcha.module';
-
+import { InternationalPhoneModule } from 'ng4-intl-phone';
 const routes: Routes = [
   {
     path: '', component: ContactUsComponent
@@ -20,6 +20,7 @@ const routes: Routes = [
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
+    InternationalPhoneModule,
     RecapchaModule,
     TextMaskModule,
     HttpClientModule,

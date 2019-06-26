@@ -30,11 +30,13 @@
                   </mat-form-field>
                 </div>
                 <div class="form-group label-floating">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Phone No." type="text" required name="phone" [textMask]="{mask: phoneMask}"
-                      formControlName="phone">
-                    <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
-                  </mat-form-field>
+                  <div class="example-full-width">
+                    <!-- <input matInput placeholder="Phone No." type="text" required name="phone" [textMask]="{mask: phoneMask}"
+                      formControlName="phone"> -->
+                      <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
+                      </int-phone-prefix>
+                    <!-- <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error> -->
+                    </div>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6">
