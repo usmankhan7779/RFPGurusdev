@@ -53,7 +53,7 @@ export class FooterComponent {
             error => {
                 swal(
                     'Sorry',
-                    'Thie email has already subscribed rfps',
+                    'This email has already subscribed to RFPGurus',
                     'error'
                 )
             })
