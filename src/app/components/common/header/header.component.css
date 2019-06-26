@@ -418,7 +418,8 @@
   @media (min-width:1025px) and (max-width:1280px) {
     .navbar-nav>li>a {
       font-size: 13px !important;
-      padding: 25px 3px
+      padding: 25px 2px;
+      font-weight: 500 !important;
     }
 
     .logo {
