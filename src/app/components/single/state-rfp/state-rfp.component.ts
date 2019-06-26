@@ -14,6 +14,7 @@ import * as moment from 'moment';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { MatDialog } from '@angular/material';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 @Component({
   selector: 'app-state-rfp',
@@ -23,7 +24,7 @@ import { MatDialog } from '@angular/material';
   '../../local-style/table-normal.css',
   '../../local-style/products-area.css'
 ],
-  providers: [PagerService, SharedData, StateService, HomeService, AdvanceService]
+  providers: [PagerService, SharedData, StateService, HomeService, AdvanceService,AllRfpsService]
 })
 export class StateRfpComponent implements OnInit, OnDestroy {
   date;
@@ -45,7 +46,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
   pageSizeOptions;
   currentUser;
 
-  constructor(private advanceServ: AdvanceService, private homeServ: HomeService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: StateService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
+  constructor(private advanceServ: AdvanceService,private getfile :AllRfpsService,  private homeServ: HomeService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: StateService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
   }
   // MatPaginator Inputs
@@ -235,17 +236,84 @@ export class StateRfpComponent implements OnInit, OnDestroy {
         this.length = this.item;
       });
   }
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.getPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        },
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available ",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
+}
   id;
   doc;
-  check_trial(id,url) {
-    if (this.subscribe == "Trial Subscription user") {
-      this.advanceServ.trial_document(id).subscribe(
-        data => {
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(data['web_info'], '_blank');
-          }
-        },
+  public trialshowPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.trialgetPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        } ,
         error => {
           if (error.status == 400) {
             swal({
@@ -274,10 +342,31 @@ export class StateRfpComponent implements OnInit, OnDestroy {
               confirmButtonColor: "#090200",
             });
           }
-        })
-    } else if (this.subscribe == "Subscribe user") {
+        }
+        );
+}
+  check_trial(id,url,title) {
+    if (this.subscribe == "Trial Subscription user") {
+      this.trialshowPDF(id,title)
+        } else if (this.subscribe == "Subscribe user") {
 
-      window.open(url, '_blank');
+      this.advanceServ.downloadRfp().subscribe(
+        data=>{
+              this.showPDF(id,title)
+  
+            },
+        error=>{
+          if(error.status==403){
+            swal({
+              type: 'error',
+              title: "Your have already downloaded 100 documents",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+      )
 
     }
 

@@ -273,7 +273,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         this.serv.deleteCard(id).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Credit card Is deleted',
+            title: 'Credit card is deleted',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })

@@ -224,7 +224,21 @@ export class AllRfpsComponent implements OnInit {
                 window.URL.revokeObjectURL(data);
                 link.remove();
             }, 100);
-        });
+        }
+        ,
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available ",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
 }
   // get_download_file
   adminlogin;
@@ -244,20 +258,42 @@ export class AllRfpsComponent implements OnInit {
     this._nav.navigate([sth]);
   }
   doc;
-  check_trial(id, web_info,title) {
-    if (this.subscribe == "Trial Subscription user") {
-      this._serv.trial_document(id).subscribe(
-        data => {
-          if (data['status'] == 'True') {
-            this.doc = data['status'];
-            window.open(data['web_info'], '_blank');
-          }
-        },
+  public trialshowPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this._serv.trialgetPDF(rfpkey)
+        .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        } ,
         error => {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "Bad request!",
+              title: "Bad request",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -266,7 +302,7 @@ export class AllRfpsComponent implements OnInit {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "You have already downloaded 5 documents",
+              title: "Your have already downloaded 5 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -281,8 +317,13 @@ export class AllRfpsComponent implements OnInit {
               confirmButtonColor: "#090200",
             });
           }
-        })
-    }
+        }
+        );
+}
+  check_trial(id, web_info,title) {
+    if (this.subscribe == "Trial Subscription user") {
+      this.trialshowPDF(id,title)
+        }
     else if (this.subscribe == "Subscribe user") {
       this.__serv.downloadRfp().subscribe(
         data=>{
