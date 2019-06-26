@@ -161,7 +161,7 @@ export class HeaderComponent implements OnInit {
       width: '512px',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it'
     }).then((result) => {
       // alert(result)
       if (result == true) {

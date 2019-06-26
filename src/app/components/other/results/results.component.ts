@@ -73,7 +73,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       data => {
         if (data['status'] = "200") {
           swal(
-            'File Downloaded Successfully!',
+            'File Downloaded Successfully',
             '',
             'success'
           )

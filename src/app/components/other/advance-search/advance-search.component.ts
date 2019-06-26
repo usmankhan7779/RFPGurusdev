@@ -146,7 +146,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       data => {
         if (data['status'] = "200") {
           swal(
-            'File Downloaded Successfully!',
+            'File Downloaded Successfully',
             '',
             'success'
           )
@@ -537,7 +537,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
 
   }
   doc;
-  check_trial(id,url) {
+  downloadrfp(id,url){
     if (this.subscribe == "Trial Subscription user") {
       this._serv.trial_document(id).subscribe(
         data => {
@@ -550,7 +550,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "Bad request!",
+              title: "Bad request",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -575,13 +575,28 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
             });
           }
         })
-    } else if (this.subscribe == "Subscribe user") {
-
-      window.open(url, '_blank');
-
-    }
-
+      }
+   
+   else if (this.subscribe == "Subscribe user") {
+    this._serv.downloadRfp().subscribe(
+      data=>{
+            window.open(url, '_blank');
+          },
+      error=>{
+        if(error.status==403){
+          swal({
+            type: 'error',
+            title: "Your have already downloaded 500 documents",
+            showConfirmButton: true,
+            width: '512px',
+            confirmButtonColor: "#090200",
+          });
+        }
+      }
+    )
   }
+}
+  
   check_login() {
     if (localStorage.getItem('currentadmin')) {
       this.subscribe = localStorage.getItem('currentadmin')

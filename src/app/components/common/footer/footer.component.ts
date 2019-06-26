@@ -45,7 +45,7 @@ export class FooterComponent {
             data => {
                 swal({
                     type: 'success',
-                    title: 'Successfully subscribed!',
+                    title: 'Successfully subscribed',
                     showConfirmButton: false,
                     timer: 1500, width: '512px',
                 });
@@ -53,7 +53,7 @@ export class FooterComponent {
             error => {
                 swal(
                     'Sorry',
-                    'You already subscribed!',
+                    'Thie email has already subscribed rfps',
                     'error'
                 )
             })
