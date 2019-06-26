@@ -9,10 +9,16 @@
               <h3><i class="fa fa-list-alt" aria-hidden="true"></i>All Categories</h3>
             </div>
             <div class="col-sm-4 text-right">
-              <input type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}"
+              <input type="text"   [(ngModel)]="catsearch" #catsearchsearch="ngModel" 
+              [ngModelOptions]="{standalone: true}"   (keydown)=filter(catsearch)
                 placeholder="Search Categories" class="search-allstates">
               <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
             </div>
+            <!-- <div class="search-holder">
+              <input ngAutoFocus type="search" name=querysearch [(ngModel)]="query" #querysearch="ngModel"
+                (keydown)=filter(query) placeholder="Search Agencies" id="textsearch">
+              <i class="fa fa-close" id="iconClose" (click)="closeSearch()"></i>
+            </div> -->
           </div>
         </div>
         <div class="row">
