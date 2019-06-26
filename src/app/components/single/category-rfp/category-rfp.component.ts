@@ -14,6 +14,7 @@ import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { MatDialog } from '@angular/material';
 import { AdvanceService } from '../../other/advance-search/advance.service';
+import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 @Component({
   selector: 'app-category-rfp',
@@ -23,7 +24,7 @@ import { AdvanceService } from '../../other/advance-search/advance.service';
     '../../local-style/table-normal.css',
     '../../local-style/products-area.css'
   ],
-  providers: [PagerService, SharedData, CategoryRfpService, HomeService, AdvanceService]
+  providers: [PagerService, SharedData, CategoryRfpService, HomeService, AdvanceService,AllRfpsService]
 })
 export class CategoryRfpComponent implements OnInit {
   date;
@@ -47,7 +48,7 @@ export class CategoryRfpComponent implements OnInit {
   uname;
   subscribe;
 
-  constructor(private homeServ: HomeService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: CategoryRfpService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService, private _adserv: AdvanceService) {
+  constructor(private homeServ: HomeService,private getfile :AllRfpsService, public dialog: MatDialog, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: CategoryRfpService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService, private _adserv: AdvanceService) {
     localStorage.removeItem('member');
   }
   // MatPaginator Inputs
@@ -238,9 +239,57 @@ export class CategoryRfpComponent implements OnInit {
     let sth = 'rfp/' + query;
     this._nav.navigate([sth]);
   }
+  public showPDF(rfpkey,title): void {
+    // alert(rfpkey)
+    this.getfile.getPDF(rfpkey)
+        .subscribe(x => {
+          console.log(x)
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+            
+
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+
+            // For other browsers: 
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = title+".pdf";
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        }
+        ,
+        error => {
+          if (error.status == 400) {
+            swal({
+              type: 'error',
+              title: "NO pdf Available",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
+        }
+        
+        );
+}
   id;
   doc;
-  check_trial(id,url) {
+  check_trial(id,url,title) {
     if (this.subscribe == "Trial Subscription user") {
       this._adserv.trial_document(id).subscribe(
         data => {
@@ -279,7 +328,8 @@ export class CategoryRfpComponent implements OnInit {
           }
         })
     } else if (this.subscribe == "Subscribe user") {
-      window.open(url, '_blank');
+      // window.open(url, '_blank');
+      this.showPDF(id,title)
     }
   }
   check_login() {
