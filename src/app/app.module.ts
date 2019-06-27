@@ -27,6 +27,17 @@ import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
+import {
+  MatCardModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatIconModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatSelectModule,
+  MatTabsModule, MatSlideToggleModule, MatNativeDateModule, MatButtonModule,
+} from '@angular/material';
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -47,8 +58,7 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
  
  
 
- 
-
+// export class MaterialModule {}
 @NgModule({
   imports: [
     CommonModule,
@@ -57,8 +67,19 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
     SocialLoginModule,
     HttpClientModule,
     HttpModule,
+    // MaterialModule,
     CountdownModule,
-    
+    MatSlideToggleModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatNativeDateModule,
+    MatButtonModule,
     TextMaskModule,
     Ng2SearchPipeModule,
     AgmCoreModule.forRoot({
