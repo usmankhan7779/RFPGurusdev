@@ -319,7 +319,6 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     localStorage.removeItem('enterdate')
     localStorage.removeItem('duedate')
     localStorage.removeItem('states');
-
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     localStorage.removeItem('subcat')

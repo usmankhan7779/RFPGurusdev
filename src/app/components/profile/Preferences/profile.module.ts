@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatInputModule, MatFormFieldModule, MatSelectModule,MatChipsModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatSelectModule,MatChipsModule,MatSlideToggleModule } from '@angular/material';
 import { TextMaskModule } from 'angular2-text-mask';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { MaterialModule } from '../../../app.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,8 @@ const routes: Routes = [
     MatSelectModule,
     Ng2SearchPipeModule,
     TextMaskModule,
+    // MaterialModule,
+    MatSlideToggleModule,
     RouterModule.forChild(routes),
   ],
   declarations: [ProfileComponent],
@@ -30,4 +33,5 @@ const routes: Routes = [
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
+
 export class ProfileModule { }

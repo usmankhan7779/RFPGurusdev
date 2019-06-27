@@ -74,22 +74,18 @@
     font-size: 20px;
     width: 40px;
     height: 40px;
-    -webkit-border-radius: 100%;
     border-radius: 100%;
     text-align: center;
     padding: 10px;
     -webkit-transition: .5s;
     -o-transition: .5s;
-    -moz-transition: .5s;
     transition: .5s
 }
 
 .list-social li a:hover .fa-pinterest {
     background: #c92228!important;
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
     transform: rotate(360deg);
     color: #fff!important
 }
@@ -102,9 +98,7 @@
 .list-social li a:hover .fa-twitter {
     background: #0084b4!important;
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
     transform: rotate(360deg);
     color: #fff!important
 }
@@ -112,9 +106,7 @@
 .list-social li a:hover .fa-facebook {
     background: #3b5998!important;
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
     transform: rotate(360deg);
     color: #fff!important
 }
@@ -195,12 +187,15 @@
   top: 1px;
   right: 0px;
   color: #c00;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
   z-index: 2;
   opacity: 1;
   padding: 5px 0px 5px 0px;
   background: #fff !important;
   cursor: pointer;
+  -webkit-transition: .1s;
+  -o-transition: .1s;
   transition: .1s;
 }
 .sh-subscribe .btn-rose:hover{
@@ -219,7 +214,8 @@ line-height: 20px;
 font-size: 13px;
 background-color: transparent!important;
 color: red!important;
-box-shadow: none;
+-webkit-box-shadow: none;
+        box-shadow: none;
 }
 
 .sh-subscribe {
@@ -235,7 +231,6 @@ box-shadow: none;
 }
 #newsletterEmail {
     overflow: hidden;
-    -webkit-border-radius: 50px !important;
     border-radius: 50px !important;
     background: #fefefe;
     color: #333;
@@ -258,7 +253,7 @@ box-shadow: none;
     margin: 0
 }
 .sh-h2-resources {
-  margin-left: 30%!important
+  margin-left: 27%!important
 }
 @media (max-width:1366px) {
   .sh-subscribe .form-group {
@@ -269,7 +264,6 @@ box-shadow: none;
     border-radius: 50px!important
 }
 .sh-subscribe .btn-rose {
-    -webkit-border-radius: 50px!important;
     border-radius: 50px!important;
     width: 100%
 }

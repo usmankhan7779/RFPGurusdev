@@ -74,9 +74,7 @@
     height: 48px;
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
-    -moz-transition: all .2s ease;
     transition: all .2s ease;
-    -webkit-border-radius: 100%;
     border-radius: 100%;
     background: #212121;
     border: none;
@@ -149,7 +147,6 @@
     vertical-align: middle;
     -webkit-transition: .5s all;
     -o-transition: .5s all;
-    -moz-transition: .5s all;
     transition: .5s all
 }
 .sh-pkg-holder ngx-slick{
@@ -163,7 +160,6 @@
     border: 1px solid #222;
     min-height: 130px;
     padding: 10px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     margin-right: 10px
 }
@@ -177,7 +173,6 @@
  .CategorySlider .item.slick-slide {
     min-height: 100px;
     padding: 10px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     background: 0 0;
     margin-right: 10px
@@ -208,7 +203,6 @@
 
 .CategorySlider .item .image {
     z-index: 1;
-    -webkit-border-radius: 10px;
     border-radius: 10px
 }
 
@@ -217,7 +211,7 @@
 
 /* Start choose-criteria */
 .choose-criteria {
-    padding: 10px 0;
+    padding: 18px;
     min-height: 100px;
     background: #000
 }
@@ -235,8 +229,9 @@
     margin: 0;
     position: relative;
     letter-spacing: 0;
-    width: 33%
+    width: 25%
 }
+
 
 .choose-criteria ul li i {
     font-size: 60px;
@@ -247,7 +242,10 @@
     right: auto;
     bottom: auto
 }
-
+.choose-criteria ul li #demo{
+    color: #fff;
+    margin: 28px 0 !important;
+}
 .choose-criteria ul li a {
     display: block;
     color: #fff;
@@ -434,15 +432,12 @@
 }
 
 .s-areaCarousel button {
-    width: -webkit-calc(100% - 10px);
-    width: -moz-calc(100% - 10px);
     width: calc(100% - 10px);
     border: none;
     padding: 5px 10px;
     margin: 0 5px;
     text-transform: capitalize;
     font-weight: 700;
-    -webkit-border-radius: 20px;
     border-radius: 20px
 }
 
@@ -515,14 +510,12 @@
 .interest-area ul li a {
   -webkit-transition: all .25s ease;
   -o-transition: all .25s ease;
-  -moz-transition: all .25s ease;
   transition: all .25s ease;
   width: 170px;
   height: 110px;
   display: block;
   padding: 20px;
   color: #bf360c;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   background: #f3f0ef
 }
@@ -539,7 +532,6 @@
 .interest-area ul li a span {
   -webkit-transition: all .25s ease;
   -o-transition: all .25s ease;
-  -moz-transition: all .25s ease;
   transition: all .25s ease;
   font-size: 16px;
   line-height: 20px;
@@ -614,15 +606,11 @@
     box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -o-transform: scale(1.05);
     transform: scale(1.05)
 }
 
 .pw-solutions ul li .holder:hover i {
     -webkit-animation: popupDown .7s;
-    -moz-animation: popupDown .7s;
-    -o-animation: popupDown .7s;
     animation: popupDown .7s
 }
 
@@ -669,7 +657,6 @@
 }
 
 .pw-solutions ul li .img-holder {
-    -webkit-border-radius: 6px;
     border-radius: 6px;
     overflow: hidden;
     text-align: center
@@ -681,7 +668,6 @@
     font-size: 50px;
     line-height: 100px;
     border: 1px solid #dc143c;
-    -webkit-border-radius: 100%;
     border-radius: 100%;
     text-align: center;
     margin: 0 0 15px
@@ -720,13 +706,11 @@
     height: 100%;
     -webkit-transition: all .3s ease-out;
     -o-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
     transition: all .3s ease-out;
     padding: 8px;
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
     background: #fff;
-    -webkit-border-radius: 6px;
     border-radius: 6px
 }
 
@@ -750,7 +734,6 @@
     /* background-image: linear-gradient(to right top,#000,#37141b,#6a1c23,#9c2a21,#c94308); */
     color: #fefefe;
     position: relative;
-    -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 10px;
@@ -779,10 +762,8 @@
 .success-for-business .icon-box {
     -webkit-transition: all .5s ease;
     -o-transition: all .5s ease;
-    -moz-transition: all .5s ease;
     transition: all .5s ease;
     padding: 45px 20px 20px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     text-align: center;
     min-height: 320px;
@@ -800,7 +781,6 @@
 .success-for-business .material-icons {
     -webkit-transition: all .5s ease;
     -o-transition: all .5s ease;
-    -moz-transition: all .5s ease;
     transition: all .5s ease;
     font-size: 65px;
     line-height: 65px;
@@ -884,6 +864,16 @@ font-family: Helvetica!important
   padding: 0;
   margin-right: 10px
 }
+.login-template{
+    overflow: hidden;
+}
+.login-template img{
+    width: 100%;
+}
+
+
+
+
 
 @media (max-width:1024px) {
   .form-home {
@@ -923,4 +913,3 @@ font-family: Helvetica!important
     width: 50px
 }
 }
-

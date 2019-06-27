@@ -104,16 +104,23 @@
                                     RFP as a Service
                                 </a>
                             </li>
+                             <li>
+                                <a  onclick="topFunction()" routerLink="preferences" class="appio-scroll">
+                                   
+                                        <i class="fa fa-envelope-open"></i> Unsubscribe  
+                                   
+                                </a>
+                            </li>
                             <li *ngIf="!check_login() && !check_adminlogin()">
                                 <a  onclick="topFunction()" routerLink="signin" class="appio-scroll">
                                     <i class="material-icons">fingerprint</i>
-                                    Sign in
+                                    Sign In
                                 </a>
                             </li>
                             <li *ngIf="!check_login() && !check_adminlogin()"> 
                                 <a  onclick="topFunction()" routerLink="signup">
                                     <i class="material-icons">lock_open</i>
-                                    Signup
+                                    Sign Up
                                 </a>
                             </li>
                         </ul>
@@ -131,7 +138,7 @@
             </div>
             <div class="col-sm-12 col-md-3 col-lg-3 col-xs-12 subscribe">
                 <h2>What is RFPGurus?</h2>
-                <p>Hundreds of Thousands of RFPs: RFPGurus is the most comprehensive source of Government RFPs, RFIs,
+                <p>Hundreds Of Thousands of RFPs: RFPGurus is the most comprehensive source of Government RFPs, RFIs,
                     RFBs, RFTs and RFQs making
                     Searching, Matching and Bidding on Government Contracts a breeze. The Industry's most comprehensive
                     Feature

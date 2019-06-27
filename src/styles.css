@@ -314,8 +314,6 @@
 
 app-footer-cmp.inner,
 app-header.inner {
-  width: -webkit-calc(100% - 290px);
-  width: -moz-calc(100% - 290px);
   width: calc(100% - 290px);
   margin: 0 30px 0 0;
   float: right
@@ -495,26 +493,6 @@ h3 {
   }
 }
 
-@-moz-keyframes popupDown {
-  35% {
-    font-size: 65px
-  }
-
-  100% {
-    font-size: 50px
-  }
-}
-
-@-o-keyframes popupDown {
-  35% {
-    font-size: 65px
-  }
-
-  100% {
-    font-size: 50px
-  }
-}
-
 @keyframes popupDown {
   35% {
     font-size: 65px
@@ -596,7 +574,8 @@ h3 {
 .page-title {
   margin: 10px 0;
   overflow: hidden;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   min-height: 41px
 }
 
@@ -615,7 +594,6 @@ h3 {
   position: absolute;
   background: -webkit-linear-gradient(135deg, #ef5350 0, #880e4f 100%);
   background: -o-linear-gradient(135deg, #ef5350 0, #880e4f 100%);
-  background: -moz-linear-gradient(135deg, #ef5350 0, #880e4f 100%);
   background: linear-gradient(-45deg, #ef5350 0, #880e4f 100%)
 }
 
@@ -820,7 +798,6 @@ text tspan {
   border: 1px solid #ccc !important;
   margin-bottom: 5px;
   font-size: 16px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   font-weight: 600;
   position: relative;
@@ -928,7 +905,6 @@ a.sort.desc::after {
 
 .sh-more-condense-spaces .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-18px) scale(.75) perspective(100px) translateZ(0);
-  -moz-transform: translateY(-18px) scale(.75) perspective(100px) translateZ(0);
   transform: translateY(-18px) scale(.75) perspective(100px) translateZ(0);
   -ms-transform: translateY(-1.28125em) scale(.75)
 }
@@ -940,14 +916,11 @@ a.sort.desc::after {
 }
 
 .ng2-smart-filter select {
-  height: -webkit-calc(2rem + 4px) !important;
-  height: -moz-calc(2rem + 4px) !important;
   height: calc(2rem + 4px) !important;
   padding: 0 10px !important
 }
 
 .btn {
-  -webkit-border-radius: 50px !important;
   border-radius: 50px !important
 }
 
@@ -965,7 +938,6 @@ a.sort.desc::after {
 
 .sh-more-condense-spaces.sh .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-7px) scale(.75) perspective(100px) translateZ(0);
-  -moz-transform: translateY(-7px) scale(.75) perspective(100px) translateZ(0);
   transform: translateY(-7px) scale(.75) perspective(100px) translateZ(0);
   -ms-transform: translateY(-1.28125em) scale(.75);
   font-size: 14px
@@ -1038,8 +1010,6 @@ button {
 }
 
 .subscribe .mat-input-subscript-wrapper {
-  top: -webkit-calc(100% - 14px);
-  top: -moz-calc(100% - 14px);
   top: calc(100% - 14px)
 }
 
@@ -1068,7 +1038,6 @@ button {
 
 .sh-signup-form-fix.add-new-card .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(-12px) scale(.75) !important
 }
@@ -1217,7 +1186,6 @@ btn.btn-success.dropdown-toggle:focus {
   position: relative;
   display: block;
   margin: 20px 0;
-  -webkit-border-radius: 5px;
   border-radius: 5px
 }
 
@@ -1232,13 +1200,15 @@ btn.btn-success.dropdown-toggle:focus {
   height: 45px !important;
   padding: 22px 10px 5px;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-bottom: 1px solid rgba(0, 0, 0, .42);
   border-radius: 0
 }
 
 .phonee .dropbtn {
-  box-shadow: 0 0 5px #ccc
+  -webkit-box-shadow: 0 0 5px #ccc;
+          box-shadow: 0 0 5px #ccc
 }
 
 .flagInput {
@@ -1268,7 +1238,6 @@ btn.btn-success.dropdown-toggle:focus {
 }
 
 .inp {
-  -webkit-border-radius: 0;
   border-radius: 0;
   border: 1px solid #204d74;
   background: #fff;
@@ -1323,26 +1292,6 @@ btn.btn-success.dropdown-toggle:focus {
   }
 }
 
-@-moz-keyframes blink {
-  from {
-    opacity: .5
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
-@-o-keyframes blink {
-  from {
-    opacity: .5
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
 @keyframes blink {
   from {
     opacity: .5
@@ -1355,16 +1304,10 @@ btn.btn-success.dropdown-toggle:focus {
 
 .animation-blink {
   -webkit-animation-name: blink;
-  -moz-animation-name: blink;
-  -o-animation-name: blink;
   animation-name: blink;
   -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-iteration-count: 10;
-  -moz-animation-iteration-count: 10;
-  -o-animation-iteration-count: 10;
   animation-iteration-count: 10
 }
 
@@ -1387,7 +1330,6 @@ btn.btn-success.dropdown-toggle:focus {
   visibility: hidden;
   -webkit-transition: .3s ease all 0s;
   -o-transition: .3s ease all 0s;
-  -moz-transition: .3s ease all 0s;
   transition: .3s ease all 0s;
   padding: 100px 60px 45px !important
 }
@@ -1399,7 +1341,6 @@ btn.btn-success.dropdown-toggle:focus {
 
 .search-holder {
   border: 1px solid #777;
-  -webkit-border-radius: 55px;
   border-radius: 55px;
   padding: 10px 20px;
   margin: 0 auto;
@@ -1470,7 +1411,6 @@ btn.btn-success.dropdown-toggle:focus {
 .search-results {
   padding: 20px 40px;
   background: #fff;
-  -webkit-border-radius: 30px;
   border-radius: 30px;
   font-size: 24px !important;
   margin: 0 auto !important;
@@ -1666,7 +1606,6 @@ a:hover {
 }
 
 .sub {
-  -webkit-border-radius: 34px;
   border-radius: 34px
 }
 
@@ -1760,13 +1699,11 @@ a:hover {
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 5px grey;
   box-shadow: inset 0 0 5px grey;
-  -webkit-border-radius: 10px;
   border-radius: 10px
 }
 
 ::-webkit-scrollbar-thumb {
   background: #717171;
-  -webkit-border-radius: 10px;
   border-radius: 10px
 }
 
@@ -1890,14 +1827,12 @@ button:focus {
 
 .sh-why-rfpgurus {
   background: url(assets/img/Why-RFP-Gurus.png) center center no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
   text-align: center
 }
 
 .sh-ourExpertTeam {
   background: url(assets/img/banner/our_experts-min.jpg) center center no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
   color: #fff;
   text-align: center
@@ -2056,8 +1991,6 @@ button {
 
 #map {
   width: 100%;
-  height: -webkit-calc(100% - 60px);
-  height: -moz-calc(100% - 60px);
   height: calc(100% - 60px);
   margin-top: 70px
 }
@@ -2104,7 +2037,6 @@ button {
   background-image: -webkit-linear-gradient(#3f51b5, #3f51b5), -webkit-linear-gradient(#3f51b5, #3f51b5);
   background-image: -o-linear-gradient(#3f51b5, #3f51b5), -o-linear-gradient(#3f51b5, #3f51b5);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3f51b5), to(#3f51b5)), -webkit-gradient(linear, left top, left bottom, from(#3f51b5), to(#3f51b5));
-  background-image: -moz-linear-gradient(#3f51b5, #3f51b5), -moz-linear-gradient(#3f51b5, #3f51b5);
   background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#3f51b5, #3f51b5)
 }
 
@@ -2179,7 +2111,6 @@ button {
 
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(15px) scale(.75) !important
 }
@@ -2355,7 +2286,8 @@ body {
   position: relative;
   width: 100%;
   color: rgba(0, 0, 0, .87);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
   background: #fff;
   border-radius: 5px
 }
@@ -2371,8 +2303,6 @@ body {
 
 .dashboard-footer {
   float: right;
-  width: -webkit-calc(100% - 260px);
-  width: -moz-calc(100% - 260px);
   width: calc(100% - 260px)
 }
 
@@ -2400,7 +2330,8 @@ body {
 
 .signup-form .has-error .form-control:focus {
   border-color: none;
-  box-shadow: none
+  -webkit-box-shadow: none;
+          box-shadow: none
 }
 
 .signup-form .has-error .input-group-addon {
@@ -2441,7 +2372,6 @@ body {
 
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(15px) scale(.75) !important
 }
@@ -2555,7 +2485,8 @@ body {
 
 .latest-rfps-title {
   overflow: hidden;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   white-space: nowrap;
   min-height: 41px
 }
@@ -2634,7 +2565,8 @@ body {
   position: relative;
   width: 100%;
   color: rgba(0, 0, 0, .87);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
   background: #fff;
   border-radius: 5px
 }
@@ -2666,8 +2598,6 @@ body {
 
 .dashboard-footer {
   float: right;
-  width: -webkit-calc(100% - 260px);
-  width: -moz-calc(100% - 260px);
   width: calc(100% - 260px)
 }
 
@@ -2726,14 +2656,12 @@ body {
 
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(5px) scale(.75) !important
 }
 
 .sh-signup-form-fix.sh .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(-12px) scale(.75) !important
 }
@@ -2747,12 +2675,13 @@ body {
 }
 
 .sh-signup-form-fix .mat-select {
-  box-shadow: none
+  -webkit-box-shadow: none;
+          box-shadow: none
 }
 
 .sh-signup-form-fix .clr_red {
   color: #c00;
-  margin: -20px 0 -4px;
+  margin: -10px 0 -4px;
   font-size: 12px;
   font-weight: 700 !important;
 }
@@ -2862,7 +2791,6 @@ body {
 
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(5px) scale(.75) !important
 }
@@ -2964,7 +2892,6 @@ body {
 }
 
 .sh-sidebar-user .mat-form-field-flex {
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   border: none;
   -webkit-box-shadow: none;
@@ -3053,14 +2980,12 @@ body {
 
 .sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(5px) scale(.75) !important
 }
 
 .sh-signup-form-fix.sh .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-12px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(-12px) scale(.75) !important
 }
@@ -3078,8 +3003,14 @@ body {
 }
 
 .sh-signup-form-fix .mat-select {
-  box-shadow: none
+  -webkit-box-shadow: none;
+          box-shadow: none
 }
+
+
+
+
+
 
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
 .sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
@@ -3175,7 +3106,6 @@ body {
 
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
-  -moz-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   -ms-transform: translateY(5px) scale(.75) !important
 }
@@ -3246,7 +3176,6 @@ body {
 }
 
 .sh-sidebar-user .mat-form-field-flex {
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   border-bottom: 1px solid #e6e6e6 !important
 }
@@ -3283,7 +3212,6 @@ body {
 }
 
 .sh-sidebar-user .mat-form-field-flex {
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   border: none;
   -webkit-box-shadow: none;
@@ -3486,12 +3414,14 @@ body {
 
 .form-control:focus {
   outline: 0;
-  box-shadow: none
+  -webkit-box-shadow: none;
+          box-shadow: none
 }
 
 .has-error .form-control:focus {
   border-color: #843534;
-  box-shadow: none
+  -webkit-box-shadow: none;
+          box-shadow: none
 }
 
 .has-error .input-group-addon {
@@ -3501,7 +3431,8 @@ body {
 }
 
 .w3-animate-left {
-  animation: animateleft .4s
+  -webkit-animation: animateleft .4s;
+          animation: animateleft .4s
 }
 
 @keyframes animateleft {
@@ -3517,30 +3448,6 @@ body {
 }
 
 @-webkit-keyframes animateleft {
-  from {
-    left: -300px;
-    opacity: 0
-  }
-
-  to {
-    left: 0;
-    opacity: 1
-  }
-}
-
-@-moz-keyframes animateleft {
-  from {
-    left: -300px;
-    opacity: 0
-  }
-
-  to {
-    left: 0;
-    opacity: 1
-  }
-}
-
-@-o-keyframes animateleft {
   from {
     left: -300px;
     opacity: 0
@@ -3582,6 +3489,50 @@ textarea::-webkit-scrollbar {
   color: #f44336 !important
 }
 
+
+/* Start conter */
+.pd-0-i{
+  padding: 0 !important;
+}
+.mainpagee .countdown .measurements {
+  width: 23%;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 69px;
+}
+.mainpagee .countdown .measurements {
+  display: inline-block;
+  padding: 10px;
+  background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
+}
+.mainpagee .countdown .measurements p:first-child {
+  color: #000!important;
+  padding: 5px;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 24px;
+  margin: 0;
+  min-width: 50px;
+  font-weight: 600;
+}
+.mainpagee .countdown .measurements p {
+  color: #fff;
+  padding-top: 5px;
+  padding-top: 9px;
+  font-size: 16px;
+  margin: 0;
+}
+.benner-conter{
+  width: 300px;
+  position: absolute;
+  top: 190px;
+  right: 116px;
+}
+/* End conter */
+
+
+
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important
@@ -3597,6 +3548,9 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:1280px) {
+  .mainpagee .countdown .measurements p:first-child{
+    min-width: auto;
+  }
   .history-table th {
     font-size: 16px!important;
   }
@@ -3732,12 +3686,9 @@ textarea::-webkit-scrollbar {
     bottom: 0 !important;
     -webkit-transition: .4s ease-in-out all !important;
     -o-transition: .4s ease-in-out all !important;
-    -moz-transition: .4s ease-in-out all !important;
     transition: .4s ease-in-out all !important;
     -webkit-transform: none !important;
     -ms-transform: none !important;
-    -moz-transform: none !important;
-    -o-transform: none !important;
     transform: none;
     z-index: 99
   }
@@ -3962,17 +3913,7 @@ textarea::-webkit-scrollbar {
     font-size: 30px !important
   }
 
-  .search-outer input::-moz-placeholder {
-    line-height: 30px !important;
-    font-size: 30px !important
-  }
-
   .search-outer input:-ms-input-placeholder {
-    line-height: 30px !important;
-    font-size: 30px !important
-  }
-
-  .search-outer input:-moz-placeholder {
     line-height: 30px !important;
     font-size: 30px !important
   }
@@ -4151,6 +4092,8 @@ textarea::-webkit-scrollbar {
   }
 
   .mySidebar {
+    -webkit-transition: 1s ease-in-out all;
+    -o-transition: 1s ease-in-out all;
     transition: 1s ease-in-out all
   }
 
@@ -4180,19 +4123,9 @@ textarea::-webkit-scrollbar {
     font-size: 23px !important
   }
 
-  .search-outer input::-moz-placeholder {
-    line-height: 20px !important;
-    font-size: 23px !important
-  }
-
   .search-outer input:-ms-input-placeholder {
     line-height: 20px !important;
     font-size: 23px !important
-  }
-
-  .search-outer input:-moz-placeholder {
-    font-size: 23px !important;
-    line-height: 20px !important
   }
 
   .search-outer input::-ms-input-placeholder {
@@ -4649,9 +4582,7 @@ textarea::-webkit-scrollbar {
 
   .typo-line .category {
     -webkit-transform: translateY(-50%) !important;
-    -moz-transform: translateY(-50%) !important;
     -ms-transform: translateY(-50%) !important;
-    -o-transform: translateY(-50%) !important;
     transform: translateY(-50%) !important;
     top: 50% !important;
     left: 0 !important;
@@ -4724,7 +4655,6 @@ textarea::-webkit-scrollbar {
   }
 
   .sh-subscribe #newsletterEmail {
-    -webkit-border-radius: 50px !important;
     border-radius: 50px !important
   }
 
@@ -4734,7 +4664,6 @@ textarea::-webkit-scrollbar {
 
   .sh-subscribe .btn {
     width: 100% !important;
-    -webkit-border-radius: 50px !important;
     border-radius: 50px !important
   }
 
