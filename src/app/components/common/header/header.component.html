@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="" *ngIf="!subscribe">
-            <a onclick="topFunction()" routerLink="/pricing" routerLinkActive="Active">
+            <a onclick="topFunction()" (click)="pricing()" routerLink="/pricing" routerLinkActive="Active">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>Pricing
             </a>
           </li>

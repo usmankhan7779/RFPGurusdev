@@ -94,6 +94,9 @@ export class HeaderComponent implements OnInit {
     );
   }
 
+  pricing(){
+    localStorage.removeItem('pricing')
+  }
   deletenofication(id) {
     this._serv.deletenotify(id).subscribe(
       data => {
