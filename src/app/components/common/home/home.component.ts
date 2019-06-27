@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.openModal.nativeElement.click();
-    }, 20000);
+    }, 2000);
 
     this.getRFPandCategory();
     this.CategorySlider();

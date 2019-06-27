@@ -19,7 +19,8 @@ import { MapModule } from '../../cards/map/map.module';
         HttpClientModule,
         FeaturecomparisonModule,
         RandomCategoriesModule,
-        MapModule
+        MapModule,
+         
     ],
     declarations: [HomeComponent],
     providers: [HomeService],
