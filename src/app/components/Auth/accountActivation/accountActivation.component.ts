@@ -28,7 +28,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
         data => {
           swal({
             type: 'success',
-            title: 'Your account is verified',
+            title: 'Your account has been successfully verified. Please login to continue for a Next-Gen RFP Search and Alert experience.',
             showConfirmButton: false,
             timer: 2000,
             width: '512px',
