@@ -21,6 +21,8 @@
   display: block;
   font-weight: 600;
   outline: 0!important;
+  -webkit-transition: none;
+  -o-transition: none;
   transition: none;
 }
 

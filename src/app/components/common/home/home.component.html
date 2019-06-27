@@ -89,10 +89,11 @@
 
 <div class="row">
             <section class="choose-criteria" async>
-                <div class="container">
+                <div class="container-fluid">
                     <ul>
                         <li> <a routerLink="pricing"> <i class="material-icons">explore</i>
                                 <h4>Pricing</h4>
+                                 
                                 <p>Get premium quality service at great prices.</p>
                             </a></li>
                         <li> <a routerLink="find-rfps"> <i class="material-icons">polymer</i>
@@ -103,6 +104,9 @@
                                 <h4>RFP as a Service</h4>
                                 <p>Services and more.</p>
                             </a></li>
+                        <li>
+                            <p id="demo"></p>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -405,8 +409,8 @@
   <div *ngIf="!check_login()" class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content login-template">
+                <!-- <div class="modal-header">
                     <div style="float: top; float: right"> <button type="button" class="close sh" data-dismiss="modal"
                             aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div>
                     <h5 class="modal-title must-login Halvetica main_heading" id="exampleModalCenterTitle">Join RFPGurus
@@ -418,6 +422,9 @@
                     Federal, State,
                     County, City and all other levels of government.<div class="custom-popup-img"> <img
                             src="../../assets/img/RFPGurus-Home-Screen-Logo.png"></div>
+                </div> -->
+                <div class="">
+                    <img src="../../assets/img/Header.png">
                 </div>
                 <div class="modal-footer"> <a routerLink="signin"> <button title="Member Login" type="button"
                             class="btn btn-primary btn-must-login" data-dismiss="modal">Member

@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.Rfp = '';
     }
   }
+  
   focusInput() {
     if (this.mainSearch == 1) {
       let inputField: HTMLElement = <HTMLElement>document.querySelectorAll('.search-holder input')[0];
@@ -69,6 +70,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
     }
   }
+  
   singlerfp(query) {
     let sth = 'rfp/' + query;
     this._nav.navigate([sth]);
@@ -106,9 +108,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.subscriber();
 
-    // setTimeout(() => {
-    //   this.openModal.nativeElement.click();
-    // }, 20000);
+    setTimeout(() => {
+      this.openModal.nativeElement.click();
+    }, 20000);
 
     this.getRFPandCategory();
     this.CategorySlider();
