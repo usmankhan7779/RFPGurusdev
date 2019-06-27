@@ -3005,6 +3005,11 @@ body {
           box-shadow: none
 }
 
+
+
+
+
+
 .sh-sidebar-more-condense .mat-form-field-appearance-legacy .mat-form-field-label,
 .sh-sidebar-more-condense .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
 .sh-sidebar-more-condense mat-form-field.mat-form-field {
@@ -3481,6 +3486,49 @@ textarea::-webkit-scrollbar {
 .mat-form-field.mat-form-field-invalid .mat-form-field-label {
   color: #f44336 !important
 }
+
+
+/* Start conter */
+.pd-0-i{
+  padding: 0 !important;
+}
+.mainpagee .countdown .measurements {
+  width: 23%;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+.mainpagee .countdown .measurements {
+  display: inline-block;
+  padding: 10px;
+  background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
+}
+.mainpagee .countdown .measurements p:first-child {
+  color: #000!important;
+  padding: 5px;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 24px;
+  margin: 0;
+  min-width: 50px;
+  font-weight: 600;
+}
+.mainpagee .countdown .measurements p {
+  color: #fff;
+  padding-top: 5px;
+  padding-top: 9px;
+  font-size: 16px;
+  margin: 0;
+}
+.benner-conter{
+  width: 300px;
+  position: absolute;
+  top: 190px;
+  right: 116px;
+}
+/* End conter */
+
+
 
 @media (min-width:1400px) {
   .svg_map {

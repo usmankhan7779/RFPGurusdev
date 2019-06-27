@@ -130,7 +130,6 @@ export class PricingComponent implements OnInit {
 
     // --------------- SEO Service End ---------------
     this.form = this.formBuilder.group({
-      var_type_atm: ['', Validators.compose([Validators.required])],
       CardNumberForm: ['', Validators.compose([Validators.required])],
       CardNumberForm2: ['', Validators.compose([Validators.required])],
       CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
