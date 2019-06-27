@@ -1,5 +1,6 @@
 // ------------------- Components
 import { AppComponent } from './app.component';
+import { CountdownModule } from 'ng2-countdown-timer';
 
 // ------------------- Modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -56,6 +57,7 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
     SocialLoginModule,
     HttpClientModule,
     HttpModule,
+    CountdownModule,
     
     TextMaskModule,
     Ng2SearchPipeModule,
