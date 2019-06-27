@@ -2679,7 +2679,7 @@ body {
 
 .sh-signup-form-fix .clr_red {
   color: #c00;
-  margin: -20px 0 -4px;
+  margin: -10px 0 -4px;
   font-size: 12px;
   font-weight: 700 !important;
 }
@@ -3497,6 +3497,7 @@ textarea::-webkit-scrollbar {
   margin: 0 5px;
   text-align: center;
   border-radius: 5px;
+  max-width: 69px;
 }
 .mainpagee .countdown .measurements {
   display: inline-block;
@@ -3545,6 +3546,9 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:1280px) {
+  .mainpagee .countdown .measurements p:first-child{
+    min-width: auto;
+  }
   .history-table th {
     font-size: 16px!important;
   }
