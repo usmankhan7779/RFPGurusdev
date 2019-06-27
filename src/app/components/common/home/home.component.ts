@@ -27,6 +27,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.date = moment(date, this.formats, true).isValid()
     return this.date;
   }
+  text:any = {
+    Year: 'Year',
+    Month: 'Month',
+    Weeks: "Weeks",
+    Days: "Days",
+    Hours: "Hrs",
+    Minutes: "Mins",
+    Seconds: "Secs",
+    MilliSeconds: "MilliSeconds"
+  };
   formats = [
     moment.ISO_8601,
     "YYYY/MM/DD"
@@ -110,7 +120,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.openModal.nativeElement.click();
-    }, 2000);
+    }, 200);
 
     this.getRFPandCategory();
     this.CategorySlider();
