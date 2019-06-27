@@ -74,11 +74,11 @@
 
           <div class="form-group" [ngClass]="displayFieldCss(partnership, 'firstname')">
             <mat-form-field>
-              <input matInput placeholder="Name" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text">
+              <input matInput placeholder="Name" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text" required>
             </mat-form-field>
             <div class="error-mat" *ngIf="firstname.touched && !firstname.valid">
                 <div *ngIf="firstname.errors.required">
-                  <strong>First name cannot be empty</strong>
+                  <strong>Name cannot be empty</strong>
                 </div>
                 <div *ngIf="firstname.errors.pattern">
                   Only Alphabets
@@ -87,7 +87,7 @@
           </div>
           <div class="form-group" [ngClass]="displayFieldCss(partnership, 'email')">
           <mat-form-field>
-              <input matInput placeholder="Email"  id="email" formControlName="email" placeholder="Email">
+              <input matInput placeholder="Email"  id="email" formControlName="email" placeholder="Email" required>
             </mat-form-field>
             <div class="error-mat" *ngIf="email.touched && !email.valid">
                 <div *ngIf="email.errors.required">
@@ -100,7 +100,7 @@
             </div>
             <div  class="form-group" [ngClass]="displayFieldCss(partnership, 'cName')">
             <mat-form-field>
-                <input matInput placeholder="Company Name" maxlength="20"   formControlName="cName">
+                <input matInput placeholder="Company Name" maxlength="20"   formControlName="cName" required>
               </mat-form-field>
               <div class="error-mat" *ngIf="cName.touched && !cName.valid">
                   <div *ngIf="cName.errors.required">
@@ -113,7 +113,7 @@
               </div>
               <div>
             <mat-form-field>
-              <textarea matInput placeholder="How can we Partner Up? *" id="Partner_description" formControlName="Partner_description"></textarea>
+              <textarea matInput placeholder="How can we Partner Up?" id="Partner_description" formControlName="Partner_description" required></textarea>
             </mat-form-field>
           </div>
           <button class="btn btn-rose" [disabled]="!partnership.valid">Submit</button>
