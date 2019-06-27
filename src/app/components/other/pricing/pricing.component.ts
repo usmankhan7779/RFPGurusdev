@@ -154,6 +154,20 @@ export class PricingComponent implements OnInit {
         }
       })
     }
+    if(localStorage.getItem('pricing')=='BM'){
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (localStorage.getItem('pricing')=='PY'){
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("P", "Y");
+    }
 
   }
   res;
