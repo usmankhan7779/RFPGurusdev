@@ -21,7 +21,8 @@ import {CountdownModule} from "ng2-countdown-timer";
         CountdownModule,
         FeaturecomparisonModule,
         RandomCategoriesModule,
-        MapModule
+        MapModule,
+         
     ],
     declarations: [HomeComponent],
     providers: [HomeService],
