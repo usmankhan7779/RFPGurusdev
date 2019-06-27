@@ -71,27 +71,28 @@ export class SingleRfpComponent implements OnInit {
       else if (agency == 'agency') {
         // alert(agency)
         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-      } else if (url == 'admin-panel') {
+      } else if (url == 'admin-panel') 
+      {
         this._nav.navigate([url]);
       }
-      else if (url == 'latest-rfps')  {
-        this._nav.navigate(['/latest-rfps']);     
-      }
-      else if (url == 'find-rfp')  {
-        this._nav.navigate(['/find-rfps']);     
-      }
-      else if (url == 'advanced-search') {
+      // else if (url == 'latest-rfps')  {
+      //   this._nav.navigate(['/latest-rfps']);     
+      // }
+      // else if (url == 'find-rfp')  {
+      //   this._nav.navigate(['/find-rfps']);     
+      // }
+      // else if (url == 'advanced-search') {
         
-        this._nav.navigate(['advanced-search']);     
-      }
-      else if (url == 'notifications')
-      {
-        this._nav.navigate(['notifications']);
-      }
-      else
-      {
-        this._nav.navigate(['my-watchlist']);
-      }
+      //   this._nav.navigate(['advanced-search']);     
+      // }
+      // else if (url == 'notifications')
+      // {
+      //   this._nav.navigate(['notifications']);
+      // }
+      // else
+      // {
+      //   this._nav.navigate(['my-watchlist']);
+      // }
      
     }
     else {
