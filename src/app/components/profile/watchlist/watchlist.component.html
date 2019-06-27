@@ -11,6 +11,10 @@
             <span>Watch List</span>
 
           </div>
+          <div class="col-sm-12 pd-20-0" *ngIf="wrfp">
+            <button class="btn btn-rose" onclick="topFunction()" (click)="All_deletewatchlist()"
+              title="Clear All Watch List" type="submit">Clear all Watch List</button>
+        </div>
           <div class="col-sm-12 text-center mg-top-100" *ngIf="message == 'No Rfp in your Watch List' ">
             <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
             <h3 class="text-center">Your Watch List is empty</h3>
