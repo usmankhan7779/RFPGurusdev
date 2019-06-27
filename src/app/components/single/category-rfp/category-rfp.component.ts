@@ -161,12 +161,12 @@ export class CategoryRfpComponent implements OnInit {
         header.classList.remove("sticky");
       }
     }
-    if (localStorage.getItem('catpage')) {
-      var page_num: number = Number(localStorage.getItem('catpage'));
-      this.setpage(page_num);
-    } else {
+    // if (localStorage.getItem('catpage')) {
+    //   var page_num: number = Number(localStorage.getItem('catpage'));
+    //   this.setpage(page_num);
+    // } else {
       this.setpage(1);
-    }
+    // }
     // this.setpage(1);
     this.check_login();
     if (localStorage.getItem('currentadmin')) {
