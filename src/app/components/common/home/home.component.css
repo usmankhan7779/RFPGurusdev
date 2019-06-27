@@ -870,6 +870,11 @@ font-family: Helvetica!important
 .login-template img{
     width: 100%;
 }
+
+
+
+
+
 @media (max-width:1024px) {
   .form-home {
       left: 55px
