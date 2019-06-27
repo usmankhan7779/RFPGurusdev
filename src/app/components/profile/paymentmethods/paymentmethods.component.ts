@@ -343,7 +343,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
           this.form.value['nickname']).subscribe(Data => {
           swal({
             type: 'success',
-            title: ' Payment Method is listed successfully',
+            title: ' Payment Method has been added successfully',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
@@ -373,7 +373,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
           swal({
             type: 'success',
-            title: 'Payment Method Is Listed',
+            title: 'Payment Method has been added successfully',
             showConfirmButton: false,
             timer: 1500, width: '512px',
           });
