@@ -114,6 +114,7 @@ export class PricingComponent implements OnInit {
    }
   ngOnInit() {
     window.scroll(0, 0);
+    
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Pricing');

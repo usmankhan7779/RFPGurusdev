@@ -9,7 +9,6 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { SeoService } from '../../../services/seoService';
 import { HomeService } from '../../common/home/home.service';
-import { Alert } from 'selenium-webdriver';
 
 declare const $: any;
 @Component({
@@ -89,34 +88,13 @@ export class PurchaseHistoryComponent implements OnInit {
 
     userdetail;
     valuee = '';
-    // firststep(value) {
-    //     window.scroll(0, 0);
-    //     this.valuee = value;
-    //     if (value == "BM") {
-    //       this.Mplan = true;
-    //       this.Yplan = false;
-    //       this.Fplan = false;
-    //       this.planSelected = true;
-    //       this.prv_stepdetail("B", "M");
-    //     }
-    //     else if (value == "PY") {
-    //       this.Yplan = true;
-    //       this.Mplan = false;
-    //       this.Fplan = false;
-    //       this.planSelected = true;
-    //       this.prv_stepdetail("P", "Y");
-    //     }
-    //   }
-
     firststep(value) {
         this.valuee = value;
         if (value == "BM") {
-            alert(value);
             this.prv_stepdetail("B", "M")
             this._nav.navigate(['pricing'], { queryParams: { value } });
         }
         else if (value == "PY") {
-            alert(value);
             this.prv_stepdetail("P", "Y")
             this._nav.navigate(['pricing'], { queryParams: { value } });
         }
