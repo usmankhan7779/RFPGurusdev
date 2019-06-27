@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
 import { TextMaskModule } from 'angular2-text-mask';
 import { PaymentmethodsService } from '../../profile/paymentmethods/paymentmethods.service';
+import {CountdownModule} from "ng2-countdown-timer";
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     MatSlideToggleModule,
     MatFormFieldModule,
     MatSelectModule,
+    CountdownModule,
     TextMaskModule,
     HttpClientModule,
     RouterModule.forChild(routes)
