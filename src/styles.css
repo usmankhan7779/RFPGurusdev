@@ -537,7 +537,9 @@ h3 {
 .view-more {
   font-weight: 500
 }
-
+.view-more{
+  cursor: pointer;
+}
 .in-your-area a:hover {
   color: #212121
 }
