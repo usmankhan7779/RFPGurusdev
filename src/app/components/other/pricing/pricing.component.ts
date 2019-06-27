@@ -130,7 +130,6 @@ export class PricingComponent implements OnInit {
 
     // --------------- SEO Service End ---------------
     this.form = this.formBuilder.group({
-      var_type_atm: ['', Validators.compose([Validators.required])],
       CardNumberForm: ['', Validators.compose([Validators.required])],
       CardNumberForm2: ['', Validators.compose([Validators.required])],
       CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
@@ -154,6 +153,20 @@ export class PricingComponent implements OnInit {
           this.isright = true;
         }
       })
+    }
+    if(localStorage.getItem('pricing')=='BM'){
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (localStorage.getItem('pricing')=='PY'){
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("P", "Y");
     }
 
   }

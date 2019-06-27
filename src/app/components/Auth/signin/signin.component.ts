@@ -79,7 +79,7 @@ export class SigninComponent implements OnInit {
         }
         swal({
           type: 'success',
-          title: 'Successfully Logged in',
+          title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
           showConfirmButton: false,
           timer: 2500, width: '512px',
         });
@@ -160,7 +160,7 @@ export class SigninComponent implements OnInit {
             data => {
               swal({
                 type: 'success',
-                title: 'Successfully Logged in',
+                title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
