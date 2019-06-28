@@ -200,8 +200,28 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     localStorage.removeItem('subcates');
     localStorage.removeItem('submission_from');
     localStorage.removeItem('submission_to');
+
+    
+    this.endRequest = this.homeServ.rfpstate().subscribe(
+      data => {
+        this.state = data['Result'];
+      },
+      error => {
+      });
+    this.endRequest = this.homeServ.rfpcategory().subscribe(
+      data => {
+        this.cat = data;
+      },
+      error => {
+      }
+    )
+    this.endRequest = this.filterServ.agencies().subscribe(
+      data => {
+        this.agency = data['Result'];
+      }
+    )
     // console.log(this.status);
-f.resetForm();
+    f.resetForm();
   }
   
   onSubmit() {
