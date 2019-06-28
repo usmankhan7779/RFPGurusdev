@@ -191,16 +191,16 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     delete this.subcates;
     delete this.submission_from;
     delete this.submission_to;
-    // localStorage.removeItem('cates');
-    // localStorage.removeItem('status');
-    // localStorage.removeItem('enterdate');
-    // localStorage.removeItem('duedate');
-    // localStorage.removeItem('states');
-    // localStorage.removeItem('agencies');
-    // localStorage.removeItem('subcates');
-    // localStorage.removeItem('submission_from');
-    // localStorage.removeItem('submission_to');
-    localStorage.clear()
+    localStorage.removeItem('cates');
+    localStorage.removeItem('status');
+    localStorage.removeItem('enterdate');
+    localStorage.removeItem('duedate');
+    localStorage.removeItem('states');
+    localStorage.removeItem('agencies');
+    localStorage.removeItem('subcates');
+    localStorage.removeItem('submission_from');
+    localStorage.removeItem('submission_to');
+    // localStorage.clear()
     // console.log(this.status);
 f.resetForm();
   }
