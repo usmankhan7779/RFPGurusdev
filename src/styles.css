@@ -3568,6 +3568,11 @@ background: #fff}
 .mainpagee .countdown .measurements{
   padding: 5px 10px !important;
 }
+.swal2-modal .swal2-title {
+  color: #000;
+  font-size: 20px;
+  line-height: 26px;
+}
 .color-red{
   color: #c00;
 }
