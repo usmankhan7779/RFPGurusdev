@@ -399,7 +399,7 @@
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-6 col-xs-12 zip-address">
                               <mat-form-field class=" mat-size">
                                 <input matInput placeholder="Expiry Date (MM/YY) " formControlName="ExpiryDateForm"
                                   [(ngModel)]="model.expirationdate" [textMask]="{mask: mask}" #exp (change)="chek(exp.value)" required>
@@ -416,7 +416,7 @@
                                 Invalid Expiry Date
                               </p>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-6 col-xs-12 zip-address">
                               <mat-form-field class=" mat-size"> <input class="sh-text-capt" matInput placeholder="Street Address "
                                   formControlName="Address" maxlength="300" type="text" [(ngModel)]="model.address" required>
                                 <mat-error *ngIf="form.controls.Address.touched && form.controls.Address.invalid">
