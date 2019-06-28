@@ -335,8 +335,8 @@ export class PricingComponent implements OnInit {
         if (this.isfreetrial == true) {
           if (this.isright == true) {
                 if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
-      if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
-
+      if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+// if(this.form.invalid){
             this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
     
               this.model.defaultcard = Data['id']
@@ -498,8 +498,8 @@ export class PricingComponent implements OnInit {
         } else {
           if (this.isright == true) {
             if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
-              if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
-        
+              if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+        // if(this.form.invalid){
             this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
     
               this.model.defaultcard = Data['id']
