@@ -334,6 +334,9 @@ export class PricingComponent implements OnInit {
       // if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
         if (this.isfreetrial == true) {
           if (this.isright == true) {
+                if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+      if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+// if(this.form.invalid){
             this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
     
               this.model.defaultcard = Data['id']
@@ -376,7 +379,7 @@ export class PricingComponent implements OnInit {
                     error => {
                       if (error.status == 500) {
                         swal(
-                          'Oops...',
+                          'Oops',
                           'Internal server error',
                           'error'
                         )
@@ -399,12 +402,32 @@ export class PricingComponent implements OnInit {
               }
               else {
                 swal(
-                  'Oops...',
+                  'Oops',
                   'Something went wrong Please Try Again.',
                   'error'
                 )
               }
             })
+               
+      }
+      else {
+        swal({
+          type: 'error',
+          title: 'Invalid detail',
+          showConfirmButton: false,
+          timer: 1500, width: '512px',
+        })
+      }
+      }
+     
+    else {
+      swal({
+        type: 'error',
+        title: ' Please fill in all the fields ',
+        showConfirmButton: false,
+        timer: 1500, width: '512px',
+      })
+    }
             f.resetForm()
           } else if (this.isright == false) {
             this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
@@ -444,7 +467,7 @@ export class PricingComponent implements OnInit {
                 error => {
                   if (error.status == 500) {
                     swal(
-                      'Oops...',
+                      'Oops',
                       'Internal server error',
                       'error'
                     )
@@ -474,7 +497,9 @@ export class PricingComponent implements OnInit {
           }
         } else {
           if (this.isright == true) {
-            
+            if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+              if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+        // if(this.form.invalid){
             this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
     
               this.model.defaultcard = Data['id']
@@ -516,19 +541,38 @@ export class PricingComponent implements OnInit {
     
                   error => {
                     swal(
-                      'Oops...',
+                      'Oops',
                       'Something went wrong',
                       'error'
                     )
                   });
               } else {
                 swal(
-                  'Oops...',
+                  'Oops',
                   'Something went wrong Please Try Again.',
                   'error'
                 )
               }
             })
+          }
+            else {
+              swal({
+                type: 'error',
+                title: 'Invalid detail',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              })
+            }
+          }
+           
+          else {
+            swal({
+              type: 'error',
+              title: ' Please fill in all the fields ',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+            })
+          }
           } else if (this.isright == false) {
             this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
               data => {
@@ -568,7 +612,7 @@ export class PricingComponent implements OnInit {
               error => {
                 if (error.status == 500) {
                   swal(
-                    'Oops...',
+                    'Oops',
                     'Internal server error',
                     'error'
                   )

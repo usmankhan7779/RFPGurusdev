@@ -3651,6 +3651,9 @@ background: #fff}
 }
 
 @media (max-width:1024px) {
+  .hd1 {
+    font-size: 23px !important;
+}
   .slide {
     min-height: auto !important
   }
