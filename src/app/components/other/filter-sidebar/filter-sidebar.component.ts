@@ -277,6 +277,7 @@ f;
   ngOnInit() {
   // this.f.resetForm();
     window.scroll(0, 0);
+    // this.formclear(this.f);
     if (localStorage.getItem('status')) { this.status = localStorage.getItem('status') }
     if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') }
     if (localStorage.getItem('duedate')) { this.duedate = localStorage.getItem('duedate') }

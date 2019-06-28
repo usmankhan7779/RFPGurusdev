@@ -154,10 +154,10 @@ export class AllRfpsComponent implements OnInit {
       let democompprods;
       democompprods = data['results'];
 
-      for (let prods of democompprods) {
-        this.zip =prods.web_info;
-        console.log(this.zip.slice(-4))
-      }
+      // for (let prods of democompprods) {
+      //   this.zip =prods.web_info;
+      //   console.log(this.zip.slice(-4))
+      // }
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
@@ -230,7 +230,7 @@ export class AllRfpsComponent implements OnInit {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "NO pdf Available ",
+              title: "Oops. There appears to be a problem downloading this file - please contact Customer Support.",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

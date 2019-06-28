@@ -36,7 +36,7 @@ export class PaymentmethodsService {
       }),{headers :headers})
       .map((res: Response) => {
         if (res) {
-          if (res.status === 201 || res.status === 200) {
+          if (res.status === 201 || res.status === 200 || res.status === 302) {
             const responce_data = res.json();
             return responce_data;
           }

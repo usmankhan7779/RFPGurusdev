@@ -90,8 +90,8 @@
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'zipcode')">
-                    <mat-form-field class="zipCodee">
+                  <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'zipcode')">
+                    <mat-form-field class="zipCodee text-area-placeholder">
                       <input matInput type="number" maxlength="5" id="zipcode" min="0" 
                         (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
                         placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
@@ -115,7 +115,7 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                  <div class="form-group label-floating zip-address " [ngClass]="displayFieldCss(register, 'city')">
+                  <div class="form-group label-floating zip-address text-area-placeholder" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
                       <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />
