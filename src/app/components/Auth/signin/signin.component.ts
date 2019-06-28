@@ -238,7 +238,7 @@ export class SigninComponent implements OnInit {
 
       swal({
         type: 'error',
-        title: 'Please confirm you are not a robot',
+        title: 'Please confirm that you are not a robot',
         showConfirmButton: false,
         width: '512px',
         timer: 2000
@@ -247,7 +247,7 @@ export class SigninComponent implements OnInit {
   }
   foremail() {
     swal({
-      title: 'Forget Password',
+      title: 'Forgot Password',
       html: ' Enter your email address to receive a link allowing you to reset your password. First, verify your email address to signin',
       input: 'email',
       confirmButtonColor: "#000", width: '512px',

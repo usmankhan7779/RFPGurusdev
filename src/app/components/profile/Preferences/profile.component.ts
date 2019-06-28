@@ -309,7 +309,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
                 console.log(this.register.value, this.UserPreference, this.statePreference, this.countyPreference, this.cityPreference, this.agencyPreference)
                 swal({
                     type: 'success',
-                    title: 'Updated Your RFP Preferences',
+                    title: ' Your RFP preferences have been updated successfully ',
                     showConfirmButton: false,
                     timer: 1500, width: '512px',
                 })

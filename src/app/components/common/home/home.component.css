@@ -16,7 +16,11 @@
     background: rgba(0, 0, 0, 0.5686274509803921);
     min-height: 100%;
 }
-
+.benner-conter {
+    bottom: 200px;
+    right: 306px;
+    top: auto;
+}
 .download-btns {
     position: absolute;
     z-index: 8;
@@ -870,11 +874,6 @@ font-family: Helvetica!important
 .login-template img{
     width: 100%;
 }
-
-
-
-
-
 @media (max-width:1024px) {
   .form-home {
       left: 55px
