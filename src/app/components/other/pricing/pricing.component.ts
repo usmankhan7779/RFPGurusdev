@@ -379,7 +379,7 @@ export class PricingComponent implements OnInit {
                     error => {
                       if (error.status == 500) {
                         swal(
-                          'Oops...',
+                          'Oops',
                           'Internal server error',
                           'error'
                         )
@@ -402,7 +402,7 @@ export class PricingComponent implements OnInit {
               }
               else {
                 swal(
-                  'Oops...',
+                  'Oops',
                   'Something went wrong Please Try Again.',
                   'error'
                 )
@@ -467,7 +467,7 @@ export class PricingComponent implements OnInit {
                 error => {
                   if (error.status == 500) {
                     swal(
-                      'Oops...',
+                      'Oops',
                       'Internal server error',
                       'error'
                     )
@@ -541,14 +541,14 @@ export class PricingComponent implements OnInit {
     
                   error => {
                     swal(
-                      'Oops...',
+                      'Oops',
                       'Something went wrong',
                       'error'
                     )
                   });
               } else {
                 swal(
-                  'Oops...',
+                  'Oops',
                   'Something went wrong Please Try Again.',
                   'error'
                 )
@@ -612,7 +612,7 @@ export class PricingComponent implements OnInit {
               error => {
                 if (error.status == 500) {
                   swal(
-                    'Oops...',
+                    'Oops',
                     'Internal server error',
                     'error'
                   )
