@@ -365,10 +365,10 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     this.statsearch= null;
     this.agensearch = null;
     this.catsearch = null;
-
+      // this.subcate=null;
     this.postedDate = null;
     this.DueDate = null;
-
+    // localStorage.removeItem('subcate');
     localStorage.removeItem('statuss');
     localStorage.removeItem('enterdates');
     localStorage.removeItem('duedates');
@@ -467,7 +467,6 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
         })
     }
 
-
   }
   select_agency() {
     if (this.agencies) {
@@ -502,6 +501,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
 
   }
   select_category() {
+    this.subcate=null;
     this._serv.dropdown(this.states, this.agencies, this.cates, this.subcate).subscribe(
       data => {
         if (data['States']) {
@@ -516,8 +516,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
 
         }
         if (data['Sub_categories_list']) { this.sub_categories = data['Sub_categories_list']; }
-
+       
       })
+      this.subcate=null;
   }
 
 
