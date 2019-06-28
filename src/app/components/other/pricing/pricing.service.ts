@@ -45,7 +45,7 @@ export class PricingService {
             }),{ headers: headers }).map((res: Response) => {
                 if (res.status == 200) {
                     swal(
-                        'Your payment has been transferred',
+                        'Your payment is posted successfully',
                         '',
                         'success'
                     )
