@@ -1,6 +1,7 @@
 .sh-ad-to-watchlist {
   padding: 5px 10px!important;
   margin: 10px 0;
+  text-transform: unset!important;
 }
 
 .rfp-back a {
