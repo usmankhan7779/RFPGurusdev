@@ -3504,7 +3504,7 @@ textarea::-webkit-scrollbar {
 }
 .mainpagee .countdown .measurements {
   display: inline-block;
-  padding: 10px;
+  padding: 5px 10px;
   background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
 }
 .mainpagee .countdown .measurements p:first-child {
@@ -3520,7 +3520,7 @@ textarea::-webkit-scrollbar {
 .mainpagee .countdown .measurements p {
   color: #fff;
   padding-top: 5px;
-  padding-top: 9px;
+  padding-top: 0px;
   font-size: 16px;
   margin: 0;
 }
@@ -3532,7 +3532,9 @@ textarea::-webkit-scrollbar {
 }
 /* End conter */
 
-
+.mainpagee .countdown .measurements{
+  padding: 5px 10px !important;
+}
 
 @media (min-width:1400px) {
   .svg_map {
