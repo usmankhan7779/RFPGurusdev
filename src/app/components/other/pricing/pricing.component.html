@@ -7,7 +7,7 @@
     <div class="row">
       <div *ngIf="Yplan && Mplan" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
         <h2 *ngIf="isfreetrial" class="pricing_heading">Join RFPGurus for a 7-day risk-free trial period</h2>
-        <h2>72 Hour Super Flash Sale - 40% Off
+        <h2 class="color-red">72 Hour Super Flash Sale - 40% Off
             Timer Only for a limited time - Take advantage of this incredible offer NOW</h2>
             <countdown class="col-lg-12 mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="June 30, 2019"> </countdown>
 
@@ -412,7 +412,7 @@
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p *ngIf="expirydate <= '19'" class="clr_red">
+                              <p *ngIf="expirydate <= '19'" class="clr_red " style="text-align: left">
                                 Invalid Expiry Date
                               </p>
                             </div>
@@ -446,10 +446,10 @@
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p class="clr_red text-align left" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                              <p class="clr_red text-align left" style="text-align: left" *ngIf="invalid  && !model.city && !model.state && !model.country">
                                 Invalid Zipcode
                               </p>
-                              <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                              <p *ngIf="!invalid  && model.city && model.state && model.country">
                         
                               </p>
                             </div>
@@ -477,10 +477,10 @@
                                   formControlName="Holdername" [(ngModel)]="model.holdername" minlength="2" maxlength="64" required>
                                 <mat-error *ngIf="form.controls.Holdername.touched && form.controls.Holdername.invalid">
                                   <mat-error *ngIf="form.controls.Holdername.errors.required">
-                                    Card holder Name cannot be empty
+                                    Cardholder Name cannot be empty
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.Holdername.errors.minlength">
-                                    Card holder Name must be between 2 and 64 characters
+                                    Cardholder Name must be between 2 and 64 characters
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.Holdername.hasError('pattern')">
                                     Cardholder Name must be only in Alphabet.
