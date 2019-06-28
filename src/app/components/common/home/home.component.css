@@ -16,7 +16,10 @@
     background: rgba(0, 0, 0, 0.5686274509803921);
     min-height: 100%;
 }
-
+.benner-conter {
+    top: 210px;
+    right: 150px;
+}
 .download-btns {
     position: absolute;
     z-index: 8;
