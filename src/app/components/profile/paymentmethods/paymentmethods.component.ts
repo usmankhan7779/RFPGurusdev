@@ -319,9 +319,9 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   check_value_get: boolean = false;
   add(f: NgForm) {
     this.date = this.form.value['expirydate'];
-    if(this.form.controls.cardnickname.value !=null && this.form.controls.cardnumber2.value !=null && this.form.controls.ccv2.value !=null
-      && this.form.controls.expirydate.value !=null && this.form.controls.address.value !=null && this.form.controls.zip.value !=null
-      && this.form.controls.city.value !=null && this.form.controls.state.value !=null && this.form.controls.country.value !=null){
+    // if(this.form.controls.cardnickname.value !=null && this.form.controls.cardnumber2.value !=null && this.form.controls.ccv2.value !=null
+    //   && this.form.controls.expirydate.value !=null && this.form.controls.address.value !=null && this.form.controls.zip.value !=null
+    //   && this.form.controls.city.value !=null && this.form.controls.state.value !=null && this.form.controls.country.value !=null){
         if (this.cardtype == "AmericanExpress")
 
         {
@@ -350,6 +350,14 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
                showConfirmButton: false,
                timer: 1500, width: '512px',
              })
+             if(Data.message=='Card Number already exist'){
+              swal({
+                type: 'info',
+                title: 'Card Number already exist',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              })
+             }
              this.getCards();
              f.resetForm();
    
@@ -380,6 +388,14 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
                showConfirmButton: false,
                timer: 1500, width: '512px',
              });
+             if(Data.message === "Card Number already exist" ){
+              swal({
+                type: 'info',
+                title: 'Card Number already exist',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              })
+             }
              this.getCards();
              f.resetForm();
    
@@ -398,15 +414,15 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
          }
    
        }
-      }
-   else{
-    swal({
-      type: 'error',
-      title: ' Please fill in all the fields ',
-      showConfirmButton: false,
-      timer: 1500, width: '512px',
-    })
-   }
+  //     }
+  //  else{
+  //   swal({
+  //     type: 'error',
+  //     title: ' Please fill in all the fields ',
+  //     showConfirmButton: false,
+  //     timer: 1500, width: '512px',
+  //   })
+  //  }
   }
   res;
   message;
