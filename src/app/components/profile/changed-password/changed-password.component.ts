@@ -72,27 +72,38 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
         };
     }
     changedPassword() {
-        if (this.register.valid && this.register.value.oldpassword != this.register.value.password) {
-            this.endRequest = this._serv.user_change_password(this.register.value.oldpassword, this.register.value.password, this.register.value.confirmPassword).subscribe(
-                data => {
-                    swal({
-                        type: 'success',
-                        title: 'Your password has been successfully changed',
-                        showConfirmButton: false,
-                        timer: 1500, width: '512px',
-                    })
-                },
-                error => {
-                    swal(
-                        '',
-                        'Your old password is Incorrect',
-                        'error'
-                    )
-                });
+        if(this.register.value.oldpassword != null && this.register.value.password != null && this.register.value.confirmPassword != null){
+            if (this.register.valid && this.register.value.oldpassword != this.register.value.password) {
+                this.endRequest = this._serv.user_change_password(this.register.value.oldpassword, this.register.value.password, this.register.value.confirmPassword).subscribe(
+                    data => {
+                        swal({
+                            type: 'success',
+                            title: 'Password has been changed successfully',
+                            showConfirmButton: false,
+                            timer: 1500, width: '512px',
+                        })
+                    },
+                    error => {
+                        swal(
+                            '',
+                            'Your old password is incorrect',
+                            'error'
+                        )
+                    });
+            }
+            else {
+                this.validateAllFormFields(this.register);
+            }   
         }
         else {
-            this.validateAllFormFields(this.register);
+            swal({
+                type: 'error',
+                title: 'Please fill in all the fields',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+            })
         }
+
     }
     validateAllFormFields(formGroup: FormGroup) {
         Object.keys(formGroup.controls).forEach(field => {

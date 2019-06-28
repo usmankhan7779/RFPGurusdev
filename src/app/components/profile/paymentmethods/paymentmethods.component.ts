@@ -260,7 +260,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   }
   deleteSingleCard(id) {
     swal({
-      title: 'Are you sure you want to delete this Card? <br> You will not be able to revert this',
+      title: 'Are you sure you want to delete this card? <br> You will not be able to revert this',
       type: 'question',
       showCancelButton: true,
       width: '512px',
