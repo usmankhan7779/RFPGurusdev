@@ -35,7 +35,7 @@
         <h3 class="text-center">No Record Found</h3>
       </div>
     </div> -->
-        <div class="row">
+        <div class="row"  >
           
           <div class="col-sm-4 col" *ngFor="let rfpcat of cat | filter:catsearch; let i = index">
             <a class="curser-pointer" (click)="catrfp(rfpcat.cat.category_name)"><i class="fa fa-superpowers"
@@ -54,12 +54,10 @@
 
               <!-- </div> -->
             </div>
-            <div class="col-sm-12 text-center" *ngIf="item == '0'">
-              <i class="fa fa-exclamation-triangle"></i>
-              <h3 class="text-center"> Search not fetching results </h3>
-            </div>
+           
           </div>
         </div>
+        
       </div>
     </div>
   </div>
