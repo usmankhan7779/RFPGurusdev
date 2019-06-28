@@ -91,11 +91,14 @@
             <section class="choose-criteria" async>
                 <div class="container-fluid">
                     
-                        <div class="col-md-8"> 
-                            <h4 class="hd1">72 Hour Super Flash Sale - 40% Off Timer Only for a limited time - Take advantage of this incredible offer NOW</h4>     
+                        <div class="col-md-7"> 
+                            <h4 class="hd1">72 Hour Super Flash Sale - 40% Off Timer Only for a limited time. Take advantage of this incredible offer NOW</h4>     
                         </div>
-                        <div class="col-md-4 pd-0-i">
-                            <countdown class="col-lg-12 mainpagee1 pd-0-i"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="June 30, 2019"> </countdown>
+                        <div class="col-md-3 pd-0-i">
+                            <countdown class="mainpagee1 pd-0-i"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 01, 2019"> </countdown>
+                        </div>
+                        <div class="col-lg-2 text-center">
+                                <a routerLink="signup"> <button class="Subscribe-btn">Subscribe Now</button></a>
                         </div>
                     
                 </div>
@@ -441,13 +444,15 @@
                      <img src="../../../../assets/img/Popup-Banner.png">
                     
                 </div>
-                <div class="modal-footer"> <a routerLink="signin"> <button title="Member Login" type="button"
+                <div class="modal-footer"> 
+                    <!-- <a routerLink="signin"> <button title="Member Login" type="button"
                             class="btn btn-primary btn-must-login" data-dismiss="modal">Member
-                            Login</button> </a> <a routerLink="signup"> <button title="Subscribe Now" type="button"
-                            class="btn btn-primary btn-must-signup" data-dismiss="modal">Subscribe
+                            Login</button> </a> -->
+                             <a routerLink="signup"> <button title="Subscribe Now" type="button"
+                            class="btn btn-primary btn-must-signup Sub-btn" data-dismiss="modal">Subscribe
                             Now</button> </a>
                 </div>
-                            <countdown class="benner-conter mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="June 30, 2019"> </countdown>
+                            <countdown class="benner-conter mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 01, 2019"> </countdown>
 
             </div>
         </div>
