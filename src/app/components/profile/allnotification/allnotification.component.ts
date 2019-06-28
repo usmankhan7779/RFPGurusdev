@@ -48,16 +48,50 @@ export class AllnotificationComponent implements OnInit {
   unread;
   total_notification;
   deletenofication(id) {
-    this._serv.deletenotify(id).subscribe(
-      data => {
+    swal({
+      title: 'Are you sure you want to delete notification? <br> You will not be able to revert this',
+      type: 'question',
+      showCancelButton: true,
+      width: '512px',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it'
+    }).then((result) => {
+      if (result == true) {
 
-        // alert(data)
-        this.notification();
-      },
-      error => {
-
-      });
+        this._serv.deletenotify(id).subscribe(Data => {
+          swal({
+            type: 'success',
+            title: 'Deleted successfully',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+          this.notification();
+          this.notificate = Data['notifications'];
+          this.unread = Data['unread'];
+          this._shareData.notifyInfo(this.notificate);
+          this._shareData.unreadnotifyInfo(this.unread);
+        },
+          error => {
+           if (error.status == 500) {
+              swal(
+                'Sorry',
+                'Server Is Under Maintenance',
+                'error'
+              )
+            }
+            else {
+              swal(
+                'Sorry',
+                'Some Thing Went Worrng',
+                'error'
+              )
+            }
+          })
+      }
+    })
   }
+
   updatenofication(id) {
     this._serv.Updatenotify(id).subscribe(
       data => {

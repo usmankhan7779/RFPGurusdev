@@ -346,7 +346,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
              this.form.value['nickname']).subscribe(Data => {
              swal({
                type: 'success',
-               title: ' Payment Method has been added successfully',
+               title: 'Payment Method has been added successfully',
                showConfirmButton: false,
                timer: 1500, width: '512px',
              })
