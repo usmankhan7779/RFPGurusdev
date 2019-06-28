@@ -162,7 +162,7 @@ export class SigninComponent implements OnInit {
                 type: 'success',
                 title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
                 showConfirmButton: false,
-                timer: 1500000, width: '512px',
+                timer: 1500, width: '512px',
               });
 
               if (localStorage.getItem('member')) {
