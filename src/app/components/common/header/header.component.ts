@@ -17,7 +17,7 @@ import { SpeechRecognitionService } from './speechservice';
 })
 export class HeaderComponent implements OnInit {
   public blink = false;
-  @ViewChild('input') input;
+  @ViewChild("querysearch") querysearchField: ElementRef;
   @Output() spokenText = new EventEmitter<string>();
   @Output() error = new EventEmitter<string>();
   @Input() showInput = true;
@@ -45,18 +45,22 @@ export class HeaderComponent implements OnInit {
       this.Rfp = '';
     }
   }
-  focusInput() {
-    if (this.mainSearch == 1) {
-      setTimeout(() => { this.input.nativeElement.focus(); });
+  // focusInput() {
+  //   this.querysearchField.nativeElement.focus();
+  //   if (this.mainSearch == 1) {
+  //     setTimeout(() => { this.querysearchField.nativeElement.focus(); });
       // this.el.nativeElement.focus();
       // let inputField: HTMLElement = <HTMLElement>document.querySelectorAll('#textsearch')[0];
       // inputField.focus();
-    }
-  }
+  //   }
+  // }
 
   openSearch(): void {
     this.mainSearch = 1;
-    this.focusInput();
+    // this.focusInput();
+    setTimeout(function () {
+      $('#textsearch').focus();
+    },200);
   }
 
   constructor(private homeServ: HomeService,private el: ElementRef, private authService: AuthService, private speech: SpeechRecognitionService, private _nav: Router, public _shareData: SharedData, private _serv: HeaderService) {
