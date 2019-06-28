@@ -17,8 +17,9 @@
     min-height: 100%;
 }
 .benner-conter {
-    top: 210px;
-    right: 150px;
+    bottom: 200px;
+    right: 306px;
+    top: auto;
 }
 .download-btns {
     position: absolute;
@@ -873,11 +874,6 @@ font-family: Helvetica!important
 .login-template img{
     width: 100%;
 }
-
-
-
-
-
 @media (max-width:1024px) {
   .form-home {
       left: 55px
