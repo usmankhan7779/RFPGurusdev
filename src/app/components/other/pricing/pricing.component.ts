@@ -100,7 +100,16 @@ export class PricingComponent implements OnInit {
       this.prv_stepdetail("P", "Y");
     }
   }
-
+  text:any = {
+    Year: 'Year',
+    Month: 'Month',
+    Weeks: "Weeks",
+    Days: "Days",
+    Hours: "Hrs",
+    Minutes: "Mins",
+    Seconds: "Secs",
+    MilliSeconds: "MilliSeconds"
+  };
   prv_stepdetail(type, dur) {
     this.pkg_detail['type'] = type
     this.pkg_detail['dur'] = dur
@@ -155,7 +164,26 @@ export class PricingComponent implements OnInit {
         }
       })
     }
+    if(localStorage.getItem('pricing')=='BM'){
+      window.scroll(0, 0);
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (localStorage.getItem('pricing')=='PY'){
+      window.scroll(0, 0);
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("P", "Y");
+    }
 
+  }
+  showallplan(){
+    this.planSelected = false;
   }
   res;
   status;

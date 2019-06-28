@@ -93,10 +93,13 @@ export class PurchaseHistoryComponent implements OnInit {
         if (value == "BM") {
             this.prv_stepdetail("B", "M")
             this._nav.navigate(['pricing'], { queryParams: { value } });
+            // localStorage.setitem('pricing',this.valuee)
+            localStorage.setItem('pricing', 'BM');
         }
         else if (value == "PY") {
             this.prv_stepdetail("P", "Y")
             this._nav.navigate(['pricing'], { queryParams: { value } });
+            localStorage.setItem('pricing', 'PY');
         }
     }
     check_login() {
