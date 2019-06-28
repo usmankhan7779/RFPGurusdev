@@ -3505,8 +3505,8 @@ textarea::-webkit-scrollbar {
 .mainpagee .countdown .measurements {
   display: inline-block;
   padding: 5px 10px;
-  background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
-}
+background: #000}
+
 .mainpagee .countdown .measurements p:first-child {
   color: #000!important;
   padding: 5px;
