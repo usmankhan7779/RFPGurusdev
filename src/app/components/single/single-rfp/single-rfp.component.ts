@@ -48,7 +48,6 @@ export class SingleRfpComponent implements OnInit {
   }
   back() {
     if (localStorage.getItem('location')) {
-      
       let url = localStorage.getItem('location')
       let last = url.length
       let ur = url.slice(0, 13)
@@ -56,43 +55,22 @@ export class SingleRfpComponent implements OnInit {
       let category = url.slice(0, 8)
       let agency = url.slice(0, 6)
 
-      if (ur == 'searched-data')
-       {
-          this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); 
-        }
+      if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
       else if (state == 'state') {
-        // alert(state);
         this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
       }
       else if (category == 'category') {
-        // alert(category)
         this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
       }
       else if (agency == 'agency') {
-        // alert(agency)
+
         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
       } else if (url == 'admin-panel') {
         this._nav.navigate([url]);
       }
-      else if (url == 'latest-rfps')  {
-        this._nav.navigate(['/latest-rfps']);     
+      else {
+        this._nav.navigate([url]);
       }
-      else if (url == 'find-rfp')  {
-        this._nav.navigate(['/find-rfps']);     
-      }
-      else if (url == 'advanced-search') {
-        
-        this._nav.navigate(['advanced-search']);     
-      }
-      else if (url == 'notifications')
-      {
-        this._nav.navigate(['notifications']);
-      }
-      else
-      {
-        this._nav.navigate(['my-watchlist']);
-      }
-     
     }
     else {
       this._nav.navigate(['/']);
