@@ -129,7 +129,7 @@ export class ProfileComponent implements OnInit {
                 data => {
                     swal({
                         type: 'success',
-                        title: 'Updated Your Profile',
+                        title: 'Your profile has been updated successfully ',
                         showConfirmButton: false,
                         timer: 1500, width: '512px',
                     })
