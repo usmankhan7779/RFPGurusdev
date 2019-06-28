@@ -883,6 +883,20 @@ font-family: Helvetica!important
 .login-template img{
     width: 100%;
 }
+.on-load-popup{
+    position: relative;
+}
+.on-load-popup .close-button{
+    float: right;
+    position: absolute;
+    right: 6px;
+    top: 13px;
+}
+.on-load-popup .close-button button{
+    background: none;
+    color: #000;
+    opacity: 1;
+}
 
 @media (max-width:1024px) {
   .form-home {
