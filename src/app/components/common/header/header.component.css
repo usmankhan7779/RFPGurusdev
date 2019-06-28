@@ -494,7 +494,7 @@ text-align: right;
   }
 }
 
-@media (min-width:769px) and (max-width:991px) {
+@media (min-width:768px) and (max-width:991px) {
   .nav-home ul a i {
     margin: 0 2px 0 0
   }
@@ -513,7 +513,12 @@ text-align: right;
   }
 
   .sh-main-options>li>a {
-    padding: 25px 16px !important;
+    padding: 25px 6px !important;
+  }
+  .navbar-collapse.collapse{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .sh-android-apple,
