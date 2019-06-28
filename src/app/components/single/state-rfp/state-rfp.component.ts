@@ -271,7 +271,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
           if (error.status == 400) {
             swal({
               type: 'error',
-              title: "NO pdf Available ",
+              title: "Oops. There appears to be a problem downloading this file - please contact Customer Support. Available ",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

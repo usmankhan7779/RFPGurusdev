@@ -61,7 +61,7 @@
                    
                     </mat-select>
                   <mat-error *ngIf="form2.controls.var_type_atm.errors?.required">
-                         select card type
+                         Select card type
                         </mat-error>
                   </mat-form-field>
                   
@@ -266,13 +266,13 @@
                     maxlength="12" minlength="2">
                   <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
                     <mat-error *ngIf="form.controls.nickname.errors.required">
-                      Nickname cannot be empty
+                      Payment Method Nickname  cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                      Nickname should be atleast 2 letters.
+                      Payment Method Nickname  should be atleast 2 letters.
                     </mat-error>
                     <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
-                      Nickname must be only in Alphabet.
+                      Payment Method Nickname  must be only in Alphabet.
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
