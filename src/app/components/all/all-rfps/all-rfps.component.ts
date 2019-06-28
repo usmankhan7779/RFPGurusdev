@@ -154,10 +154,10 @@ export class AllRfpsComponent implements OnInit {
       let democompprods;
       democompprods = data['results'];
 
-      for (let prods of democompprods) {
-        this.zip =prods.web_info;
-        console.log(this.zip.slice(-4))
-      }
+      // for (let prods of democompprods) {
+      //   this.zip =prods.web_info;
+      //   console.log(this.zip.slice(-4))
+      // }
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
