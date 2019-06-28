@@ -329,115 +329,240 @@ export class PricingComponent implements OnInit {
     let pars = JSON.parse(this.local);
     this.uname = pars.username
     this.date = this.model.expirationdate;
-    if (this.isfreetrial == true) {
-      if (this.isright == true) {
-        this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
-
-          this.model.defaultcard = Data['id']
-          if (Data['id']) {
-            this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
-              .subscribe(data => {
-                swal(
-                  'Your payment is posted successfully.',
-                  '',
-                  'success'
-                )
-                if (localStorage.getItem('member')) {
-                  let url = localStorage.getItem('member')
-                  let last = url.length
-                  let ur = url.slice(0, 13)
-                  let state = url.slice(0, 5)
-                  let category = url.slice(0, 8)
-                  let agency = url.slice(0, 6)
-
-                  if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
-                  else if (state == 'state') {
-                    this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+    if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null, this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+      if (this.isfreetrial == true) {
+        if (this.isright == true) {
+          this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
+  
+            this.model.defaultcard = Data['id']
+            if (Data['id']) {
+              this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+                .subscribe(data => {
+                  swal(
+                    'Your payment is posted successfully.',
+                    '',
+                    'success'
+                  )
+                  if (localStorage.getItem('member')) {
+                    let url = localStorage.getItem('member')
+                    let last = url.length
+                    let ur = url.slice(0, 13)
+                    let state = url.slice(0, 5)
+                    let category = url.slice(0, 8)
+                    let agency = url.slice(0, 6)
+  
+                    if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                    else if (state == 'state') {
+                      this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                    }
+                    else if (category == 'category') {
+                      this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                    }
+                    else if (agency == 'agency') {
+  
+                      this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                    }
+                    else {
+                      this._nav.navigate([url]);
+                    }
+                  } else {
+                    this._nav.navigate(['/']);
                   }
-                  else if (category == 'category') {
-                    this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
-                  }
-                  else if (agency == 'agency') {
-
-                    this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-                  }
-                  else {
-                    this._nav.navigate([url]);
-                  }
-                } else {
-                  this._nav.navigate(['/']);
-                }
-                f.resetForm()
-              },
-            
-                error => {
-                  if (error.status == 500) {
-                    swal(
-                      'Oops...',
-                      'Internal server error',
-                      'error'
-                    )
-                  }
-                  else if (error.status == 404) {
-                    swal(
-                      'You have already subscribed for free trial',
-                      '',
-                      'error'
-                    )
-                  }
-                  else if (error.status == 400) {
-                    swal(
-                      'Sorry',
-                      'Select payment card and subscription plan first',
-                      'error'
-                    )
-                  }
-                });
-          }
-          else {
-            swal(
-              'Oops...',
-              'Something went wrong Please Try Again.',
-              'error'
-            )
-          }
-        })
-        f.resetForm()
-      } else if (this.isright == false) {
-        this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
-          .subscribe(data => {
-            swal(
-              'Your payment has been transferred',
-              '',
-              'success'
-            )
-            if (localStorage.getItem('member')) {
-              let url = localStorage.getItem('member')
-              let last = url.length
-              let ur = url.slice(0, 13)
-              let state = url.slice(0, 5)
-              let category = url.slice(0, 8)
-              let agency = url.slice(0, 6)
-
-              if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
-              else if (state == 'state') {
-                this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
-              }
-              else if (category == 'category') {
-                this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
-              }
-              else if (agency == 'agency') {
-
-                this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-              }
-              else {
-                this._nav.navigate([url]);
-              }
-            } else {
-              this._nav.navigate(['/']);
+                  f.resetForm()
+                },
+              
+                  error => {
+                    if (error.status == 500) {
+                      swal(
+                        'Oops...',
+                        'Internal server error',
+                        'error'
+                      )
+                    }
+                    else if (error.status == 404) {
+                      swal(
+                        'You have already subscribed for free trial',
+                        '',
+                        'error'
+                      )
+                    }
+                    else if (error.status == 400) {
+                      swal(
+                        'Sorry',
+                        'Select payment card and subscription plan first',
+                        'error'
+                      )
+                    }
+                  });
             }
-            f.resetForm()
-          },
+            else {
+              swal(
+                'Oops...',
+                'Something went wrong Please Try Again.',
+                'error'
+              )
+            }
+          })
+          f.resetForm()
+        } else if (this.isright == false) {
+          this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+            .subscribe(data => {
+              swal(
+                'Your payment has been transferred',
+                '',
+                'success'
+              )
+              if (localStorage.getItem('member')) {
+                let url = localStorage.getItem('member')
+                let last = url.length
+                let ur = url.slice(0, 13)
+                let state = url.slice(0, 5)
+                let category = url.slice(0, 8)
+                let agency = url.slice(0, 6)
+  
+                if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                else if (state == 'state') {
+                  this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                }
+                else if (category == 'category') {
+                  this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                }
+                else if (agency == 'agency') {
+  
+                  this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                }
+                else {
+                  this._nav.navigate([url]);
+                }
+              } else {
+                this._nav.navigate(['/']);
+              }
+              f.resetForm()
+            },
+              error => {
+                if (error.status == 500) {
+                  swal(
+                    'Oops...',
+                    'Internal server error',
+                    'error'
+                  )
+                }
+                else if (error.status == 404) {
+                  swal(
+                    'You have already subscribed for free trial',
+                    '',
+                    'error'
+                  )
+                }
+                else if (error.status == 200) {
+                  swal(
+                    'Your payment has been transferred',
+                    '',
+                    'success'
+                  )
+                }
+                else if (error.status == 400) {
+                  swal(
+                    'Sorry',
+                    'Select payment card and subscription plan first',
+                    'error'
+                  )
+                }
+              });
+        }
+      } else {
+        if (this.isright == true) {
+          
+          this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
+  
+            this.model.defaultcard = Data['id']
+            if (Data['id']) {
+              this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+                data => {
+                  swal(
+                    'Your payment has been transferred',
+                    '',
+                    'success'
+                  )
+                  if (localStorage.getItem('member')) {
+                    let url = localStorage.getItem('member')
+                    let last = url.length
+                    let ur = url.slice(0, 13)
+                    let state = url.slice(0, 5)
+                    let category = url.slice(0, 8)
+                    let agency = url.slice(0, 6)
+  
+                    if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                    else if (state == 'state') {
+                      this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                    }
+                    else if (category == 'category') {
+                      this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                    }
+                    else if (agency == 'agency') {
+  
+                      this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                    }
+                    else {
+                      this._nav.navigate([url]);
+                    }
+                  } else {
+                    this._nav.navigate(['/']);
+                  }
+                  f.resetForm()
+                },
+  
+                error => {
+                  swal(
+                    'Oops...',
+                    'Something went wrong',
+                    'error'
+                  )
+                });
+            } else {
+              swal(
+                'Oops...',
+                'Something went wrong Please Try Again.',
+                'error'
+              )
+            }
+          })
+        } else if (this.isright == false) {
+          this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+            data => {
+              swal(
+                'Your payment has been transferred',
+                '',
+                'success'
+              )
+              if (localStorage.getItem('member')) {
+                let url = localStorage.getItem('member')
+                let last = url.length
+                let ur = url.slice(0, 13)
+                let state = url.slice(0, 5)
+                let category = url.slice(0, 8)
+                let agency = url.slice(0, 6)
+  
+                if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                else if (state == 'state') {
+                  this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                }
+                else if (category == 'category') {
+                  this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                }
+                else if (agency == 'agency') {
+  
+                  this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                }
+                else {
+                  this._nav.navigate([url]);
+                }
+              } else {
+                this._nav.navigate(['/']);
+              }
+              f.resetForm()
+            },
+  
             error => {
               if (error.status == 500) {
                 swal(
@@ -453,13 +578,6 @@ export class PricingComponent implements OnInit {
                   'error'
                 )
               }
-              else if (error.status == 200) {
-                swal(
-                  'Your payment has been transferred',
-                  '',
-                  'success'
-                )
-              }
               else if (error.status == 400) {
                 swal(
                   'Sorry',
@@ -467,132 +585,25 @@ export class PricingComponent implements OnInit {
                   'error'
                 )
               }
+              else if(error.status==403){
+                swal(
+                  'Sorry',
+                  'You have already subscribed',
+                  'info'
+                )
+              }
             });
-      }
-    } else {
-      if (this.isright == true) {
-        
-        this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.model.setautopay, this.model.nickname).subscribe(Data => {
-
-          this.model.defaultcard = Data['id']
-          if (Data['id']) {
-            this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
-              data => {
-                swal(
-                  'Your payment has been transferred',
-                  '',
-                  'success'
-                )
-                if (localStorage.getItem('member')) {
-                  let url = localStorage.getItem('member')
-                  let last = url.length
-                  let ur = url.slice(0, 13)
-                  let state = url.slice(0, 5)
-                  let category = url.slice(0, 8)
-                  let agency = url.slice(0, 6)
-
-                  if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
-                  else if (state == 'state') {
-                    this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
-                  }
-                  else if (category == 'category') {
-                    this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
-                  }
-                  else if (agency == 'agency') {
-
-                    this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-                  }
-                  else {
-                    this._nav.navigate([url]);
-                  }
-                } else {
-                  this._nav.navigate(['/']);
-                }
-                f.resetForm()
-              },
-
-              error => {
-                swal(
-                  'Oops...',
-                  'Something went wrong',
-                  'error'
-                )
-              });
-          } else {
-            swal(
-              'Oops...',
-              'Something went wrong Please Try Again.',
-              'error'
-            )
-          }
-        })
-      } else if (this.isright == false) {
-        this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
-          data => {
-            swal(
-              'Your payment has been transferred',
-              '',
-              'success'
-            )
-            if (localStorage.getItem('member')) {
-              let url = localStorage.getItem('member')
-              let last = url.length
-              let ur = url.slice(0, 13)
-              let state = url.slice(0, 5)
-              let category = url.slice(0, 8)
-              let agency = url.slice(0, 6)
-
-              if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
-              else if (state == 'state') {
-                this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
-              }
-              else if (category == 'category') {
-                this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
-              }
-              else if (agency == 'agency') {
-
-                this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-              }
-              else {
-                this._nav.navigate([url]);
-              }
-            } else {
-              this._nav.navigate(['/']);
-            }
-            f.resetForm()
-          },
-
-          error => {
-            if (error.status == 500) {
-              swal(
-                'Oops...',
-                'Internal server error',
-                'error'
-              )
-            }
-            else if (error.status == 404) {
-              swal(
-                'You have already subscribed for free trial',
-                '',
-                'error'
-              )
-            }
-            else if (error.status == 400) {
-              swal(
-                'Sorry',
-                'Select payment card and subscription plan first',
-                'error'
-              )
-            }
-            else if(error.status==403){
-              swal(
-                'Sorry',
-                'You have already subscribed',
-                'info'
-              )
-            }
-          });
-      }
+        }
+    }
+    
+    }
+    else {
+      swal({
+        type: 'error',
+        title: ' Please fill in all the fields ',
+        showConfirmButton: false,
+        timer: 1500, width: '512px',
+      })
     }
 f.resetForm()
 
