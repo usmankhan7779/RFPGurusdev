@@ -57,28 +57,7 @@
            
           </div>
         </div>
-        <div class="row" *ngIf="!item"  >
-          
-          <div class="col-sm-4 col" *ngFor="let rfpcat of cat | filter:catsearch; let i = index">
-            <a class="curser-pointer" (click)="catrfp(rfpcat.cat.category_name)"><i class="fa fa-superpowers"
-                aria-hidden="true"></i>{{rfpcat.cat.category_name}}</a>
-            <i class="caret pull-right view-more state collapsed" data-toggle="collapse" attr.data-target="#View{{i}}"
-              *ngIf="rfpcat.subcat !=''"></i>
-            <div attr.id="View{{i}}" class="panel-details collapse">
-              <!-- <div > -->
-              <ul>
-                <li *ngFor="let catitem of rfpcat.subcat">
-                  <a class="curser-pointer" [routerLink]="['/subcategory']"
-                    [queryParams]="{ subcat: catitem.subcategory_name}">
-                    {{catitem.subcategory_name}}</a>
-                </li>
-              </ul>
-
-              <!-- </div> -->
-            </div>
-           
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
