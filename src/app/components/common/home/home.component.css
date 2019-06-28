@@ -1,4 +1,9 @@
 /* Start Slider */
+.hd1{
+    color: #fff;
+    font-size: 27px;
+    text-align: center;
+}
 .wrapper {
     height: auto !important;
     min-height: 100vh !important
