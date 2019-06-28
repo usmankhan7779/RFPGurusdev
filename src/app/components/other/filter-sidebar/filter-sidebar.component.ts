@@ -200,6 +200,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     localStorage.removeItem('subcates');
     localStorage.removeItem('submission_from');
     localStorage.removeItem('submission_to');
+    // localStorage.clear()
     // console.log(this.status);
 f.resetForm();
   }
@@ -266,6 +267,7 @@ f;
 
   ngOnInit() {
     window.scroll(0, 0);
+    // this.formclear(this.f);
     if (localStorage.getItem('status')) { this.status = localStorage.getItem('status') }
     if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') }
     if (localStorage.getItem('duedate')) { this.duedate = localStorage.getItem('duedate') }
