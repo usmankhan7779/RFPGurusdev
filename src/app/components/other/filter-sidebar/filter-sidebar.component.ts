@@ -45,6 +45,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
   endRequest;
   constructor(private filterServ: FilterSidebarService, private homeServ: HomeService, private datePipe: DatePipe, public _shareData: SharedData, private _nav: Router, private advanceService: AdvanceService, private allCatService: AllCategoryService) {
     if (localStorage.getItem('status')) {
+      alert('status');
       this.status = localStorage.getItem('status');
     }
     if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') }
@@ -54,8 +55,17 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     if (localStorage.getItem('states')) {
       this.states = localStorage.getItem('states');
     }
-    if (localStorage.getItem('agencies')) { this.agencies = localStorage.getItem('agencies') }
-    if (localStorage.getItem('cates')) { this.cates = localStorage.getItem('cates') }
+    if (localStorage.getItem('agencies')) { 
+      alert('Agencies');
+            this.agencies = localStorage.getItem('agencies');
+            console.log(this.agencies)
+
+     }
+    if (localStorage.getItem('cates')) {
+       this.cates = localStorage.getItem('cates') ;
+       console.log(this.cates)
+
+      }
     if (localStorage.getItem('subcat')) { this.subcates = localStorage.getItem('subcat') }
     this.allCatService.rfpcategory_subsat().subscribe(
       data => {
@@ -136,7 +146,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
             this.cat = data['Categories'];
           }
           if (data['Agencies']) {
-            // this.agency = data['Agencies'];
+           
             this.agency = data['Agencies'];
 
           }
@@ -167,7 +177,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
             this.cat = data['Categories'];
           }
           if (data['Agencies']) {
-            // this.agency = data['Agencies'];
+           
             this.agency = data['Agencies'];
   
           }
@@ -200,8 +210,7 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     localStorage.removeItem('subcates');
     localStorage.removeItem('submission_from');
     localStorage.removeItem('submission_to');
-    // localStorage.clear()
-    // console.log(this.status);
+  
 f.resetForm();
   }
   
@@ -266,6 +275,7 @@ f;
   }
 
   ngOnInit() {
+  // this.f.resetForm();
     window.scroll(0, 0);
     // this.formclear(this.f);
     if (localStorage.getItem('status')) { this.status = localStorage.getItem('status') }
