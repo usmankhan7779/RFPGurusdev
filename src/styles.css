@@ -1343,7 +1343,7 @@ btn.btn-success.dropdown-toggle:focus {
 .search-holder {
   border: 1px solid #777;
   border-radius: 55px;
-  padding: 10px 20px;
+  padding: 10px 40px 10px 10px;
   margin: 0 auto;
   -webkit-box-shadow: 0 0 10px 0 #ccc inset;
   box-shadow: 0 0 10px 0 #ccc inset;

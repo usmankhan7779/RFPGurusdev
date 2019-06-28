@@ -23,6 +23,7 @@ export class ContactUsComponent implements OnInit {
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   endRequest;
  name= '^[a-zA-Z _.]+$';
+ 
   constructor(public recapcha: RecapchaService, private _serv: ContactUsService, private _nav: Router, private seoService: SeoService) { }
   ngOnInit() {
     window.scroll(0, 0);
@@ -61,6 +62,7 @@ export class ContactUsComponent implements OnInit {
       ])),
     });
   }
+
   onSubmit(name, email, phone, message) {
     if(this.recapcha.check()){
     this.endRequest = this._serv.contact(name, email, phone, message).subscribe(data => {
