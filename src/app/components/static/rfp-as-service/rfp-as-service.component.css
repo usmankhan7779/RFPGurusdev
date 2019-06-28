@@ -94,3 +94,6 @@
 .service-table{
   padding:10px 20px; 
 }
+.para p{
+  word-break: break-all!important;
+}
