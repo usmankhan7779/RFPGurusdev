@@ -16,11 +16,7 @@
     background: rgba(0, 0, 0, 0.5686274509803921);
     min-height: 100%;
 }
-.benner-conter {
-    bottom: 200px;
-    right: 306px;
-    top: auto;
-}
+
 .download-btns {
     position: absolute;
     z-index: 8;
@@ -233,7 +229,7 @@
     margin: 0;
     position: relative;
     letter-spacing: 0;
-    width: 25%
+    width: 33%
 }
 
 
@@ -832,11 +828,19 @@ bottom: -9999px
 font-family: Helvetica!important
 }
 .custom-model {
-    width: 70%;
-    z-index: 9;
-    top: 80px;
+  z-index: 9;
+  top: 80px;
+  max-width: 900px;
+  min-width: 900px;
+  width: 900px;
 }
-
+.benner-conter {
+  width: 300px;
+  position: absolute;
+  top: auto;
+  right: 266px;
+  bottom: 175px;
+}
 .custom-model .modal-body {
     text-align: center;
     padding: 5px 40px;
@@ -874,6 +878,7 @@ font-family: Helvetica!important
 .login-template img{
     width: 100%;
 }
+
 @media (max-width:1024px) {
   .form-home {
       left: 55px
@@ -894,8 +899,17 @@ font-family: Helvetica!important
     line-height: 18px;
   }
   .custom-model {
-    width: 90%
-  }
+    max-width: 700px;
+    min-width: 700px;
+    width: 700px;
+}
+.benner-conter{
+  width: 300px;
+  position: absolute;
+  top: auto;
+  right: 167px;
+  bottom: 139px;
+}
   .success-for-business h4 {
       font-size: 24px
   }
