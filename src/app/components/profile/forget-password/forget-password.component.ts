@@ -89,17 +89,17 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
 
     // --------------- SEO Service ---------------
     // setting the page title 
-    this.seoService.setTitle('Forget Password');
+    this.seoService.setTitle('Forgot Password');
 
     // Updating Open Graph
-    this.seoService.updateOGTitle('Forget Password');
+    this.seoService.updateOGTitle('Forgot Password');
     this.seoService.updateOGURL(window.location.href);
 
     // setting CanonicalURL
     this.seoService.createLinkForCanonicalURL();
 
     // setting twitter
-    this.seoService.updateTwitterTitle('Forget Password');
+    this.seoService.updateTwitterTitle('Forgot Password');
 
     // --------------- SEO Service End ---------------
 
