@@ -73,6 +73,23 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
       this.validateAllFormFields(this.register);
     }
   }
+  checkChange(){
+    this._serv.checkUse().subscribe(
+      data =>{
+      },
+      error =>{
+        if(error.status== 400){
+          swal({
+            type: 'error',
+            title: 'You have already used this link',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+          this.router.navigate(['/login'])
+        }
+      }
+    )
+  }
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
@@ -84,8 +101,9 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-
+alert('shameem')
     window.scroll(0, 0);
+    this.checkChange()
 
     // --------------- SEO Service ---------------
     // setting the page title 

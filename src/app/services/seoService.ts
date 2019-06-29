@@ -11,7 +11,7 @@ export class SeoService {
 
    // ------------ Set Page Title ------------
    defaultTitle() {
-      this.titleService.setTitle('RFP Gurus | Find RFP Bid Sites | Government Request for Proposal');
+      this.titleService.setTitle('RFPGurus | Find RFP Bid Sites | Government Request for Proposal');
    }
 
    setTitle(name) {
@@ -30,11 +30,11 @@ export class SeoService {
    // ------------- Meta ------------------
    //  open graph
    defaultOGTitle() {
-      this.meta.updateTag({ property: 'og:title', content: 'RFP Gurus | Find RFP Bid Sites | Government Request for Proposal' });
+      this.meta.updateTag({ property: 'og:title', content: 'RFPGurus | Find RFP Bid Sites | Government Request for Proposal' });
    }
 
    updateOGTitle(title) {
-      this.meta.updateTag({ property: 'og:title', content: title + ' | RFP Gurus | Find RFP Bid Sites | Government Request for Proposal' });
+      this.meta.updateTag({ property: 'og:title', content: title + ' | RFPGurus | Find RFP Bid Sites | Government Request for Proposal' });
    }
 
    updateOGURL(url) {
@@ -43,11 +43,11 @@ export class SeoService {
 
    //  Twitter
    defaultTwitterTitle() {
-      this.meta.updateTag({ name: 'twitter:title', content: "RFP Gurus | Find RFP Bid Sites | Government Request for Proposal" });
+      this.meta.updateTag({ name: 'twitter:title', content: "RFPGurus | Find RFP Bid Sites | Government Request for Proposal" });
    }
 
    updateTwitterTitle(name) {
-      this.meta.updateTag({ name: 'twitter:title', content: name + " | RFP Gurus | Find RFP Bid Sites | Government Request for Proposal" });
+      this.meta.updateTag({ name: 'twitter:title', content: name + " | RFPGurus | Find RFP Bid Sites | Government Request for Proposal" });
    }
 
    addMetaKeyWords(keyword) {

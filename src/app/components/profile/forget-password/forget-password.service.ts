@@ -13,4 +13,7 @@ export class ForgetPasswordService {
                 "code": code
             }), { headers: this.authInterceptor.setHeaders() });
     }
+    checkUse() {
+        return this.http.get('https://apis.rfpgurus.com/checklinkuse/link/');
+    }
 }
