@@ -519,6 +519,8 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
        
       })
       this.subcate=null;
+
+      
   }
 
 
