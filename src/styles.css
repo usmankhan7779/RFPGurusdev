@@ -1021,7 +1021,7 @@ button {
 }
 
 .clr_red {
-  color: #c00
+  color:#f44336;
 }
 
 .mg-0-auto {
@@ -2681,7 +2681,7 @@ body {
 }
 
 .sh-signup-form-fix .clr_red {
-  color: #c00;
+  color:#f44336;
   margin: -10px 0 -4px;
   font-size: 12px;
   font-weight: 700 !important;

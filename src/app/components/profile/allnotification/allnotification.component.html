@@ -11,14 +11,13 @@
             <div class="heart-contact sh-del-watchlist">
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
-                routerLink="/purchase-history" (click)="deletenofication(item?.id)">
-                <p class="">
+               >
+                <p class=""  routerLink="/purchase-history">
                 {{item.type_of_notification}}
-
+                </p>
                 <span class="sh-del " (click)="deletenofication(item?.id)">
                   <i class="fa fa-times"></i>
                 </span>
-                </p>
                 <div class="heart-detail ">
 
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
@@ -30,10 +29,10 @@
               </a>
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
-                (click)="move();deletenofication(item?.id)">
-                <p class="">
+               >
+                <p  [routerLink]="['/rfp']"[queryParams]="{query:item.target}">
                 {{item.type_of_notification}}
-
+                </p>
                 <span class="sh-del " (click)="deletenofication(item?.id)">
                   <i class="fa fa-times"></i>
                 </span>
@@ -52,14 +51,13 @@
             <div class="heart-contact sh-del-watchlist ">
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
-                routerLink="/purchase-history" (click)="deletenofication(item?.id)">
-                <p>
+                >
+                <p routerLink="/purchase-history">
                   {{item.type_of_notification}}
-
-                  <span class="sh-del " (click)="deletenofication(item?.id)">
-                    <i class="fa fa-times"></i>
-                  </span>
                 </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
                 <div class="heart-detail ">
                   <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
@@ -71,14 +69,14 @@
               </a>
               <a class="heart-heading"
                 *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
-                (click)="move();deletenofication(item?.id)">
-                <p>
+                >
+                 
+                <p  [routerLink]="['/rfp']"[queryParams]="{query:item.target}">
                   {{item.type_of_notification}}
-
-                  <span class="sh-del " (click)="deletenofication(item?.id)">
-                    <i class="fa fa-times"></i>
-                  </span>
                 </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
                 <div class="heart-detail  ">
                   <!-- (click)="single(item.target);updatenofication(item?.id)" -->
                   <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>

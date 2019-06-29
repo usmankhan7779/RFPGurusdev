@@ -22,43 +22,43 @@
           <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
             <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
                 <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="subscribe_data(1)" class="view-1s" class="btn btn-fill">
+                    <a onclick="topFunction()" (click)="subscribe_data(1)" class="view-1s" class="btn btn-fill">
                         <i class="fa fa-angle-double-left"></i>
                     </a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="subscribe_data(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage <= 30}" >
-                    <a (click)="subscribe_data(pager.currentPage - 30)">...</a>
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage - 30)">...</a>
                 </li>
                 <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="subscribe_data(page)" class="view-plan-details">{{page | number}}</a>
+                    <a onclick="topFunction()" (click)="subscribe_data(page)" class="view-plan-details">{{page | number}}</a>
                 </li>
     
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="subscribe_data(pager.currentPage + 3)">...</a>
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage + 3)">...</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
                         | number}}</a>
                 </li>
                 <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
                 <li *ngIf="pager.currentPage === pager.totalPages">
-                    <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
                         | number}}</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="subscribe_data(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
                         type="Next">
                         <i class="fa fa-angle-right top-set"></i>
                     </a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" class="btn btn-fill"
+                    <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" class="btn btn-fill"
                         type="Next">
                         <i class="fa fa-angle-double-right"></i>
                     </a>
@@ -248,38 +248,38 @@
                 </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === 1}">
-                <a (click)="subscribe_data(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                     <i class="fa fa-angle-left"></i>
                 </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage <= 30}" >
-                <a (click)="subscribe_data(pager.currentPage - 30)">...</a>
+                <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage - 30)">...</a>
             </li>
             <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                <a (click)="subscribe_data(page)" class="view-plan-details">{{page | number}}</a>
+                <a onclick="topFunction()" (click)="subscribe_data(page)" class="view-plan-details">{{page | number}}</a>
             </li>
 
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                <a (click)="subscribe_data(pager.currentPage + 3)">...</a>
+                <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage + 3)">...</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
                     | number}}</a>
             </li>
             <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
             <li *ngIf="pager.currentPage === pager.totalPages">
-                <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
                     | number}}</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                <a (click)="subscribe_data(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
+                <a onclick="topFunction()" (click)="subscribe_data(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
                     type="Next">
                     <i class="fa fa-angle-right top-set"></i>
                 </a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                <a (click)="subscribe_data(pager.totalPages)" class="view-plan-details" class="btn btn-fill"
+                <a onclick="topFunction()" (click)="subscribe_data(pager.totalPages)" class="view-plan-details" class="btn btn-fill"
                     type="Next">
                     <i class="fa fa-angle-double-right"></i>
                 </a>

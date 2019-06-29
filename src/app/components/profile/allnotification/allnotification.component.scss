@@ -15,12 +15,7 @@
   margin: 0 auto;
   float: none;
 }
-.sh-del {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  color: #fff
-}
+
 .sh-notification-div.sh .heart-main-div {
   position: relative
 }
@@ -57,12 +52,7 @@
   text-decoration: none;
   background: none;
 }
-.sh-del {
-  top: 10px;
-}
-.sh-del i{
-  color: #c00;
-}
+
 .card{
   margin: 0 auto 20px;
   padding: 0 0 20px;
@@ -78,10 +68,18 @@
   padding: 3px 10px;
   border-radius: 5px;
 }
-.heart-heading .sh-del{
-  position: absolute;
-  top: 3px;
-}
+
 .heart-heading .sh-del i{
   color: #fff;
+}
+.sh-del{
+  position: absolute;
+  right: 16px;
+  top: 14px;
+}
+.heart-heading{
+  position: relative;
+}
+p:focus{
+outline: none;
 }
