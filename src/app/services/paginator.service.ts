@@ -33,29 +33,57 @@ export class PagerService {
     if (totalPages <= 3) {
         startPage = 1;
         endPage = totalPages;
-    } else {
+    }
+    else if(totalPages < 3){
+        startPage=currentPage;
+        // endPage = currentPage+2;
+    }
+     else {
         if (currentPage <= 3) {
             startPage = 1;
             endPage = 3;
-
-        }else if (currentPage + 1 <= totalPages) {
-            startPage = currentPage ;
-            endPage =currentPage+2 ;
-        }
-        else if (currentPage + 1 >= totalPages) {
-            startPage = totalPages - 1;
+        } else if (currentPage + 1 >= totalPages) {
+            startPage = totalPages - 4;
             endPage = totalPages;
-        } else {
+        }
+        //  else {
            
-            if((totalPages - (currentPage - 2)) == 5) {
-               startPage = currentPage - 1;
-              endPage = currentPage+3;
-            } else {
+        //     if((totalPages - (currentPage - 2)) == 3) {
+        //        startPage = currentPage - 1;
+        //       endPage = currentPage+3;
+        //     } 
+            else {
                startPage = currentPage - 2;
             endPage = currentPage+2;
             }
-        }
+        //}
     }
+    // if (totalPages <= 3) {
+    //     startPage = 1;
+    //     endPage = totalPages;
+    // } else {
+    //     if (currentPage <= 3) {
+    //         startPage = 1;
+    //         endPage = 3;
+
+    //     }else if (currentPage + 1 <= totalPages) {
+    //         startPage = currentPage ;
+    //         // endPage =currentPage+2 ;
+    //     }
+    //     else if (currentPage + 1 >= totalPages) {
+    //         startPage = totalPages - 1;
+    //         endPage = totalPages;
+    //     } else {
+           
+    //         if((totalPages - (currentPage - 2)) == 5) {
+    //            startPage = currentPage - 1;
+    //           endPage = currentPage+3;
+    //         } else {
+    //            startPage = currentPage - 2;
+    //         endPage = currentPage+2;
+    //         }
+    //     }
+    // }
 
 
 //     if (totalPages <= 3) {
@@ -104,3 +132,5 @@ export class PagerService {
     };
   }
 }
+
+
