@@ -372,7 +372,12 @@ text-align: right;
   content: ''
 }
 
-
+@media (min-width:1366px){
+  .logo img {
+    margin-top: 6px;
+    max-width: 160px;
+}
+}
 @media (max-width:1366px) {
   .sh-signin-signup {
     padding-left: 0 !important
