@@ -230,7 +230,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   cardid = "";
   card;
   default: boolean = false;
-
+  cardtypeclear;
   name;
   cardnumber;
   ccv;
@@ -359,6 +359,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
               })
              }
              this.getCards();
+             this.cardtypeclear="Select Card Type ";
+           
              f.resetForm();
    
            },
