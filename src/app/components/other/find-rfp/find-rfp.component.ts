@@ -98,10 +98,12 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         // this.CatName = params['CatName'] || '0';
         // this.cates = params['cat']
         // alert(params['cat'])
+        alert('');
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
           delete this.status;
+          
         }
         if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') } else if (localStorage.getItem('enterdate') == null) {
           delete this.enterdate;
@@ -118,19 +120,21 @@ export class FindRfpComponent implements OnInit, OnDestroy {
           delete this.submission_to;
         }
         if (localStorage.getItem('states')) {
+          alert('state');
           this.states = localStorage.getItem('states');
         }
         else if (localStorage.getItem('states') == null) {
+          alert('clear');
           delete this.states;
         }
         if (localStorage.getItem('agencies')) { 
-          // alert(localStorage.getItem('agencies'))
+        
           this.agencies = localStorage.getItem('agencies') }
         else if (localStorage.getItem('agencies') == null) {
           delete this.agencies;
         }
         if (localStorage.getItem('cates')) {
-          // alert(localStorage.getItem('cates'))
+         
            this.cates = localStorage.getItem('cates') 
         }
         else if (localStorage.getItem('cates') == null) {
@@ -315,6 +319,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    alert('');
     localStorage.removeItem('status')
     localStorage.removeItem('enterdate')
     localStorage.removeItem('duedate')
@@ -322,6 +327,10 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     localStorage.removeItem('subcat')
+    this.statsearch=null
+    this.catsearch=null
+    this.agencies=null
+    this.subcates=null
 
   }
 }

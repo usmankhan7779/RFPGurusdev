@@ -55,7 +55,8 @@ export class SingleRfpComponent implements OnInit {
       let category = url.slice(0, 8)
       let agency = url.slice(0, 6)
 
-      if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+      if (ur == 'searched-data')
+       { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
       else if (state == 'state') {
         this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
       }
@@ -65,12 +66,23 @@ export class SingleRfpComponent implements OnInit {
       else if (agency == 'agency') {
 
         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
-      } else if (url == 'admin-panel') {
+      }
+       else if (url == 'admin-panel')
+       {
         this._nav.navigate([url]);
       }
-      else {
-        this._nav.navigate([url]);
+      else if(url =='find-rfp')
+       {
+        this._nav.navigate(['find-rfps']);
       }
+      else if(url =='advanced-search')
+      {
+       this._nav.navigate(['advanced-search']);
+     }
+     else if(url =='my-watchlist')
+     {
+      this._nav.navigate(['my-watchlist']);
+    }
     }
     else {
       this._nav.navigate(['/']);

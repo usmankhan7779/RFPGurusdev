@@ -365,10 +365,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     this.statsearch= null;
     this.agensearch = null;
     this.catsearch = null;
-      // this.subcate=null;
     this.postedDate = null;
     this.DueDate = null;
-    // localStorage.removeItem('subcate');
+   
     localStorage.removeItem('statuss');
     localStorage.removeItem('enterdates');
     localStorage.removeItem('duedates');
