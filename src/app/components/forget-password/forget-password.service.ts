@@ -27,6 +27,6 @@ export class ForgetPasswordService {
         // let headers = new Headers();
         // headers.append('Content-Type', 'application/json');     
         // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-        return this._https.get('https://apis.rfpgurus.com/checklinkuse/link/' + code).map(response => response.json());
+        return this._https.get('https://apis.rfpgurus.com/checklinkuse/' + code).map(response => response.json());
     }
 }
