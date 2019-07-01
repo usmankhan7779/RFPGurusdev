@@ -54,6 +54,8 @@ export class ContactUsComponent implements OnInit {
       ])),
       phone: new FormControl("", Validators.compose([
         Validators.required,
+       
+        Validators.minLength(11),
       ])),
       message: new FormControl("", Validators.compose([
         Validators.required,

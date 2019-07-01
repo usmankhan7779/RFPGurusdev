@@ -35,6 +35,8 @@
                       formControlName="phone">
                       <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
                       </int-phone-prefix> -->
+                      <mat-error *ngIf="form.controls.phone.errors?.minlength"><strong>Name should be between 2 to 64 characters</strong></mat-error>
+
                     <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
                     </mat-form-field>
                 </div>
