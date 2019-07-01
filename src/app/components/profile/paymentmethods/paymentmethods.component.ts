@@ -32,9 +32,9 @@ declare interface ValidatorFn {
   selector: 'app-paymentmethods',
   templateUrl: './paymentmethods.component.html',
   styleUrls: ['./paymentmethods.component.scss',
-  '../../local-style/payment.css',
-  '../../local-style/cradet-card-box.css'
-],
+    '../../local-style/payment.css',
+    '../../local-style/cradet-card-box.css'
+  ],
   // providers: [RegisterService,PaymentmethodsService]
 })
 export class PaymentmethodsComponent implements OnInit, OnDestroy {
@@ -50,7 +50,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
-  model : any = {};
+  model: any = {};
   public buttonName: any = 'Show';
   expirydate;
   public show2: boolean = false
@@ -88,7 +88,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   vin_Data = { city: "", state: "", country: "" };
   private sub: Subscription;
   flipclass = 'credit-card-box';
-  constructor(private pricingServ: PricingService, private _home :HomeService, private formBuilder: FormBuilder, private _nav: Router, private serv: PaymentmethodsService, private router: Router, private route: ActivatedRoute, private signupServ: SignupService, private seoService: SeoService) {
+  constructor(private pricingServ: PricingService, private _home: HomeService, private formBuilder: FormBuilder, private _nav: Router, private serv: PaymentmethodsService, private router: Router, private route: ActivatedRoute, private signupServ: SignupService, private seoService: SeoService) {
     this.cardnumber = true;
     this.cardnumber2 = false;
     this.ccv = true;
@@ -139,7 +139,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   invalid;
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
-      this.endRequest =this.signupServ.zipcode(zipcode1).subscribe(
+      this.endRequest = this.signupServ.zipcode(zipcode1).subscribe(
         data => {
           // this.form.controls['city'].setValue(data['city']);
           // this.form.controls['state'].setValue(data['state']);
@@ -149,14 +149,14 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
           this.model.country = data['country'];
         },
         error => {
-          error.status== 400
-            this.invalid=error.status;
-            delete this.model.city;
-            delete this.model.state;
-            delete this.model.country;
+          error.status == 400
+          this.invalid = error.status;
+          delete this.model.city;
+          delete this.model.state;
+          delete this.model.country;
 
         }
-        );
+      );
     }
   }
   updefault;
@@ -243,7 +243,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   id;
   setautopay: boolean = false;
   autopay;
-  get( id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
+  get(id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
     this.id = id;
     this.name = name;
     this.cardnumber = number;
@@ -310,121 +310,153 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   changed(val) {
     this.setautopay = val.checked
   }
+  public Cardnumber;
+  public Cardnumber2;
+  public isInvalid: boolean = false;
+  public isInvalid2: boolean = false;
+  public change(event: any): void {
+    var card = this.Cardnumber.split('-').join('').split('_').join('').length;
+    if (card < 16) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+    }
+  }
+  public change2(event: any): void {
+    var card2 = this.Cardnumber2.split('-').join('').split('_').join('').length;
+    if (card2 < 15) {
+      this.isInvalid2 = true;
+    }
+    else {
+      this.isInvalid2 = false;
+    }
+  }
   public removeValidators(form: FormGroup) {
     for (const key in form.controls) {
       form.get(key).clearValidators();
       form.get(key).updateValueAndValidity();
     }
   }
+
   check_value_get: boolean = false;
   add(f: NgForm) {
     this.date = this.form.value['expirydate'];
-    // if(this.form.controls.cardnickname.value !=null && this.form.controls.cardnumber2.value !=null && this.form.controls.ccv2.value !=null
-    //   && this.form.controls.expirydate.value !=null && this.form.controls.address.value !=null && this.form.controls.zip.value !=null
-    //   && this.form.controls.city.value !=null && this.form.controls.state.value !=null && this.form.controls.country.value !=null){
-        if (this.cardtype == "AmericanExpress")
 
-        {
-         if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber2.valid && this.form.controls.ccv2.valid
-           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
-           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid)
-            {
+    if (this.cardtype == "AmericanExpress") {
+      if (this.form.controls.cardnickname.value != null && this.form.controls.cardnumber2.value != null && this.form.controls.ccv2.value != null
+        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
+        && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
+
+        if (this.form.controls.cardnickname.valid && this.isInvalid2==false && this.form.controls.ccv2.valid
+          && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
+          && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
+            this.serv.addCard(
+              // this.default, 
+              this.form.value['cardnickname'],
+              this.form.value['address'],
+              this.form.value['zip'],
+              this.form.value['city'],
+              this.form.value['state'],
+              this.form.value['country'],
+              this.form.value['cardnumber2'].split('-').join(''),
+              this.form.value['ccv2'],
+              this.date.split('/').join(''),
+              this.cardtype,
+              this.form.value['setautopay'],
+              this.form.value['nickname']).subscribe(Data => {
+                swal({
+                  type: 'success',
+                  title: 'Payment Method has been added successfully',
+                  showConfirmButton: false,
+                  timer: 1500, width: '512px',
+                })
+                if (Data.message == 'Card Number already exist') {
+                  swal({
+                    type: 'info',
+                    title: 'Card Number already exist',
+                    showConfirmButton: false,
+                    timer: 1500, width: '512px',
+                  })
+                }
+                this.getCards();
+                f.resetForm();
+
+              },
+                error => {
+
+                })
           
-             this.serv.addCard(
-               // this.default, 
-             this.form.value['cardnickname'], 
-             this.form.value['address'],
-             this.form.value['zip'], 
-             this.form.value['city'],
-             this.form.value['state'], 
-             this.form.value['country'], 
-             this.form.value['cardnumber2'].split('-').join(''), 
-             this.form.value['ccv2'], 
-             this.date.split('/').join(''),
-             this.cardtype,
-             this.form.value['setautopay'], 
-             this.form.value['nickname']).subscribe(Data => {
-             swal({
-               type: 'success',
-               title: 'Payment Method has been added successfully',
-               showConfirmButton: false,
-               timer: 1500, width: '512px',
-             })
-             if(Data.message=='Card Number already exist'){
+        }
+
+        else {
+          swal({
+            type: 'error',
+            title: 'Invalid Details',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+        }
+      }
+
+      else {
+        swal({
+          type: 'error',
+          title: ' Please fill in all the fields ',
+          showConfirmButton: false,
+          timer: 1500, width: '512px',
+        })
+      }
+    }
+    else {
+      if (this.form.controls.cardnickname.value != null && this.form.controls.cardnumber.value != null && this.form.controls.ccv.value != null
+        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
+        && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
+        if (this.form.controls.cardnickname.valid && this.isInvalid==false && this.form.controls.ccv.valid
+          && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
+          && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
+          this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
+            swal({
+              type: 'success',
+              title: 'Payment Method has been added successfully',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+            });
+            if (Data.message === "Card Number already exist") {
               swal({
                 type: 'info',
                 title: 'Card Number already exist',
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               })
-             }
-             this.getCards();
-             this.cardtypeclear="Select Card Type ";
-           
-             f.resetForm();
-   
-           },
-             error => {
-   
-             })
-         }
-         else {
-           swal({
-             type: 'error',
-             title: 'Invalid Details',
-             showConfirmButton: false,
-             timer: 1500, width: '512px',
-           })
-         }
-       }
-   
-       else {
-       
-         if (this.form.controls.cardnickname.valid && this.form.controls.cardnumber.valid && this.form.controls.ccv.valid
-           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
-           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-           this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
-             swal({
-               type: 'success',
-               title: 'Payment Method has been added successfully',
-               showConfirmButton: false,
-               timer: 1500, width: '512px',
-             });
-             if(Data.message === "Card Number already exist" ){
-              swal({
-                type: 'info',
-                title: 'Card Number already exist',
-                showConfirmButton: false,
-                timer: 1500, width: '512px',
-              })
-             }
-             this.getCards();
-             f.resetForm();
-   
-           },
-             error => {
-   
-             })
-         }
-         else {
-           swal({
-             type: 'error',
-             title: 'Invalid Details',
-             showConfirmButton: false,
-             timer: 1500, width: '512px',
-           })
-         }
-   
-       }
-  //     }
-  //  else{
-  //   swal({
-  //     type: 'error',
-  //     title: ' Please fill in all the fields ',
-  //     showConfirmButton: false,
-  //     timer: 1500, width: '512px',
-  //   })
-  //  }
+            }
+            this.getCards();
+            f.resetForm();
+
+          },
+            error => {
+
+            })
+        }
+        else {
+          swal({
+            type: 'error',
+            title: 'Invalid Details',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+        }
+      }
+      else {
+        swal({
+          type: 'error',
+          title: ' Please fill in all the fields ',
+          showConfirmButton: false,
+          timer: 1500, width: '512px',
+        })
+      }
+    }
+
   }
   res;
   message;

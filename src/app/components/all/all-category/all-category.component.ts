@@ -67,16 +67,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
 
     // --------------- SEO Service End ---------------
   }
-  // item;
-  // filter(val) {
-  //     if (this.query !== "") {
-  //         this.endRequest = this._serv.searchrecord(val).subscribe(response => {
-  //             this.Rfp = response['results'];
-  //             this.item = response['totalItems']
-  //             this.loaded = true;
-  //         });
-  //     }
-  // }
+  
   closeSearch() {
     if (this.mainSearch == 1) {
       this.mainSearch = 0;
@@ -90,13 +81,17 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
       inputField.focus();
     }
   }
-  item;
+  item :boolean = false;
   filter(val) {
-    if (val != "") {
+    if (val != '') {
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
         console.log(this.cat)
-        this.item = this.cat.length
+        this.item = false;
+        if(this.cat.length == '0'){
+          this.item = true
+        }
+        // this.item = this.cat.length;
 
       });
     }
@@ -118,5 +113,6 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
     this._nav.navigate([sth], { queryParams: { id: id, rfp: num } });
   }
   ngOnDestroy() {
+    
   }
 }

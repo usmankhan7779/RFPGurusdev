@@ -19,10 +19,12 @@ import { SeoService } from 'src/app/services/seoService';
   providers: [PagerService, AdvanceService, HomeService]
 })
 export class FindRfpComponent implements OnInit, OnDestroy {
+  
   data;
   state;
   pager: any = {};
   date;
+  
   check(date) {
 
     this.date = moment(date, this.formats, true).isValid()
@@ -76,7 +78,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   subcates;
   submission_from;
   submission_to;
-
+  statesearch;
   constructor(private homeServ: HomeService, private datePipe: DatePipe, private route: ActivatedRoute, private _adserv: AdvanceService, private pagerService: PagerService, private http: HttpClient, private _nav: Router, private seoService: SeoService) { }
 
   ngOnInit() {

@@ -131,7 +131,7 @@
                                 <td class="sh-table-date">
                                     <mat-form-field >
                                         <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()"
-                                            name="enterdate" [(ngModel)]="enterdate"   placeholder="MM/DD/YYYY"
+                                            name="enterdate"  [(ngModel)]="enterdate"   placeholder="MM/DD/YYYY"
                                             (ngModelChange)="changeenterdate(enterdate)" />
                                         <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
                                         <mat-datepicker #startPicker></mat-datepicker>
