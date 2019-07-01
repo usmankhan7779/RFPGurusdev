@@ -81,7 +81,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
       inputField.focus();
     }
   }
-  item :boolean =false;
+  item :boolean = false;
   filter(val) {
     if (val != '') {
       this._serv.searchrecord(val).subscribe(response => {
