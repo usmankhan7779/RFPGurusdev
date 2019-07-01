@@ -16,10 +16,10 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 text-center" *ngIf="item == '0'">
+        <!-- <div class="col-sm-12 text-center" *ngIf="item">
           <i class="fa fa-exclamation-triangle"></i>
           <h3 class="text-center" >No Record Found </h3>
-        </div>
+        </div> -->
         <!-- <div class="col-sm-4 col-xs-12 text-right tab-text-center">
           <input type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
             placeholder="Search Agencies" class="search-allstates">
@@ -53,6 +53,10 @@
               <!-- </div> -->
             </div>
            
+          </div>
+          <div class="col-sm-12 text-center" *ngIf="item">
+            <i class="fa fa-exclamation-triangle"></i>
+            <h3 class="text-center" >No Record Found </h3>
           </div>
         </div>
         

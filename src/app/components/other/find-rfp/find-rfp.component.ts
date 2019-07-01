@@ -19,10 +19,12 @@ import { SeoService } from 'src/app/services/seoService';
   providers: [PagerService, AdvanceService, HomeService]
 })
 export class FindRfpComponent implements OnInit, OnDestroy {
+  
   data;
   state;
   pager: any = {};
   date;
+  
   check(date) {
 
     this.date = moment(date, this.formats, true).isValid()

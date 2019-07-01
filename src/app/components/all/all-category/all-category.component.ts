@@ -81,13 +81,17 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
       inputField.focus();
     }
   }
-  item;
+  item :boolean = false;
   filter(val) {
-    if (val != "") {
+    if (val != '') {
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
         console.log(this.cat)
-        this.item = this.cat.length;
+        this.item = false;
+        if(this.cat.length == '0'){
+          this.item = true
+        }
+        // this.item = this.cat.length;
 
       });
     }
