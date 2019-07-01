@@ -31,14 +31,15 @@
                 </div>
                 <div class="form-group label-floating">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}"
-                      formControlName="phone">
+                    <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change($event)
+                      formControlName="phone" [(ngModel)]="phone" >
                       <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
                       </int-phone-prefix> -->
                       <mat-error *ngIf="form.controls.phone.errors?.minlength"><strong>Name should be between 2 to 64 characters</strong></mat-error>
 
-                    <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
+                      <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
                     </mat-form-field>
+                    <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
                 </div>
               </div>
               <div class="col-md-6 col-sm-6">
