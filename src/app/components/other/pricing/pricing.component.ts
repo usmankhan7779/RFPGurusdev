@@ -324,7 +324,28 @@ export class PricingComponent implements OnInit {
   uname;
   date;
   default: boolean = false;
-
+  public Cardnumber;
+  public Cardnumber2;
+  public isInvalid: boolean = false;
+  public isInvalid2: boolean = false;
+  public change(event: any): void {
+    var card = this.model.cardNumber.split('-').join('').split('_').join('').length;
+    if (card < 16) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+    }
+  }
+  public change2(event: any): void {
+    var card = this.model.cardNumber.split('-').join('').split('_').join('').length;
+    if ( card < 15) {
+      this.isInvalid2 = true;
+    }
+    else {
+      this.isInvalid2 = false;
+    }
+  }
   proceed(f: NgForm) {
     this.local = localStorage.getItem('currentUser');
     let pars = JSON.parse(this.local);
@@ -413,7 +434,7 @@ export class PricingComponent implements OnInit {
       else {
         swal({
           type: 'error',
-          title: 'Invalid detail',
+          title: 'Invalid details',
           showConfirmButton: false,
           timer: 1500, width: '512px',
         })
