@@ -30,6 +30,9 @@ padding: 25px 20px 0;
 .phonee .form-control {
 height: 37px!important;
 }
+.mrg-btm{
+  margin-bottom:10px
+}
 @media (max-width:991px){
 .card{
   max-width: 90%;

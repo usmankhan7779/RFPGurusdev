@@ -509,7 +509,7 @@
                               </mat-form-field>
                             </div>
                             <div class="col-sm-12 col-xs-12 enroll-chckbox mg-top-10px">
-                              <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true">
+                              <mat-slide-toggle  (change)="changed($event)"  formControlName="setautopay" [(ngModel)]="setautopay" checked="true">
                               </mat-slide-toggle>
                               <p>Enroll in Autopay - Set this card as recurring payment
                                 method</p>
