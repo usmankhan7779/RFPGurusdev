@@ -83,7 +83,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   item :boolean =false;
   filter(val) {
-    if (val != "") {
+    if (val != '') {
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
         console.log(this.cat)
