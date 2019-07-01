@@ -14,13 +14,11 @@
                 [(ngModel)]="query" #querysearch="ngModel" (keyup)=filter(query)  >
               <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
             </div>
-           
           </div>
-         
         </div>
         <div class="col-sm-12 text-center" *ngIf="item == '0'">
           <i class="fa fa-exclamation-triangle"></i>
-          <h3 class="text-center" > Search not fetching results </h3>
+          <h3 class="text-center" >No Record Found </h3>
         </div>
         <!-- <div class="col-sm-4 col-xs-12 text-right tab-text-center">
           <input type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
