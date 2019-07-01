@@ -100,7 +100,11 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         // this.CatName = params['CatName'] || '0';
         // this.cates = params['cat']
         // alert(params['cat'])
-        // alert('');
+      
+        this.statsearch=null
+        this.catsearch=null
+        this.subcates=null
+        // this.=null
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
@@ -109,10 +113,12 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         }
         if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') } else if (localStorage.getItem('enterdate') == null) {
           delete this.enterdate;
+          
         }
         if (localStorage.getItem('duedate')) { this.duedate = localStorage.getItem('duedate') }
         else if (localStorage.getItem('duedate') == null) {
           delete this.duedate;
+          
         }
         if (localStorage.getItem('submission_from')) { this.submission_from = localStorage.getItem('submission_from') } else if (localStorage.getItem('submission_from') == null) {
           delete this.submission_from;
@@ -122,13 +128,14 @@ export class FindRfpComponent implements OnInit, OnDestroy {
           delete this.submission_to;
         }
         if (localStorage.getItem('states')) {
-          // alert('state');
+        
           this.states = localStorage.getItem('states');
+         
         }
         else if (localStorage.getItem('states') == null) {
-          // alert('clear');
+         
           delete this.states;
-        }
+         }
         if (localStorage.getItem('agencies')) { 
         
           this.agencies = localStorage.getItem('agencies') }
@@ -141,10 +148,12 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         }
         else if (localStorage.getItem('cates') == null) {
           delete this.cates;
+         
         }
         if (localStorage.getItem('subcat')) { this.subcates = localStorage.getItem('subcat') }
         else if (localStorage.getItem('subcat') == null) {
           delete this.subcates;
+         
         }
         // if (localStorage.getItem('pages')) {
         //   var page_num: number = Number(localStorage.getItem('pages'));
@@ -329,10 +338,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     localStorage.removeItem('subcat')
-    this.statsearch=null
-    this.catsearch=null
-    this.agencies=null
-    this.subcates=null
+   
 
   }
 }
