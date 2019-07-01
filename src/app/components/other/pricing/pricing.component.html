@@ -493,13 +493,13 @@
                                   formControlName="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64">
                                 <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
                                   <mat-error *ngIf="form.controls.nickname.errors.required">
-                                    Nick Name cannot be empty
+                                    Payment Method Nickname cannot be empty
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                                    Nick Name must be between 2 and 64 characters
+                                    Payment Method Nickname must be between 2 and 64 characters
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
-                                    Nick Name must be only in Alphabet.
+                                    Payment Method Nickname must be only in Alphabet.
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
