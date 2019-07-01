@@ -81,7 +81,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
       data =>{
       },
       error =>{
-        if(error.status== false){
+        if(error.status== 400){
           swal({
             type: 'error',
             title: 'You have already used this link',
