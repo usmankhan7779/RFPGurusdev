@@ -100,7 +100,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         // this.CatName = params['CatName'] || '0';
         // this.cates = params['cat']
         // alert(params['cat'])
-        alert('');
+        // alert('');
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
@@ -122,11 +122,11 @@ export class FindRfpComponent implements OnInit, OnDestroy {
           delete this.submission_to;
         }
         if (localStorage.getItem('states')) {
-          alert('state');
+          // alert('state');
           this.states = localStorage.getItem('states');
         }
         else if (localStorage.getItem('states') == null) {
-          alert('clear');
+          // alert('clear');
           delete this.states;
         }
         if (localStorage.getItem('agencies')) { 
@@ -321,7 +321,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    alert('');
+    // alert('');
     localStorage.removeItem('status')
     localStorage.removeItem('enterdate')
     localStorage.removeItem('duedate')
