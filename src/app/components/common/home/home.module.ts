@@ -10,7 +10,6 @@ import { HomeComponent } from './home.component';
 import { SlickModule } from 'ngx-slick';
 import { MapModule } from '../../cards/map/map.module';
 import {CountdownModule} from "ng2-countdown-timer";
-import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 @NgModule({
     imports: [
@@ -23,7 +22,7 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
         FeaturecomparisonModule,
         RandomCategoriesModule,
         MapModule,
-        CountdownTimerModule.forRoot()
+       
          
     ],
     declarations: [HomeComponent],
