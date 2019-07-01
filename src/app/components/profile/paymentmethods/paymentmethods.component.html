@@ -282,7 +282,7 @@
             </div>
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 enroll-chckbox">
-                <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true"></mat-slide-toggle>
+                <mat-slide-toggle   formControlName="setautopay" (change)="changed($event)" [checked]="true"  ></mat-slide-toggle>
                 <p>Enroll in Autopay - Set this card as recurring payment method</p>
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-20-0">

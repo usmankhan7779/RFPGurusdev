@@ -216,7 +216,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
       nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
       address: ['', Validators.compose([Validators.required])],
-      // setautopay:['', Validators.compose([Validators.required])],
+      setautopay:['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
 
 
@@ -241,7 +241,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   state;
   country;
   id;
-  setautopay: boolean = false;
+  setautopay: boolean = true;
   autopay;
   get(id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
     this.id = id;
