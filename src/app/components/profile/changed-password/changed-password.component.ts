@@ -50,7 +50,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     options: FormGroup;
     endRequest;
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-    constructor(private authService: AuthService, private _nav: Router, private router: Router, private _serv: ChangedPasswordService, private formBuilder: FormBuilder, private seoService: SeoService) {
+    constructor(private authService: AuthService, private _nav: Router, private router: Router,private _serv: ChangedPasswordService, private formBuilder: FormBuilder, private seoService: SeoService) {
         if (localStorage.getItem('currentUser')) {
             this.local = localStorage.getItem('currentUser');
             let pars = JSON.parse(this.local);
@@ -117,7 +117,6 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     }
     ngOnInit() {
         window.scroll(0, 0);
-
         // --------------- SEO Service ---------------
         // setting the page title 
         this.seoService.setTitle('Change Password');
