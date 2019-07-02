@@ -54,7 +54,7 @@
               <div class="col-md-12 padding-0">
                 <div class="col-md-4  padding-0 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
-                    <mat-select placeholder="Card Type *" [(ngModel)]="cardtypeclear"  formControlName="var_type_atm" #val 
+                    <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val 
                       (valueChange)="ShowButton(val.value,f)">
                       <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                         [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
