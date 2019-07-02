@@ -101,9 +101,9 @@
                                 </td>
                                 <td>
                                     <mat-form-field class="sh-tb-select">
-                                        <mat-select [(ngModel)]=cates name="cates" placeholder="Category"
+                                        <mat-select [(ngModel)]=cates name="cates" placeholder="Category" [disabled]='true'
                                             (ngModelChange)="  changecates(cates)">
-                                            <input class="inp" type="text" [(ngModel)]="catsearch"
+                                            <input class="inp" type="text" [(ngModel)]="catsearch" 
                                                 [ngModelOptions]="{standalone: true}" placeholder="Search By Category"
                                                 class="search-allstates">
                                             <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
@@ -115,9 +115,9 @@
                                 </td>
                                 <td>
                                     <mat-form-field class="sh-tb-select">
-                                        <mat-select [(ngModel)]="states" name="states" placeholder="State"
+                                        <mat-select [(ngModel)]="states" name="states" placeholder="State" [disabled]='true'
                                             (ngModelChange)="changestate(states)">
-                                            <input class="inp" type="text" [(ngModel)]="statsearch"
+                                            <input class="inp" type="text" [(ngModel)]="statsearch" 
                                                 [ngModelOptions]="{standalone: true}" class="search-allstates"
                                                 placeholder="Search By State">
                                             <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
