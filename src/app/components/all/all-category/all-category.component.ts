@@ -36,13 +36,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   mainSearch = 0;
   constructor(private _adserv: AdvanceService, public _shareData: SharedData, private _nav: Router, private _serv: AllCategoryService, private _location: Location, private seoService: SeoService) {
 
-    this._serv.rfpcategory_subsat().subscribe(
-      data => {
-        this.cat = data;
-      },
-      error => {
-      }
-    )
+    
   }
   catrfp(cat) {
     this.endRequest = this._shareData.categoryInfo(cat);
@@ -51,6 +45,13 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     window.scroll(0, 0);
+    this._serv.rfpcategory_subsat().subscribe(
+      data => {
+        this.cat = data;
+      },
+      error => {
+      }
+    )
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('All Categories');
