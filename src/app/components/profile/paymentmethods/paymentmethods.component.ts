@@ -242,6 +242,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   country;
   id;
   setautopay: boolean = true;
+  payauto: boolean =true;
   autopay;
   get(id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
     this.id = id;
