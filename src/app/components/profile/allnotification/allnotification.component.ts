@@ -113,7 +113,9 @@ export class AllnotificationComponent implements OnInit {
     this._serv.notify().subscribe(
       data => {
         // alert(data)
+        console.log(data,'notification')
         this.notificate = data['notifications'];
+        console.log(this.notificate,'noti')
         this.unread = data['unread'];
         this._shareData.notifyInfo(this.notificate);
         this._shareData.unreadnotifyInfo(this.unread);
