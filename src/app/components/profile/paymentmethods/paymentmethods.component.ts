@@ -100,7 +100,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
       f.resetForm();
-      // this.form.controls.cardnumber.reset();
       this.cardnumber2 = true;
       this.ccv = false;
       this.form.controls.ccv.reset();
@@ -110,7 +109,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      // this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -120,7 +118,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[5]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      //  this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -129,7 +126,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[6]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      //  this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -316,7 +312,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   public isInvalid: boolean = false;
   public isInvalid2: boolean = false;
   public change(event: any): void {
-    var card = this.Cardnumber.split('-').join('').split('_').join('').length;
+    var card = this.model.Cardnumber.split('-').join('').split('_').join('').length;
     if (card < 16) {
       this.isInvalid = true;
     }
@@ -325,7 +321,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     }
   }
   public change2(event: any): void {
-    var card2 = this.Cardnumber2.split('-').join('').split('_').join('').length;
+    var card2 = this.model.Cardnumber2.split('-').join('').split('_').join('').length;
     if (card2 < 15) {
       this.isInvalid2 = true;
     }
