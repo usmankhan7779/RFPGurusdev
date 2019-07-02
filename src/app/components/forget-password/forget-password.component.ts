@@ -88,7 +88,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
-          this.router.navigate(['/login'])
+          this.router.navigate(['/signin'])
         }
       }
     )

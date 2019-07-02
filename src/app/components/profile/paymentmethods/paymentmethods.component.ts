@@ -100,7 +100,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
       f.resetForm();
-      // this.form.controls.cardnumber.reset();
       this.cardnumber2 = true;
       this.ccv = false;
       this.form.controls.ccv.reset();
@@ -110,7 +109,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      // this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -120,7 +118,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[5]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      //  this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -129,7 +126,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       this.cardsmask = [/[6]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
       f.resetForm();
-      //  this.form.controls.cardnumber2.reset();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -216,7 +212,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
       nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
       address: ['', Validators.compose([Validators.required])],
-      setautopay:['', Validators.compose([Validators.required])],
+      setautopay: ['',[Validators.required]],
       state: ['', Validators.compose([Validators.required])],
 
 
@@ -242,6 +238,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   country;
   id;
   setautopay: boolean = true;
+  payauto: boolean = true;
   autopay;
   get(id, name, number, cvc, expDate, street_address, zipcode, city, state, country, autopay) {
     this.id = id;
@@ -315,7 +312,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   public isInvalid: boolean = false;
   public isInvalid2: boolean = false;
   public change(event: any): void {
-    var card = this.Cardnumber.split('-').join('').split('_').join('').length;
+    var card = this.model.Cardnumber.split('-').join('').split('_').join('').length;
     if (card < 16) {
       this.isInvalid = true;
     }
@@ -324,7 +321,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     }
   }
   public change2(event: any): void {
-    var card2 = this.Cardnumber2.split('-').join('').split('_').join('').length;
+    var card2 = this.model.Cardnumber2.split('-').join('').split('_').join('').length;
     if (card2 < 15) {
       this.isInvalid2 = true;
     }
@@ -348,45 +345,44 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
         && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
 
-        if (this.form.controls.cardnickname.valid && this.isInvalid2==false && this.form.controls.ccv2.valid
+        if (this.form.controls.cardnickname.valid && this.isInvalid2 == false && this.form.controls.ccv2.valid
           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-            this.serv.addCard(
-              // this.default, 
-              this.form.value['cardnickname'],
-              this.form.value['address'],
-              this.form.value['zip'],
-              this.form.value['city'],
-              this.form.value['state'],
-              this.form.value['country'],
-              this.form.value['cardnumber2'].split('-').join(''),
-              this.form.value['ccv2'],
-              this.date.split('/').join(''),
-              this.cardtype,
-              this.form.value['setautopay'],
-              this.form.value['nickname']).subscribe(Data => {
-                swal({
-                  type: 'success',
-                  title: 'Payment Method has been added successfully',
-                  showConfirmButton: false,
-                  timer: 1500, width: '512px',
-                })
-                if (Data.message == 'Card Number already exist') {
+          this.serv.addCard(
+            // this.default, 
+            this.form.value['cardnickname'],
+            this.form.value['address'],
+            this.form.value['zip'],
+            this.form.value['city'],
+            this.form.value['state'],
+            this.form.value['country'],
+            this.form.value['cardnumber2'].split('-').join(''),
+            this.form.value['ccv2'],
+            this.date.split('/').join(''),
+            this.cardtype,
+            this.form.value['setautopay'],
+            this.form.value['nickname']).subscribe(Data => {
+              swal({
+                type: 'success',
+                title: 'Payment Method has been added successfully',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              })
+              this.cardtypeclear = " ";
+              this.getCards();
+              f.resetForm();
+              delete this.model.cardType
+            },
+              error => {
+                if (error.status == 406) {
                   swal({
-                    type: 'info',
+                    type: 'error',
                     title: 'Card Number already exist',
                     showConfirmButton: false,
                     timer: 1500, width: '512px',
                   })
                 }
-                this.getCards();
-                f.resetForm();
-
-              },
-                error => {
-
-                })
-          
+              })
         }
 
         else {
@@ -412,7 +408,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       if (this.form.controls.cardnickname.value != null && this.form.controls.cardnumber.value != null && this.form.controls.ccv.value != null
         && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
         && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
-        if (this.form.controls.cardnickname.valid && this.isInvalid==false && this.form.controls.ccv.valid
+        if (this.form.controls.cardnickname.valid && this.isInvalid == false && this.form.controls.ccv.valid
           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
           this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
@@ -422,20 +418,30 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
               showConfirmButton: false,
               timer: 1500, width: '512px',
             });
-            if (Data.message === "Card Number already exist") {
-              swal({
-                type: 'info',
-                title: 'Card Number already exist',
-                showConfirmButton: false,
-                timer: 1500, width: '512px',
-              })
-            }
             this.getCards();
             f.resetForm();
+            // this.cardtypeclear=" ";
+            delete this.model.cardType
+
 
           },
             error => {
-
+              if (error.status === 406) {
+                swal({
+                  type: 'error',
+                  title: 'Card Number already exist',
+                  showConfirmButton: false,
+                  timer: 1500, width: '512px',
+                })
+              }
+              else if(error.status === 405){
+                swal({
+                  type: 'error',
+                  title: 'Card details are not Valid',
+                  showConfirmButton: false,
+                  timer: 1500, width: '512px',
+                })
+              }
             })
         }
         else {

@@ -1,11 +1,15 @@
 <div class="row margin-0">
   <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12" id="display_advance">
-
-    <div class="col-lg-9 col-md-12 sh-notification-div sh" *ngIf="notificate?.length != 0">
+ 
+    <div class="col-lg-9 col-md-12 sh-notification-div sh">
       <div class="col-md-5 page-title">
         <span>Notifications</span>
       </div>
-      <div class="card">
+      <div class="col-sm-12 text-center mg-top-100" *ngIf="notificate?.length == '0'">
+        <i class="fa fa-exclamation-triangle"></i>
+        <h3 class="text-center">No Notifications</h3>
+      </div>
+      <div class="card"  *ngIf="notificate?.length != 0">
         <div *ngFor="let item of notificate">
           <div class="heart-main-div" *ngIf="item.read == false">
             <div class="heart-contact sh-del-watchlist">
