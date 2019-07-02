@@ -380,6 +380,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
                
                 this.getCards();
                 f.resetForm();
+                delete this.model.cardType
                
 
               },
@@ -432,7 +433,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
             }
             this.getCards();
             f.resetForm();
-            this.cardtypeclear=" ";
+            // this.cardtypeclear=" ";
+            delete this.model.cardType
           
 
           },
