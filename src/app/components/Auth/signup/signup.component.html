@@ -211,7 +211,7 @@
                       onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                         matInput type="password" id="password" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password"
                         required />
-                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                       <mat-error *ngIf="register.controls.password.value == ''">
                         <strong>Password cannot be empty</strong>
                       </mat-error>
@@ -225,7 +225,7 @@
                   <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'confirmPassword')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
-                      <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                       <mat-error
                         *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
                         <strong>Password must match
