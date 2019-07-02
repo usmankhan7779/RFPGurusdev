@@ -54,7 +54,7 @@
               <div class="col-md-12 padding-0">
                 <div class="col-md-4  padding-0 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
-                    <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val 
+                    <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val  [(ngModel)]="model.cardType"
                       (valueChange)="ShowButton(val.value,f)">
                       <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                         [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
@@ -73,8 +73,8 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
-                  <input matInput type="text" [(ngModel)]="model.cardnumber" [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
-                    formControlName="cardnumber">
+                  <input matInput type="text" [(ngModel)]="model.Cardnumber"  [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
+                    formControlName="cardnumber" (change)=change($event)>
                     
                   <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
                     <mat-error *ngIf="form.controls.cardnumber.errors.required">
@@ -88,12 +88,13 @@
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
+                <p class="clr_red" *ngIf="isInvalid">Enter valid credit card number</p> 
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2"
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
-                  <input matInput type="text" [(ngModel)]="model.cardnumber2" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
-                    formControlName="cardnumber2" >
+                  <input matInput type="text" [(ngModel)]="model.Cardnumber2" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
+                    formControlName="cardnumber2" (change)=change2($event)>
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
                       Card number cannot be empty
@@ -106,6 +107,7 @@
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
+                <p class="clr_red" *ngIf="isInvalid2">Enter valid credit card number</p> 
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ccv" [ngClass]="displayFieldCss(form, 'ccv')">
                   <mat-form-field>
@@ -213,22 +215,12 @@
                 <mat-form-field>
                   <input matInput class="text-uppercase" placeholder="State *" [(ngModel)]="model.state"  type="text" formControlName="state"
                     readonly>
-                  <!-- <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
-                                <mat-error *ngIf="form.controls.state.errors.required">
-                                  State cannot be empty
-                                </mat-error>
-                              </mat-error> -->
                 </mat-form-field>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
                 <mat-form-field>
                   <input matInput class="sh-text-capt" placeholder="Country *" [(ngModel)]="model.country"  type="text" formControlName="country"
                     readonly>
-                  <!-- <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
-                                <mat-error *ngIf="form.controls.country.errors.required">
-                                  Country cannot be empty
-                                </mat-error>
-                              </mat-error> -->
                 </mat-form-field>
               </div>
             </div>
@@ -251,9 +243,6 @@
                       characters
                       long
                     </mat-error>
-                    <!-- <mat-error *ngIf="form.controls.cardnickname.errors.cannotContainSpace">
-                                          Nick name cannot contain spaces
-                                        </mat-error> -->
                     <mat-error *ngIf="form.controls.cardnickname.hasError('pattern')">
                       Cardholder Name must be only in Alphabet.
                     </mat-error>
@@ -280,7 +269,7 @@
             </div>
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 enroll-chckbox">
-                <mat-slide-toggle value="setautopay" (change)="changed($event)" checked="true"></mat-slide-toggle>
+                <mat-slide-toggle   formControlName="setautopay" (change)="changed($event)" [(ngModel)]="model.payauto" checked="true"  ></mat-slide-toggle>
                 <p>Enroll in Autopay - Set this card as recurring payment method</p>
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-20-0">

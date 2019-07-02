@@ -36,13 +36,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   mainSearch = 0;
   constructor(private _adserv: AdvanceService, public _shareData: SharedData, private _nav: Router, private _serv: AllCategoryService, private _location: Location, private seoService: SeoService) {
 
-    this._serv.rfpcategory_subsat().subscribe(
-      data => {
-        this.cat = data;
-      },
-      error => {
-      }
-    )
+    
   }
   catrfp(cat) {
     this.endRequest = this._shareData.categoryInfo(cat);
@@ -51,6 +45,13 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     window.scroll(0, 0);
+    this._serv.rfpcategory_subsat().subscribe(
+      data => {
+        this.cat = data;
+      },
+      error => {
+      }
+    )
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('All Categories');
@@ -67,16 +68,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
 
     // --------------- SEO Service End ---------------
   }
-  // item;
-  // filter(val) {
-  //     if (this.query !== "") {
-  //         this.endRequest = this._serv.searchrecord(val).subscribe(response => {
-  //             this.Rfp = response['results'];
-  //             this.item = response['totalItems']
-  //             this.loaded = true;
-  //         });
-  //     }
-  // }
+  
   closeSearch() {
     if (this.mainSearch == 1) {
       this.mainSearch = 0;
@@ -90,13 +82,17 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
       inputField.focus();
     }
   }
-  item;
+  item :boolean = false;
   filter(val) {
-    if (val != "") {
+    if (val != '') {
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
         console.log(this.cat)
-        this.item = this.cat.length
+        this.item = false;
+        if(this.cat.length == '0'){
+          this.item = true
+        }
+        // this.item = this.cat.length;
 
       });
     }
@@ -118,5 +114,6 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
     this._nav.navigate([sth], { queryParams: { id: id, rfp: num } });
   }
   ngOnDestroy() {
+    
   }
 }

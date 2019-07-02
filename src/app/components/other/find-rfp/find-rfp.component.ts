@@ -19,10 +19,12 @@ import { SeoService } from 'src/app/services/seoService';
   providers: [PagerService, AdvanceService, HomeService]
 })
 export class FindRfpComponent implements OnInit, OnDestroy {
+  
   data;
   state;
   pager: any = {};
   date;
+  
   check(date) {
 
     this.date = moment(date, this.formats, true).isValid()
@@ -76,7 +78,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   subcates;
   submission_from;
   submission_to;
-
+  statesearch;
   constructor(private homeServ: HomeService, private datePipe: DatePipe, private route: ActivatedRoute, private _adserv: AdvanceService, private pagerService: PagerService, private http: HttpClient, private _nav: Router, private seoService: SeoService) { }
 
   ngOnInit() {
@@ -98,17 +100,25 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         // this.CatName = params['CatName'] || '0';
         // this.cates = params['cat']
         // alert(params['cat'])
+      
+        this.statsearch=null
+        this.catsearch=null
+        this.subcates=null
+        // this.=null
         if (localStorage.getItem('status')) {
           this.status = localStorage.getItem('status');
         } else if (localStorage.getItem('status') == null) {
           delete this.status;
+          
         }
         if (localStorage.getItem('enterdate')) { this.enterdate = localStorage.getItem('enterdate') } else if (localStorage.getItem('enterdate') == null) {
           delete this.enterdate;
+          
         }
         if (localStorage.getItem('duedate')) { this.duedate = localStorage.getItem('duedate') }
         else if (localStorage.getItem('duedate') == null) {
           delete this.duedate;
+          
         }
         if (localStorage.getItem('submission_from')) { this.submission_from = localStorage.getItem('submission_from') } else if (localStorage.getItem('submission_from') == null) {
           delete this.submission_from;
@@ -118,27 +128,32 @@ export class FindRfpComponent implements OnInit, OnDestroy {
           delete this.submission_to;
         }
         if (localStorage.getItem('states')) {
+        
           this.states = localStorage.getItem('states');
+         
         }
         else if (localStorage.getItem('states') == null) {
+         
           delete this.states;
-        }
+         }
         if (localStorage.getItem('agencies')) { 
-          // alert(localStorage.getItem('agencies'))
+        
           this.agencies = localStorage.getItem('agencies') }
         else if (localStorage.getItem('agencies') == null) {
           delete this.agencies;
         }
         if (localStorage.getItem('cates')) {
-          // alert(localStorage.getItem('cates'))
+         
            this.cates = localStorage.getItem('cates') 
         }
         else if (localStorage.getItem('cates') == null) {
           delete this.cates;
+         
         }
         if (localStorage.getItem('subcat')) { this.subcates = localStorage.getItem('subcat') }
         else if (localStorage.getItem('subcat') == null) {
           delete this.subcates;
+         
         }
         // if (localStorage.getItem('pages')) {
         //   var page_num: number = Number(localStorage.getItem('pages'));
@@ -315,6 +330,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // alert('');
     localStorage.removeItem('status')
     localStorage.removeItem('enterdate')
     localStorage.removeItem('duedate')
@@ -322,6 +338,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     localStorage.removeItem('subcat')
+   
 
   }
 }

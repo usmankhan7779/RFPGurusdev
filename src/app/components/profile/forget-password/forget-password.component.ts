@@ -45,7 +45,13 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder, private _serv: ForgetPasswordService,
     private route: ActivatedRoute,
     private router: Router,
-    private seoService: SeoService) { }
+    private seoService: SeoService) {
+      
+      this.endRequest = this.param = this.route.params.subscribe(params => {
+        this.code = params['query2']
+      }
+      );
+      this.checkChange(); }
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
@@ -73,6 +79,24 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
       this.validateAllFormFields(this.register);
     }
   }
+  checkChange(){
+    alert(this.code);
+    this._serv.checkUse(this.code).subscribe(
+      data =>{
+      },
+      error =>{
+        if(error.status== 400){
+          swal({
+            type: 'error',
+            title: 'You have already used this link',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+          this.router.navigate(['/login'])
+        }
+      }
+    )
+  }
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
@@ -84,8 +108,10 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-
+alert('shameem')
     window.scroll(0, 0);
+    
+
 
     // --------------- SEO Service ---------------
     // setting the page title 
@@ -103,9 +129,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
 
     // --------------- SEO Service End ---------------
 
-    this.endRequest = this.param = this.route.params.subscribe(params => {
-      this.code = params['query2']
-    });
+  
     this.register = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.pattern(this.password_regex), Validators.maxLength(100)])],
