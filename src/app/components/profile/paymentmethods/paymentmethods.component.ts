@@ -376,8 +376,11 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
                     timer: 1500, width: '512px',
                   })
                 }
+                this.cardtypeclear=" ";
+               
                 this.getCards();
                 f.resetForm();
+               
 
               },
                 error => {
@@ -429,6 +432,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
             }
             this.getCards();
             f.resetForm();
+            this.cardtypeclear=" ";
+          
 
           },
             error => {
