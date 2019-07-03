@@ -400,6 +400,7 @@ export class PricingComponent implements OnInit {
                   } else {
                     this._nav.navigate(['/']);
                   }
+                
                   f.resetForm()
                   this._nav.navigate(['purchase-history'])
                 },
