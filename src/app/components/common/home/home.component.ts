@@ -115,9 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.seoService.defaultTwitterTitle();
 
     // --------------- SEO Service End ---------------
-    if (navigator.webdriver == true) {
-      window.location.href = "http://google.com";
-  
+   
     this.subscriber();
 
     setTimeout(() => {
@@ -128,7 +126,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.CategorySlider();
     this.LatestRFPs();
   }
-}
+
 
   check_login() {
     if (localStorage.getItem('currentUser')) {
