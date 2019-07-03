@@ -271,9 +271,9 @@
 
                 <div *ngIf="!isright" class="col-lg-6 col-sm-6 mg-0-auto padding-zero Saved-card-sel-list">
                   <mat-form-field class="width-50per mg-0-auto">
-                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.Carddefault"
+                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.defaultcard"
                       [formControl]="Carddefault">
-                      <mat-option *ngFor="let card of res" [value]="card.id">
+                      <mat-option *ngFor="let card of res" [value]="card.id" (click)="getcardid(card.id)" >
                         {{card.nickname}}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -356,17 +356,17 @@
                               <mat-form-field class=" mat-size" *ngIf="CardNumberForm2">
                                 <input matInput placeholder="15 Digits Credit Card Number " [textMask]="{mask: cardmask}"
                                   formControlName="CardNumberForm2" [(ngModel)]="model.cardNumber"  (change)=change2($event) required>
-                                <mat-error *ngIf="form.controls.CardNumberForm.touched && form.controls.CardNumberForm.invalid">
-                                  <mat-error *ngIf="form.controls.CardNumberForm.errors.required">
+                                <mat-error *ngIf="form.controls.CardNumberForm2.touched && form.controls.CardNumberForm2.invalid">
+                                  <mat-error *ngIf="form.controls.CardNumberForm2.errors.required">
                                     Card number cannot be empty
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.CardNumberForm.hasError('pattern')">
+                                  <mat-error *ngIf="form.controls.CardNumberForm2.hasError('pattern')">
                                     Card number must be only in digits.
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p class="clr_red" *ngIf="isInvalid && CardNumberForm">Enter valid credit card number</p> 
-                              <p class="clr_red" *ngIf="isInvalid2 && CardNumberForm2">Enter valid credit card number</p> 
+                              <p class="clr_red" *ngIf="isInvalid && CardNumberForm && model.cardNumber!=''">Enter valid credit card number</p> 
+                              <p class="clr_red" *ngIf="isInvalid2 && CardNumberForm2 && model.cardNumber!=''">Enter valid credit card number</p> 
 
                             </div>
                             <div class="col-sm-6 col-xs-12">

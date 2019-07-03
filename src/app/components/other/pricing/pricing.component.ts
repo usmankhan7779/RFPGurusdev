@@ -79,6 +79,7 @@ export class PricingComponent implements OnInit {
   form: FormGroup;
   CardNumberForm;
   CardNumberForm2;
+  id;
   CardCodeForm;
   CardCodeForm2;
   ExpiryDateForm
@@ -122,6 +123,7 @@ export class PricingComponent implements OnInit {
     this.CardCodeForm2=false
    }
   ngOnInit() {
+    this.getcardid(this.id);
     window.scroll(0, 0);
     
     // --------------- SEO Service ---------------
@@ -200,9 +202,11 @@ export class PricingComponent implements OnInit {
 
   ];
   
-
+  eachcardid;
   setautopay: boolean = true;
-
+  getcardid(id) {
+    this.eachcardid = id;
+  }
   changed(val) {
     this.setautopay = val.checked
   }
@@ -370,6 +374,7 @@ export class PricingComponent implements OnInit {
                     '',
                     'success'
                   )
+                  this._nav.navigate(['purchase-history'])
                   if (localStorage.getItem('member')) {
                     let url = localStorage.getItem('member')
                     let last = url.length
@@ -486,8 +491,7 @@ export class PricingComponent implements OnInit {
     }
             // f.resetForm()
           } else if (this.isright == false) {
-            alert(this.model.defaultcard)
-            this._serv.package_free_trial(this.isright, this.model.Carddefault, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+            this._serv.package_free_trial(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
               .subscribe(data => {
                 swal(
                   'Your payment has been transferred',
@@ -674,7 +678,7 @@ export class PricingComponent implements OnInit {
             })
           }
           } else if (this.isright == false) {
-            this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+            this._serv.package_free(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
               data => {
                 swal(
                   'Your payment has been transferred',
