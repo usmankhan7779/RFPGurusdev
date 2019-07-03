@@ -70,7 +70,7 @@ export class SigninComponent implements OnInit {
         // let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
         createUser.subscribe(data => {
           let user = { 
-           user_id: this.jwtHelper.decodeToken(data['token']).user_id,
+           userid: this.jwtHelper.decodeToken(data['token']).user_id,
            username: this.jwtHelper.decodeToken(data['token']).username, 
            token: data['token'] };
         if (user && user.token) {
