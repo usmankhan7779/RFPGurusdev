@@ -154,7 +154,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pos-rel" [ngClass]="displayFieldCss(form, 'expirydate')">
                 <mat-form-field>
                   <input matInput placeholder="Expiry Date (MM/YY) *" [textMask]="{mask: mask,keepCharPositions:true}"
-                    type="text" formControlName="expirydate" #exp (change)="chek(exp.value)">
+                    type="text" formControlName="expirydate" #exp (change)="chek(exp.value)" [(ngModel)]="model.expirydate">
 
                   <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
                     <mat-error *ngIf="form.controls.expirydate.errors.required">
@@ -165,7 +165,7 @@
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
-                <p *ngIf="expirydate <= '19'" class="clr_red">
+                <p *ngIf="expirydate <= '19' && model.expirydate!=''" class="clr_red">
                   Invalid Expiry Date
                 </p>
               </div>
@@ -260,10 +260,10 @@
                       Payment Method Nickname  cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                      Payment Method Nickname  should be atleast 2 letters.
+                      Payment Method Nickname  should be atleast 2 letters
                     </mat-error>
                     <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
-                      Payment Method Nickname  must be only in Alphabet.
+                      Payment Method Nickname  must be only in Alphabet
                     </mat-error>
                   </mat-error>
                 </mat-form-field>

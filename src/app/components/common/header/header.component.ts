@@ -149,7 +149,7 @@ export class HeaderComponent implements OnInit {
       this._serv.Watchlist().subscribe(
         data => {
           this.wrfp = data['result'];
-          this.total = data['total'];
+          this.total = data.total;
           this.shown = data['status'];
           this._shareData.watchInfo(this.wrfp);
           this._shareData.watchtotal(this.total);
