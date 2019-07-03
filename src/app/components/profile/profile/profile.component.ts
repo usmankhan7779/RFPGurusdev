@@ -62,7 +62,7 @@ export class ProfileComponent implements OnInit {
             this.local = localStorage.getItem('currentUser');
             let pars = JSON.parse(this.local);
             this.uname = pars.username
-            this.endRequest = this._serv.get_profile(this.uname).subscribe(
+            this.endRequest = this._serv.get_profile().subscribe(
                 data => {
                     this.personal = data;
            
