@@ -19,7 +19,7 @@ export class PaymentmethodsService {
     let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-      return this._https.post('https://apis.rfpgurus.com/payment/cardinfo/',
+      return this._https.post('https://apis.rfpgurus.com/payment/cardInfo_web/',
       JSON.stringify({
         "name": name,
         "street_address": address,
@@ -33,51 +33,60 @@ export class PaymentmethodsService {
         "card_type": var_type_atm,
         "autopay": setautopay,
         "nickname": nickname
-      }),{headers :headers})
-      .map((res: Response) => {
-        if (res) {
-          if (res.status === 201 || res.status === 200 || res.status === 302) {
-            const responce_data = res.json();
-            return responce_data;
-          }
-        }
-      })
-      .catch((error: any) => {
-        if (error.status === 302) {
-          swal({
-            type: 'error',
-            title: error.message,
-            showConfirmButton: false,
-            timer: 1500, width: '512px',
-          })
-          return Observable.throw(new Error(error.status));
-        } else if (error.status === 405) {
-          swal({
-            type: 'error',
-            title: error.message,
-            showConfirmButton: false,
-            timer: 1500, width: '512px',
-          })
-          return Observable.throw(new Error(error.status));
-        } else if (error.status === 403) {
-          swal({
-            type: 'error',
-            title: error.message,
-            showConfirmButton: false,
-            timer: 1500, width: '512px',
-          })
-          return Observable.throw(new Error(error.status));
-        }
-        else if (error.status === 400) {
-          swal({
-            type: 'error',
-            title: 'Bad Request',
-            showConfirmButton: false,
-            timer: 1500, width: '512px',
-          })
-          return Observable.throw(new Error(error.status));
-        }
-      });
+      }),{headers:headers}).map(response => response.json())
+      // .map((res: Response) => {
+      //   if (res) {
+      //     if (res.status === 201 || res.status === 200 || res.status === 302 ) {
+      //       const responce_data = res.json();
+      //       return responce_data;
+      //     }
+      //   }
+      // })
+      // .catch((error: any) => {
+      //   if (error.status === 302) {
+      //     swal({
+      //       type: 'error',
+      //       title: error.message,
+      //       showConfirmButton: false,
+      //       timer: 1500, width: '512px',
+      //     })
+      //     return Observable.throw(new Error(error.status));
+      //   } else if (error.status === 405) {
+      //     swal({
+      //       type: 'error',
+      //       title: error.message,
+      //       showConfirmButton: false,
+      //       timer: 1500, width: '512px',
+      //     })
+      //     return Observable.throw(new Error(error.status));
+      //   }
+      //   else if (error.status === 406) {
+      //     swal({
+      //       type: 'error',
+      //       title: error.message,
+      //       showConfirmButton: false,
+      //       timer: 1500, width: '512px',
+      //     })
+      //     return Observable.throw(new Error(error.status));
+      //   } else if (error.status === 403) {
+      //     swal({
+      //       type: 'error',
+      //       title: error.message,
+      //       showConfirmButton: false,
+      //       timer: 1500, width: '512px',
+      //     })
+      //     return Observable.throw(new Error(error.status));
+      //   }
+      //   else if (error.status === 400) {
+      //     swal({
+      //       type: 'error',
+      //       title: 'Bad Request',
+      //       showConfirmButton: false,
+      //       timer: 1500, width: '512px',
+      //     })
+      //     return Observable.throw(new Error(error.status));
+      //   }
+      // });
   }
   deleteCard(id) {
     let headers = new Headers();
