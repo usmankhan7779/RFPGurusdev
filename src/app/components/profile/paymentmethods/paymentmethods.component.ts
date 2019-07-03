@@ -342,8 +342,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
 
     if (this.cardtype == "AmericanExpress") {
       if (this.form.controls.cardnickname.value != null && this.form.controls.cardnumber2.value != null && this.form.controls.ccv2.value != null
-        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
-        && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
+        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null) {
 
         if (this.form.controls.cardnickname.valid && this.isInvalid2 == false && this.form.controls.ccv2.valid
           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
@@ -407,8 +406,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     }
     else {
       if (this.form.controls.cardnickname.value != null && this.form.controls.cardnumber.value != null && this.form.controls.ccv.value != null
-        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null
-        && this.form.controls.city.value != null && this.form.controls.state.value != null && this.form.controls.country.value != null) {
+        && this.form.controls.expirydate.value != null && this.form.controls.address.value != null && this.form.controls.zip.value != null) {
         if (this.form.controls.cardnickname.valid && this.isInvalid == false && this.form.controls.ccv.valid
           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
