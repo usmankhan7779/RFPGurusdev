@@ -13,13 +13,13 @@ export class ProfileService {
         return this.http.get('https://apis.rfpgurus.com/preferance_Updates/' + uid + '/');
     }
     token;
-    get_profile(uid) {
+    get_profile() {
  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
          
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-        return this._https.get('https://apis.rfpgurus.com/user_information/' + uid + '/',{headers:headers}).map(response => response.json());
+        return this._https.get('https://apis.rfpgurus.com/user_information/',{headers:headers}).map(response => response.json());
     }
     ProfileUpdate(obj) {
         let headers = new Headers();

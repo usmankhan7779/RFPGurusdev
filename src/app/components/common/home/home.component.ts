@@ -114,6 +114,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     // setting twitter
     this.seoService.defaultTwitterTitle();
 
+    
+    this.getRFPandCategory();
+    this.CategorySlider();
+    this.LatestRFPs();
     // --------------- SEO Service End ---------------
    
     this.subscriber();
@@ -122,9 +126,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.openModal.nativeElement.click();
     }, 200);
 
-    this.getRFPandCategory();
-    this.CategorySlider();
-    this.LatestRFPs();
   }
 
 

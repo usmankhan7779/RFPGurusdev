@@ -212,7 +212,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
       nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
       address: ['', Validators.compose([Validators.required])],
-      setautopay: ['',[Validators.required]],
+      // setautopay: ['',[Validators.required]],
       state: ['', Validators.compose([Validators.required])],
 
 
@@ -360,7 +360,8 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
             this.form.value['ccv2'],
             this.date.split('/').join(''),
             this.cardtype,
-            this.form.value['setautopay'],
+            // this.form.value['setautopay'],
+            this.setautopay,
             this.form.value['nickname']).subscribe(Data => {
               swal({
                 type: 'success',
@@ -411,7 +412,10 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
         if (this.form.controls.cardnickname.valid && this.isInvalid == false && this.form.controls.ccv.valid
           && this.form.controls.expirydate.valid && this.form.controls.address.valid && this.form.controls.zip.valid
           && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid) {
-          this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, this.form.value['setautopay'], this.form.value['nickname']).subscribe(Data => {
+          this.endRequest = this.serv.addCard(this.form.value['cardnickname'], this.form.value['address'], this.form.value['zip'], this.form.value['city'], this.form.value['state'], this.form.value['country'], this.form.value['cardnumber'].split('-').join(''), this.form.value['ccv'], this.date.split('/').join(''), this.cardtype, 
+          // this.form.value['setautopay'], 
+          this.setautopay,
+          this.form.value['nickname']).subscribe(Data => {
             swal({
               type: 'success',
               title: 'Payment Method has been added successfully',

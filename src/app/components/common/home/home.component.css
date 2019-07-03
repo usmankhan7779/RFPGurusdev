@@ -915,6 +915,13 @@ font-family: Helvetica!important
     padding: 6px 40px;
 }
 
+
+@media (max-width:1280px) {
+  .Subscribe-btn {
+    padding: 6px 15px;
+  }
+
+}
 @media (max-width:1024px) {
   .form-home {
       left: 55px
