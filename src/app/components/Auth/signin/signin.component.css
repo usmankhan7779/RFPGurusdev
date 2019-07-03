@@ -153,3 +153,8 @@ transform: translateX(-50%) translateY(-50%);
 .no_account a{
   margin-bottom: 4px;
 }
+.dp-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
