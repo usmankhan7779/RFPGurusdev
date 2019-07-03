@@ -99,7 +99,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     if (var_type_atm == "AmericanExpress") {
       this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
       this.cardnumber = false;
-      f.resetForm();
       this.cardnumber2 = true;
       this.ccv = false;
       this.form.controls.ccv.reset();
@@ -108,7 +107,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     else if (var_type_atm == "Visa") {
       this.cardsmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
-      f.resetForm();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -117,7 +115,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     else if (var_type_atm == "Mastercard") {
       this.cardsmask = [/[5]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
-      f.resetForm();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
@@ -125,7 +122,6 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     } else {
       this.cardsmask = [/[6]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
       this.cardnumber2 = false;
-      f.resetForm();
       this.cardnumber = true;
       this.ccv2 = false;
       this.form.controls.ccv2.reset();
