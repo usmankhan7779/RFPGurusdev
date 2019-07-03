@@ -109,13 +109,12 @@ export class AllnotificationComponent implements OnInit {
     let requiredUrl = 'rfp'
     this._nav.navigate([requiredUrl], { queryParams: { query: query } });
   }
+  total;
   notification() {
     this._serv.notify().subscribe(
       data => {
-        // alert(data)
-        console.log(data,'notification')
+        this.total=data['total'];
         this.notificate = data['notifications'];
-        console.log(this.notificate,'noti')
         this.unread = data['unread'];
         this._shareData.notifyInfo(this.notificate);
         this._shareData.unreadnotifyInfo(this.unread);

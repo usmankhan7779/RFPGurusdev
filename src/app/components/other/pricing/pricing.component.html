@@ -416,7 +416,7 @@
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p *ngIf="expirydate <= '19'" class="clr_red">
+                              <p *ngIf="expirydate <= '19' && model.expirationdate != ''" class="clr_red">
                                 Invalid Expiry Date
                               </p>
                             </div>
@@ -504,7 +504,7 @@
                                     Payment Method Nickname cannot be empty
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.nickname.errors.minlength">
-                                    Payment Method Nickname must be between 2 and 64 characters
+                                    Payment Method Nickname  should be atleast 2 characters
                                   </mat-error>
                                   <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
                                     Payment Method Nickname must be only in Alphabet.
