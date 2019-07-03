@@ -441,12 +441,13 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
               else if(error.status === 405){
                 swal({
                   type: 'error',
-                  title: 'Card details are not Valid',
+                  title: 'Card details are not valid',
                   showConfirmButton: false,
                   timer: 1500, width: '512px',
                 })
               }
-            })
+            }
+            )
         }
         else {
           swal({
