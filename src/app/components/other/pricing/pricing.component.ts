@@ -394,6 +394,7 @@ export class PricingComponent implements OnInit {
                   } else {
                     this._nav.navigate(['/']);
                   }
+                
                   f.resetForm()
                 },
               
@@ -459,6 +460,7 @@ export class PricingComponent implements OnInit {
       })
     }
             f.resetForm()
+           
           } else if (this.isright == false) {
             this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
               .subscribe(data => {
@@ -493,6 +495,7 @@ export class PricingComponent implements OnInit {
                   this._nav.navigate(['/']);
                 }
                 f.resetForm()
+               
               },
                 error => {
                   if (error.status == 500) {
@@ -567,6 +570,7 @@ export class PricingComponent implements OnInit {
                             this._nav.navigate(['/']);
                           }
                           f.resetForm()
+                         
                         },
           
                         error => {
@@ -646,6 +650,7 @@ export class PricingComponent implements OnInit {
                   this._nav.navigate(['/']);
                 }
                 f.resetForm()
+               
               },
     
               error => {

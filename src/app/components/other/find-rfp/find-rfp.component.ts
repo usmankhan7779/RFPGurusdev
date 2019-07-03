@@ -34,7 +34,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
 
   }
   move() {
-    localStorage.setItem('location', 'find-rfp')
+    localStorage.setItem('location', 'find-rfps')
     if (this.status) {
       localStorage.setItem('status', this.status)
     }
@@ -155,13 +155,16 @@ export class FindRfpComponent implements OnInit, OnDestroy {
           delete this.subcates;
          
         }
-        // if (localStorage.getItem('pages')) {
-        //   var page_num: number = Number(localStorage.getItem('pages'));
-        //   this.onPaginateChange(page_num);
-        // } else {
+        if (localStorage.getItem('pages')) {
+          alert(localStorage.getItem('pages'))
+          var page_num: number = Number(localStorage.getItem('pages'));
+          this.onPaginateChange(page_num);
+          
+        } else {
+          alert(localStorage.getItem('pages'))
           this.onPaginateChange(1);
-        // }
-        // this.onPaginateChange(1);
+        }
+         
       })
 
 
@@ -197,35 +200,18 @@ export class FindRfpComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      // if (localStorage.getItem('pages')) {
-      //   var page_num: number = Number(localStorage.getItem('pages'));
-      //   this.onPaginateChange(page_num);
-      // } else {
+      if (localStorage.getItem('pages')) {
+        var page_num: number = Number(localStorage.getItem('pages'));
+        this.onPaginateChange(page_num);
+      } else {
         this.onPaginateChange(1);
-      // }
+      }
     }
     else {
       delete this.pageSize;
     }
   }
-  // page(pageSize) {
-  //   if (pageSize) {
-  //     // alert(pageSize)
-  //     this.pageSize = pageSize;
-  //     // if (localStorage.getItem('statepage') == null) {
-  //     //   // var page_num: number = Number(localStorage.getItem('statepage'));
-  //     //   alert('if wali ' + pageSize)
-  //     //   this.setPage(pageSize);
-  //     // } else {
-  //       // alert(this.pageSize)
-  //       this.setPage(1);
-  //     // }
-  //   }
-  //   else {
-  //     delete this.pageSize;
-  //   }
-  //   // this.setPage(this.pageSize)
-  // }
+ 
 
   changestate(states) {
 

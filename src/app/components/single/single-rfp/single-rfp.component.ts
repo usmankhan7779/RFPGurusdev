@@ -49,6 +49,7 @@ export class SingleRfpComponent implements OnInit {
   back() {
     if (localStorage.getItem('location')) {
       let url = localStorage.getItem('location')
+      console.log(url);
       let last = url.length
       let ur = url.slice(0, 13)
       let state = url.slice(0, 5)
@@ -71,18 +72,16 @@ export class SingleRfpComponent implements OnInit {
        {
         this._nav.navigate([url]);
       }
-      else if(url =='find-rfp')
+        else if(url =='find-rfps')
        {
         this._nav.navigate(['find-rfps']);
       }
-      else if(url =='advanced-search')
+      else
       {
-       this._nav.navigate(['advanced-search']);
-     }
-     else if(url =='my-watchlist')
-     {
-      this._nav.navigate(['my-watchlist']);
-    }
+        this._nav.navigate([url]);
+        console.log(this._nav.navigate([url]));
+      }
+
     }
     else {
       this._nav.navigate(['/']);

@@ -342,12 +342,12 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      // if (localStorage.getItem('page')) {
-      //   var page_num: number = Number(localStorage.getItem('page'));
-      //   this.onSubmit(page_num);
-      // } else {
+      if (localStorage.getItem('page')) {
+        var page_num: number = Number(localStorage.getItem('page'));
+        this.onSubmit(page_num);
+      } else {
         this.onSubmit(1);
-      // }
+      }
     }
     else {
       delete this.pageSize;
@@ -558,13 +558,13 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     }
 
     // this.onPaginateChange(1);
-    // if (localStorage.getItem('page')) {
-    //   var page_num: number = Number(localStorage.getItem('page'));
-    //   this.onSubmit(page_num);
-    // }
-    // else {
+    if (localStorage.getItem('page')) {
+      var page_num: number = Number(localStorage.getItem('page'));
+      this.onSubmit(page_num);
+    }
+    else {
       this.onSubmit(1);
-    // }
+    }
 
     this.endRequest = this.homeServ.rfpstate().subscribe(
       data => {
