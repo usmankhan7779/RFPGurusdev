@@ -54,7 +54,7 @@
               <div class="col-md-12 padding-0">
                 <div class="col-md-4  padding-0 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
-                    <mat-select placeholder="Card Type *"  formControlName="var_type_atm" #val 
+                    <mat-select placeholder="Card Type *" formControlName="var_type_atm" #val  [(ngModel)]="model.cardType"
                       (valueChange)="ShowButton(val.value,f)">
                       <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                         [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
@@ -73,7 +73,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber"
                 [ngClass]="displayFieldCss(form, 'cardnumber')">
                 <mat-form-field>
-                  <input matInput type="text" [(ngModel)]="Cardnumber"  [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
+                  <input matInput type="text" [(ngModel)]="model.Cardnumber"  [textMask]="{mask: cardsmask}" placeholder="16 digits Credit Card Number"
                     formControlName="cardnumber" (change)=change($event)>
                     
                   <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
@@ -93,7 +93,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="cardnumber2"
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
-                  <input matInput type="text" [(ngModel)]="Cardnumber2" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
+                  <input matInput type="text" [(ngModel)]="model.Cardnumber2" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
                     formControlName="cardnumber2" (change)=change2($event)>
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
@@ -183,8 +183,8 @@
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
-                  <input matInput placeholder="Zip Code" maxlength="5" type="text" formControlName="zip" min="0"
-                    (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;">
+                  <input matInput placeholder="Zip Code" maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
+                    (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1  (keypress)="keyPress($event)" step="1" >
                   <mat-error *ngIf="form.controls.zip.touched && form.controls.zip.invalid">
                     <mat-error *ngIf="form.controls.zip.errors.cannotContainSpace">
                       Zip Code cannot contain spaces
@@ -195,13 +195,15 @@
                     <mat-error *ngIf="form.controls.zip.hasError('pattern')">
                       Zip Code must be only in digits
                     </mat-error>
+                    <mat-error *ngIf="form.controls.zip.errors?.minlength">
+                      Zip Code must be 5 digits long
+                    </mat-error>
                   </mat-error>
                 </mat-form-field>
-                <p class="clr_red" *ngIf="invalid  && !model.city && !model.state && !model.country">
+                <p class="clr_red" *ngIf="invalid  && !model.city && !model.state && !model.country && model.zip!='' && model.zip.length==5">
                   Invalid Zipcode
                 </p>
                 <p *ngIf="!invalid  && model.city && model.state && model.country">
-                  
                 </p>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
@@ -269,7 +271,8 @@
             </div>
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 enroll-chckbox">
-                <mat-slide-toggle   formControlName="setautopay" (change)="changed($event)" [(ngModel)]="payauto" checked="true"  ></mat-slide-toggle>
+                <!-- <mat-slide-toggle   formControlName="setautopay" (change)="changed($event)" checked="true"  ></mat-slide-toggle> -->
+                <mat-slide-toggle  value="setautopay"  (change)="changed($event)" checked="true"></mat-slide-toggle>
                 <p>Enroll in Autopay - Set this card as recurring payment method</p>
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-20-0">

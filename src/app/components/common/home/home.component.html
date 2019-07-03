@@ -88,24 +88,22 @@
         </div>
 
 <div class="row">
-            <section class="choose-criteria" async>
-                <div class="container-fluid">
-                    
-                        <div class="col-md-7"> 
-                            <h4 class="hd1">72 Hour Super Flash Sale - 40% Off only for a limited time.</h4>     
-                            <h4 class="hd1">Independence Day Savings - Take advantage of this incredible offer NOW </h4>     
-                        </div>
-                        
-                        <div class="col-md-3 pd-0-i">
-                                <!-- <countdown-timer  class="mainpagee1 pd-0-i" [start]="'2019-05-07 00:00:00'"></countdown-timer> -->
-                            <countdown class="mainpagee1 pd-0-i"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 04, 2019 18:40:00"> </countdown>
-                        </div>
-                        <div class="col-lg-2 text-center">
-                                <a routerLink="signup"> <button class="Subscribe-btn">Subscribe Now</button></a>
-                        </div>
-                    
-                </div>
-            </section>
+  <section class="choose-criteria" async>
+    <div class="container-fluid">
+      <div class="col-lg-7 col-md-8 col-sm-12">
+        <h4 class="hd1">72 Hour Super Flash Sale - 40% Off only for a limited time.</h4>
+        <h4 class="hd1">Independence Day Savings - Take advantage of this incredible offer NOW </h4>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-12 pd-0-i">
+        <!-- <countdown-timer  class="mainpagee1 pd-0-i" [start]="'2019-05-07 00:00:00'"></countdown-timer> -->
+        <countdown class="mainpagee1 pd-0-i" [text]="text" units=" Days | Hours | Minutes | Seconds"
+          end="July 04, 2019 18:40:00"> </countdown>
+      </div>
+      <div class="col-lg-2 col-md-12 col-sm-12  text-center">
+        <a routerLink="signup"> <button class="Subscribe-btn">Subscribe Now</button></a>
+      </div>
+    </div>
+  </section>
 
             <featurecomparison async></featurecomparison>
 
@@ -173,7 +171,8 @@
                         </div>
                     </ngx-slick>
 
-                    <div class="btn-holder text-center m-top-18px"> <a routerLink="all-states"> <button type="button"
+                    <div class="btn-holder text-center m-top-18px"> <a routerLink="all-states"> 
+                        <button type="button"
                                 class="btn  btn-rose" title="View All States">View All States <i
                                     class="fa fa-arrow-right" aria-hidden="true"></i>
                             </button></a></div>

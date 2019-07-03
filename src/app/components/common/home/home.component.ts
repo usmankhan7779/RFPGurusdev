@@ -114,18 +114,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     // setting twitter
     this.seoService.defaultTwitterTitle();
 
+    
+    this.getRFPandCategory();
+    this.CategorySlider();
+    this.LatestRFPs();
     // --------------- SEO Service End ---------------
-
+   
     this.subscriber();
 
     setTimeout(() => {
       this.openModal.nativeElement.click();
     }, 200);
 
-    this.getRFPandCategory();
-    this.CategorySlider();
-    this.LatestRFPs();
   }
+
 
   check_login() {
     if (localStorage.getItem('currentUser')) {
