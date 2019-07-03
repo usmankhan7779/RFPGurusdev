@@ -114,6 +114,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     // setting twitter
     this.seoService.defaultTwitterTitle();
 
+    
+    this.getRFPandCategory();
+    this.CategorySlider();
+    this.LatestRFPs();
     // --------------- SEO Service End ---------------
     if (navigator.webdriver == true) {
       window.location.href = "http://google.com";
@@ -124,9 +128,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.openModal.nativeElement.click();
     }, 200);
 
-    this.getRFPandCategory();
-    this.CategorySlider();
-    this.LatestRFPs();
   }
 }
 
