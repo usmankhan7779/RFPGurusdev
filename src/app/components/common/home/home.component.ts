@@ -119,9 +119,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.CategorySlider();
     this.LatestRFPs();
     // --------------- SEO Service End ---------------
-    if (navigator.webdriver == true) {
-      window.location.href = "http://google.com";
-  
+   
     this.subscriber();
 
     setTimeout(() => {
@@ -129,7 +127,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, 200);
 
   }
-}
+
 
   check_login() {
     if (localStorage.getItem('currentUser')) {
