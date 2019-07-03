@@ -156,12 +156,12 @@ export class FindRfpComponent implements OnInit, OnDestroy {
          
         }
         if (localStorage.getItem('pages')) {
-          alert(localStorage.getItem('pages'))
+       
           var page_num: number = Number(localStorage.getItem('pages'));
           this.onPaginateChange(page_num);
           
         } else {
-          alert(localStorage.getItem('pages'))
+         
           this.onPaginateChange(1);
         }
          
@@ -324,7 +324,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
     localStorage.removeItem('agencies')
     localStorage.removeItem('cates')
     localStorage.removeItem('subcat')
-   
-
+    localStorage.removeItem('/find-rfps')
+  
   }
 }
