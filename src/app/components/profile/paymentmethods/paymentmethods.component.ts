@@ -207,7 +207,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       expirydate: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
       city: ['', Validators.compose([Validators.required])],
       country: ['', Validators.compose([Validators.required])],
-      zip: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+      zip: ['', Validators.compose([Validators.required, Validators.maxLength(5),Validators.minLength(5),
       Validators.pattern('^[0-9]*$')])],
       cardnickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
       nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
@@ -254,6 +254,13 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     this.country = country;
     // this.updefault = status;
     this.autopay = autopay;
+  }
+  keyPress(event: any) {
+    const pattern = /[0-9\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
   }
   deleteSingleCard(id) {
     swal({
