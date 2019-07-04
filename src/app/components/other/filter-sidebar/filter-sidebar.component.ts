@@ -187,10 +187,6 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     delete this.enterdate;
     delete this.duedate;
     delete this.states;
-    this.statsearch=null
-    this.catsearch=null
-    this.subcatsearch=null
-    this.agensearch=null
     delete this.agencies;
     delete this.subcates;
     delete this.submission_from;
@@ -204,7 +200,10 @@ export class FilterSidebarComponent implements OnInit, OnDestroy {
     localStorage.removeItem('subcates');
     localStorage.removeItem('submission_from');
     localStorage.removeItem('submission_to');
-
+    this.statsearch=null;
+    this.catsearch=null;
+    this.subcatsearch=null;
+    this.agensearch=null;
     
     this.endRequest = this.homeServ.rfpstate().subscribe(
       data => {

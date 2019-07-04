@@ -526,17 +526,18 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   ngOnInit() {
     window.scroll(0, 0);
     window.onscroll = function () { myFunction() };
-
+  
     var header = document.getElementById("myHeader");
     var sticky = header.offsetTop;
 
     function myFunction() {
-      if (window.pageYOffset > sticky) {
+      if (window.pageYOffset > sticky) {   
         header.classList.add("sticky");
       } else {
         header.classList.remove("sticky");
       }
     }
+    // localStorage.clear();
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Advanced Search');
@@ -698,7 +699,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       return true
     }
   }
+ 
   ngOnDestroy() {
+   alert('asd')
     // this.endRequest.unsubscribe();
   }
 }
