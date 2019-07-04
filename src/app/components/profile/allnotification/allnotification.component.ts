@@ -19,7 +19,7 @@ export class AllnotificationComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
-
+  
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('All Notification');
@@ -35,10 +35,16 @@ export class AllnotificationComponent implements OnInit {
     this.seoService.updateTwitterTitle('All Notification');
 
     // --------------- SEO Service End ---------------
-
+    
     this.notification();
+    
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
+  }
+  ngDoCheck()
+  {
+    this.deletenofication(this.id)
+    this.updatenofication(this.id)
   }
   get(id, title) {
     this.id = id;
