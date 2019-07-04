@@ -20,7 +20,10 @@
                   </div>
                   <div class="card-holder">
                     <label>Card Number</label>
-                    <div>{{form.controls.cardnumber.value}}{{form.controls.cardnumber2.value}}</div>
+                    <div *ngIf="model.cardType=='Mastercard'">{{form.controls.cardnumber.value}}</div>
+                    <div *ngIf="model.cardType=='Discover'">{{form.controls.cardnumber.value}}</div>
+                    <div *ngIf="model.cardType=='Visa'">{{form.controls.cardnumber.value}}</div>
+                    <div *ngIf="model.cardType=='AmericanExpress'">{{form.controls.cardnumber2.value}}</div>
                   </div>
                   <div class="card-expiration-date">
                     <label>Expiry Date</label>
@@ -55,7 +58,7 @@
                 <div class="col-md-4  padding-0 selectlist-payment" [ngClass]="displayFieldCss(form2, 'var_type_atm')">
                   <mat-form-field>
                     <mat-select placeholder="Card Type" formControlName="var_type_atm" #val  [(ngModel)]="model.cardType"
-                      (valueChange)="ShowButton(val.value,f)" required>
+                      (valueChange)="ShowButton(val.value,f)" (selectionChange)="onSelectionChanged($event)" required>
                       <mat-option style="font-size: 16px;" *ngFor="let card_get_datat of card_opeation"
                         [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
                    
@@ -94,7 +97,7 @@
                 [ngClass]="displayFieldCss(form, 'cardnumber2')">
                 <mat-form-field>
                   <input matInput type="text" [(ngModel)]="model.Cardnumber2" placeholder="15 digits Credit Card Number" [textMask]="{mask: cardmask}"
-                    formControlName="cardnumber2" (change)=change2($event) required>
+                    formControlName="cardnumber2" (change)=change2($event) required >
                   <mat-error *ngIf="form.controls.cardnumber2.touched && form.controls.cardnumber2.invalid">
                     <mat-error *ngIf="form.controls.cardnumber2.errors.required">
                       Card number cannot be empty
