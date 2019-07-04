@@ -418,7 +418,7 @@
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p *ngIf="expirydate <= '19' && model.expirationdate != ''" class="clr_red">
+                              <p *ngIf="expirydate <= '19' && model.expirationdate != '' && !form.controls.ExpiryDateForm.hasError('pattern')" class="clr_red">
                                 Invalid Expiry Date
                               </p>
                             </div>
