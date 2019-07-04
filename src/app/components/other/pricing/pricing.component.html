@@ -7,7 +7,9 @@
     <div class="row">
       <div *ngIf="Yplan && Mplan" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
         <h2 *ngIf="isfreetrial" class="pricing_heading">Join RFPGurus for a 7-day risk-free trial period</h2>
-        <h2 class="color-red">72 Hour Super Flash Sale - 40% Off only for a limited time.</h2>
+        <h2 class="color-red">
+
+          72 Hour Super Flash Sale - 50% Off only for a limited time.</h2>
         <h2 class="color-red">Independence Day Savings - Take advantage of this incredible offer NOW</h2>
             
             <countdown class="col-lg-12 mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 04, 2019 18:40:00"> </countdown>
@@ -332,7 +334,7 @@
                             <div class="col-sm-12 col-xs-12 Saved-card-sel-list">
                               <mat-form-field class="col-lg-12 width-half padding-zero mat-size">
                                 <mat-select placeholder="Card Type " [(ngModel)]="model.cardtype" #val formControlName="CardtypeForm"
-                                  (valueChange)="ShowButton(val.value)">
+                                  (valueChange)="ShowButton(val.value)" required>
                                   <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">
                                     {{card_get_datat.viewValue}}</mat-option>
                                 </mat-select>
@@ -348,9 +350,6 @@
                                   <mat-error *ngIf="form.controls.CardNumberForm.errors.required">
                                     Card number cannot be empty
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.CardNumberForm.hasError('pattern')">
-                                    Card number must be only in digits.
-                                  </mat-error>
                                 </mat-error>
                               </mat-form-field>
                               <mat-form-field class=" mat-size" *ngIf="CardNumberForm2">
@@ -359,9 +358,6 @@
                                 <mat-error *ngIf="form.controls.CardNumberForm2.touched && form.controls.CardNumberForm2.invalid">
                                   <mat-error *ngIf="form.controls.CardNumberForm2.errors.required">
                                     Card number cannot be empty
-                                  </mat-error>
-                                  <mat-error *ngIf="form.controls.CardNumberForm2.hasError('pattern')">
-                                    Card number must be only in digits.
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
@@ -380,7 +376,7 @@
                                   <mat-error *ngIf="form.controls.CardCodeForm.errors.minlength">
                                     CVV No must be atleast 3 digits long
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.CardCodeForm.hasError('pattern')">
+                                  <mat-error *ngIf="form.controls.CardCodeForm.hasError('pattern') && !form.controls.CardCodeForm.errors.minlength">
                                     CVV No must be only in digits.
                                   </mat-error>
                                 </mat-error>
@@ -395,7 +391,7 @@
                                   <mat-error *ngIf="form.controls.CardCodeForm2.errors?.minlength">
                                     CVV No must be atleast 4 digits long.
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.CardCodeForm2.hasError('pattern')">
+                                  <mat-error *ngIf="form.controls.CardCodeForm2.hasError('pattern') && !form.controls.CardCodeForm2.errors?.minlength">
                                     CVV No must be only in digits.
                                   </mat-error>
                                 </mat-error>
@@ -416,7 +412,7 @@
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
-                              <p *ngIf="expirydate <= '19' && model.expirationdate != ''" class="clr_red">
+                              <p *ngIf="expirydate <= '19' && model.expirationdate != '' && !form.controls.ExpiryDateForm.hasError('pattern')" class="clr_red">
                                 Invalid Expiry Date
                               </p>
                             </div>
@@ -436,20 +432,14 @@
                             <div class="col-sm-6 col-xs-12 ">
                               <mat-form-field class=" mat-size">
                                 <input matInput placeholder="Zip Code " maxlength="5" minlength="5" type="text" formControlName="zipcode"
-                                  [(ngModel)]="model.zipcode" required (ngModelChange)="zipcodeCheck(zipcode1.value)"
+                                  [(ngModel)]="model.zipcode" required (ngModelChange)="zipcodeCheck(zipcode1.value)" (keydown.space)="$event.preventDefault()"
                                   (keypress)="keyPress($event)" step="1" #zipcode1>
                                 <mat-error *ngIf="form.controls.zipcode.touched && form.controls.zipcode.invalid">
-                                  <mat-error *ngIf="form.controls.zipcode.errors.cannotContainSpace">
-                                    Zip Code cannot contain spaces
-                                  </mat-error>
                                   <mat-error *ngIf="form.controls.zipcode.errors.required">
                                     Zip code cannot be empty
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.zipcode.hasError('pattern')">
-                                    Zip Code must be only in digits.
-                                  </mat-error>
                                   <mat-error *ngIf="form.controls.zipcode.errors?.minlength">
-                                    Zip Code must 5 digits long.
+                                    Zip Code must 5 digits long
                                   </mat-error>
                                 </mat-error>
                               </mat-form-field>
@@ -490,7 +480,7 @@
                                   <mat-error *ngIf="form.controls.Holdername.errors.minlength">
                                     Cardholder Name must be between 2 and 64 characters
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.Holdername.hasError('pattern')">
+                                  <mat-error *ngIf="form.controls.Holdername.hasError('pattern') && !form.controls.Holdername.errors.minlength">
                                     Cardholder Name must be only in Alphabet.
                                   </mat-error>
                                 </mat-error>
@@ -498,7 +488,7 @@
                             </div>
                             <div class="col-sm-6 col-xs-12">
                               <mat-form-field class=" mat-size"> <input class="sh-text-capt" matInput placeholder="Payment Method Nickname " type="text"
-                                  formControlName="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64">
+                                  formControlName="nickname" [(ngModel)]="model.nickname" required minlength="2" maxlength="64" required>
                                 <mat-error *ngIf="form.controls.nickname.touched && form.controls.nickname.invalid">
                                   <mat-error *ngIf="form.controls.nickname.errors.required">
                                     Payment Method Nickname cannot be empty
@@ -506,7 +496,7 @@
                                   <mat-error *ngIf="form.controls.nickname.errors.minlength">
                                     Payment Method Nickname  should be atleast 2 characters
                                   </mat-error>
-                                  <mat-error *ngIf="form.controls.nickname.hasError('pattern')">
+                                  <mat-error *ngIf="form.controls.nickname.hasError('pattern') && !form.controls.nickname.errors.minlength">
                                     Payment Method Nickname must be only in Alphabet.
                                   </mat-error>
                                 </mat-error>

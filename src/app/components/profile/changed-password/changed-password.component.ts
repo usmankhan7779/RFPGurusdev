@@ -35,6 +35,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     uname;
     public password;
     public oldpassword;
+    public confirmPassword;
     hide = true;
     hide1 = true;
     hide2 = true;
@@ -42,6 +43,10 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     public isInvalid: boolean = false;
     public onChange(event: any): void {
       this.isInvalid = this.oldpassword == this.password
+    }
+    public isInvalid2: boolean = false;
+    public onChange2(event: any): void {
+      this.isInvalid2 = this.password != this.confirmPassword
     }
     public typeValidation: User;
     register: FormGroup;

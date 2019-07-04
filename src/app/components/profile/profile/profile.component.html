@@ -76,19 +76,16 @@
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
                     <mat-form-field>
                       <input matInput type="text" id="zipcode" (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1
-                        [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}"
-                        placeholder="Zip Code" maxlength="5" required />
-                      <mat-error *ngIf="register.controls.zipcode.hasError('pattern')">
-                        Only Numbers
-                      </mat-error>
+                        [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}" (keydown.space)="$event.preventDefault()"
+                        placeholder="Zip Code" maxlength="5" required  (keypress)="keyPress($event)"/>
                       <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
-                        Only 5 Numbers.
+                        Zip Code must 5 digits long.
                       </mat-error>
                       <mat-error *ngIf="register.controls.zipcode.value == ''">
                         <strong>Zip Code cannot be empty</strong>
                       </mat-error>
                     </mat-form-field>
-                    <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country">
+                    <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country && personal.zipcode!='' && personal.zipcode.length==5">
                       Invalid Zipcode
                     </p>
                     <p class="clr_red" *ngIf="!invalid && personal.city && personal.state && personal.country">

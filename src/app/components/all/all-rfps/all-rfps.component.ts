@@ -302,7 +302,7 @@ export class AllRfpsComponent implements OnInit {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "Your have already downloaded 5 documents",
+              title: "Your have already downloaded 05 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -334,7 +334,7 @@ export class AllRfpsComponent implements OnInit {
           if(error.status==403){
             swal({
               type: 'error',
-              title: "You have already downloaded 100 documents",
+              title: "Your RFP documents download limit has been exceeded",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
