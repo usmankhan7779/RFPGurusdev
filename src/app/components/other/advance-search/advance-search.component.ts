@@ -701,7 +701,6 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   }
  
   ngOnDestroy() {
-   alert('asd')
     // this.endRequest.unsubscribe();
   }
 }
