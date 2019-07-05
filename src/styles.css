@@ -4056,6 +4056,9 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:768px) {
+  .play-store-img2 {
+    left: 35% !important;
+}
   .pricing_heading {
     font-size: 22px !important
   }
@@ -4218,11 +4221,6 @@ textarea::-webkit-scrollbar {
   .form-home {
     top: 0
   }
-
-  .choose-criteria {
-    display: none !important
-  }
-
   .sidebar.custom {
     top: 50px !important
   }
@@ -4240,7 +4238,10 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:640px) {
-
+  .benner-conter {
+    left: 30px;
+    top: 80px;
+}
   .about-3 .title,
   .about-main .main_heading {
     font-size: 20px !important
@@ -4298,7 +4299,10 @@ textarea::-webkit-scrollbar {
   }
 
   .login-or-signup .modal-dialog {
-    width: 90% !important
+    width: 90% !important;
+    min-width: 90% !important;
+    max-width: 90% !important;
+    left: 15px;
   }
 
   .contact-address h2 {
@@ -4995,3 +4999,4 @@ textarea::-webkit-scrollbar {
     float: right !important
   }
 }
+/* ......................CSS END..................... */
