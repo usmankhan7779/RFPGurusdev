@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, NgForm } from '@angular/forms';
 import { PasswordValidation } from '../../../Validators/password-validator.component';
 import { ChangedPasswordService } from './changed-password.service';
 import swal from 'sweetalert2';
@@ -76,8 +76,8 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
             'has-feedback': this.isFieldValid(form, field)
         };
     }
-    changedPassword() {
-        if(this.register.value.oldpassword != null && this.register.value.password != null && this.register.value.confirmPassword != null){
+    changedPassword(f:NgForm) {
+        if(this.register.value.oldpassword != '' && this.register.value.password != '' && this.register.value.confirmPassword != ''){
             if (this.register.valid && this.register.value.oldpassword != this.register.value.password) {
                 this.endRequest = this._serv.user_change_password(this.register.value.oldpassword, this.register.value.password, this.register.value.confirmPassword).subscribe(
                     data => {
@@ -87,6 +87,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
                             showConfirmButton: false,
                             timer: 1500, width: '512px',
                         })
+                        f.resetForm()
                     },
                     error => {
                         swal(

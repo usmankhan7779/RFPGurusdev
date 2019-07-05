@@ -96,7 +96,7 @@ export class AllnotificationComponent implements OnInit {
             error => {
             });
           
-
+this.notification()
           this.notificate = Data['notifications'];
           this.unread = Data['unread'];
           this._shareData.notifyInfo(this.notificate);
