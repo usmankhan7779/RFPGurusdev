@@ -94,12 +94,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
 
           this.item = true
         }
-       else
-       {
-       
-
-       }
-      
+   
         // this.item = this.cat.length;
         // alert(  this.item );
 

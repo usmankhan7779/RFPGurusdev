@@ -104,7 +104,6 @@ export class HeaderComponent implements OnInit {
   deletenofication(id) {
     this._serv.deletenotify(id).subscribe(
       data => {
-        this.notification();
         swal({
           type: 'success',
           title: 'successfully deleted',
@@ -112,22 +111,44 @@ export class HeaderComponent implements OnInit {
           confirmButtonColor: "#090200",
           timer: 1500, width: '512px',
         });
+        this.notification();
       });
   }
   updatenofication(id) {
     this._serv.Updatenotify(id).subscribe(
       data => {
-        this.notification();
+        this._serv.notify().subscribe(
+          data => {
+            this.notificate = data['notifications'];
+            this.unread = data['unread'];
+            this._shareData.notifyInfo(this.notificate);
+            this._shareData.unreadnotifyInfo(this.unread);
+          });
       });
   }
   ngOnInit() {
     this.watchlist();
+    console.log(this.watchlist());
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
     this._shareData.currentMessage.subscribe(message => this.wrfp = message)
     this._shareData.currentMessagetotal.subscribe(message => this.total = message)
     this.notification();
+    console.log(this.notification());
+  
+    // this._serv.Updatenotify(this.id).subscribe(
+    //   data => {
+    //     this._serv.notify().subscribe(
+    //       data => {
+    //         alert('updated');
+    //         this.notificate = data['notifications'];
+    //         this.unread = data['unread'];
+    //         this._shareData.notifyInfo(this.notificate);
+    //         this._shareData.unreadnotifyInfo(this.unread);
+    //       });
+    //   });
   }
+
   notificate;
   unread;
   notification() {

@@ -36,27 +36,12 @@ export class AllnotificationComponent implements OnInit {
 
     // --------------- SEO Service End ---------------
     
-    // this.notification();
-    this._serv.notify().subscribe(
-      data => {
-        this.total=data['total'];
-        this.notificate = data['notifications'];
-        this.unread = data['unread'];
-        this._shareData.notifyInfo(this.notificate);
-        this._shareData.unreadnotifyInfo(this.unread);
-
-      },
-      error => {
-      });
+    this.notification();
     
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
   }
-  // ngDoCheck()
-  // {
-  //   this.deletenofication(this.id)
-  //   this.updatenofication(this.id)
-  // }
+  
   get(id, title) {
     this.id = id;
     this.title = title
@@ -83,20 +68,7 @@ export class AllnotificationComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
-          // this.notification();
-          this._serv.notify().subscribe(
-            data => {
-              this.total=data['total'];
-              this.notificate = data['notifications'];
-              this.unread = data['unread'];
-              this._shareData.notifyInfo(this.notificate);
-              this._shareData.unreadnotifyInfo(this.unread);
-      
-            },
-            error => {
-            });
-          
-
+          this.notification();
           this.notificate = Data['notifications'];
           this.unread = Data['unread'];
           this._shareData.notifyInfo(this.notificate);
