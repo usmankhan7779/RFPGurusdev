@@ -16,9 +16,9 @@ import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
   selector: 'app-data-table-cmp',
   templateUrl: 'single-rfp.component.html',
   styleUrls: ['./single-rfp.component.css',
-  '../../local-style/table-normal.css',
-  '../../local-style/products-area.css'
-]
+    '../../local-style/table-normal.css',
+    '../../local-style/products-area.css'
+  ]
 })
 
 export class SingleRfpComponent implements OnInit {
@@ -42,22 +42,21 @@ export class SingleRfpComponent implements OnInit {
   subscribe;
   currentUser;
   wrfp;
-  constructor(private advanceServ: AdvanceService, 
-    private getfile :AllRfpsService,private homeServ: HomeService, public dialog: MatDialog, private _nav: Router, public _shareData: SharedData, private route: ActivatedRoute, private _serv: RfpService, private seoService: SeoService, ) {
+  constructor(private advanceServ: AdvanceService,
+    private getfile: AllRfpsService, private homeServ: HomeService, public dialog: MatDialog, private _nav: Router, public _shareData: SharedData, private route: ActivatedRoute, private _serv: RfpService, private seoService: SeoService, ) {
     localStorage.removeItem('member');
   }
   back() {
     if (localStorage.getItem('location')) {
       let url = localStorage.getItem('location')
-      console.log(url);
       let last = url.length
       let ur = url.slice(0, 13)
       let state = url.slice(0, 5)
       let category = url.slice(0, 8)
       let agency = url.slice(0, 6)
+      let subcategory = url.slice(0, 11)
 
-      if (ur == 'searched-data')
-       { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+      if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
       else if (state == 'state') {
         this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
       }
@@ -68,18 +67,17 @@ export class SingleRfpComponent implements OnInit {
 
         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
       }
-       else if (url == 'admin-panel')
-       {
+      else if (subcategory == 'subcategory') {
+        this._nav.navigate([subcategory], { queryParams: { subcat: url.slice(11, last) } });
+      }
+      else if (url == 'admin-panel') {
         this._nav.navigate([url]);
       }
-        else if(url =='find-rfps')
-       {
+      else if (url == 'find-rfps') {
         this._nav.navigate(['find-rfps']);
       }
-      else
-      {
+      else {
         this._nav.navigate([url]);
-        console.log(this._nav.navigate([url]));
       }
 
     }
@@ -88,7 +86,6 @@ export class SingleRfpComponent implements OnInit {
     }
 
   }
-
   status: boolean = false;
   navbarClass() {
     this.status = !this.status;
@@ -134,7 +131,6 @@ export class SingleRfpComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
 
-
         // --------------- SEO Service ---------------
         // setting the page title 
         this.seoService.setTitle(params['query']);
@@ -166,37 +162,37 @@ export class SingleRfpComponent implements OnInit {
     this.check_login()
 
   }
-  public showPDF(rfpkey,title): void {
+  public showPDF(rfpkey, title): void {
     // alert(rfpkey)
     this.getfile.getPDF(rfpkey)
-        .subscribe(x => {
-            // It is necessary to create a new blob object with mime-type explicitly set
-            // otherwise only Chrome works like it should
-            var newBlob = new Blob([x], { type: "application/pdf" });
+      .subscribe(x => {
+        // It is necessary to create a new blob object with mime-type explicitly set
+        // otherwise only Chrome works like it should
+        var newBlob = new Blob([x], { type: "application/pdf" });
 
-            // IE doesn't allow using a blob object directly as link href
-            // instead it is necessary to use msSaveOrOpenBlob
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                window.navigator.msSaveOrOpenBlob(newBlob);
-                return;
-            }
+        // IE doesn't allow using a blob object directly as link href
+        // instead it is necessary to use msSaveOrOpenBlob
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob);
+          return;
+        }
 
-            // For other browsers: 
-            // Create a link pointing to the ObjectURL containing the blob.
-            const data = window.URL.createObjectURL(newBlob);
+        // For other browsers: 
+        // Create a link pointing to the ObjectURL containing the blob.
+        const data = window.URL.createObjectURL(newBlob);
 
-            var link = document.createElement('a');
-            link.href = data;
-            link.download = title+".pdf";
-            // this is necessary as link.click() does not work on the latest firefox
-            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        var link = document.createElement('a');
+        link.href = data;
+        link.download = title + ".pdf";
+        // this is necessary as link.click() does not work on the latest firefox
+        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
 
-            setTimeout(function () {
-                // For Firefox it is necessary to delay revoking the ObjectURL
-                window.URL.revokeObjectURL(data);
-                link.remove();
-            }, 100);
-        },
+        setTimeout(function () {
+          // For Firefox it is necessary to delay revoking the ObjectURL
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
+      },
         error => {
           if (error.status == 400) {
             swal({
@@ -208,9 +204,9 @@ export class SingleRfpComponent implements OnInit {
             });
           }
         }
-        
-        );
-}
+
+      );
+  }
   total;
   watchlist() {
     if (localStorage.getItem('currentUser')) {
@@ -264,40 +260,40 @@ export class SingleRfpComponent implements OnInit {
           localStorage.setItem('member', this.rfpid);
         });
 
-      }
+    }
   }
   doc;
-  public trialshowPDF(rfpkey,title): void {
+  public trialshowPDF(rfpkey, title): void {
     // alert(rfpkey)
     this.getfile.trialgetPDF(rfpkey)
-        .subscribe(x => {
-            // It is necessary to create a new blob object with mime-type explicitly set
-            // otherwise only Chrome works like it should
-            var newBlob = new Blob([x], { type: "application/pdf" });
+      .subscribe(x => {
+        // It is necessary to create a new blob object with mime-type explicitly set
+        // otherwise only Chrome works like it should
+        var newBlob = new Blob([x], { type: "application/pdf" });
 
-            // IE doesn't allow using a blob object directly as link href
-            // instead it is necessary to use msSaveOrOpenBlob
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                window.navigator.msSaveOrOpenBlob(newBlob);
-                return;
-            }
+        // IE doesn't allow using a blob object directly as link href
+        // instead it is necessary to use msSaveOrOpenBlob
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob);
+          return;
+        }
 
-            // For other browsers: 
-            // Create a link pointing to the ObjectURL containing the blob.
-            const data = window.URL.createObjectURL(newBlob);
+        // For other browsers: 
+        // Create a link pointing to the ObjectURL containing the blob.
+        const data = window.URL.createObjectURL(newBlob);
 
-            var link = document.createElement('a');
-            link.href = data;
-            link.download = title+".pdf";
-            // this is necessary as link.click() does not work on the latest firefox
-            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+        var link = document.createElement('a');
+        link.href = data;
+        link.download = title + ".pdf";
+        // this is necessary as link.click() does not work on the latest firefox
+        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
 
-            setTimeout(function () {
-                // For Firefox it is necessary to delay revoking the ObjectURL
-                window.URL.revokeObjectURL(data);
-                link.remove();
-            }, 100);
-        } ,
+        setTimeout(function () {
+          // For Firefox it is necessary to delay revoking the ObjectURL
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
+      },
         error => {
           if (error.status == 400) {
             swal({
@@ -317,7 +313,7 @@ export class SingleRfpComponent implements OnInit {
               confirmButtonColor: "#090200",
             });
           }
-          else if(error.status == 406){
+          else if (error.status == 406) {
             swal({
               type: 'error',
               title: "Your free trial has been expired",
@@ -327,31 +323,31 @@ export class SingleRfpComponent implements OnInit {
             });
           }
         }
-        );
-}
-  check_trial(id,url,title) {
+      );
+  }
+  check_trial(id, url, title) {
     if (this.subscribe == "Trial Subscription user") {
-      this.trialshowPDF(id,title)
+      this.trialshowPDF(id, title)
+    }
+    else if (this.subscribe == "Subscribe user") {
+      this.advanceServ.downloadRfp().subscribe(
+        data => {
+          // window.open(url, '_blank');
+          this.showPDF(id, title);
+        },
+        error => {
+          if (error.status == 403) {
+            swal({
+              type: 'error',
+              title: "Your RFP documents download limit has been exceeded",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
         }
-        else if (this.subscribe == "Subscribe user") {
-          this.advanceServ.downloadRfp().subscribe(
-            data=>{
-                  // window.open(url, '_blank');
-                  this.showPDF(id,title);
-                },
-            error=>{
-              if(error.status==403){
-                swal({
-                  type: 'error',
-                  title: "Your RFP documents download limit has been exceeded",
-                  showConfirmButton: true,
-                  width: '512px',
-                  confirmButtonColor: "#090200",
-                });
-              }
-            }
-          )
-        }
+      )
+    }
   }
   check_login() {
     if (localStorage.getItem('currentadmin')) {

@@ -14,6 +14,7 @@ declare var $: any;
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
+  
   @ViewChild('openModal') openModal: ElementRef;
   loaded = false;
   CategoryCheck = false;
@@ -193,9 +194,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
       ]
     };
-
-
   }
+
+  
   LatestRFPs() {
 
     this.slideConfig2 = {

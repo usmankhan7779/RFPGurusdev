@@ -128,7 +128,7 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
     this.watchlist();
-    console.log(this.watchlist());
+    this.notification();
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
     this._shareData.currentMessage.subscribe(message => this.wrfp = message)

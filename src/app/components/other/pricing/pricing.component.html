@@ -12,7 +12,7 @@
           72 Hour Super Flash Sale - 50% Off only for a limited time.</h2>
         <h2 class="color-red">Independence Day Savings - Take advantage of this incredible offer NOW</h2>
             
-            <countdown class="col-lg-12 mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 04, 2019 18:40:00"> </countdown>
+            <countdown class="col-lg-12 mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="July 07, 2019 18:40:00"> </countdown>
 
         <h2 class="main_heading">Our Unbeatable Pricing Model </h2>
         <p><b>Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
@@ -111,7 +111,7 @@
                   <sup class="currency">$</sup>
                   <strong>24.99</strong>
                 </p> -->
-                <img width="100%" src="../../../../assets/img/Monthly.png">
+                <img width="100%" src="https://storage.rfpgurus.com/category_images/Yearlynew.png">
                 <ul class="list-pricing home-list-pricing">
                   <li>
                     <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
@@ -179,7 +179,8 @@
                 <sup class="currency">$</sup>
                 <strong>299.99</strong>
               </p> -->
-              <img width="100%" src="../../../../assets/img/Yearly.png">
+              <img width="100%" src="	
+              https://storage.rfpgurus.com/category_images/Monthlynew.png">
               <ul class="list-pricing home-list-pricing">
                 <li>
                   <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
@@ -250,7 +251,7 @@
               <div class="pricing-tenure-switcher center" data-container="#pricing-switch">
                 <div class="col-sm-4 padding-0">
                   <mat-form-field class=" mg-0-auto yearly-mnthly">
-                    <mat-select [(ngModel)]="valuee" (change)="selectPlan()">
+                    <mat-select [(ngModel)]="valuee" (selectionChange)="selectPlan($event)">
                       <mat-option value="PY">Yearly Subscription</mat-option>
                       <mat-option value="BM">Monthly Subscription</mat-option>
                     </mat-select>
@@ -300,7 +301,11 @@
                             <div>{{model.holdername}}</div>
                           </div>
                           <div class="card-holder"><label>Card Number</label>
-                            <div>{{model.cardNumber}}</div>
+                            <!-- <div>{{model.cardNumber}}</div> -->
+                            <div *ngIf="model.cardtype=='Mastercard'">{{form.controls.CardNumberForm.value}}</div>
+                            <div *ngIf="model.cardtype=='Discover'">{{form.controls.CardNumberForm.value}}</div>
+                            <div *ngIf="model.cardtype=='Visa'">{{form.controls.CardNumberForm.value}}</div>
+                            <div *ngIf="model.cardtype=='American Express'">{{form.controls.CardNumberForm2.value}}</div>
                           </div>
                           <div class="card-expiration-date"><label>Expiry
                               Date</label>
@@ -334,7 +339,7 @@
                             <div class="col-sm-12 col-xs-12 Saved-card-sel-list">
                               <mat-form-field class="col-lg-12 width-half padding-zero mat-size">
                                 <mat-select placeholder="Card Type " [(ngModel)]="model.cardtype" #val formControlName="CardtypeForm"
-                                  (valueChange)="ShowButton(val.value)" required>
+                                  (valueChange)="ShowButton(val.value)"  (selectionChange)="onSelectionChanged($event)" required>
                                   <mat-option class="font-16" *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">
                                     {{card_get_datat.viewValue}}</mat-option>
                                 </mat-select>

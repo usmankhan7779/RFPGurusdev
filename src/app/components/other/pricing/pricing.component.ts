@@ -40,22 +40,20 @@ export class PricingComponent implements OnInit {
       this._nav.navigate(['signin']);
     }
   }
-
-  selectPlan() {
-    if (this.valuee == "BM") {
+  selectPlan({ value }) {
+    if (value == "BM") {
       this.Mplan = true;
       this.Yplan = false;
       this.Fplan = false;
       this.prv_stepdetail("B", "M");
     }
-    else if (this.valuee == "PY") {
+    else if (value == "PY") {
       this.Yplan = true;
       this.Mplan = false;
       this.Fplan = false;
       this.prv_stepdetail("P", "Y");
     }
   }
-
   payed() {
     if (localStorage.getItem('currentUser')) {
       this.isfreetrial = false;
@@ -142,8 +140,8 @@ export class PricingComponent implements OnInit {
 
     // --------------- SEO Service End ---------------
     this.form = this.formBuilder.group({
-      CardNumberForm: ['', Validators.compose([Validators.required])],
-      CardNumberForm2: ['', Validators.compose([Validators.required])],
+      CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+      CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
       CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
       CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
       ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
@@ -201,7 +199,14 @@ export class PricingComponent implements OnInit {
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
-  
+  onSelectionChanged({ value }) {
+    if (value === 'American Express') {
+      this.form.get('CardNumberForm2').enable();
+    } else {
+      this.form.get('CardNumberForm').enable();
+      
+    }
+  }
   eachcardid;
   setautopay: boolean = true;
   getcardid(id) {
