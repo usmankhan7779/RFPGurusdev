@@ -122,6 +122,7 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
     this.watchlist();
+    this.notification();
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
     this._shareData.currentMessage.subscribe(message => this.wrfp = message)
@@ -149,7 +150,7 @@ export class HeaderComponent implements OnInit {
       this._serv.Watchlist().subscribe(
         data => {
           this.wrfp = data['result'];
-          this.total = data['total'];
+          this.total = data.total;
           this.shown = data['status'];
           this._shareData.watchInfo(this.wrfp);
           this._shareData.watchtotal(this.total);

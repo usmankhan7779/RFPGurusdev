@@ -76,24 +76,40 @@ export class StateRfpComponent implements OnInit, OnDestroy {
         this.length = this.item;
       });
   }
+  // page(pageSize) {
+  //   if (pageSize) {
+  //     // alert(pageSize)
+  //     this.pageSize = pageSize;
+  //     if (localStorage.getItem('statepage') == null) {
+  //       // var page_num: number = Number(localStorage.getItem('statepage'));
+  //       alert('if wali ' + pageSize)
+  //       this.setPage(pageSize);
+  //     } else {
+  //       alert(this.pageSize)
+  //       this.setPage(1);
+  //     }
+  //   }
+  //   else {
+  //     delete this.pageSize;
+  //   }
+  //   // this.setPage(this.pageSize)
+  // }
   page(pageSize) {
     if (pageSize) {
-      // alert(pageSize)
       this.pageSize = pageSize;
-      // if (localStorage.getItem('statepage') == null) {
-      //   // var page_num: number = Number(localStorage.getItem('statepage'));
-      //   alert('if wali ' + pageSize)
-      //   this.setPage(pageSize);
-      // } else {
-        // alert(this.pageSize)
-        this.setPage(1);
-      // }
+      if (localStorage.getItem('pages')) {
+        var page_num: number = Number(localStorage.getItem('pages'));
+        this.onPaginateChange(page_num);
+      } else {
+        this.onPaginateChange(1);
+      }
     }
     else {
       delete this.pageSize;
     }
-    // this.setPage(this.pageSize)
   }
+
+
   setPage(page) {
     localStorage.setItem('statepage', page);
     // alert(this.pageSize)
@@ -160,7 +176,6 @@ export class StateRfpComponent implements OnInit, OnDestroy {
   }
   move() {
     this.route.queryParams
-
       .subscribe(params => {
         this.state = params.state
         localStorage.setItem('location', 'state' + this.state)
@@ -199,13 +214,13 @@ export class StateRfpComponent implements OnInit, OnDestroy {
     if (localStorage.getItem('currentadmin')) {
       this.adminlogin = localStorage.getItem('currentadmin')
     }
-    // if (localStorage.getItem('statepage')) {
-    //   var page_num: number = Number(localStorage.getItem('statepage'));
-    //   this.setPage(page_num);
-    // } else {
-    //   this.setPage(1);
-    // }
-    this.setPage(1);
+    if (localStorage.getItem('statepage')) {
+      var page_num: number = Number(localStorage.getItem('statepage'));
+      this.setPage(page_num);
+    } else {
+      this.setPage(1);
+    }
+    // this.setPage(1);
     this._shareData.returnState().subscribe(
       data => {
         this.state = data;
@@ -327,7 +342,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "Your have already downloaded 5 documents",
+              title: "You have already downloaded 05 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -359,7 +374,7 @@ export class StateRfpComponent implements OnInit, OnDestroy {
           if(error.status==403){
             swal({
               type: 'error',
-              title: "Your have already downloaded 100 documents",
+              title: "Your RFP documents download limit has been exceeded",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

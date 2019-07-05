@@ -342,12 +342,12 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   page(pageSize) {
     if (pageSize) {
       this.pageSize = pageSize;
-      // if (localStorage.getItem('page')) {
-      //   var page_num: number = Number(localStorage.getItem('page'));
-      //   this.onSubmit(page_num);
-      // } else {
+      if (localStorage.getItem('page')) {
+        var page_num: number = Number(localStorage.getItem('page'));
+        this.onSubmit(page_num);
+      } else {
         this.onSubmit(1);
-      // }
+      }
     }
     else {
       delete this.pageSize;
@@ -526,17 +526,18 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   ngOnInit() {
     window.scroll(0, 0);
     window.onscroll = function () { myFunction() };
-
+  
     var header = document.getElementById("myHeader");
     var sticky = header.offsetTop;
 
     function myFunction() {
-      if (window.pageYOffset > sticky) {
+      if (window.pageYOffset > sticky) {   
         header.classList.add("sticky");
       } else {
         header.classList.remove("sticky");
       }
     }
+    // localStorage.clear();
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Advanced Search');
@@ -558,13 +559,13 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     }
 
     // this.onPaginateChange(1);
-    // if (localStorage.getItem('page')) {
-    //   var page_num: number = Number(localStorage.getItem('page'));
-    //   this.onSubmit(page_num);
-    // }
-    // else {
+    if (localStorage.getItem('page')) {
+      var page_num: number = Number(localStorage.getItem('page'));
+      this.onSubmit(page_num);
+    }
+    else {
       this.onSubmit(1);
-    // }
+    }
 
     this.endRequest = this.homeServ.rfpstate().subscribe(
       data => {
@@ -628,7 +629,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "Your have already downloaded 5 documents",
+              title: "You have already downloaded 05 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",
@@ -662,7 +663,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
         if(error.status==403){
           swal({
             type: 'error',
-            title: "Your have already downloaded 100 documents",
+            title: "Your RFP documents download limit has been exceeded",
             showConfirmButton: true,
             width: '512px',
             confirmButtonColor: "#090200",
@@ -698,6 +699,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       return true
     }
   }
+ 
   ngOnDestroy() {
     // this.endRequest.unsubscribe();
   }

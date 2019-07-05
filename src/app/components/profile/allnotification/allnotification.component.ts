@@ -19,7 +19,7 @@ export class AllnotificationComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
-
+  
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('All Notification');
@@ -35,11 +35,28 @@ export class AllnotificationComponent implements OnInit {
     this.seoService.updateTwitterTitle('All Notification');
 
     // --------------- SEO Service End ---------------
+    
+    // this.notification();
+    this._serv.notify().subscribe(
+      data => {
+        this.total=data['total'];
+        this.notificate = data['notifications'];
+        this.unread = data['unread'];
+        this._shareData.notifyInfo(this.notificate);
+        this._shareData.unreadnotifyInfo(this.unread);
 
-    this.notification();
+      },
+      error => {
+      });
+    
     this._shareData.notification.subscribe(message => this.notificate = message)
     this._shareData.unreadnotification.subscribe(message => this.unread = message)
   }
+  // ngDoCheck()
+  // {
+  //   this.deletenofication(this.id)
+  //   this.updatenofication(this.id)
+  // }
   get(id, title) {
     this.id = id;
     this.title = title
@@ -66,7 +83,20 @@ export class AllnotificationComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500, width: '512px',
           })
-          this.notification();
+          // this.notification();
+          this._serv.notify().subscribe(
+            data => {
+              this.total=data['total'];
+              this.notificate = data['notifications'];
+              this.unread = data['unread'];
+              this._shareData.notifyInfo(this.notificate);
+              this._shareData.unreadnotifyInfo(this.unread);
+      
+            },
+            error => {
+            });
+          
+this.notification()
           this.notificate = Data['notifications'];
           this.unread = Data['unread'];
           this._shareData.notifyInfo(this.notificate);
@@ -109,13 +139,12 @@ export class AllnotificationComponent implements OnInit {
     let requiredUrl = 'rfp'
     this._nav.navigate([requiredUrl], { queryParams: { query: query } });
   }
+  total;
   notification() {
     this._serv.notify().subscribe(
       data => {
-        // alert(data)
-        console.log(data,'notification')
+        this.total=data['total'];
         this.notificate = data['notifications'];
-        console.log(this.notificate,'noti')
         this.unread = data['unread'];
         this._shareData.notifyInfo(this.notificate);
         this._shareData.unreadnotifyInfo(this.unread);

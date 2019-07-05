@@ -5,7 +5,7 @@
       <div class="col-md-5 page-title">
         <span>Notifications</span>
       </div>
-      <div class="col-sm-12 text-center mg-top-100" *ngIf="notificate?.length == '0'">
+      <div class="col-sm-12 text-center mg-top-100" *ngIf="total== '0'">
         <i class="fa fa-exclamation-triangle"></i>
         <h3 class="text-center">No Notifications</h3>
       </div>
@@ -96,13 +96,13 @@
               </div>
             </div>
           </div>
-        </div> 
-
+        </div>  
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-top-20px" *ngIf="notificate">
         <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All
           Notifications </button>
       </div>
     </div>
+
   </div>
  
 </div>

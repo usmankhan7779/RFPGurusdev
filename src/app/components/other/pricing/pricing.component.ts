@@ -40,22 +40,20 @@ export class PricingComponent implements OnInit {
       this._nav.navigate(['signin']);
     }
   }
-
-  selectPlan() {
-    if (this.valuee == "BM") {
+  selectPlan({ value }) {
+    if (value == "BM") {
       this.Mplan = true;
       this.Yplan = false;
       this.Fplan = false;
       this.prv_stepdetail("B", "M");
     }
-    else if (this.valuee == "PY") {
+    else if (value == "PY") {
       this.Yplan = true;
       this.Mplan = false;
       this.Fplan = false;
       this.prv_stepdetail("P", "Y");
     }
   }
-
   payed() {
     if (localStorage.getItem('currentUser')) {
       this.isfreetrial = false;
@@ -79,6 +77,7 @@ export class PricingComponent implements OnInit {
   form: FormGroup;
   CardNumberForm;
   CardNumberForm2;
+  id;
   CardCodeForm;
   CardCodeForm2;
   ExpiryDateForm
@@ -122,6 +121,7 @@ export class PricingComponent implements OnInit {
     this.CardCodeForm2=false
    }
   ngOnInit() {
+    this.getcardid(this.id);
     window.scroll(0, 0);
     
     // --------------- SEO Service ---------------
@@ -140,8 +140,8 @@ export class PricingComponent implements OnInit {
 
     // --------------- SEO Service End ---------------
     this.form = this.formBuilder.group({
-      CardNumberForm: ['', Validators.compose([Validators.required])],
-      CardNumberForm2: ['', Validators.compose([Validators.required])],
+      CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+      CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
       CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
       CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
       ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
@@ -199,10 +199,19 @@ export class PricingComponent implements OnInit {
     { value: 'Discover', viewValue: 'Discover' }
 
   ];
-  
-
+  onSelectionChanged({ value }) {
+    if (value === 'American Express') {
+      this.form.get('CardNumberForm2').enable();
+    } else {
+      this.form.get('CardNumberForm').enable();
+      
+    }
+  }
+  eachcardid;
   setautopay: boolean = true;
-
+  getcardid(id) {
+    this.eachcardid = id;
+  }
   changed(val) {
     this.setautopay = val.checked
   }
@@ -356,7 +365,7 @@ export class PricingComponent implements OnInit {
       // if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
         if (this.isfreetrial == true) {
           if (this.isright == true) {
-                if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+                if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null  && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
       if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
         if(this.isInvalid==false && this.isInvalid2==false){
           this._http6.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
@@ -370,6 +379,7 @@ export class PricingComponent implements OnInit {
                     '',
                     'success'
                   )
+                  this._nav.navigate(['purchase-history'])
                   if (localStorage.getItem('member')) {
                     let url = localStorage.getItem('member')
                     let last = url.length
@@ -395,6 +405,7 @@ export class PricingComponent implements OnInit {
                   } else {
                     this._nav.navigate(['/']);
                   }
+                
                   f.resetForm()
                   this._nav.navigate(['purchase-history'])
                 },
@@ -438,11 +449,19 @@ export class PricingComponent implements OnInit {
               )
             }
           },
-          error=>{
-            if(error.status==406){
+          error => {
+            if (error.status === 406) {
               swal({
                 type: 'error',
                 title: 'Card Number already exist',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              })
+            }
+            else if(error.status === 405){
+              swal({
+                type: 'error',
+                title: 'Card details are not valid',
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               })
@@ -478,8 +497,7 @@ export class PricingComponent implements OnInit {
     }
             // f.resetForm()
           } else if (this.isright == false) {
-            alert(this.model.defaultcard)
-            this._serv.package_free_trial(this.isright, this.model.Carddefault, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+            this._serv.package_free_trial(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
               .subscribe(data => {
                 swal(
                   'Your payment has been transferred',
@@ -554,7 +572,7 @@ export class PricingComponent implements OnInit {
           }
         } else {
           if (this.isright == true) {
-            if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+            if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
               if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
                 if(this.isInvalid == false && this.isInvalid2==false){
                   this._http6.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
@@ -619,11 +637,19 @@ export class PricingComponent implements OnInit {
                     //   )
                     // }
                   },
-                  error=>{
-                    if(error.status==406){
+                  error => {
+                    if (error.status === 406) {
                       swal({
                         type: 'error',
                         title: 'Card Number already exist',
+                        showConfirmButton: false,
+                        timer: 1500, width: '512px',
+                      })
+                    }
+                    else if(error.status === 405){
+                      swal({
+                        type: 'error',
+                        title: 'Card details are not valid',
                         showConfirmButton: false,
                         timer: 1500, width: '512px',
                       })
@@ -658,7 +684,7 @@ export class PricingComponent implements OnInit {
             })
           }
           } else if (this.isright == false) {
-            this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+            this._serv.package_free(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
               data => {
                 swal(
                   'Your payment has been transferred',

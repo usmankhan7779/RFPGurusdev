@@ -85,18 +85,28 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   item :boolean = false;
   filter(val) {
     if (val != '') {
+     
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
         console.log(this.cat)
         this.item = false;
         if(this.cat.length == '0'){
+
           this.item = true
         }
+       else
+       {
+       
+
+       }
+      
         // this.item = this.cat.length;
+        // alert(  this.item );
 
       });
     }
     else {
+      this.item = false;
       this._serv.rfpcategory_subsat().subscribe(
         data => {
           this.cat = data;
@@ -105,6 +115,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   select(item) {
     this.selected = item;
+    alert(this.selected);
     this.mainSearch = 0;
     this.query = '';
     this.Rfp = '';

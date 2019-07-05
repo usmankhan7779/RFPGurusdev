@@ -25,7 +25,7 @@
           <div class="products-area sh-products-area">
             <div *ngFor="let rfp of wrfp;let i=index" class="card">
               <div class="row sh-del-watchlist">
-                <div class="col-sm-12 max-width-1000">
+                <div class="col-sm-12 ">
                   <div class="card-header card-header-text keyrfp"  data-background-color="purple">
                     <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
                       (click)="move()">

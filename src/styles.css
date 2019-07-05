@@ -2343,12 +2343,6 @@ body {
   font-size: 125% !important
 }
 
-.sh-signup-form-fix .clr_red {
-  font-size: 12px;
-  margin: -19px 0 0;
-  font-weight: 700 !important;
-}
-
 .sh-signup-form-fix.edit-profile .form-group {
   padding-bottom: 0 !important;
   margin: 0 !important
@@ -2677,12 +2671,6 @@ body {
   box-shadow: none
 }
 
-.sh-signup-form-fix .clr_red {
-  color: #f44336;
-  margin: -10px 0 -4px;
-  font-size: 12px;
-  font-weight: 700 !important;
-}
 
 #myBtn {
   display: none;
@@ -3455,6 +3443,16 @@ body {
     left: 0;
     opacity: 1
   }
+}
+
+.sh-signup-form-fix .clr_red {
+  color: #f44336;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: -13px;
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: 700 !important;
 }
 
 .sh-products-area .plan-detail>h3>a {
