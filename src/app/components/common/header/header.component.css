@@ -525,6 +525,7 @@ text-align: right;
 
   .sh-main-options>li>a {
     padding: 25px 6px !important;
+    font-size: 12px !important;
   }
   .navbar-collapse.collapse{
     display: flex !important;

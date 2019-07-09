@@ -3563,8 +3563,8 @@ textarea::-webkit-scrollbar {
 .benner-conter {
   width: 300px;
   position: absolute;
-  top: 281px;
-  right: 366px;
+  top: 175px;
+  right: 55px;
 }
 
 /* End conter */
@@ -4216,6 +4216,12 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width:767px) {
+  .login-or-signup .modal-dialog {
+    width: 95% !important;
+    min-width: 95% !important;
+    max-width: 95% !important;
+    left: 5px;
+  }
   .form-home {
     top: 0
   }
@@ -4237,7 +4243,7 @@ textarea::-webkit-scrollbar {
 
 @media (max-width:640px) {
   .benner-conter {
-    left: 30px;
+    right: 30px;
     top: 80px;
 }
   .about-3 .title,
@@ -4296,12 +4302,7 @@ textarea::-webkit-scrollbar {
     font-size: 26px
   }
 
-  .login-or-signup .modal-dialog {
-    width: 90% !important;
-    min-width: 90% !important;
-    max-width: 90% !important;
-    left: 15px;
-  }
+
 
   .contact-address h2 {
     font-size: 22px
