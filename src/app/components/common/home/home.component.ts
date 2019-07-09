@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     window.scroll(0, 0);
-
+this.timer();
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.defaultTitle();
@@ -294,6 +294,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.log(this.record);
       });
   }
-
+  totaltime;
+timer(){
+  this._serv.gettimer().subscribe( data => {
+    this.totaltime = data.json();
+    // alert(this.totaltime);
+    console.log(this.totaltime);
+  })
+}
 
 }

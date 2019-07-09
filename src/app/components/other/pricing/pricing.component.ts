@@ -123,7 +123,7 @@ export class PricingComponent implements OnInit {
   ngOnInit() {
     this.getcardid(this.id);
     window.scroll(0, 0);
-    
+    this.images();
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Pricing');
@@ -182,6 +182,18 @@ export class PricingComponent implements OnInit {
       this.prv_stepdetail("P", "Y");
     }
 
+  }
+  monthly;
+  year;
+  priceimages;
+  images(){
+    this._serv.pricingimage().subscribe(data => {
+      this.priceimages = data['free_trial'];
+      this.monthly = data['monthly_plan'];
+      this.year = data['yearly_plan'];
+      
+     
+    })
   }
   showallplan(){
     this.planSelected = false;

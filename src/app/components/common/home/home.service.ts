@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class HomeService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private _https:Http) { }
 
   searchrecord(id: string) {
     return this.http.get('https://apis.rfpgurus.com/rf_p/search_id/' + id + '/')
@@ -28,5 +29,8 @@ export class HomeService {
     
     return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/')
    
+}
+gettimer(){
+  return this._https.get('http://192.168.29.237:8000/super/timer_for_sale/')
 }
 }
