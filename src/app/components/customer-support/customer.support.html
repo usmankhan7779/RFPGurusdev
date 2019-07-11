@@ -9,7 +9,7 @@
             </mat-form-field>
             <mat-form-field *ngIf="isSubject">
                 <input matInput placeholder="Subject" formControlName=sub [(ngModel)]="other" name=other (input)="changeSubject($event)" required>
-                <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error>
+                <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
             </mat-form-field>
 
             <mat-form-field>

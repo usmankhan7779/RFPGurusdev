@@ -37,7 +37,7 @@ export class CustomerSupportComponent implements OnInit {
   CustomerSupport() {
   
     this.customerSupport.support(this.form.value['sub'] , this.form.value['des']).subscribe(res => {
-      alert(this.form.value['des']);
+      // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
       this.form.reset();
 
