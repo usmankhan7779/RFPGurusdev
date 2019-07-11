@@ -124,6 +124,7 @@ export class PricingComponent implements OnInit {
     this.getcardid(this.id);
     window.scroll(0, 0);
     this.images();
+    this.timer();
     // --------------- SEO Service ---------------
     // setting the page title 
     this.seoService.setTitle('Pricing');
@@ -182,6 +183,14 @@ export class PricingComponent implements OnInit {
       this.prv_stepdetail("P", "Y");
     }
 
+  }
+  totaltime;
+  timer(){
+    this._home.gettimer().subscribe( data => {
+      this.totaltime = data.json();
+      // alert(this.totaltime);
+      console.log(this.totaltime);
+    })
   }
   monthly;
   year;

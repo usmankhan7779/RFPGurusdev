@@ -99,8 +99,8 @@
       <div class="col-lg-3 col-md-4 col-sm-12 pd-0-i">
              
         <!-- <countdown-timer  class="mainpagee1 pd-0-i" [start]="'2019-05-07 00:00:00'"></countdown-timer> -->
-        <countdown class="mainpagee1 pd-0-i"  units=" Days | Hours | Minutes | Seconds"
-          end="July 11, 2019 18:40:00"> </countdown>
+        <countdown class="mainpagee1 pd-0-i" [text]="text"  units=" Days | Hours | Minutes | Seconds"
+          end="{{totaltime?.sale_timer}}"> </countdown>
       </div>
     
       <div class="col-lg-2 col-md-12 col-sm-12  text-center">
@@ -459,7 +459,7 @@
                       data-dismiss="modal">Subscribe
                       Now</button> </a>
                 </div>
-                            <countdown class="benner-conter mainpagee"   units=" Days | Hours | Minutes | Seconds" end="July 11, 2019 18:40:00"> </countdown>
+                            <countdown class="benner-conter mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="{{totaltime?.sale_timer}}"> </countdown>
 
             </div>
         </div>

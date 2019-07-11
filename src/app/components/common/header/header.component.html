@@ -291,6 +291,11 @@
                     <i class="fa fa-key" ria-hidden="true"></i>Change Password</a>
                 </li>
                 <li *ngIf="check_login()">
+                    <a onclick="topFunction()" routerLink="/support">
+                      <i class="fa fa-comment"></i> Support
+                  </a>
+                </li>
+                <li *ngIf="check_login()">
                   <a onclick="topFunction()" routerLink="/contact-us">
                     <i class="fa fa-comment" aria-hidden="true"></i>Contact Us</a>
                 </li>
