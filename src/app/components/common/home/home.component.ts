@@ -283,8 +283,7 @@ this.timer();
   }
 
   getRFPandCategory() {
-    this._serv.rfpcategory()
-      .subscribe(data => {
+    this._serv.rfpcategory().subscribe(data => {
         this.cat = data;
         this.CategoryCheck = true;
       });

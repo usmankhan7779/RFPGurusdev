@@ -12,7 +12,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
-
+import {
+  CustomerSupportComponent
+} from './components/customer-support/customer.support';
 // ------------------- Services
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
@@ -26,7 +28,12 @@ import { DatePipe } from '@angular/common';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {  MatFormFieldModule} from '@angular/material';
+import { CustomerService } from './components/customer-support/customer-service';
 
+// import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   MatCardModule,
   MatDatepickerModule,
@@ -82,6 +89,10 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
     MatButtonModule,
     TextMaskModule,
     Ng2SearchPipeModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDPnJ0zatoiPOI1GOeeS7HCj7AxIW183tg'
     }),
@@ -89,7 +100,8 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
     CommonLayoutModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerSupportComponent
   ],
   providers: [
     {
@@ -99,8 +111,10 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
     DatePipe,
     SeoService,
     SharedData,
+    CustomerService,
     AuthGuard,
     AuthLogin,
+    
   
     
     {

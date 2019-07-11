@@ -31,6 +31,6 @@ export class HomeService {
    
 }
 gettimer(){
-  return this._https.get('http://192.168.29.237:8000/super/timer_for_sale/')
+  return this._https.get('https://apis.rfpgurus.com/super/timer_for_sale/')
 }
 }

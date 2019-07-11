@@ -5,12 +5,15 @@ import { AuthLogin } from './AuthGuards/auth.login';
 import { AuthGuard } from './AuthGuards/auth.guard';
 import { UserprofileComponent } from './layouts/userprofile/userprofile.component';
 import { FiltersComponent } from './layouts/filters/filters.component';
-
+import {
+  CustomerSupportComponent
+} from './components/customer-support/customer.support';
 const routes: Routes = [
 
   // =========== Default Paths ===========
   { path: '', redirectTo: '/', pathMatch: 'full', },
   { path: '', component: HomeComponent },
+
 
   // =========== Auths ===========
   { path: 'signin', loadChildren: './components/Auth/signin/signin.module#SigninModule', canActivate: [AuthLogin] },
@@ -49,6 +52,10 @@ const routes: Routes = [
       { path: 'payment', loadChildren: './components/profile/paymentmethods/paymentmethods.module#PaymentmethodsModule', canActivate: [AuthGuard] },
       { path: 'notifications', loadChildren: './components/profile/allnotification/allnotification.module#AllnotificationModule', canActivate: [AuthGuard] },
       { path: 'my-watchlist', loadChildren: './components/profile/watchlist/watchlist.module#WatchlistModule', canActivate: [AuthGuard] },
+      {
+        path: 'support',
+        component: CustomerSupportComponent
+    },
     ]
   },
 
