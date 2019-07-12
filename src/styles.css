@@ -2233,6 +2233,9 @@ body {
   padding: 11px;
   line-height: 1em
 }
+.mat-form-field-suffix .mat-icon{
+  cursor: pointer;
+}
 
 .btn.btn-white,
 .btn.btn-white:focus,
@@ -3578,7 +3581,15 @@ textarea::-webkit-scrollbar {
 .color-red {
   color: #c00;
 }
-
+.support-placeholder .mat-select-trigger {
+  height: 1.525em;
+}
+.support-placeholder textarea {
+  height: 150px;
+}
+.support-placeholder .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+    margin-top: 9px;
+}
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important

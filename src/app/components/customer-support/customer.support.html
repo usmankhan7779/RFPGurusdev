@@ -12,12 +12,13 @@
                 <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
             </mat-form-field>
 
-            <mat-form-field>
+            <mat-form-field class="margin-top-10">
                 <textarea matInput placeholder="Message" formControlName=des required></textarea>
                 <mat-error>Please provide message</mat-error>
             </mat-form-field>
             <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="disable || !form.valid">Submit</button>
         </form>
+
     </mat-card>
 </div>
 
@@ -32,7 +33,7 @@
           <table class="table payment-table">
             <thead>
               <tr>
-                <th>Ticket_id</th>
+                <th>Ticket id</th>
                 <th>Subject</th>
                 <th>Description</th>
                 <!-- <th>Delete</th> -->
@@ -43,11 +44,6 @@
                     <td>{{card.unique_ticket_id  }} </td>
                 <td>{{card?.subject}}</td>
                 <td>{{card?.description}}</td>
-                
-
-                <td>
-                 
-                </td>
               </tr>
             </tbody>
           </table>

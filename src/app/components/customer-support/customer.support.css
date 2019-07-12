@@ -128,3 +128,6 @@ textarea::-webkit-scrollbar-thumb {
   .payment-table>tbody>tr>td:first-child {
       border-left: none
   }
+  .margin-top-10{
+      margin-top: 10px;
+  }
