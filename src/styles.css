@@ -3558,7 +3558,9 @@ textarea::-webkit-scrollbar {
   font-size: 16px;
   margin: 0;
 }
-
+.fa-eye{
+  cursor: pointer;
+}
 .benner-conter {
   width: 300px;
   position: absolute;
