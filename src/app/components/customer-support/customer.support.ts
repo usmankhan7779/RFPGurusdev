@@ -23,6 +23,7 @@ import swal from 'sweetalert2';
 export class CustomerSupportComponent implements OnInit {
 
   constructor(private customerSupport: CustomerService, private fb: FormBuilder) {}
+  
   form: FormGroup
   disable = true;
   topic;

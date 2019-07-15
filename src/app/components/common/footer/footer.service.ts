@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class FooterService {
     constructor(private http: HttpClient) { }
     subcribe(email: string) {
-        return this.http.post('https://apis.rfpgurus.com/subscription/', { 'email': email })
+        return this.http.post('https://apis.rfpgurus.com/subscription/',
+         { 'email': email, })
     }
 }

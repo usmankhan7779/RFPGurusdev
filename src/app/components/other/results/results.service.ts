@@ -19,7 +19,7 @@ export class ResultsService {
         return this.http.post('https://apis.rfpgurus.com/rf_p/search_with_sort/' + pageSize + '/' + obj + '/' + order + '?page=' + page, { "query": cat });
     }
     searchrfprecord(obj, items, page) {
-        return this.http.post('https://apis.rfpgurus.com/rf_p/search_id/' + items + '?page=' + page, {
+        return this.http.post('https://apis.rfpgurus.com/rf_p/search_id_web/' + items + '?page=' + page, {
             'query': obj
         });
     }

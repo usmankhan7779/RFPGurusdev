@@ -88,7 +88,7 @@ downloadRfps(id){
     if(localStorage.getItem('currentUser')){
       headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
       headers.append('Content-Type', 'application/json');
-    return this._https.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+    return this._https.put('https://apis.rfpgurus.com/rf_p/advance_web/' + items + '/?page=' + page,
       JSON.stringify({
         "rfp_key": Rfpnum,
         "title": title,
@@ -103,7 +103,7 @@ downloadRfps(id){
     }
     else
     {
-      return this.http.put('https://apis.rfpgurus.com/rf_p/advance/' + items + '/?page=' + page,
+      return this.http.put('https://apis.rfpgurus.com/rf_p/advance_web/' + items + '/?page=' + page,
       JSON.stringify({
         "rfp_key": Rfpnum,
         "title": title,

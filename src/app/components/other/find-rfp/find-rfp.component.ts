@@ -303,7 +303,7 @@ export class FindRfpComponent implements OnInit, OnDestroy {
         });
     }
     else {
-      this.http.get('https://apis.rfpgurus.com/rf_p/findrfp/' + this.pageSize + '?page=' + page)
+      this.http.get('https://apis.rfpgurus.com/rf_p/findrfp_web/' + this.pageSize + '?page=' + page)
         .subscribe(Res => {
           this.items = Res['results'];
           this.pager = this.pagerService.getPager(Res['totalItems'], page, this.pageSize);

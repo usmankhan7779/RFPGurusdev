@@ -19,10 +19,10 @@ export class RfpService {
 
   rfprecord(id, val) {
     if (val == 'old') {
-      return this.http.get('https://apis.rfpgurus.com/rf_p/old_rfpdata/' + id + '/');
+      return this.http.get('https://apis.rfpgurus.com/rf_p/old_rfpdata_web/' + id + '/');
     }
     else {
-      return this.http.get('https://apis.rfpgurus.com/rf_p/rfpdata/' + id + '/');
+      return this.http.get('https://apis.rfpgurus.com/rf_p/rfpdata_web/' + id + '/');
     }
   }
 

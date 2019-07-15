@@ -13,10 +13,10 @@ export class AgencyService {
       headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
        
       headers.append('Content-Type', 'application/json');
-        return this._https.get('https://apis.rfpgurus.com/rf_p/agency/' + agency + '/' + items + '?page=' + page,{ headers:headers}).map((response: Response) => response.json());
+        return this._https.get('https://apis.rfpgurus.com/rf_p/agency_web/' + agency + '/' + items + '?page=' + page,{ headers:headers}).map((response: Response) => response.json());
     }
     else{
-        return this._https.get('https://apis.rfpgurus.com/rf_p/agency/' + agency + '/' + items + '?page=' + page).map((response: Response) => response.json());
+        return this._https.get('https://apis.rfpgurus.com/rf_p/agency_web/' + agency + '/' + items + '?page=' + page).map((response: Response) => response.json());
 
     }
     }
