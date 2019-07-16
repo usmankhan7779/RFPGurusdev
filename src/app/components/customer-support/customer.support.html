@@ -1,3 +1,5 @@
+
+
 <div class="layout">
     <mat-card class="mat-elevation-z8">
         <form class="support-placeholder sh-signup-form-fix" [formGroup]=form>
@@ -12,11 +14,40 @@
                 <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
             </mat-form-field>
 
-            <mat-form-field>
+            <mat-form-field class="margin-top-10">
                 <textarea matInput placeholder="Message" formControlName=des required></textarea>
                 <mat-error>Please provide message</mat-error>
             </mat-form-field>
             <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="disable || !form.valid">Submit</button>
         </form>
+
     </mat-card>
 </div>
+
+<div class="row">
+
+<div class="col-lg-4">
+    <p>{{views?.subject}}</p>
+</div>
+</div>
+<div class="sh-container-paymnt " *ngIf="views">
+        <div class="table-responsive margin-top-20">
+          <table class="table payment-table">
+            <thead>
+              <tr>
+                <th>Ticket id</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <!-- <th>Delete</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let card of views">
+                    <td>{{card.unique_ticket_id  }} </td>
+                <td>{{card?.subject}}</td>
+                <td>{{card?.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

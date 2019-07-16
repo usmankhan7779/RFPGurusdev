@@ -23,6 +23,7 @@ import swal from 'sweetalert2';
 export class CustomerSupportComponent implements OnInit {
 
   constructor(private customerSupport: CustomerService, private fb: FormBuilder) {}
+  
   form: FormGroup
   disable = true;
   topic;
@@ -31,6 +32,15 @@ export class CustomerSupportComponent implements OnInit {
     this.form = this.fb.group({
       des: new FormControl("", Validators.required),
       sub: new FormControl("", Validators.required)
+    });
+    this.tickets();
+  }
+  views;
+  tickets(){
+    this.customerSupport.getview().subscribe( data=> {
+      this.views = data;
+      // alert(this.views);
+      console.log(this.views);
     })
   }
  subjects;
@@ -51,6 +61,7 @@ export class CustomerSupportComponent implements OnInit {
         timer: 2000
       });
     });
+    this.tickets();
   }
 
   isSubject

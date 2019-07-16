@@ -23,10 +23,10 @@ export class AllRfpsService {
         headers.append('Content-Type', 'application/json');
          
         // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-        return this._https.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page,{headers:headers}).map((response: Response) => response.json())
+        return this._https.get('https://apis.rfpgurus.com/rf_p/latest_web/' + items + '?page=' + page,{headers:headers}).map((response: Response) => response.json())
         }
         else{
-            return this.http.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page)
+            return this.http.get('https://apis.rfpgurus.com/rf_p/latest_web/' + items + '?page=' + page)
 
         }
     }
