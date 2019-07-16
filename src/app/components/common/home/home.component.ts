@@ -195,8 +195,6 @@ this.timer();
       ]
     };
   }
-
-  
   LatestRFPs() {
 
     this.slideConfig2 = {

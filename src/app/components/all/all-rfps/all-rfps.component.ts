@@ -373,7 +373,7 @@ public showzip(rfpkey,title): void {
     else if (this.subscribe == "Subscribe user") {
       this.__serv.downloadRfps(id).subscribe(
         data=>{
-          alert(data.content_type)
+          // alert(data.content_type)
           console.log(data)
           if (data.content_type == "pdf"){
               // window.open(url, '_blank');

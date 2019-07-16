@@ -20,7 +20,7 @@ export class PricingService {
         return this.http.get('https://apis.rfpgurus.com/activate/' + uid);
     }
 pricingimage(){
-    return this.http.get('http://192.168.29.237:8000/super/pricing_images/');
+    return this.http.get('https://apis.rfpgurus.com/super/pricing_images/');
 }
     // this.isright,this.model.cardNumber, this.model.expirationdate,this.model.cardcod,this.var_get_id,this.data.course_id,this.model.cardtype,this.model.holdername,this.pkg_detail['type'],this.pkg_detail['dur']
     package_free(isright, cardNumber, expirationdate, cardcod, var_get_id, cardtype, holdername, pkg_type, pkg_dur) {
