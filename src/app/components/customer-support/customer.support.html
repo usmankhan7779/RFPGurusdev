@@ -10,15 +10,16 @@
                 <mat-error>Please select a query</mat-error>
             </mat-form-field>
             <mat-form-field *ngIf="isSubject">
-                <input matInput placeholder="Subject" formControlName=sub [(ngModel)]="other" name=other (input)="changeSubject($event)" required>
-                <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
-            </mat-form-field>
+
+              <input matInput placeholder="Subject" formControlName="othersub"  name=topic (onChange)="changeSubject($event)" required>
+              <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
+              </mat-form-field>
 
             <mat-form-field class="margin-top-10">
                 <textarea matInput placeholder="Message" formControlName=des required></textarea>
                 <mat-error>Please provide message</mat-error>
             </mat-form-field>
-            <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="disable || !form.valid">Submit</button>
+            <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
         </form>
 
     </mat-card>
@@ -38,7 +39,7 @@
                 <th>Ticket id</th>
                 <th>Subject</th>
                 <th>Description</th>
-                <!-- <th>Delete</th> -->
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody>
@@ -46,6 +47,7 @@
                     <td>{{card.unique_ticket_id  }} </td>
                 <td>{{card?.subject}}</td>
                 <td>{{card?.description}}</td>
+                <td><button routerLink="/queryreply" (click)="getid(card.id)">Detail</button></td>
               </tr>
             </tbody>
           </table>

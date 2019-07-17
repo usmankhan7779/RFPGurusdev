@@ -5,6 +5,7 @@ import { AuthLogin } from './AuthGuards/auth.login';
 import { AuthGuard } from './AuthGuards/auth.guard';
 import { UserprofileComponent } from './layouts/userprofile/userprofile.component';
 import { FiltersComponent } from './layouts/filters/filters.component';
+import { ReplyComponent } from './components/reply/reply.component';
 import {
   CustomerSupportComponent
 } from './components/customer-support/customer.support';
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full', },
   { path: '', component: HomeComponent },
 
-
+{ path: 'queryreply' , component: ReplyComponent},
   // =========== Auths ===========
   { path: 'signin', loadChildren: './components/Auth/signin/signin.module#SigninModule', canActivate: [AuthLogin] },
  
