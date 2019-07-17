@@ -1,3 +1,7 @@
-<p>
-  {{show?.description}}
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6-lg" *ngFor="let data of show; let i=index">
+  {{data?.description}}
+  </div>
+</div>
+</div>

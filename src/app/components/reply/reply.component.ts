@@ -19,8 +19,9 @@ export class ReplyComponent implements OnInit {
   }
   showrecord(){
     this.support.eachview(this.replyid).subscribe(data => {
-      alert(this.show);
-this.show = data;
+     
+this.show = data.reply_ticket;
+alert(this.show);
 console.log(this.show);
     })
   }
