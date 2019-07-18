@@ -52,5 +52,6 @@ swal({
 })
   })
   this.form.reset();
+  this.showrecord();
 }
 }
