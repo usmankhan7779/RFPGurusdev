@@ -29,12 +29,14 @@ export class ReplyComponent implements OnInit {
 
   
   }
+  subjests;
   showrecord(){
     this.support.eachview(this.replyid).subscribe(data => {
      
 this.show = data.reply_ticket;
+this.subjests = data;
 // alert(this.show);
-console.log(this.show);
+console.log(this.subjests);
     })
   }
 descriptionpost(){
