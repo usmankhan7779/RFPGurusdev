@@ -78,7 +78,7 @@
               </div>
               <div class="row signup-form-row sh-adress">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group text-area-placeholder label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
+                  <div class="form-group text-area-placeholder label-floating" [ngClass]="displayFieldCss(register, 'address')">
                     <mat-form-field>
                       <textarea matInput type="text" id="address" class="resize-no"
                         formControlName="address" placeholder="Address" required></textarea>
@@ -115,7 +115,7 @@
                 </div>
                 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                  <div class="form-group label-floating zip-address text-area-placeholder" [ngClass]="displayFieldCss(register, 'city')">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
                     <mat-form-field>
                       <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                         value="{{vin_Data.city}}" placeholder="City" required />

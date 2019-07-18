@@ -1,18 +1,18 @@
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-6-lg" *ngFor="let data of show; let i=index">
-  {{data?.description}}
+  <div class="chat-box">
+    <form class="example-form" [formGroup]="form">
+      <div class="msg-area">
+        <div class="user-text" *ngFor="let data of show; let i=index">
+          {{data?.description}}
+        </div>
+      </div>
+      <!-- <mat-form-field class="example-full-width" > -->
+        <textarea placeholder="Description" formControlName="des"></textarea>
+        <mat-error >Requried</mat-error>
+      <!-- </mat-form-field> -->
+      <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
+    </form>
   </div>
 </div>
-</div>
-
-
-<form class="example-form" [formGroup]="form">
-
-
-  <mat-form-field class="example-full-width" >
-    <textarea matInput placeholder="description" formControlName="des"></textarea>
-    <mat-error >Requried</mat-error>
-  </mat-form-field>
-  <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
-</form>
