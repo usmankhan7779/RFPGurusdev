@@ -5,3 +5,14 @@
   </div>
 </div>
 </div>
+
+
+<form class="example-form" [formGroup]="form">
+
+
+  <mat-form-field class="example-full-width" >
+    <textarea matInput placeholder="description" formControlName="des"></textarea>
+    <mat-error >Requried</mat-error>
+  </mat-form-field>
+  <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
+</form>

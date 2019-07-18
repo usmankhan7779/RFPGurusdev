@@ -60,7 +60,7 @@ export class CustomerSupportComponent implements OnInit {
 
       swal({
         type: 'success',
-        title: 'Successfully posted',
+        title: 'Successfully post',
         showConfirmButton: false,
         width: '512px',
         timer: 2000

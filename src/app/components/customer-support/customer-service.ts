@@ -43,5 +43,15 @@ return this._https.post("https://apis.rfpgurus.com/ticket/Ticket_Issue_For_User/
 "description": des,
 }), { headers: headers })
     }
+    postdesc( des, id){  
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');     
+        headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);   
+return this._https.post("https://apis.rfpgurus.com/ticket/reply_ticket_User/" + id + '/',    
+ JSON.stringify({
+    
+"description": des,
+}), { headers: headers })
+    }
     
 }
