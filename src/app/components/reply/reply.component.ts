@@ -26,13 +26,6 @@ export class ReplyComponent implements OnInit {
     // alert(this.replyid);
     this.showrecord();
   
-
-
-   
-      
-
-
-  
   }
   subjests;
   showrecord(){
