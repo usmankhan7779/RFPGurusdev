@@ -5,12 +5,15 @@
     <form class="example-form" [formGroup]="form">
       <div class="msg-area">
         <div class="user-text" *ngFor="let data of show; let i=index">
+         
           {{data?.description}}
+        
         </div>
+        <div *ngIf="super_admin_status == true" >{{data?.description}}</div>
       </div>
       <!-- <mat-form-field class="example-full-width" > -->
         <textarea placeholder="Description" formControlName="des"></textarea>
-        <mat-error >Requried</mat-error>
+        <!-- <mat-error >Requried</mat-error> -->
       <!-- </mat-form-field> -->
       <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
     </form>

@@ -23,7 +23,7 @@ export class ReplyComponent implements OnInit {
     });
     window.scroll(0,0);
     this.replyid =localStorage.getItem('queryidget');
-    alert(this.replyid);
+    // alert(this.replyid);
     this.showrecord();
   
 
@@ -33,7 +33,7 @@ export class ReplyComponent implements OnInit {
     this.support.eachview(this.replyid).subscribe(data => {
      
 this.show = data.reply_ticket;
-alert(this.show);
+// alert(this.show);
 console.log(this.show);
     })
   }
