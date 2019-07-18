@@ -1,29 +1,32 @@
 
 
 
-<div class="heading">
-  <span >Subject: {{subjests?.ticket_detail?.subject}}</span>
-  <span>Description: {{subjests?.ticket_detail?.description}}</span>
-</div>
+
 
 
 <div class="container">
+    <div class="heading">
+        <span class="">Subject: {{subjests?.ticket_detail?.subject}}</span>
+        <span class="dec" style="margin-left: auto">Description: {{subjests?.ticket_detail?.description}}</span>
+      </div>
   <div class="chat-box">
+      <h3 *ngIf="show == null">No Reply by admin</h3>
     <form class="example-form" [formGroup]="form">
       <div class="msg-area">
 
-        <div class="user-text" *ngFor="let data of show; let i=index">
-        <div *ngIf="data?.super_admin_status != true">
+        <div *ngFor="let data of show; let i=index">
+        <div class="user-text"  *ngIf="data?.super_admin_status != true">
           <span class="me">Me</span>
           {{data?.description}}
         </div>
+        <div  class="admin-text" *ngIf="data?.super_admin_status == true">
+            <span class="admin">A</span>
+            {{data?.description}}</div>
         </div>
-        <div class="admin-text" *ngFor="let data of show; let i=index">
-          <div *ngIf="data?.super_admin_status == true">
-          <span class="admin">A</span>
-          {{data?.description}}</div>
-      </div>
-      </div>
+        </div>
+        <!-- <div class="admin-text" *ngFor="let data of show; let i=index">
+     
+      </div> -->
         <textarea placeholder="Description" formControlName="des"></textarea>
         
       <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>

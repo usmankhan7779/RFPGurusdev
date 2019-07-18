@@ -1,5 +1,5 @@
 .chat-box{
-    width: 80%;
+    width: 100%;
     margin: 10px auto;
     background: #fff;
     border-radius: 10px;
@@ -108,13 +108,15 @@
     overflow-x: hidden;
 }
 .heading {
-    text-align: center;
-    font-size: 35px;
+    display: flex;
+    font-size: 18px;
     font-weight: bold;
     text-transform: capitalize;
     margin: 10px 0 0 !important;
 }
-
+.des{
+    margin-left: auto;
+}
 
 
 /*  */
