@@ -3474,6 +3474,7 @@ textarea::-webkit-scrollbar {
   margin-top: 10px !important
 }
 
+
 .text-area-placeholder>textarea {
   resize: none
 }

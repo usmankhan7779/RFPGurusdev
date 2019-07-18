@@ -27,6 +27,11 @@ export class ReplyComponent implements OnInit {
     this.showrecord();
   
 
+
+   
+      
+
+
   
   }
   subjests;

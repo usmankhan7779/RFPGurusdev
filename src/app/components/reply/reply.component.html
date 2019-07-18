@@ -1,20 +1,28 @@
 
-{{subjests?.ticket_detail?.subject}}
+
+
+<div class="heading">
+  <span >{{subjests?.ticket_detail?.subject}}</span>
+</div>
+
+
 <div class="container">
   <div class="chat-box">
     <form class="example-form" [formGroup]="form">
       <div class="msg-area">
+
         <div class="user-text" *ngFor="let data of show; let i=index">
-         
+         <span class="me">Me</span>
           {{data?.description}}
         
         </div>
-        <div *ngIf="super_admin_status == true" >{{data?.description}}</div>
+        <div class="admin-text" >
+          <span class="admin">A</span>
+          Admin Message</div>
       </div>
-      <!-- <mat-form-field class="example-full-width" > -->
+      
         <textarea placeholder="Description" formControlName="des"></textarea>
-        <!-- <mat-error >Requried</mat-error> -->
-      <!-- </mat-form-field> -->
+        
       <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
     </form>
   </div>
