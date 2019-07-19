@@ -6,18 +6,26 @@
   <div class="chat-box">
      
     <form class="example-form" [formGroup]="form">
+      <div class="no-replay">
+        <h3 *ngIf="show.length == '0'">No Reply yet</h3>
+      </div>
       <div class="msg-area">
 
         <div *ngFor="let data of show; let i=index">
-        <div class="user-text"  *ngIf="data?.super_admin_status != true">
-          <span class="me">Me</span>
-          {{data?.description}}
+        <div class="row">
+          <div class="col-lg-6 user-text"  *ngIf="data?.super_admin_status != true">
+            <span class="me">Me</span>
+            {{data?.description}}
+          </div>
         </div>
-        <div   *ngIf="data?.super_admin_status == true">
+        <div class="row">
+        <div class="col-lg-6 admin-text"  *ngIf="data?.super_admin_status == true">
             <span class="admin">A</span>
-            {{data?.description}}</div>
+            {{data?.description}}
         </div>
-        <h3 *ngIf="show.length == '0'">No Reply yet</h3>
+        </div>
+        </div>
+        
         </div>
         <!-- <div class="admin-text" *ngFor="let data of show; let i=index">
      
