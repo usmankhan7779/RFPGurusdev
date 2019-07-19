@@ -46,7 +46,7 @@ export class CustomerSupportComponent implements OnInit {
 
     this.queryid = id;
     console.log(this.queryid);
-    alert(this.queryid);
+    // alert(this.queryid);
     localStorage.setItem('queryidget', this.queryid);
   }
  subjects;
