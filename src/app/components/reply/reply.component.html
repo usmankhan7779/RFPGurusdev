@@ -10,7 +10,7 @@
         <span class="dec" style="margin-left: auto">Description: {{subjests?.ticket_detail?.description}}</span>
       </div>
   <div class="chat-box">
-      <h3 *ngIf="show == null">No Reply by admin</h3>
+     
     <form class="example-form" [formGroup]="form">
       <div class="msg-area">
 
@@ -23,6 +23,7 @@
             <span class="admin">A</span>
             {{data?.description}}</div>
         </div>
+        <h3 *ngIf="show.length == '0'">No Reply yet</h3>
         </div>
         <!-- <div class="admin-text" *ngFor="let data of show; let i=index">
      

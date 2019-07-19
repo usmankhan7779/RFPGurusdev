@@ -25,6 +25,7 @@ export class CustomerSupportComponent implements OnInit {
   topic;
   newsubject = new FormControl("", Validators.required)
   ngOnInit() {
+    window.scroll(0,0);
     this.form = this.fb.group({
       des: new FormControl("", Validators.required),
       sub: new FormControl("", Validators.required),
