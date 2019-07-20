@@ -33,14 +33,22 @@ eachview(id){
 }
 }
 
-    support(sub, des){  
+    support(sub, des, attach_file){  
+// alert(attach_file)
         let headers = new Headers();
-        headers.append('Content-Type', 'application/json');     
+        headers.append('Access-Control-Allow-Methods', 'application/json');     
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);   
+     
+        // let attach_file = {};
+       
 return this._https.post("https://apis.rfpgurus.com/ticket/Ticket_Issue_For_User/",    
  JSON.stringify({
+
+
     "subject": sub,
 "description": des,
+"attach_file" : []
+
 }), { headers: headers })
     }
     postdesc( des, id){  

@@ -19,7 +19,10 @@
                 <textarea matInput placeholder="Message" formControlName=des required></textarea>
                 <mat-error>Please provide message</mat-error>
             </mat-form-field>
-            <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
+            <span class="btn-file margin-top-10">Upload issue Image
+              <input (change)="onChange($event)" type="file"
+                 #course_image accept="image/gif, image/jpeg, image/png" required> </span>
+            <button mat-raised-button type=button class="btn-submit" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
         </form>
 
     </mat-card>

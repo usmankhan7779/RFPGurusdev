@@ -3,6 +3,7 @@ import { CustomerService} from './customer-service';
 // import {
 //   SharedData
 // } from '../../shared-service';
+import { Headers, Http, Response } from '@angular/http';
 import {
   FormGroup,
   FormBuilder,
@@ -10,6 +11,7 @@ import {
   Validators,
   NgModel
 } from '@angular/forms';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import swal from 'sweetalert2';
 @Component({
   selector: 'customer-support',
@@ -18,7 +20,7 @@ import swal from 'sweetalert2';
 })
 export class CustomerSupportComponent implements OnInit {
 
-  constructor(private customerSupport: CustomerService, private fb: FormBuilder) {}
+  constructor(private customerSupport: CustomerService, private fb: FormBuilder,  private http: HttpClient , private https : Http) {}
   
   form: FormGroup
   disable = true;
@@ -29,7 +31,8 @@ export class CustomerSupportComponent implements OnInit {
     this.form = this.fb.group({
       des: new FormControl("", Validators.required),
       sub: new FormControl("", Validators.required),
-      othersub : new FormControl("")
+      othersub : new FormControl(""),
+      // images : new FormControl("")
     });
     this.tickets();
   }
@@ -49,10 +52,40 @@ export class CustomerSupportComponent implements OnInit {
     // alert(this.queryid);
     localStorage.setItem('queryidget', this.queryid);
   }
+  onChange(event: EventTarget) {
+    this.input = new FormData();
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    this.input.append('fileToUpload', target.files[0]);
+    console.log(this.input)
+
+  }
+  image : any = {};
  subjects;
+ course_image;
+ attach_file
+ onSubmit() {
+  let headers = new HttpHeaders();
+  headers.append('Content-Type', 'application/json');
+  this.http.post(
+    'https://storage.rfpgurus.com/hamzatest1.php',
+    this.input, { responseType: 'text' }).subscribe(data => {
+      if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+        // EditCourseDialogComponent.ImageUploadFailer();
+      } else {
+        this.course_image = data;
+        console.log(this.course_image);
+        // this.imagesuppload();
+
+      }
+
+    });
+
+  // }
+}
   CustomerSupport() {
   if (!this.isSubject){
-    this.customerSupport.support(this.form.value['sub'] , this.form.value['des']).subscribe(res => {
+    this.customerSupport.support(this.form.value['sub'] , this.form.value['des'], this.form.value['image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
       this.form.reset();
@@ -71,7 +104,7 @@ export class CustomerSupportComponent implements OnInit {
     this.tickets();
   }
   else {
-    this.customerSupport.support(this.form.value['othersub'] , this.form.value['des']).subscribe(res => {
+    this.customerSupport.support(this.form.value['othersub'] , this.form.value['des'], this.form.value['image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
       this.form.reset();
