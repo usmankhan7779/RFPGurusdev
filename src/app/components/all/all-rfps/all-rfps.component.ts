@@ -401,6 +401,15 @@ public showzip(rfpkey,title): void {
               confirmButtonColor: "#090200",
             });
           }
+          else if(error.status == 406){
+            swal({
+              type: 'error',
+              title: "Oops. There appears to be a problem downloading this file - please contact Customer Support",
+              showConfirmButton: true,
+              width: '512px',
+              confirmButtonColor: "#090200",
+            });
+          }
         }
       )
     }
