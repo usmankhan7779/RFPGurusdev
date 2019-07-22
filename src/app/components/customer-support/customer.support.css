@@ -136,3 +136,25 @@ textarea::-webkit-scrollbar-thumb {
     height: 60px;
     resize: none;
   }
+
+
+
+  input[type="file"]::-webkit-file-upload-button{
+    background: #000;
+    border: none;
+    color: #fff;
+    width: 200px;
+    border-radius: 30px;
+    padding: 5px;
+ }
+ .file-input{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+ }
+ .file-input input{
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 30px;
+ }
