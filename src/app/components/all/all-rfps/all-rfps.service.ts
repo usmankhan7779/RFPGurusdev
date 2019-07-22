@@ -34,7 +34,7 @@ export class AllRfpsService {
         return this.http.get('https://apis.rfpgurus.com/rf_p/download_file/' + id + '/')
     }
     get_download_file(){
-        return this.http.get('http://192.168.29.237:8000/send_pdf/')
+        return this.http.get('https://apis.rfpgurus.com/send_pdf/')
     }
     // view_filedownload(id){
     //     let headers = new Headers();

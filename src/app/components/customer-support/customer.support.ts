@@ -80,7 +80,7 @@ export class CustomerSupportComponent implements OnInit {
       }
 
     });
-
+this.CustomerSupport();
   // }
 }
   CustomerSupport() {
