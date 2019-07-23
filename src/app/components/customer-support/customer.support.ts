@@ -107,9 +107,7 @@ export class CustomerSupportComponent implements OnInit {
     this.customerSupport.support(this.form.value['sub'] , this.form.value['des'], this.form.value['course_image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
-      this.form.reset();
-
-      this.isSubject.reset();
+     
 
       swal({
         type: 'success',
@@ -121,14 +119,15 @@ export class CustomerSupportComponent implements OnInit {
     });
 
     this.tickets();
+    this.form.reset();
+
+    this.isSubject.reset();
   }
   else {
     this.customerSupport.support(this.form.value['othersub'] , this.form.value['des'], this.form.value['course_image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
-      this.form.reset();
-
-      this.isSubject.reset();
+   
 
       swal({
         type: 'success',
@@ -140,6 +139,9 @@ export class CustomerSupportComponent implements OnInit {
     });
 
     this.tickets();
+    this.form.reset();
+
+    this.isSubject.reset();
   }
  
   }
