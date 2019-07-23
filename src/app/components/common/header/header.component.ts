@@ -111,7 +111,19 @@ export class HeaderComponent implements OnInit {
           confirmButtonColor: "#090200",
           timer: 1500, width: '512px',
         });
-        this.notification();
+       
+        this._serv.notify().subscribe(
+          data => {
+            // this.notificate = data['notifications'];
+            this.notificate=data['notifications'].filter(single=>single.id!=id);
+            this.unread = data['unread'];
+          });
+        // this.notificate=this.notificate.filter((d)=>
+        // {
+        //   return d.id !==id;
+        
+        // }
+        // )
       });
   }
   updatenofication(id) {
@@ -134,7 +146,7 @@ export class HeaderComponent implements OnInit {
     this._shareData.currentMessage.subscribe(message => this.wrfp = message)
     this._shareData.currentMessagetotal.subscribe(message => this.total = message)
     this.notification();
-    console.log(this.notification());
+    
   
     // this._serv.Updatenotify(this.id).subscribe(
     //   data => {
@@ -195,7 +207,17 @@ export class HeaderComponent implements OnInit {
       if (result == true) {
         this._serv.deleteWatchlist(this.id).subscribe(
           data => {
-            this.watchlist();
+           this._serv.Watchlist().subscribe(
+        data => {
+          this.wrfp=data['result'].filter(single=>single.id!=id);
+          this.total = data.total;
+          this.shown = data['status'];
+          this._shareData.watchInfo(this.wrfp);
+          this._shareData.watchtotal(this.total);
+        },
+        error => {
+        });
+            
           },
           error => {
           });

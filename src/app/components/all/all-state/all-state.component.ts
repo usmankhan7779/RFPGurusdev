@@ -20,6 +20,7 @@ export class AllStateComponent implements OnInit, OnDestroy {
   state: any = [];
   statesearch;
   states;
+  length:boolean=true;
   back() {
     this._location.back();
   }
@@ -81,6 +82,10 @@ export class AllStateComponent implements OnInit, OnDestroy {
         data => {
           this.item = data['totalItems']
           this.state = data['Result'];
+          if(this.state.length=='0')
+          {
+            this.length=false;
+          }
         })
     }
   }

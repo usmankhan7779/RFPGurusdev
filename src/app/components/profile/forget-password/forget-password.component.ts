@@ -80,7 +80,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     }
   }
   checkChange(){
-    alert(this.code);
+   
     this._serv.checkUse(this.code).subscribe(
       data =>{
       },
@@ -108,7 +108,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-alert('shameem')
+
     window.scroll(0, 0);
     
 
