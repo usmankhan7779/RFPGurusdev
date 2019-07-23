@@ -110,7 +110,6 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
   }
   select(item) {
     this.selected = item;
-    alert(this.selected);
     this.mainSearch = 0;
     this.query = '';
     this.Rfp = '';
