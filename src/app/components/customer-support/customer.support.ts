@@ -68,9 +68,13 @@ export class CustomerSupportComponent implements OnInit {
  attach_file;
 
  onSubmit() {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
   this.http.post(
     'https://storage.rfpgurus.com/hamzatest1.php',
-    this.input, { responseType: 'text' }).subscribe(data => {
+    
+    this.input, { responseType: 'text' }
+    ).subscribe(data => {
       if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
         // EditCourseDialogComponent.ImageUploadFailer();
       } else {
