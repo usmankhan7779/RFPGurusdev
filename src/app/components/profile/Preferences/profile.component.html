@@ -22,9 +22,10 @@
                                         <div class="form-group label-floating">
                                             <div class="col-md-4">
                                                 <mat-form-field>
-                                                    <mat-select placeholder="Categories" [formControl]="catess"
+                                                    <!-- <mat-select placeholder="Categories" [formControl]="catess"
                                                         [(ngModel)]="tempUserPreference" [ngModelOptions]="{standalone: true}"  multiple 
-                                                        (ngModelChange)="valueSelected(catess.value, $event)">
+                                                        (ngModelChange)="valueSelected(catess.value, $event)"> -->
+                                                        <mat-select   placeholder="Categories"  [formControl]="catess" [(ngModel)]="tempUserPreference"   (ngModelChange)="valueSelected(catess.value, $event)"  multiple >
                                                         <mat-option class="font-18px" *ngFor="let food of cat"
                                                             [value]="food.category_name">{{food.category_name}}
                                                         </mat-option>
@@ -105,9 +106,6 @@
                                                             [matChipInputAddOnBlur]="addOnBlur">
                                                     </mat-chip-list>
                                                 </mat-form-field>
-
-
-
                                             </div>
                                             <div class="col-md-4">
                                                 <mat-form-field>
