@@ -629,7 +629,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           else if (error.status == 403) {
             swal({
               type: 'error',
-              title: "You have already downloaded 05 documents",
+              title: "You have already downloaded 5 documents",
               showConfirmButton: true,
               width: '512px',
               confirmButtonColor: "#090200",

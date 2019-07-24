@@ -4,6 +4,7 @@ import { CustomerService} from './customer-service';
 //   SharedData
 // } from '../../shared-service';
 import { Headers, Http, Response } from '@angular/http';
+import { Router } from "@angular/router";
 import {
   FormGroup,
   FormBuilder,
@@ -20,7 +21,7 @@ import swal from 'sweetalert2';
 })
 export class CustomerSupportComponent implements OnInit {
 
-  constructor(private customerSupport: CustomerService, private fb: FormBuilder,  private http: HttpClient , private https : Http) {}
+  constructor(private customerSupport: CustomerService,  private router: Router, private fb: FormBuilder,  private http: HttpClient , private https : Http) {}
   
   form: FormGroup
   disable = true;
@@ -46,11 +47,12 @@ export class CustomerSupportComponent implements OnInit {
   }
   queryid;
   getid(id){
-
+ 
     this.queryid = id;
     console.log(this.queryid);
     // alert(this.queryid);
     localStorage.setItem('queryidget', this.queryid);
+    this.router.navigate(['/queryreply'], {queryParams: {ticketid : this.queryid}});
   }
   onChange(event: EventTarget) {
     this.input = new FormData();

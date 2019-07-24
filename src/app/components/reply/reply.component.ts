@@ -40,7 +40,7 @@ console.log(this.subjests);
 descriptionpost(){
   this.support.postdesc(this.form.value['des'], this.replyid).subscribe(data => {
 console.log(this.form.value['des']);
-
+this.showrecord();
 swal({
   type: 'success',
   title: 'Successfully post',
@@ -50,6 +50,6 @@ swal({
 })
   })
   this.form.reset();
-  this.showrecord();
+ 
 }
 }
