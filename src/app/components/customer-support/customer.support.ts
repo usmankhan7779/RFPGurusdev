@@ -32,7 +32,7 @@ export class CustomerSupportComponent implements OnInit {
       des: new FormControl("", Validators.required),
       sub: new FormControl("", Validators.required),
       othersub : new FormControl(""),
-      // images : new FormControl("")
+      // course_image : new FormControl("")
     });
     this.tickets();
   }
@@ -63,10 +63,9 @@ export class CustomerSupportComponent implements OnInit {
   image : any = {};
  subjects;
  course_image;
- attach_file
+ attach_file;
+
  onSubmit() {
-  let headers = new HttpHeaders();
-  headers.append('Content-Type', 'application/json');
   this.http.post(
     'https://storage.rfpgurus.com/hamzatest1.php',
     this.input, { responseType: 'text' }).subscribe(data => {
@@ -75,22 +74,40 @@ export class CustomerSupportComponent implements OnInit {
       } else {
         this.course_image = data;
         console.log(this.course_image);
-        // this.imagesuppload();
+        this.CustomerSupport();
 
       }
 
     });
-this.CustomerSupport();
+
   // }
 }
+
+//  onSubmit() {
+//   let headers = new HttpHeaders();
+//   headers.append('Content-Type', 'application/json');
+//   this.http.post(
+//     'https://storage.rfpgurus.com/hamzatest1.php',
+//     this.input, { responseType: 'text' }).subscribe(data => {
+//       if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
+//         // EditCourseDialogComponent.ImageUploadFailer();
+//       } else {
+//         this.course_image = data;
+//         console.log(this.course_image);
+//         // this.imagesuppload();
+
+//       }
+
+//     });
+// this.CustomerSupport();
+//   // }
+// }
   CustomerSupport() {
   if (!this.isSubject){
-    this.customerSupport.support(this.form.value['sub'] , this.form.value['des'], this.form.value['image']).subscribe(res => {
+    this.customerSupport.support(this.form.value['sub'] , this.form.value['des'], this.form.value['course_image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
-      this.form.reset();
-
-      this.isSubject.reset();
+     
 
       swal({
         type: 'success',
@@ -102,14 +119,15 @@ this.CustomerSupport();
     });
 
     this.tickets();
+    this.form.reset();
+
+    this.isSubject.reset();
   }
   else {
-    this.customerSupport.support(this.form.value['othersub'] , this.form.value['des'], this.form.value['image']).subscribe(res => {
+    this.customerSupport.support(this.form.value['othersub'] , this.form.value['des'], this.form.value['course_image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
-      this.form.reset();
-
-      this.isSubject.reset();
+   
 
       swal({
         type: 'success',
@@ -121,6 +139,9 @@ this.CustomerSupport();
     });
 
     this.tickets();
+    this.form.reset();
+
+    this.isSubject.reset();
   }
  
   }

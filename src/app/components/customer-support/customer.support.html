@@ -21,13 +21,13 @@
             </mat-form-field>
             <span class="btn-file file-input">Upload issue Image
               <input (change)="onChange($event)" type="file"
-                 #course_image accept="image/gif, image/jpeg, image/png" required> 
+                 #course_image  required> 
             </span>
 
 
 
            
-            <button mat-raised-button type=button class="btn-submit" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
+            <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
         </form>
 
     </mat-card>
