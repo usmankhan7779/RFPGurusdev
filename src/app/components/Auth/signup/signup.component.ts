@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   endRequest;
   hide = true;
   hide1 = true;
+ 
   phone;
   public typeValidation: User;
   register: FormGroup;

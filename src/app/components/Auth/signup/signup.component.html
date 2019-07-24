@@ -154,8 +154,14 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                   <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register, 'phone')">
-                    <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
+                    <int-phone-prefix type="number" minlength="13" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
                     </int-phone-prefix>
+                    <mat-error *ngIf="register.controls.phone.value == ''">
+                      <strong>phone cannot be empty</strong>
+                    </mat-error>
+                    <mat-error  *ngIf="register.controls.phone.errors?.minlength">
+                      <strong> phone number cannot be less than 13 numbers </strong>
+                    </mat-error>
                   </div>
                 </div>
               </div>
@@ -211,7 +217,7 @@
                       onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                         matInput type="password" id="password" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password"
                         required />
-                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                        <i matSuffix (click)="hide = !hide" class=" {{!hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                       <mat-error *ngIf="register.controls.password.value == ''">
                         <strong>Password cannot be empty</strong>
                       </mat-error>
@@ -225,7 +231,7 @@
                   <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'confirmPassword')">
                     <mat-form-field>
                       <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
-                      <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                      <i matSuffix (click)="hide1 = !hide1" class=" {{!hide1 ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                       <mat-error
                         *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
                         <strong>Password must match
