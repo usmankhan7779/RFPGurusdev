@@ -47,6 +47,7 @@ const routes: Routes = [
   {
     path: '', component: UserprofileComponent, children: [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
+      { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },
       { path: 'profile', loadChildren: './components/profile/profile/profile.module#ProfileModule', canActivate: [AuthGuard] },
