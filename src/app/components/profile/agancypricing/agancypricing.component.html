@@ -35,7 +35,8 @@
           <i class="fa fa-search " area-hidden="true"></i>
           <button class="btn btn-primary mg-0" (click)="acgeny_check()">Others</button>
           <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" name="agency"
-            [(ngModel)]="data.agency" *ngIf="agencie==true" />
+            [(ngModel)]="model.agency" *ngIf="agencie==true" />
+            <button (click)="addagency()">add agency</button>
           <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
           </mat-option>
 
@@ -129,6 +130,9 @@
                 </p> -->
                 <img _ngcontent-vnl-c4="" width="100%" src="https://storage.rfpgurus.com/category_images/Monthly_updated.png">
                 <ul class="list-pricing home-list-pricing">
+                    <li>
+                        <i class="fa fa-check"></i>Publish unlimited RFPs
+                    </li>
                   <li>
                     <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
                   </li>
@@ -197,6 +201,9 @@
               </p> -->
               <img _ngcontent-pcv-c4="" width="100%" src="https://storage.rfpgurus.com/category_images/Yearly_updated].png">
               <ul class="list-pricing home-list-pricing">
+                  <li>
+                      <i class="fa fa-check"></i>Publish unlimited RFPs
+                  </li>
                 <li>
                   <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
                 </li>

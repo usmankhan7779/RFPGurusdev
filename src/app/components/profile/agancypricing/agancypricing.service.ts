@@ -55,7 +55,25 @@ pricingimage(){
                 }
             })
     }
-
+    postagency(agency) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');     
+        headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        return this._https.post("https://apis.rfpgurus.com/add_agency/",
+            JSON.stringify({
+                "agency": agency,
+               
+            }),{ headers: headers }).map((res: Response) => {
+                if (res.status == 200) {
+                    swal(
+                        'Your Agency add successfully',
+                        '',
+                        'success'
+                    )
+                    res.json();
+                }
+            })
+    }
     updateCard(var_status, id, name, cardno, ccv, expiryDate, address, zip, city, state, country, set_auto_pay) {
         return this.http.put('https://apis.rfpgurus.com/payment/cardinfo/',
             JSON.stringify({

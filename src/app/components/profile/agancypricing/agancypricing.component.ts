@@ -209,6 +209,7 @@ export class AgancyPricingComponent implements OnInit {
   agencie
   acgeny_check() {
     this.agencie = true;
+    this.addagency();
   }
   // images(){
   //   this._serv.pricingimage().subscribe(data => {
@@ -219,6 +220,17 @@ export class AgancyPricingComponent implements OnInit {
      
   //   })
   // }
+  addagency(){
+    this._serv.postagency(this.model.agency).subscribe(data => {
+      console.log(data);
+      this._serv.rfpagen().subscribe(data => {
+        this.agen = data.Result;
+        // alert(this.governmentbidsusers);
+        console.log(this.agen, "all agency")
+        // alert(this.agen);
+      })
+    })
+  }
   showallplan(){
     this.planSelected = false;
   }
