@@ -70,9 +70,47 @@ export class AgencyPortalComponent implements OnInit {
     local;
     uname;
     plan;
+    governmentbidsusers;
+    url;
     flipclass = 'credit-card-box';
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
     constructor(private _serv1: HomeService, private authService: AuthService, private _nav: Router, private datePipe: DatePipe, private formBuilder: FormBuilder, private _serv: MainService, private seoService: SeoService) {
+        // swal({
+        //     title: 'Enter Profile URL',
+        //     // html: ' Enter you email address to receive a link allowing you to reset your password.',
+        //     input: 'url',
+        //     allowOutsideClick: false,
+        //     showCancelButton : true,
+        //     confirmButtonColor: "#000",
+        //     cancelButtonColor: "#d33",
+        //     inputPlaceholder: 'Enter Profile URL'
+        //   }).then((url) => {
+        //     // alert(result)
+        //     // if (url) {
+        //       this.url=url;
+        //       this._serv.packageUpdate(url).subscribe(
+        //         data => {
+        //   if(data){
+        //     this.governmentbidsusers=data
+        //   }else{
+            
+        //     delete this.governmentbidsusers;
+           
+        //   }
+        //         });
+        //     // }else{
+        //     //   swal(
+        //     //     'Please Enter Profile URL',
+        //     //     'Invalid!',
+        //     //     'error'
+        //     // )
+        //     // }
+           
+        //   }
+        //   ).catch(error => {
+        //     // this.router.navigate(['/admin-panel']);
+        //   })
+         
 
         if (localStorage.getItem('currentUser')) {
             this.local = localStorage.getItem('currentUser');
@@ -85,7 +123,29 @@ export class AgencyPortalComponent implements OnInit {
             top: 0
         });
     }
-
+    isfreetrial;
+    Yplan;
+    Mplan;
+    Fplan;
+    planSelected;
+    free() {
+        if (localStorage.getItem('currentUser')) {
+          this.valuee = "BM";
+          this.isfreetrial = true;
+          this.Yplan = false;
+          this.Mplan = false;
+          this.Fplan = true;
+          this.planSelected = true;
+          this.prv_stepdetail("B", "M");
+          this._nav.navigate(['/agancypricing'])
+        }
+        else {
+          this._nav.navigate(['signin']);
+        }
+      }
+      pricingmethod(){
+          
+      }
     userdetail;
     valuee = '';
     firststep(value) {

@@ -9,7 +9,16 @@
             <div class="page-title" *ngIf="trial">
                 <span>Trial Subscription</span>
             </div>
+<!-- <div *ngIf="governmentbidsusers">
+    <div class="col-md-6 col-sm-6">
+        <div class="input-group">
+          <mat-form-field>
+            <input matInput placeholder="Title" name="title" [(ngModel)]="title" required />
 
+          </mat-form-field>
+        </div>
+      </div>
+</div> -->
 
             <table class="table table-striped history-table" *ngIf="trial">
                 <thead>
@@ -200,7 +209,7 @@
                                                 title="Subscribe Package">Register
                                                 Now</a>
                                             <ng-template #pkg1>
-                                                <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                                <a routerLink="/agancypricing" class="btn btn-rose" title="Select Plan">Select
                                                     Plan</a>
                                             </ng-template>
                                         </div>
@@ -248,7 +257,7 @@
                                                 title="Subscribe Package">Register
                                                 Now</a>
                                             <ng-template #pkg1>
-                                                <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                                <a routerLink="/agancypricing"  class="btn btn-rose" title="Select Plan">Select
                                                     Plan</a>
                                             </ng-template>
                                         </div>
@@ -263,7 +272,7 @@
                                     title="Subscribe Package">Register
                                     Now</a>
                                 <ng-template #pkg1>
-                                    <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                    <a RouterLink="/agancypricing" class="btn btn-rose" title="Select Plan">Select
                                         Plan</a>
                                 </ng-template>
                             </div>
@@ -318,7 +327,7 @@
                                     title="Subscribe Package">Register
                                     Now</a>
                                 <ng-template #pkg1>
-                                    <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                    <a routerLink="/agancypricing" class="btn btn-rose" title="Select Plan">Select
                                         Plan</a>
                                 </ng-template>
                             </div>

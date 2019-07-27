@@ -30,7 +30,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-logi
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {  MatFormFieldModule} from '@angular/material';
 import { CustomerService } from './components/customer-support/customer-service';
-
+import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
 // import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -63,6 +63,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
+import { from } from 'rxjs';
  
  
 
@@ -103,7 +104,8 @@ import { ReplyComponent } from './components/reply/reply.component';
   declarations: [
     AppComponent,
     CustomerSupportComponent,
-    ReplyComponent
+    ReplyComponent,
+    AgancyPricingComponent
   ],
   providers: [
     {

@@ -9,6 +9,7 @@ import { ReplyComponent } from './components/reply/reply.component';
 import {
   CustomerSupportComponent
 } from './components/customer-support/customer.support';
+import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
 const routes: Routes = [
 
   // =========== Default Paths ===========
@@ -48,6 +49,8 @@ const routes: Routes = [
     path: '', component: UserprofileComponent, children: [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
       { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
+      // { path: 'agancypricing', loadChildren: './components/other/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
+      { path : 'agancypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },
       { path: 'profile', loadChildren: './components/profile/profile/profile.module#ProfileModule', canActivate: [AuthGuard] },
