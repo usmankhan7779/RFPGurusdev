@@ -2,49 +2,36 @@
 <section class="section pricing2-section">
   <div class="container ">
     <div class="row">
-      <!-- <div *ngIf="Yplan && Mplan" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-        <h2 *ngIf="isfreetrial" class="pricing_heading">Join RFPGurus for a 7-day risk-free trial period</h2>
-        <h2 class="color-red">
-           
-          Flash Sale - 50% Off only for a limited time.</h2>
-        <h2 class="color-red">Take advantage of this incredible offer NOW </h2>
-            
-            <countdown class="col-lg-12 mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="{{totaltime?.sale_timer}}"> </countdown>
 
-        <h2 class="main_heading">Our Unbeatable Pricing Model </h2>
-        <p><b>Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
-            Subscribe to Monthly or Yearly democratized
-            pricing packages. With a transparent and democratized pricing model, RFPGurus is the most
-            affordable
-            and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from
-            over
-            thousands
-            and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special
-            District
-            and
-            other Agencies.</b></p>
-      </div> -->
-<div *ngIf="agen">
-  <form>
-    <mat-form-field>
+      <div id="selectAgency" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div *ngIf="agen">
+              <h3 class="text-center">Select Agency</h3>
+              <form>
+                <mat-form-field class="pos-rel">
+                    <mat-select  placeholder="Select Agency">
+                      <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
+                        class="search-allstates" placeholder="Search By Agency">
+                      <i class="fa fa-search " area-hidden="true"></i>
+                      <a class="btn btn-primary mg-0" (click)="acgeny_check()" data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
+                        
+                        <div id="demo" class="collapse">
+                          <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" name="agency"
+                          [(ngModel)]="model.agency" *ngIf="agencie==true" />
+                          <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
+                          </div>
+                      <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <mat-select  placeholder="Select Agency">
-
-          <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
-            class="search-allstates" placeholder="Search By Agency">
-          <i class="fa fa-search " area-hidden="true"></i>
-          <button class="btn btn-primary mg-0" (click)="acgeny_check()">Others</button>
-          <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" name="agency"
-            [(ngModel)]="model.agency" *ngIf="agencie==true" />
-            <button (click)="addagency()">add agency</button>
-          <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
-          </mat-option>
-
-
-        </mat-select>
-      </mat-form-field>
-      </form>
-</div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">
@@ -53,8 +40,11 @@
               Now
             </a>
             <ng-template #pkg3>
-              <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+              <a  class="btn btn-rose" title="Select Plan" data-toggle="modal" data-target="#selectAgency">Select Plan</a>
             </ng-template>
+            <!-- <ng-template #pkg3>
+              <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template> -->
           </div>
           <span class="plan-name text-center">
             Free Plan

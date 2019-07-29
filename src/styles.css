@@ -3428,7 +3428,17 @@ body {
   -webkit-animation: animateleft .4s;
   animation: animateleft .4s
 }
+#selectAgency .mat-form-field-label{
+  padding: 0 5px;
+}
+#selectAgency .mat-form-field-underline{
+  display: none;
+}
 
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1060;
+}
 @keyframes animateleft {
   from {
     left: -300px;

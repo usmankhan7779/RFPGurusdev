@@ -14,10 +14,11 @@ declare var $: any;
 @Component({
   selector: 'app-agancypricing',
   templateUrl: './agancypricing.component.html',
-  styleUrls: ['./pricingsteps.component.scss',
+  styleUrls: [
   '../../local-style/payment.css',
   '../../local-style/single-pricing.css',
-  '../../local-style/cradet-card-box.css'
+  '../../local-style/cradet-card-box.css',
+  './pricingsteps.component.scss'
 ],
   providers: [AgancyPricingService, RfpService]
 })

@@ -965,3 +965,25 @@ mat-option {
     width: 200px !important;
     float: left;
 }
+#selectAgency .modal-content{
+  min-height: 200px;
+  padding: 30px;
+}
+.modal-dialog {
+  margin: 100px auto !important;
+}
+.mat-form-field-underline{
+  display: none;
+}
+.pricing-table2{
+  max-width:350px;
+}
+.fa-search{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.btn-primary{
+  font-size: 13px;
+  margin: 5px;
+}
