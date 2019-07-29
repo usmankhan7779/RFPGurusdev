@@ -15,11 +15,11 @@
                       <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
-                      <a class="btn btn-primary mg-0" (click)="acgeny_check()" data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
+                      <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
                         
                         <div id="demo" class="collapse">
-                          <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" name="agency"
-                          [(ngModel)]="model.agency" *ngIf="agencie==true" />
+                          <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" #agency name="agency"
+                          [(ngModel)]="model.agency" />
                           <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
                           </div>
                       <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
@@ -27,6 +27,10 @@
                     </mat-select>
                   </mat-form-field>
               </form>
+              <button (click)="free()" data-dismiss="modal">go</button>
+                  <!-- <ng-template #pkg3>
+              <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+            </ng-template> -->
             </div>
           </div>
         </div>

@@ -223,6 +223,7 @@ export class AgancyPricingComponent implements OnInit {
   // }
   addagency(){
     this._serv.postagency(this.model.agency).subscribe(data => {
+      alert(data);
       console.log(data);
       this._serv.rfpagen().subscribe(data => {
         this.agen = data.Result;
