@@ -32,7 +32,7 @@ pricingimage(){
                 "id": cardNumber,
                 "pricepackage": pkg_type,
                 "duration": pkg_dur
-            }), { headers: headers }).map((data: Response) => data.json());
+            }), { headers: headers });
         
     }
 
