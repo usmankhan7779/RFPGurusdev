@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'features-comparison', loadChildren: './components/static/features-comparison/features-comparison.module#FeaturesComparisonModule' },
   { path: 'how-it-works', loadChildren: './components/static/how-it-works/how-it-work.module#HowItWorksModule' },
   { path: 'our-team', loadChildren: './components/static/our-team/our-team.module#OurTeamModule' },
-  { path: 'privacy-policy', loadChildren: './components/static/privacy-policy/privacy-policy.module#PrivacyPolicyModule' },
+  { path: 'privacy', loadChildren: './components/static/privacy-policy/privacy-policy.module#PrivacyPolicyModule' },
   { path: 'faqs', loadChildren: './components/static/residential/residential.module#DialogOverviewModule' },
   { path: 'rfp-as-service', loadChildren: './components/static/rfp-as-service/rfp-as-service.module#RfpAsServiceModule' },
   { path: 'terms', loadChildren: './components/static/terms/terms.module#TermsModule' },
@@ -50,6 +50,9 @@ const routes: Routes = [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
       { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
       // { path: 'agancypricing', loadChildren: './components/other/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
+      { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
+
+      
       { path : 'agancypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },

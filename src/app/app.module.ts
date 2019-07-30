@@ -1,7 +1,7 @@
 // ------------------- Components
 import { AppComponent } from './app.component';
 import { CountdownModule } from 'ng2-countdown-timer';
-
+// import { PaymentmethodsService } from './components/profile/paymentmethods';
 // ------------------- Modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { CommonModule } from '@angular/common';
@@ -64,6 +64,7 @@ import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs';
+import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
  
  
 
@@ -105,12 +106,14 @@ import { from } from 'rxjs';
     AppComponent,
     CustomerSupportComponent,
     ReplyComponent,
-    AgancyPricingComponent
+    AgancyPricingComponent,
+    
   ],
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: provideConfig
+      useFactory: provideConfig,
+
     },
     DatePipe,
     SeoService,
