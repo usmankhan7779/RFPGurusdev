@@ -27,7 +27,7 @@
                     </mat-select>
                   </mat-form-field>
               </form>
-              <button (click)=" firststep('BM')" data-dismiss="modal">go</button>
+              <button (click)=" firststep('BM')" data-dismiss="modal">Add Agency</button>
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template> -->
@@ -46,7 +46,7 @@
               <form  >
                 <mat-form-field class="pos-rel">
                     <mat-select  placeholder="Select Agency">
-                      <input class="inp" type="text" [(ngModel)]="model.agensearch" [ngModelOptions]="{standalone: true}"
+                      <input class="inp" type="text" [(ngModel)]="model.agency" #agency="ngModel" [ngModelOptions]="{standalone: true}"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
                       <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
@@ -56,11 +56,11 @@
                           [(ngModel)]="model.agency" />
                           <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
                           </div>
-                      <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
+                      <mat-option *ngFor="let item of agen  | filter:agency" [value]="item.agency">{{item.agency }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="free(); addagency(agensearchs)" data-dismiss="modal">Go</button>
+                  <button (click)="free(); addagency()" data-dismiss="modal">Add Agency </button>
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -95,7 +95,7 @@
                     </mat-select>
                   </mat-form-field>
               </form>
-              <button (click)="firststep('PY')" data-dismiss="modal">Go</button>
+              <button (click)="firststep('PY')" data-dismiss="modal">Post</button>
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template> -->
