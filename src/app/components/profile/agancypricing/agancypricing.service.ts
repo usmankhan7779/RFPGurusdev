@@ -127,13 +127,13 @@ pricingimage(){
                 }
             })
     }
-    postagency(agency) {
+    postagency(agencysearch) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');     
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
         return this._https.post("https://apis.rfpgurus.com/add_agency/",
             JSON.stringify({
-                "agency": agency,
+                "agency": agencysearch,
                
             }),{ headers: headers }).map((res: Response) => {
                 if (res.status == 200) {
