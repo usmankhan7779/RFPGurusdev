@@ -1,7 +1,7 @@
 // import { PricingService } from './pricing.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 // import { PricingComponent } from './pricing.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { MatInputModule, MatFormFieldModule, MatSelectModule, MatSlideToggleModu
 import { TextMaskModule } from 'angular2-text-mask';
 // import { PaymentmethodsService } from '../../profile/paymentmethods/paymentmethods.service';
 import {CountdownModule} from "ng2-countdown-timer";
+import { MainService } from 'src/app/services/main.service';
 
 const routes: Routes = [
  
@@ -29,6 +30,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [],
-  providers: [ ]
+  providers: []
 })
 export class PricingModule { }

@@ -4,11 +4,12 @@ import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RfpService } from '../../single/single-rfp/rfp.service';
 import { PaymentmethodsService } from '../../profile/paymentmethods/paymentmethods.service';
-import { Location, NgForOf } from '@angular/common';
+import { Location, NgForOf, DatePipe } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
 import { FormGroup, Validators, FormControl,FormBuilder, NgForm } from '@angular/forms';
 import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
+import { MainService } from 'src/app/services/main.service';
 declare var $: any;
 
 @Component({
@@ -20,7 +21,7 @@ declare var $: any;
   '../../local-style/cradet-card-box.css',
   './pricingsteps.component.scss'
 ],
-  providers: [AgancyPricingService, RfpService]
+  providers: [AgancyPricingService, RfpService,MainService,DatePipe ]
 })
 export class AgancyPricingComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
@@ -121,7 +122,9 @@ forms: FormGroup;
   }
   url;
   agen;
-  constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
+  constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
+    private _serv4: MainService, private datePipe: DatePipe, 
+    private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
    
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
@@ -137,6 +140,7 @@ forms: FormGroup;
     this.CardCodeForm2=false
    }
   ngOnInit() {
+    this.mainFunction();
     this.getcardid(this.id);
     window.scroll(0, 0);
     // this.images();
@@ -259,6 +263,72 @@ forms: FormGroup;
       
     }
   }
+  trial;
+  show_pirce :boolean = true
+  record = {};
+  endRequest;
+  nofound: boolean = false;
+  pkgList = {};
+  result: boolean = false;
+  userdetail;
+  mainFunction() {
+      if (localStorage.getItem('currentUser')) {
+          this.local = localStorage.getItem('currentUser');
+          let pars = JSON.parse(this.local);
+          this.uname = pars.username
+          this._home.agenyprotel().subscribe(
+              data => {
+                // message: "Agency is not Subscribed"
+                  if (data['message'] == "Agency Subscribed") {
+                    this.Fplan = false
+                    this.Mplan=false;
+                    this.Yplan=false;
+                    // this.planSelected = true
+                    this.show_pirce= false;
+                      // this._serv4.purchaseHistory().subscribe(
+                      //     data => {
+                              this.record = data['subscription_detail'];
+                              this.pkgList = data['subscription_detail']['pkg_fk'];
+                              this.result = true;
+
+                              var date = new Date();
+                              this.userdetail = data['reg_fk'];
+                              var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                          // },
+                          // error => {
+                          //     this.nofound = true;
+                          // })
+
+                  } else if (data['message'] == "Trail Agency Subscribed") {
+                    this.record = data['subscription_detail'];
+                    this.pkgList = data['subscription_detail']['pkg_fk'];
+                    this.result = true;
+
+                    var date = new Date();
+                    this.userdetail = data['reg_fk'];
+                    var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                      // this._serv4.trialHistory().subscribe(
+                      //     data => {
+                      //         // this.nofound=false;
+                      //         this.trial = data;
+                      //     }, error => {
+
+
+                      //         this.nofound = true;
+
+                      //     })
+                  } else {
+                      this.nofound = true;
+                      // alert(this.nofound)
+                  }
+              },
+              error => {
+                  this.nofound = true;
+                  // alert(this.nofound)
+              });
+      }
+
+  }
   eachcardid;
   setautopay: boolean = true;
   getcardid(id) {
@@ -308,7 +378,7 @@ forms: FormGroup;
     return [/[01]/, /[0-9]/, '/', /[0-9]/, /[0123456789]/];
 
   }
-  endRequest;
+  // endRequest;
   // public ccvmask = [/[0-9]/, /\d/, /\d/];
   public cardmask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
