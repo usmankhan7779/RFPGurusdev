@@ -65,6 +65,7 @@ import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.com
 import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs';
 import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
+import { TestingComponent } from './testing/testing.component';
  
  
 
@@ -107,6 +108,7 @@ import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component
     CustomerSupportComponent,
     ReplyComponent,
     AgancyPricingComponent,
+    TestingComponent,
     
   ],
   providers: [
