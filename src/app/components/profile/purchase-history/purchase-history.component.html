@@ -4,13 +4,9 @@
             <div class="page-title" *ngIf="result">
                 <span>Subscription</span>
             </div>
-            
-
             <div class="page-title" *ngIf="trial">
                 <span>Trial Subscription</span>
             </div>
-  
-
             <table class="table table-striped history-table" *ngIf="trial">
                 <thead>
                     <tr>
@@ -70,6 +66,8 @@
                 (click)="get(record.pay_date,record.end_date)">
                 Generate Invoice
             </button>
+
+            
             <div id="myModal5" class="modal fade" role="dialog">
                 <div class="modal-dialog">
 

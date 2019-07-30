@@ -1,8 +1,93 @@
 <!-- <app-loader></app-loader> -->
 <section class="section pricing2-section">
-  <div class="container ">
-    <div class="row">
+  <div class=" ">
+    <div class="table-section">
+        <div class="page-title" *ngIf="result">
+            <span>Subscription</span>
+        </div>
+        <div class="page-title" >
+            <span>Trial Subscription</span>
+        </div>
 
+        <!-- <table class="table table-striped history-table" *ngIf="trial"> -->
+        <table class="table table-striped history-table">
+            <thead>
+                <tr>
+                    <th>Subscription Name</th>
+                    <th>Price</th>
+                    <th>Start Date</th>
+                    <th>Expiry Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td *ngIf="trial.package_detail.duration == 'M' ">Monthly Plan</td>
+                    <td *ngIf="trial.package_detail.duration  == 'Q'">Quater PLAN</td>
+                    <td *ngIf="trial.package_detail.duration == 'S'"> SixMonths PLAN</td>
+                    <td *ngIf="trial.package_detail.duration  == 'Y'"> Yearly PLAN</td>
+                    <td><span>$</span>{{trial.package_detail.pkg_price}} </td>
+                    <td>{{trial.timecreated | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{trial.endtime | date:'EEEE, MMM dd, y'}}</td>
+                    <td class="active-rfp"> Active </td>
+
+                </tr> -->
+                <tr>
+                  <td> Yearly PLAN</td>
+                  <td><span>$</span>299.99 </td>
+                  <td>Thursday, Jun 20, 2019</td>
+                  <td>Friday, Jun 19, 2020</td>
+                  <td>
+                    <p class="active-rfp"> Active </p>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-striped history-table" *ngIf="result">
+            <thead>
+                <tr>
+                    <th>Subscription Name</th>
+                    <th>Price</th>
+                    <th>Start Date</th>
+                    <th>Expiry Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td *ngIf="pkgList.duration == 'M' ">Monthly Plan</td>
+                    <td *ngIf="pkgList.duration == 'Q'">Quater PLAN</td>
+                    <td *ngIf="pkgList.duration== 'S'"> SixMonths PLAN</td>
+                    <td *ngIf="pkgList.duration == 'Y'"> Yearly PLAN</td>
+                    <td><span>$</span>{{pkgList.pkg_price}} </td>
+                    <td>{{record.pay_date | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{record.end_date | date:'EEEE, MMM dd, y'}}</td>
+                    <td *ngIf="record.is_paid == true">
+                    <p class="active-rfp"> Active </p>
+                       </td>
+                    <td *ngIf="record.is_paid == false"><button
+                            (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package"
+                            class="btn btn-primary">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-rose pull-right " (click)="deactive()">
+            Deactivate Trail
+        </button>
+        <!-- <button class="btn btn-rose pull-right " *ngIf="trial" (click)="deactive()">
+            Deactivate Trail
+        </button> -->
+        <button class="btn btn-rose pull-right " data-target="#myModal5" data-toggle="modal" 
+            (click)="get(record.pay_date,record.end_date)">
+            Generate Invoice
+        </button>
+        <!-- <button class="btn btn-rose pull-right " data-target="#myModal5" data-toggle="modal" *ngIf="result"
+        (click)="get(record.pay_date,record.end_date)">
+        Generate Invoice
+    </button> -->
+    </div>
+              <!-- Models Start-->
       <div id="selectAgency2" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
@@ -110,7 +195,6 @@
 
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
-            
           <div class="pricing2-button" *ngIf="!planSelected">
             <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
               title="Subscribe Package">Register
@@ -646,6 +730,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
