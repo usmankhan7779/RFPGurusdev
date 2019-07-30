@@ -11,9 +11,7 @@ export class PricingService {
 
     get_card_info() {
         // return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/');
-        return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/')
-        // .map(response => response.json());
-        // return this.authInterceptor.get('https://apis.rfpgurus.com/payment/cardinfo/');
+        return this.http.get('https://devapis.rfpgurus.com/payment/cardinfo/', {headers: this.authInterceptor.setHeaders() })
     }
 
     authenticate_service(uid) {
