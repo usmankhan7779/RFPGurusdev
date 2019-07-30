@@ -88,7 +88,7 @@
     </button> -->
     </div>
               <!-- Models Start-->
-      <div id="selectAgency2" class="modal fade" role="dialog">
+      <div id="selectAgency2" class="modal fade planPopup" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -111,7 +111,9 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); firststep('BM')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  <div class="col-sm-12 text-center " >
+                  <button class="btn btn-primary"  (click)="addagency(); firststep('BM')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                </div>
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -123,7 +125,7 @@
       </div>
 
 
-      <div id="selectAgency" class="modal fade" role="dialog">
+      <div id="selectAgency" class="modal fade planPopup" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -146,8 +148,11 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); free()" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
-              </form>
+                  <div class="col-sm-12 text-center " >
+                  <button class="btn btn-primary"  (click)="addagency(); free()" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+            
+                </div>
+                </form>
    
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
@@ -158,7 +163,7 @@
       </div>
 
    
-      <div id="selectAgency3" class="modal fade" role="dialog">
+      <div id="selectAgency3" class="modal fade planPopup" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -181,8 +186,10 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); firststep('PY')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
-              </form>
+                  <div class="col-sm-12 text-center " >
+                  <button class="btn btn-primary"  (click)="addagency(); firststep('PY')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  </div>
+                </form>
    
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
