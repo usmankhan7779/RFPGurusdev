@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'features-comparison', loadChildren: './components/static/features-comparison/features-comparison.module#FeaturesComparisonModule' },
   { path: 'how-it-works', loadChildren: './components/static/how-it-works/how-it-work.module#HowItWorksModule' },
   { path: 'our-team', loadChildren: './components/static/our-team/our-team.module#OurTeamModule' },
-  { path: 'privacy-policy', loadChildren: './components/static/privacy-policy/privacy-policy.module#PrivacyPolicyModule' },
+  { path: 'privacy', loadChildren: './components/static/privacy-policy/privacy-policy.module#PrivacyPolicyModule' },
   { path: 'faqs', loadChildren: './components/static/residential/residential.module#DialogOverviewModule' },
   { path: 'rfp-as-service', loadChildren: './components/static/rfp-as-service/rfp-as-service.module#RfpAsServiceModule' },
   { path: 'terms', loadChildren: './components/static/terms/terms.module#TermsModule' },

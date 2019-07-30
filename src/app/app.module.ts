@@ -1,7 +1,7 @@
 // ------------------- Components
 import { AppComponent } from './app.component';
 import { CountdownModule } from 'ng2-countdown-timer';
-
+// import { PaymentmethodsService } from './components/profile/paymentmethods';
 // ------------------- Modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { CommonModule } from '@angular/common';
@@ -112,7 +112,8 @@ import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: provideConfig
+      useFactory: provideConfig,
+
     },
     DatePipe,
     SeoService,
