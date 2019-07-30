@@ -111,7 +111,7 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); firststep('BM')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  <button class="btn btn-primary" (click)="addagency(); firststep('BM')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -146,7 +146,7 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); free()" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  <button class="btn btn-primary" (click)="addagency(); free()" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -181,7 +181,10 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="addagency(); firststep('PY')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  <!-- Outer Button -->
+                  
+                      <button class="btn btn-primary" (click)="addagency(); firststep('PY')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
+                  
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -732,6 +735,6 @@
       </div>
       
     </div>
-  </div>
+
 </section>
 <!--3rd step-->
