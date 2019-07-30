@@ -64,6 +64,7 @@ import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs';
+import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
  
  
 
@@ -105,7 +106,8 @@ import { from } from 'rxjs';
     AppComponent,
     CustomerSupportComponent,
     ReplyComponent,
-    AgancyPricingComponent
+    AgancyPricingComponent,
+    
   ],
   providers: [
     {

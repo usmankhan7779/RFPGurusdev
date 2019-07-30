@@ -50,6 +50,9 @@ const routes: Routes = [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
       { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
       // { path: 'agancypricing', loadChildren: './components/other/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
+      { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
+
+      
       { path : 'agancypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },
