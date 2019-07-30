@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
+ 
+import { Http, Headers, Response } from '@angular/http';
 
 @Injectable()
 export class HomeService {
@@ -24,6 +25,12 @@ export class HomeService {
 
   usersubscribe(username: string) {
     return this.http.post('https://apis.rfpgurus.com/pkg_sub/', { 'username': username });
+  }
+  agenyprotel() {
+    let headers = new Headers();
+    headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+    headers.append('Content-Type', 'application/json');
+    return this._https.get('https://apis.rfpgurus.com/agency/Purchase/', {headers:headers}).map((response: Response) => response.json());
   }
   get_card_infos() {
     

@@ -115,7 +115,7 @@ export class PurchaseHistoryComponent implements OnInit {
     }
     pay;
     end;
-    get(pay_date, end_date) {
+    get(pay_date, end_date) { 
         this.pay = pay_date;
         this.end = end_date
     }
