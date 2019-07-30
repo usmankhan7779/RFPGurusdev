@@ -9,10 +9,10 @@
           <div class="modal-content">
             <div *ngIf="agen">
               <h3 class="text-center">Select Agency</h3>
-              <form>
+              <form  [formGroup]="agencySearch">
                 <mat-form-field class="pos-rel">
-                    <mat-select  placeholder="Select Agency">
-                      <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
+                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch" [ngModelOptions]="{standalone: true}" formControlName="agencysearch" required >
+                      <input class="inp" type="text"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
                       <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
@@ -22,12 +22,13 @@
                           [(ngModel)]="model.agency" />
                           <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
                           </div>
-                      <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
+                      <mat-option *ngFor="let item of agen  | filter:agencysearch" [value]="item.agency" >{{item.agency }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
+                  <button (click)="addagency(); firststep('BM')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
               </form>
-              <button (click)=" firststep('BM')" data-dismiss="modal">Add Agency</button>
+   
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template> -->
@@ -43,10 +44,10 @@
           <div class="modal-content">
             <div *ngIf="agen">
               <h3 class="text-center">Select Agency</h3>
-              <form  >
+              <form  [formGroup]="agencySearch">
                 <mat-form-field class="pos-rel">
-                    <mat-select  placeholder="Select Agency">
-                      <input class="inp" type="text" [(ngModel)]="model.agency" #agency="ngModel" [ngModelOptions]="{standalone: true}"
+                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch" [ngModelOptions]="{standalone: true}" formControlName="agencysearch" required>
+                      <input class="inp" type="text"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
                       <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
@@ -56,11 +57,11 @@
                           [(ngModel)]="model.agency" />
                           <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
                           </div>
-                      <mat-option *ngFor="let item of agen  | filter:agency" [value]="item.agency">{{item.agency }}
+                      <mat-option *ngFor="let item of agen  | filter:agencysearch" [value]="item.agency" >{{item.agency }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
-                  <button (click)="free(); addagency()" data-dismiss="modal">Add Agency </button>
+                  <button (click)="addagency(); free()" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
               </form>
    
                   <!-- <ng-template #pkg3>
@@ -71,16 +72,17 @@
         </div>
       </div>
 
+   
       <div id="selectAgency3" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
             <div *ngIf="agen">
               <h3 class="text-center">Select Agency</h3>
-              <form>
+              <form  [formGroup]="agencySearch">
                 <mat-form-field class="pos-rel">
-                    <mat-select  placeholder="Select Agency">
-                      <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
+                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agencysearch" required>
+                      <input class="inp" type="text"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
                       <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
@@ -90,12 +92,13 @@
                           [(ngModel)]="model.agency" />
                           <a class="btn btn-primary" (click)="addagency()">Add Agency</a>
                           </div>
-                      <mat-option *ngFor="let item of agen  | filter:agensearch" [value]="item.agency">{{item.agency }}
+                      <mat-option *ngFor="let item of agen  | filter:agencysearch" [value]="item.agency" >{{item.agency }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
+                  <button (click)="addagency(); firststep('PY')" data-dismiss="modal" [disabled]="!agencySearch.valid">Add Agency </button>
               </form>
-              <button (click)="firststep('PY')" data-dismiss="modal">Post</button>
+   
                   <!-- <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template> -->
@@ -103,6 +106,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
@@ -166,7 +170,7 @@
               title="Subscribe Package">Register
               Now</a>
             <ng-template #pkg3>
-              <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+              <a data-toggle="modal" data-target="#selectAgency" class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template>
           </div>
         </div>
@@ -237,7 +241,7 @@
               title="Subscribe Package">Register
               Now</a>
             <ng-template #pkg1>
-              <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+              <a data-toggle="modal" data-target="#selectAgency2"  class="btn btn-rose" title="Select Plan">Select Plan</a>
             </ng-template>
           </div>
         </div>
@@ -309,7 +313,7 @@
               title="Subscribe Package">Register
               Now</a>
             <ng-template #pkg4>
-              <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
+              <a data-toggle="modal" data-target="#selectAgency3" class="btn btn-rose " title="Select Plan">Select Plan</a>
             </ng-template>
           </div>
         </div>

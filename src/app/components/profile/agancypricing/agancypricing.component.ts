@@ -65,6 +65,9 @@ forms: FormGroup;
       this._nav.navigate(['signin']);
     }
   }
+  agencySearch=new FormGroup({
+    agencysearch: new FormControl('',[])
+  })
   pkgsub = false;
   pkg_detail = {};
   valuee = 'BM';
@@ -218,18 +221,11 @@ forms: FormGroup;
     this.agencie = true;
     this.addagency();
   }
-  // images(){
-  //   this._serv.pricingimage().subscribe(data => {
-  //     this.priceimages = data['free_trial'];
-  //     this.monthly = data['monthly_plan'];
-  //     this.year = data['yearly_plan'];
-      
-     
-  //   })
-  // }
+
   addagency(){
-    this._serv.postagency(this.model.agency).subscribe(data => {
-      alert(data);
+    // alert(this.agencySearch.value['agencysearch'])
+    this._serv.postagency(this.model.agencysearch).subscribe(data => {
+      // alert(data);
       console.log(data);
       this._serv.rfpagen().subscribe(data => {
         this.agen = data.Result;
