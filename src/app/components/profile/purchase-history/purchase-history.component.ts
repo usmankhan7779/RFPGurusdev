@@ -85,7 +85,27 @@ export class PurchaseHistoryComponent implements OnInit {
             top: 0
         });
     }
-
+    isfreetrial;
+    Yplan;
+    Mplan;
+    Fplan;
+    planSelected;
+  
+    free() {
+        if (localStorage.getItem('currentUser')) {
+          
+          this.isfreetrial = true;
+          this.Yplan = false;
+          this.Mplan = false;
+          this.Fplan = true;
+          this.planSelected = true;
+        
+          this._nav.navigate(['pricing']);
+        }
+        else {
+          this._nav.navigate(['signin']);
+        }
+      }
     userdetail;
     valuee = '';
     firststep(value) {
