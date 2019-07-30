@@ -6,10 +6,9 @@ import { AuthGuard } from './AuthGuards/auth.guard';
 import { UserprofileComponent } from './layouts/userprofile/userprofile.component';
 import { FiltersComponent } from './layouts/filters/filters.component';
 import { ReplyComponent } from './components/reply/reply.component';
-import {
-  CustomerSupportComponent
-} from './components/customer-support/customer.support';
+ 
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
+import { CustomerSupportComponent } from './components/customer-support/customer.support';
 const routes: Routes = [
 
   // =========== Default Paths ===========
@@ -60,6 +59,9 @@ const routes: Routes = [
       { path: 'payment', loadChildren: './components/profile/paymentmethods/paymentmethods.module#PaymentmethodsModule', canActivate: [AuthGuard] },
       { path: 'notifications', loadChildren: './components/profile/allnotification/allnotification.module#AllnotificationModule', canActivate: [AuthGuard] },
       { path: 'my-watchlist', loadChildren: './components/profile/watchlist/watchlist.module#WatchlistModule', canActivate: [AuthGuard] },
+      // CustomerModule
+      // { path: 'support', loadChildren: './components/customer-support/customer-support.module#CustomerModule', canActivate: [AuthGuard] },
+
       {
         path: 'support',
         component: CustomerSupportComponent

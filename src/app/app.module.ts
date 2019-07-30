@@ -12,9 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
-import {
-  CustomerSupportComponent
-} from './components/customer-support/customer.support';
+ 
 // ------------------- Services
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
@@ -63,8 +61,9 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
-import { from } from 'rxjs';
-import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
+import { from } from 'rxjs'; 
+import { CustomerSupportComponent } from './components/customer-support/customer.support';
+ 
  
  
 
@@ -107,7 +106,6 @@ import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component
     CustomerSupportComponent,
     ReplyComponent,
     AgancyPricingComponent,
-    
   ],
   providers: [
     {
@@ -118,7 +116,7 @@ import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component
     DatePipe,
     SeoService,
     SharedData,
-    CustomerService,
+    // CustomerService,
     AuthGuard,
     AuthLogin,
     
