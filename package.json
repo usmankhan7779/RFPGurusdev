@@ -40,7 +40,6 @@
     "jspdf": "^1.5.3",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
-    "ng2-ckeditor": "^1.2.2",
     "ng2-countdown-timer": "^1.2.2",
     "ng2-pdf-viewer": "^5.3.2",
     "ng2-search-filter": "^0.4.7",
