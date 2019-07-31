@@ -38,41 +38,7 @@ export class AddrfpsComponent implements OnInit {
   constructor(private _http: Http,
     private _serv1: AdvanceService, private _serv: AllRfpsService,
     private router: Router ) {
-    swal({
-      title: 'Enter Profile URL',
-      // html: ' Enter you email address to receive a link allowing you to reset your password.',
-      input: 'url',
-      allowOutsideClick: false,
-      showCancelButton : true,
-      confirmButtonColor: "#000",
-      cancelButtonColor: "#d33",
-      inputPlaceholder: 'Enter Profile URL'
-    }).then((url) => {
-      // alert(result)
-      // if (url) {
-        this.url=url;
-        this._serv.post_url(url).subscribe(
-          data => {
-    if(data){
-      this.governmentbidsusers=data.id
-    }else{
-      
-      delete this.governmentbidsusers;
-     
-    }
-          });
-      // }else{
-      //   swal(
-      //     'Please Enter Profile URL',
-      //     'Invalid!',
-      //     'error'
-      // )
-      // }
-     
-    }
-    ).catch(error => {
-      this.router.navigate(['/admin-panel']);
-    })
+    
    }
   acgeny_check(){
     this.agency_show=true;
