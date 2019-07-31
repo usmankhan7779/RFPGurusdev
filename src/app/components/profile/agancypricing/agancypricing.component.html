@@ -72,7 +72,7 @@
                 </tr>
             </tbody>
         </table>
-        <button><a routerLink="/AddRfps" routerLinkActive="active-route">Add Rfps</a></button>
+        <button *ngIf="record || records"><a routerLink="/AddRfps" routerLinkActive="active-route">Add Rfps</a></button>
         <div class="gen-btn">
             <button class="btn btn-rose  " (click)="deactive()">
                 Deactivate Trail
