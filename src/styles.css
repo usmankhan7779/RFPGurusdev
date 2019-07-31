@@ -10,6 +10,9 @@
 img{
   width: 100%;
 }
+.avatar-img{
+  max-width: 350px;
+}
 .material-icons {
   font-family: 'Material Icons';
   font-weight: 400;
@@ -553,7 +556,7 @@ h3 {
 }
 
 .list-normal li a {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400
 }
 
@@ -4649,6 +4652,9 @@ textarea::-webkit-scrollbar {
 }
 
 @media (min-width:992px) and (max-width:1024px) {
+  .sh-android-apple{
+    display: none;
+  }
   #f-c .com-table td {
     font-size: 15px !important
   }
