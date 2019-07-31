@@ -140,11 +140,12 @@ forms: FormGroup;
     this.CardCodeForm2=false
    }
   ngOnInit() {
-    this.mainFunction();
+ 
     this.getcardid(this.id);
     window.scroll(0, 0);
     // this.images();
-    this.timer();
+   
+    this.mainFunction();
     this.forms = this.formbuilders.group({
       agensearch : [''],
    
@@ -210,13 +211,7 @@ forms: FormGroup;
 
   }
   totaltime;
-  timer(){
-    this._home.gettimer().subscribe( data => {
-      this.totaltime = data.json();
-      // alert(this.totaltime);
-      console.log(this.totaltime);
-    })
-  }
+ 
   monthly;
   year;
   priceimages;

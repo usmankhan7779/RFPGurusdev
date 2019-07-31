@@ -72,18 +72,15 @@
                 </tr>
             </tbody>
         </table>
-        <button *ngIf="record || records"><a routerLink="/AddRfps" routerLinkActive="active-route">Add Rfps</a></button>
+        <button *ngIf="result || trial"><a routerLink="/AddRfps" routerLinkActive="active-route">Publish Rfps</a></button>
         <div class="gen-btn">
-            <button class="btn btn-rose  " (click)="deactive()">
-                Deactivate Trail
-            </button>
-            <!-- <button class="btn btn-rose " *ngIf="trial" (click)="deactive()">
-                Deactivate Trail
-            </button> -->
-            <button class="btn btn-rose  " data-target="#myModal5" data-toggle="modal" 
-                (click)="get(record.pay_date,record.end_date)">
-                Generate Invoice
-            </button>
+          <button class="btn btn-rose pull-right " *ngIf="trial" (click)="deactive()">
+            Deactivate Trail
+        </button>
+        <button class="btn btn-rose pull-right " data-target="#myModal5" data-toggle="modal" *ngIf="result"
+            (click)="get(record.pay_date,record.end_date)">
+            Generate Invoice
+        </button>
             <!-- <button class="btn btn-rose  " data-target="#myModal5" data-toggle="modal" *ngIf="result"
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
@@ -92,7 +89,7 @@
        
     </div>
               <!-- Models Start-->
-      <div id="selectAgency2" class="modal fade planPopup" role="dialog">
+      <div id="selectAgency2" class="modal fade planPopup" role="dialog" *ngIf="!result || !trial">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
