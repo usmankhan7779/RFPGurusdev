@@ -42,7 +42,7 @@
   margin: 10px 0;
   border: none;
   cursor: pointer;
-  width: 30%;
+  min-width: 30%;
 }
 .fa-search{
   position: absolute;
