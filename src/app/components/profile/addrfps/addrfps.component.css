@@ -24,6 +24,7 @@
 .btn-file {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 .btn-file > input {
   position: absolute;
@@ -40,4 +41,5 @@
 .btn{
   margin: 10px 0;
   border: none;
+  cursor: pointer;
 }
