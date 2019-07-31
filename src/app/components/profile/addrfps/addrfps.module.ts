@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
- 
+import { CKEditorModule } from 'ng2-ckeditor';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule, MatSelectModule, MatIconModule } from '@angular/material';
@@ -23,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    CKEditorModule,
     ReactiveFormsModule, MatIconModule,
     FormsModule,
     Ng2SearchPipeModule,MatChipsModule,

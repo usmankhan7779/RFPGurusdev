@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { CKEditorModule } from 'ng2-ckeditor';
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
  
@@ -95,6 +95,7 @@ import { MatChipsModule } from '@angular/material';
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     FormsModule,
+    CKEditorModule,
     MatInputModule,
     MatFormFieldModule,
     AgmCoreModule.forRoot({
