@@ -52,7 +52,7 @@ const routes: Routes = [
       { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
 
       
-      { path : 'agancypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
+      { path : 'agencypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },
       { path: 'profile', loadChildren: './components/profile/profile/profile.module#ProfileModule', canActivate: [AuthGuard] },
