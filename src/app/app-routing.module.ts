@@ -8,7 +8,7 @@ import { FiltersComponent } from './layouts/filters/filters.component';
 import { ReplyComponent } from './components/reply/reply.component';
  
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
-import { CustomerSupportComponent } from './components/customer-support/customer.support';
+import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 const routes: Routes = [
 
   // =========== Default Paths ===========
