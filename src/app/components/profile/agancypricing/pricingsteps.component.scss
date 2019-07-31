@@ -1028,8 +1028,11 @@ mat-option {
 }
 .gen-btn{
     width: 100%;
-    margin: 10px 0;
+
     text-align: right;
+}
+.gen-btn button{
+  margin: 0 10px;
 }
 .center-pricing{
     display: flex;

@@ -81,7 +81,7 @@
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
         </button>
-        <button class="btn btn-rose" *ngIf="result || trial"><a routerLink="/AddRfps" routerLinkActive="active-route">Publish RFP's</a></button>
+        <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result || trial">Publish RFP's</button>
             <!-- <button class="btn btn-rose  " data-target="#myModal5" data-toggle="modal" *ngIf="result"
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
