@@ -404,6 +404,12 @@ forms: FormGroup;
     });
 
 }
+pay;
+end;
+get(pay_date, end_date) { 
+    this.pay = pay_date;
+    this.end = end_date
+}
   cardtype
   ShowButton(var_type_atm) {
     this.cardtype = var_type_atm;
