@@ -8,6 +8,9 @@ import { MatInputModule, MatFormFieldModule, MatSelectModule, MatIconModule, Mat
 import { TextMaskModule } from 'angular2-text-mask';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AddrfpsComponent } from './addrfps.component';
+
+ 
+
 const routes: Routes = [
   {
     path: '', component: AddrfpsComponent
@@ -16,33 +19,23 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    CKEditorModule,
     ReactiveFormsModule, MatIconModule,
     FormsModule,
+    Ng2SearchPipeModule,MatChipsModule,
+   HttpClientModule,
+
+  
+    MatNativeDateModule,
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    Ng2SearchPipeModule,
     TextMaskModule,
-    HttpClientModule,
-    RouterModule.forChild(routes),
-
-     
-    CKEditorModule,Ng2SearchPipeModule,
-    MatChipsModule,
-  
     MatDatepickerModule,
-    MatNativeDateModule,
- 
- 
-  
- 
- 
     MatCheckboxModule,
-  
 
 
-
-
+    RouterModule.forChild(routes)
   ],
   declarations: [AddrfpsComponent]
 })

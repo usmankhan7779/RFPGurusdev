@@ -8,7 +8,62 @@ import swal from 'sweetalert2';
 @Injectable()
 export class AgancyPricingService {
     constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
+    add_rfp(rfpkey, governmentbidsusers, title, descriptionTag, states, agency, date_entered, due_date, web_info, rfp_reference, category, subcat, seoTitleUrl, bid_type, agency_type, city_or_county, city, open_rfp, record_added, oldcat, url) {
+        if (category) {
+            var cate = category.toString()
+        }
+        if (subcat) {
+            var subcat = subcat.toString()
+        }
+        var plainText = descriptionTag.replace(/<[^>]*>/g, '');
+        let headers = new Headers();
+        if (localStorage.getItem('currentUser')) {
+            headers = new Headers({ 'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token });
+        }
+        headers.append('Content-Type', 'application/json');
+        return this._https.post('https://apis.rfpgurus.com/rf_p/add_rfp/', JSON.stringify({
 
+            "rfpkey": rfpkey,
+            "governmentbidsusers": governmentbidsusers,
+            "title": title,
+            "descriptionTag": descriptionTag,
+            "state": states,
+            "agency": agency,
+            "date_entered": date_entered,
+            "due_date": due_date,
+            "web_info": web_info,
+            "rfp_reference": rfp_reference,
+            "new_category": cate,
+            "sub_category": subcat,
+            "seoTitleUrl": seoTitleUrl,
+            "bid_type": bid_type,
+            "agency_type": agency_type,
+            "city_or_county": city_or_county,
+            "city": city,
+            "open_rfp": open_rfp,
+            "record_added": record_added,
+            "category": oldcat,
+            "deescription": plainText,
+            "profileurl": url
+        }),
+            { headers: headers }).map((response: Response) => response.json());
+    }
+    rfpsubcat(val) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._https.post('https://apis.rfpgurus.com/rf_p/searchby_multiple_categories/', JSON.stringify({ "category": val }),
+          { headers: headers }).map((response: Response) => response.json());
+      }
+    admindropdown(state) {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._https.post('https://apis.rfpgurus.com/rf_p/add_rfp_dropdown/', JSON.stringify({
+          "state":state,
+         
+        }),
+          { headers: headers }).map((response: Response) => response.json());
+      }
     get_card_info() {
         // return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/');
         return this.http.get('https://apis.rfpgurus.com/payment/cardinfo/')

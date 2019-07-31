@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { CKEditorModule } from 'ng2-ckeditor';
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
  
@@ -29,6 +29,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {  MatFormFieldModule} from '@angular/material';
 import { CustomerService } from './components/customer-support/customer-service';
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
+import { AgancyPricingService} from './components/profile/agancypricing/agancypricing.service';
 // import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -62,9 +63,9 @@ import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs'; 
-import { CustomerSupportComponent } from './components/customer-support/customer.support';
+import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
  
- 
+import { MatChipsModule } from '@angular/material';
  
 
 // export class MaterialModule {}
@@ -76,6 +77,7 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     SocialLoginModule,
     HttpClientModule,
     HttpModule,
+    MatChipsModule,
     // MaterialModule,
     CountdownModule,
     MatSlideToggleModule,
@@ -93,6 +95,7 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     FormsModule,
+    CKEditorModule,
     MatInputModule,
     MatFormFieldModule,
     AgmCoreModule.forRoot({
@@ -108,15 +111,17 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     AgancyPricingComponent,
   ],
   providers: [
+    AgancyPricingService,
     {
       provide: AuthServiceConfig,
+      
       useFactory: provideConfig,
 
     },
     DatePipe,
     SeoService,
     SharedData,
-    // CustomerService,
+    CustomerService,
     AuthGuard,
     AuthLogin,
     
