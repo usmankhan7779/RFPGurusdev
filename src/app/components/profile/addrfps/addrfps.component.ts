@@ -139,19 +139,38 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
     data => {
       swal({
         type: 'success',
-        title: 'RFP Added successfully!',
+        title: 'RFP Added successfully',
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
     },error =>{
+    if (error.status=== 400){
       swal({
         type: 'error',
-        title: 'Opps Something went wrong!',
+        title: 'Opps Something went wrong',
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
+      
     }
-    
+    if (error.status === 403) {
+      swal({
+        type: 'error',
+        title: 'You are not allowed to Publish RFP',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    }
+    if (error.status === 406) {
+      swal({
+        type: 'error',
+        title: "You have alredy Published 3 RFP's ",
+        showConfirmButton: false,
+        timer: 2000
+      })
+    }
+  }
+  
     );
 }
 
