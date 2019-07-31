@@ -127,7 +127,6 @@ export class AddrfpsComponent implements OnInit {
           if (data.Agencies) {
           this.agen = data.Agencies;
 
-<<<<<<< HEAD
           }
         
 
@@ -157,26 +156,6 @@ export class AddrfpsComponent implements OnInit {
       if(data.sub_category){
         this.subcat=data.sub_category;
       }
-=======
-  constructor(private _serv1 : AgancyPricingService) { }
-agen;
-states;
-subcat;
-category;
-sub_categories;
-  ngOnInit() {
-  }
-  select_state() {
-    
-    this._serv1.admindropdown(this.states).subscribe(
-      data => {
-       
-        if (data.Agencies) {
-        this.agen = data.Agencies;
-
-        }
-      
->>>>>>> 7df9159fd81b63b9379b7295b4c8c3c5ede5a2b7
 
       })
   
@@ -187,7 +166,6 @@ sub_categories;
   // }
 
 }
-<<<<<<< HEAD
   open_rfp:boolean=false;record_added:boolean=true;
   agency;
   category;
@@ -238,21 +216,5 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
 
     
   }
-=======
-
-remove1(val, index){
-  this.subcat.splice(index, 1);
-}
-remove(val, index) {
-  this.category.splice(index, 1);
-  
-}
-subcategory(value) {
-  this._serv1.rfpsubcat(value).subscribe(
-    data => {
-      this.sub_categories = data.sub_categories;
-    }
-  )
->>>>>>> 7df9159fd81b63b9379b7295b4c8c3c5ede5a2b7
 }
 }
