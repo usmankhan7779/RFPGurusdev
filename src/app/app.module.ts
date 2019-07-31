@@ -29,6 +29,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {  MatFormFieldModule} from '@angular/material';
 import { CustomerService } from './components/customer-support/customer-service';
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
+import { AgancyPricingService} from './components/profile/agancypricing/agancypricing.service';
 // import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -64,7 +65,7 @@ import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs'; 
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
  
- 
+import { MatChipsModule } from '@angular/material';
  
 
 // export class MaterialModule {}
@@ -76,6 +77,7 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     SocialLoginModule,
     HttpClientModule,
     HttpModule,
+    MatChipsModule,
     // MaterialModule,
     CountdownModule,
     MatSlideToggleModule,
@@ -108,8 +110,10 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     AgancyPricingComponent,
   ],
   providers: [
+    AgancyPricingService,
     {
       provide: AuthServiceConfig,
+      
       useFactory: provideConfig,
 
     },
