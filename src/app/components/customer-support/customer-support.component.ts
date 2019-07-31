@@ -16,8 +16,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import swal from 'sweetalert2';
 @Component({
   selector: 'customer-support',
-  templateUrl: 'customer.support.html',
-  styleUrls: ['./customer.support.css']
+  templateUrl: 'customer-support.component.html',
+  styleUrls: ['./customer-support.component.css']
 })
 export class CustomerSupportComponent implements OnInit {
 

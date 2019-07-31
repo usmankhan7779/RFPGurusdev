@@ -62,7 +62,7 @@ import { Http, HttpModule } from '@angular/http';
 import { PdfViewerComponent } from './components/other/pdf-viewer/pdf-viewer.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { from } from 'rxjs'; 
-import { CustomerSupportComponent } from './components/customer-support/customer.support';
+import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
  
  
  
@@ -116,7 +116,7 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     DatePipe,
     SeoService,
     SharedData,
-    // CustomerService,
+    CustomerService,
     AuthGuard,
     AuthLogin,
     
