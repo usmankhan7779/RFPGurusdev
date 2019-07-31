@@ -6,24 +6,9 @@
         <div class="row">
           <div class="col-sm-10 mg-0-auto">
             <div class="page-title">
-              <div class="col-sm-12 m-10-0">
-             
-              </div>
+              <div  class="col-sm-6 page-title"><span >Add RFPs</span></div>
             </div>
-            <form class="col-sm-12 sh-signup-form-fix edit-rfp-form" >
-  
-              
-  
-              <!-- <div class="col-md-6 col-sm-6">
-              <div class="input-group">
-  
-                <mat-form-field>
-                  <input matInput placeholder="RFP Key" name="rfpkey" [(ngModel)]="rfpkey" />
-  
-                </mat-form-field>
-              </div>
-            </div> -->
-  
+            <form class="col-sm-12 sh-signup-form-fix" id="addRFP" >
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
                   <mat-form-field>
@@ -69,7 +54,6 @@
                 </div>
   
               </div>
-  
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
                   <mat-form-field>
@@ -116,8 +100,6 @@
   
   
               </div>
-  
-  
               <div class="col-md-6 col-sm-6">
   
                 <div class="input-group ">
@@ -157,16 +139,6 @@
   
   
               </div>
-  
-              <!-- <div class="col-md-6 col-sm-6">
-              <div class="input-group">
-  
-                <mat-form-field>
-                  <input matInput placeholder="seoTitleUrl" name="seoTitleUrl" [(ngModel)]="seoTitleUrl" />
-  
-                </mat-form-field>
-              </div>
-            </div> -->
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
                   <!-- dropdown -->
@@ -221,7 +193,6 @@
                   </mat-form-field>
                 </div>
               </div>
-  
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
   
@@ -257,7 +228,6 @@
   
                 </div>
               </div>
-  
               <div class="col-md-6 col-sm-6">
                 <div class="input-group margin-zero1">
                   <div> <button class="btn-file">Upload File<input class="img-input" (change)="onChange($event)" 
@@ -287,11 +257,6 @@
               </div>
               <div class="col-md-6 col-sm-6">
                 <div class="input-group add-rfp-chk">
-                  <!-- <input type="checkbox"  name="open_rfp" [(ngModel)]="open_rfp" >
-                        Open RFP
-                   
-                    <input type="checkbox"  name="record_added" [(ngModel)]="record_added" >
-                        Record Added -->
                   <mat-checkbox name="open_rfp" [(ngModel)]="open_rfp">
                     Open Rfp
                   </mat-checkbox>
@@ -323,8 +288,6 @@
   
                 </div>
               </div>
-  
-  
             </form>
           </div>
         </div>

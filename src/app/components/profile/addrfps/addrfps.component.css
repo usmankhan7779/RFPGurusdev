@@ -12,3 +12,13 @@
 .add-rfp-chk >input{
     vertical-align: sub;
 }
+#addRFP{
+  background: #fff;
+  padding: 20px 0;
+}
+#addRFP .col-sm-6{
+  min-height: 56px;
+}
+#addRFP .col-sm-6 .input-group{
+  width: 100%;
+}
