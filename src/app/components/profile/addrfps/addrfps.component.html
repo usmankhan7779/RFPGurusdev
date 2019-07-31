@@ -69,7 +69,7 @@
                       <input class="inp" type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}"
                         placeholder="Search By Category" class="search-allstates">
                       <i class="fa fa-search " area-hidden="true"></i>
-                      <button class="btn btn-primary mg-0" (click)="cat_check()">Others</button>
+                      <button class="btn btn-primary others mg-0" (click)="cat_check()">Others</button>
                       <input class="inp" type="text" class="search-allstates" placeholder="Type Category" name="category"
                         [(ngModel)]="category" #updatedcategory (change)="subcategory(updatedcategory.value)"
                         *ngIf="category_show==true" />
@@ -109,7 +109,7 @@
                       <input class="inp" type="text" [(ngModel)]="subcatsearch" [ngModelOptions]="{standalone: true}"
                         placeholder="Search By Sub Category" class="search-allstates">
                       <i class="fa fa-search " area-hidden="true"></i>
-                      <button class="btn btn-primary mg-0" (click)="subchk()">Others</button>
+                      <button class="btn btn-primary others mg-0" (click)="subchk()">Others</button>
                       <input class="inp" type="text" class="search-allstates" placeholder="Sub Category" name="subcat"
                         [(ngModel)]="subcat" *ngIf="subcate_show==true" />
                       <mat-option *ngFor="let catitem of sub_categories | filter:subcatsearch"
@@ -239,7 +239,7 @@
               </div>
               <div class="col-md-12 col-sm-12">
                 <div class=" text-center">
-                  <button type="submit" class="btn btn-primary" (click)="editClick()">Submit</button>
+                  <button type="submit" class="btn btn-primary submit_btn" (click)="editClick()">Submit</button>
                 </div>
               </div>
             </form>
