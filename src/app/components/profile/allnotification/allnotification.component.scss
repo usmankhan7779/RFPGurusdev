@@ -74,8 +74,15 @@
 }
 .sh-del{
   position: absolute;
-  right: 16px;
+  right: 14px;
   top: 14px;
+   padding: 0 4px;
+}
+.sh-del:hover{
+  background: #fff;
+}
+.sh-del:hover i{
+  color: #c00  !important;
 }
 .heart-heading{
   position: relative;
