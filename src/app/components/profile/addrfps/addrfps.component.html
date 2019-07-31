@@ -13,7 +13,7 @@
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
                   <mat-form-field>
-                    <input matInput placeholder="Title" name="title" [(ngModel)]="title" required />
+                    <input matInput placeholder="Title" name="title" [(ngModel)]="model.title" required />
   
                   </mat-form-field>
                 </div>
@@ -47,7 +47,7 @@
              
            
               <div class="col-md-6 col-sm-6 ">
-  
+
                 <div class="input-group ">
                     <mat-form-field *ngIf="hide==true">
                     <mat-chip-list #chipList>
@@ -65,7 +65,7 @@
                     </mat-chip-list></mat-form-field>
                   <mat-form-field>
                     <mat-select [(ngModel)]="category" name="category" placeholder="Select Category"
-                      (change)="subcategory(updatedcategory.value)" #updatedcategory multiple>
+                      (ngModelChange)="subcategory(updatedcategory.value)" #updatedcategory multiple>
                       <input class="inp" type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}"
                         placeholder="Search By Category" class="search-allstates">
                       <i class="fa fa-search " area-hidden="true"></i>

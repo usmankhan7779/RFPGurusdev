@@ -8,7 +8,7 @@ import swal from 'sweetalert2';
 @Injectable()
 export class AgancyPricingService {
     constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
-    add_rfp(rfpkey, governmentbidsusers, title, descriptionTag, states, agency, date_entered, due_date, web_info, rfp_reference, category, subcat, seoTitleUrl, bid_type, agency_type, city_or_county, city, open_rfp, record_added, oldcat, url) {
+    add_rfp( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
         if (category) {
             var cate = category.toString()
         }
@@ -23,28 +23,25 @@ export class AgancyPricingService {
         headers.append('Content-Type', 'application/json');
         return this._https.post('https://apis.rfpgurus.com/agency/add_rfp/', JSON.stringify({
 
-            "rfpkey": rfpkey,
-            "governmentbidsusers": governmentbidsusers,
             "title": title,
             "descriptionTag": descriptionTag,
             "state": states,
-            "agency": agency,
+         
             "date_entered": date_entered,
             "due_date": due_date,
             "web_info": web_info,
-            "rfp_reference": rfp_reference,
+            
             "new_category": cate,
             "sub_category": subcat,
-            "seoTitleUrl": seoTitleUrl,
+        
             "bid_type": bid_type,
-            "agency_type": agency_type,
+           
             "city_or_county": city_or_county,
             "city": city,
-            "open_rfp": open_rfp,
-            "record_added": record_added,
-            "category": oldcat,
+        
+           
             "deescription": plainText,
-            "profileurl": url
+           
         }),
             { headers: headers }).map((response: Response) => response.json());
     }
@@ -54,6 +51,7 @@ export class AgancyPricingService {
         return this._https.post('https://apis.rfpgurus.com/rf_p/searchby_multiple_categories/', JSON.stringify({ "category": val }),
           { headers: headers }).map((response: Response) => response.json());
       }
+      
     admindropdown(state) {
 
         let headers = new Headers();
