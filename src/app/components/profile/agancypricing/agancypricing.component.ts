@@ -268,6 +268,28 @@ forms: FormGroup;
   pkgList = {};
   result: boolean = false;
   userdetail;
+  username;
+  deactive() {
+    this._serv.deactivetrial().subscribe(
+        data => {
+            if (data['message'] == 'Your trail subscription is deactivated') {
+                swal(
+                    'Your Trail Subscription is deactivated',
+                    '',
+                    'success'
+                )
+                let url = '/';
+                this._nav.navigate([url]);
+            }
+            else {
+                swal(
+                    'You are not activated for free trail',
+                    '',
+                    'error'
+                )
+            }
+        })
+}
   mainFunction() {
       if (localStorage.getItem('currentUser')) {
           this.local = localStorage.getItem('currentUser');
@@ -290,6 +312,8 @@ forms: FormGroup;
 
                               var date = new Date();
                               this.userdetail = data['reg_fk'];
+                            
+                            
                               var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
                           // },
                           // error => {
@@ -297,12 +321,14 @@ forms: FormGroup;
                           // })
 
                   } else if (data['message'] == "Trail Agency Subscribed") {
-                    this.records = data['subscription_detail'];
+                    this.record = data['subscription_detail'];
                     this.pkgList = data['subscription_detail']['pkg_fk'];
-                    this.result = true;
+                    this.trial = true;
 
                     var date = new Date();
                     this.userdetail = data['reg_fk'];
+                  
+                 
                     var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
                       // this._serv4.trialHistory().subscribe(
                       //     data => {

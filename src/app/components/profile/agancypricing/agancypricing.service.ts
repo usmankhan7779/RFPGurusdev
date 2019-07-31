@@ -8,6 +8,14 @@ import swal from 'sweetalert2';
 @Injectable()
 export class AgancyPricingService {
     constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
+   
+    deactivetrial() {
+        let headers = new Headers();
+        headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+        headers.append('Content-Type', 'application/json');
+        return this._https.get('https://apis.rfpgurus.com/deactivate_trail/', {headers:headers}).map((response: Response) => response.json());
+    }
+   
     add_rfp( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
         if (category) {
             var cate = category.toString()
