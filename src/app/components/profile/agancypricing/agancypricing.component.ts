@@ -266,6 +266,7 @@ forms: FormGroup;
   trial;
   show_pirce :boolean = true
   record = {};
+  records;
   endRequest;
   nofound: boolean = false;
   pkgList = {};
@@ -300,7 +301,7 @@ forms: FormGroup;
                           // })
 
                   } else if (data['message'] == "Trail Agency Subscribed") {
-                    this.record = data['subscription_detail'];
+                    this.records = data['subscription_detail'];
                     this.pkgList = data['subscription_detail']['pkg_fk'];
                     this.result = true;
 
