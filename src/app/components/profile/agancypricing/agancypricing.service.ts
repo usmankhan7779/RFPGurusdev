@@ -21,7 +21,7 @@ export class AgancyPricingService {
             headers = new Headers({ 'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token });
         }
         headers.append('Content-Type', 'application/json');
-        return this._https.post('https://apis.rfpgurus.com/rf_p/add_rfp/', JSON.stringify({
+        return this._https.post('https://apis.rfpgurus.com/agency/add_rfp/', JSON.stringify({
 
             "rfpkey": rfpkey,
             "governmentbidsusers": governmentbidsusers,

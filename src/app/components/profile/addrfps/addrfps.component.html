@@ -12,7 +12,14 @@
             </div>
             <form class="col-sm-12 sh-signup-form-fix edit-rfp-form" >
   
-              
+              <div class="col-md-6 col-sm-6">
+                <div class="input-group">
+                  <mat-form-field>
+                    <input matInput placeholder="Title" name="title" [(ngModel)]="title" required />
+  
+                  </mat-form-field>
+                </div>
+              </div>
   
               <!-- <div class="col-md-6 col-sm-6">
               <div class="input-group">
@@ -39,46 +46,8 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="input-group ">
-                    <mat-form-field class="example-chip-list" *ngIf="agency">
-                        <mat-chip-list #chipList>
-                          <mat-chip [selectable]="selectable" [removable]="removable" (removed)="remove(agency, $event)" >
-                            {{agency}}
-      
-                          </mat-chip>
-                          
-                          <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                            [matChipInputAddOnBlur]="addOnBlur">
-                        </mat-chip-list>
-                      </mat-form-field>
-                  <mat-form-field>
-                    <mat-select [(ngModel)]="agency" name="agency" placeholder="Select Agency" [(ngModel)]="agency">
-                      <input class="inp" type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
-                        class="search-allstates" placeholder="Search By Agency">
-                      <i class="fa fa-search " area-hidden="true"></i>
-                      <button class="btn btn-primary mg-0" (click)="acgeny_check()">Others</button>
-                      <input class="inp" type="text" class="search-allstates" placeholder="Agency" name="agency"
-                        [(ngModel)]="agency" *ngIf="agency_show==true" />
-                      <mat-option *ngFor="let item of agen | filter:agensearch" [value]="item.agencies">{{item.agencies}}
-                      </mat-option>
-  
-                    </mat-select>
-                  </mat-form-field>
-  
-                </div>
-  
-              </div>
-  
-              <div class="col-md-6 col-sm-6">
-                <div class="input-group">
-                  <mat-form-field>
-                    <input matInput placeholder="Old Category" name="oldcategory" [(ngModel)]="oldcategory" required
-                      (change)="select_oldcat()" />
-  
-                  </mat-form-field>
-                </div>
-              </div>
+             
+           
               <div class="col-md-6 col-sm-6 ">
   
                 <div class="input-group ">
@@ -158,15 +127,7 @@
   
               </div>
   
-              <!-- <div class="col-md-6 col-sm-6">
-              <div class="input-group">
-  
-                <mat-form-field>
-                  <input matInput placeholder="seoTitleUrl" name="seoTitleUrl" [(ngModel)]="seoTitleUrl" />
-  
-                </mat-form-field>
-              </div>
-            </div> -->
+             
               <div class="col-md-6 col-sm-6">
                 <div class="input-group">
                   <!-- dropdown -->
@@ -269,41 +230,8 @@
                   </mat-form-field> -->
                 </div>
               </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="input-group margin-zero1">
-  
-                  <mat-form-field>
-                    <!-- <input matInput placeholder="Rfp Reference" name="rfp_reference" [(ngModel)]="rfp_reference" /> -->
-                    <mat-select name="rfp_reference" [(ngModel)]="rfp_reference" placeholder="Rfp Reference">
-  
-  
-                      <mat-option value="true">
-                        True</mat-option>
-                      <mat-option value="false">
-                        False</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="input-group add-rfp-chk">
-                  <!-- <input type="checkbox"  name="open_rfp" [(ngModel)]="open_rfp" >
-                        Open RFP
-                   
-                    <input type="checkbox"  name="record_added" [(ngModel)]="record_added" >
-                        Record Added -->
-                  <mat-checkbox name="open_rfp" [(ngModel)]="open_rfp">
-                    Open Rfp
-                  </mat-checkbox>
-                  <mat-checkbox name="record_added" [(ngModel)]="record_added">
-                    Record Added
-                  </mat-checkbox>
-                  <!-- <mat-form-field>
-                    <input matInput placeholder="Open Rfp" name="open_rfp" #updatedopen_rfp />
-    
-                  </mat-form-field> -->
-                </div>
-              </div>
+          
+           
               <div class="col-md-12 col-sm-12">
                 <div class="input-group">
                   <ckeditor [(ngModel)]="descriptionTag" name="descriptionTag">
