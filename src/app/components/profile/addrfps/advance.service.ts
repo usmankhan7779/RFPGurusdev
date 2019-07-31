@@ -104,12 +104,14 @@ export class AdvanceService {
     headers.append('Content-Type', 'application/json');
     return this._http.get('https://apis.rfpgurus.com/rf_p/allagency/',
       { headers: headers }).map((response: Response) => response.json());
-  } rfpsubcat(val) {
+  } 
+  rfpsubcat(val) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this._http.post('https://apis.rfpgurus.com/rf_p/searchby_multiple_categories/', JSON.stringify({ "category": val }),
       { headers: headers }).map((response: Response) => response.json());
-  } rfpsinglesubcat(val) {
+  } 
+  rfpsinglesubcat(val) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this._http.post('https://apis.rfpgurus.com/rf_p/search_sub_category/', JSON.stringify({ "category": val }),

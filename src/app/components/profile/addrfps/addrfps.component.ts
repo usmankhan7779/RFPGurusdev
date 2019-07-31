@@ -36,7 +36,7 @@ export class AddrfpsComponent implements OnInit {
    subcat; seoTitleUrl; bid_type; agency_type; city_or_county; city;
   date_entered; due_date; web_info; rfp_reference;
   constructor(private _http: Http,
-    private _serv1: AdvanceService, private _serv: AllRfpsService,
+    private _serv1: AdvanceService, private _serv: AgancyPricingService,
     private router: Router ) {
     
    }
@@ -79,7 +79,7 @@ export class AddrfpsComponent implements OnInit {
     
 }
   subcategory(value) {
-    this._serv1.rfpsubcat(value).subscribe(
+    this._serv.rfpsubcat(value).subscribe(
       data => {
         this.sub_categories = data.sub_categories;
       }
@@ -106,32 +106,7 @@ export class AddrfpsComponent implements OnInit {
 
   }
   hide:boolean=false;
-   select_oldcat() {
-    this.hide=true;
-    this._serv1.oldcategories(this.oldcategory).subscribe(
-      data => {
-       
-        if (data.category) {
-        this.category = data.category;
-        this._serv1.rfpsubcat(this.category).subscribe(
-          data => {
-            this.sub_categories = data.sub_categories;
-          }
-        )
-        }
-      if(data.sub_category){
-        this.subcat=data.sub_category;
-      }
-
-      })
-  
-  // if (this.states) {
-  //   delete this.agencies
-  //   delete this.cates;
-  //   delete this.subcate;
-  // }
-
-}
+ 
   open_rfp:boolean=false;record_added:boolean=true;
   agency;
   category;
@@ -143,6 +118,8 @@ export class AddrfpsComponent implements OnInit {
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
   }
+
+  model : any = {};
   editClick() {
    
     if(this.input){
@@ -158,7 +135,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
     timer: 1500,width: '512px',
   });
 }else{
-  this._serv.add_rfp(this.rfpkey,this.governmentbidsusers,this.title,this.descriptionTag,this.states,this.agency,this.date_entered,this.due_date,this.web_info,this.rfp_reference,this.category,this.subcat,this.seoTitleUrl,this.bid_type,this.agency_type,this.city_or_county,this.city,this.open_rfp,this.record_added,this.oldcategory,this.url).subscribe(
+  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.web_info,this.category,this.subcat,this.bid_type,this.city_or_county,this.city).subscribe(
     data => {
       swal({
         type: 'success',
