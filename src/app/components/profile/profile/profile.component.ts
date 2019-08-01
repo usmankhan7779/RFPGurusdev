@@ -65,9 +65,12 @@ export class ProfileComponent implements OnInit {
             this.endRequest = this._serv.get_profile().subscribe(
                 data => {
                     this.personal = data;
+                    console.log(this.personal.address);
+                    localStorage.setItem('address' , this.personal.address)
            
                     this.profile = data['user'];
-                    console.log(data['user'])
+                    localStorage.setItem('name', this.profile.username)
+                   
 
                 });
         }

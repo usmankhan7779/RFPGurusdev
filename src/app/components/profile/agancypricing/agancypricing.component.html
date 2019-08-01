@@ -127,8 +127,8 @@
                               <div class="row contacts">
                                   <div class="col col-md-6 invoice-to" *ngIf="result">
                                       <div class="text-gray-light"> Invoice To:</div>
-                                      <h2 class="to">{{userdetail?.user?.username}}</h2>
-                                      <div class="address">{{userdetail?.address}}</div>
+                                      <h2 class="to">{{name}}</h2>
+                                      <div class="address">{{address}}</div>
                                       <!-- <div class="email"><a href="mailto:john@example.com">john@example.com</a></div> -->
                                   </div>
                                   <div class="col col-md-6 invoice-details">
@@ -201,7 +201,7 @@
       </div>
   </div>
               <!-- Models Start-->
-      <div id="selectAgency2" class="modal fade planPopup" role="dialog" *ngIf="!result" >
+      <div id="selectAgency2" class="modal fade planPopup" role="dialog"  >
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -209,7 +209,7 @@
               <h3 class="text-center">Select Agency</h3>
               <form  [formGroup]="agencySearch">
                 <mat-form-field class="pos-rel">
-                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch" [ngModelOptions]="{standalone: true}" formControlName="agencysearch" required >
+                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agencysearch" required >
                       <input class="inp" type="text"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
@@ -246,7 +246,7 @@
               <h3 class="text-center">Select Agency</h3>
               <form  [formGroup]="agencySearch">
                 <mat-form-field class="pos-rel">
-                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch" [ngModelOptions]="{standalone: true}" formControlName="agencysearch" required>
+                    <mat-select  placeholder="Select Agency" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agencysearch" required>
                       <input class="inp" type="text"
                         class="search-allstates" placeholder="Search By Agency">
                       <i class="fa fa-search " area-hidden="true"></i>
@@ -311,7 +311,7 @@
           </div>
         </div>
       </div>
-<div class="row margin-0 center-pricing"  >
+<div class="row margin-0 center-pricing"  *ngIf="!result || !trial" >
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">
@@ -524,9 +524,6 @@
           </div>
         </div>
       </div>
-</div>
-
-
       <div *ngIf="pkgsub" class="sh-signup-form-fix col-lg-8 col-md-8 col-sm-8 col-xs-12" data-wow-delay=".5s">
         <div class=" row sh-payment">
           <div class="checkout-select-box ">
@@ -843,6 +840,10 @@
           </div>
         </div>
       </div>
+</div>
+
+
+    
       
     </div>
   

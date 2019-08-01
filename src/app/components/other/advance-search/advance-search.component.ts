@@ -460,7 +460,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           }
           if (data['Sub_categories_list']) {
             this.sub_categories = data['Sub_categories_list'];
-            console.log(this.sub_categories);
+         
           }
 
         })
@@ -477,7 +477,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     if (this.agencies != 'all') {
       this._serv.dropdown(this.states, this.agencies, this.cates, this.subcate).subscribe(
         data => {
-          console.log(data);
+         
           if (data['States']) {
             this.state = data['States'];
 
@@ -491,7 +491,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
           }
           if (data['Sub_categories_list']) {
             this.sub_categories = data['Sub_categories_list'];
-            console.log(this.sub_categories);
+           
           }
 
         })

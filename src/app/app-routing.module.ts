@@ -48,7 +48,7 @@ const routes: Routes = [
     path: '', component: UserprofileComponent, children: [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
       { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
-      // { path: 'agancypricing', loadChildren: './components/other/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
+      // { path: 'agencypricing', loadChildren: './components/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
       { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
 
       

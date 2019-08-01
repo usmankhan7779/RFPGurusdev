@@ -172,7 +172,7 @@ export class SigninComponent implements OnInit {
                 let state = url.slice(0, 5)
                 let category = url.slice(0, 8)
                 let agency = url.slice(0, 6)
-
+                   
 
                 if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                 else if (state == 'state') {

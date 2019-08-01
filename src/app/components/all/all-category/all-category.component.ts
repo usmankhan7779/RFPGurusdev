@@ -88,7 +88,7 @@ export class AllCategoryComponent implements OnInit, OnDestroy {
      
       this._serv.searchrecord(val).subscribe(response => {
         this.cat = response;
-        console.log(this.cat)
+       
         this.item = false;
         if(this.cat.length == '0'){
 

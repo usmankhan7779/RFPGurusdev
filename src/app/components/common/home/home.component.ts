@@ -288,7 +288,7 @@ this.timer();
     this._serv.latestrfps()
       .subscribe(data => {
         this.record = data['results'];
-        console.log(this.record);
+  
       });
   }
   totaltime;
@@ -296,7 +296,7 @@ timer(){
   this._serv.gettimer().subscribe( data => {
     this.totaltime = data.json();
     // alert(this.totaltime);
-    console.log(this.totaltime);
+ 
   })
 }
 

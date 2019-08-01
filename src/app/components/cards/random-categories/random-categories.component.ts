@@ -19,7 +19,7 @@ export class RandomCategoriesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.category1);
+  
   }
 
 }
