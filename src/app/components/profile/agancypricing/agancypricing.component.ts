@@ -123,10 +123,14 @@ forms: FormGroup;
   }
   url;
   agen;
+  name;
+  address;
   constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
     private _serv4: MainService, private datePipe: DatePipe, 
     private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
-   
+      this.name = localStorage.getItem('name');
+      this.address = localStorage.getItem('address');
+  
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
       // alert(this.governmentbidsusers);
