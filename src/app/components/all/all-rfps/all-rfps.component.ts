@@ -143,21 +143,15 @@ export class AllRfpsComponent implements OnInit {
       data => {
 
         this.record = data['results'];
-        console.log(this.record['id'])
+       
 
         this.item = data['totalItems'];
-        // this.zip = data['results'].web_info
-        // // this.pdf = this.record.web_info
-        // console.log(this.zip.slice(-4))
-        // console.log(this.zip)
+       
         
       let democompprods;
       democompprods = data['results'];
 
-      // for (let prods of democompprods) {
-      //   this.zip =prods.web_info;
-      //   console.log(this.zip.slice(-4))
-      // }
+     
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
@@ -374,7 +368,7 @@ public showzip(rfpkey,title): void {
       this.__serv.downloadRfps(id).subscribe(
         data=>{
           // alert(data.content_type)
-          console.log(data)
+       
           if (data.content_type == "pdf"){
               // window.open(url, '_blank');
               this.showPDF(id,title);

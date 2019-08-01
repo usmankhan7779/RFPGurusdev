@@ -79,7 +79,7 @@ export class CustomerSupportComponent implements OnInit {
         // EditCourseDialogComponent.ImageUploadFailer();
       } else {
         this.course_image = data;
-        console.log(this.course_image);
+      
         this.CustomerSupport();
 
       }

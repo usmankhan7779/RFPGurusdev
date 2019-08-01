@@ -133,9 +133,7 @@ forms: FormGroup;
   
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
-      // alert(this.governmentbidsusers);
-      console.log(this.agen, "all agency")
-      // alert(this.agen);
+    
     })
 
     
@@ -191,7 +189,7 @@ forms: FormGroup;
     if (localStorage.getItem('currentUser')) {
       this._home.get_card_infos().subscribe(Data => {
         this.res = Data;
-        console.log(this.res,'Saved card')
+     
         if (!this.res.length) {
           this.isright = true;
         }
@@ -230,11 +228,11 @@ forms: FormGroup;
     // alert(this.agencySearch.value['agencysearch'])
     this._serv.postagency(this.model.agencysearch).subscribe(data => {
       // alert(data);
-      console.log(data);
+    
       this._serv.rfpagen().subscribe(data => {
         this.agen = data.Result;
         // alert(this.governmentbidsusers);
-        console.log(this.agen, "all agency")
+      
         // alert(this.agen);
       })
     })
