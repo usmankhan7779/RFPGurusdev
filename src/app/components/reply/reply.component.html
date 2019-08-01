@@ -1,38 +1,44 @@
 <div class="container">
-    <div class="heading">
-        <span class="">Subject: {{subjests?.ticket_detail?.subject}}</span>
-        <span class="dec" style="margin-left: auto">Description: {{subjests?.ticket_detail?.description}}</span>
-      </div>
+  <div class="row">
+    <div class="col-sm-6 page-title">
+      <span>Subject: <br>
+        <p class="rep_para"> {{subjests?.ticket_detail?.subject}}</p></span>
+    </div>
+    <div class="col-sm-6 page-title ">
+      <span>Description: <br>
+        <p class="rep_para">{{subjests?.ticket_detail?.description}} </p></span>
+    </div>
+  </div>
   <div class="chat-box">
-     
     <form class="example-form" [formGroup]="form">
-      <div class="no-replay">
-        <h3 *ngIf="show.length == '0'">No Reply yet</h3>
+      <div class="no-replay" *ngIf="show.length == '0'">
+        <h3 >No Reply yet</h3>
       </div>
       <div class="msg-area">
 
         <div *ngFor="let data of show; let i=index">
-        <div class="row">
-          <div class="col-lg-6 user-text"  *ngIf="data?.super_admin_status != true">
-            <span class="me">Me</span>
-            {{data?.description}}
+          <div class="row">
+            <div class=" user-text" *ngIf="data?.super_admin_status != true">
+              <span class="me">Me</span>
+              {{data?.description}}
+            </div>
+          </div>
+          <div class="row">
+            <div class=" admin-text" *ngIf="data?.super_admin_status == true">
+              <span class="admin">A</span>
+              {{data?.description}}
+            </div>
           </div>
         </div>
-        <div class="row">
-        <div class="col-lg-6 admin-text"  *ngIf="data?.super_admin_status == true">
-            <span class="admin">A</span>
-            {{data?.description}}
-        </div>
-        </div>
-        </div>
-        
-        </div>
-        <!-- <div class="admin-text" *ngFor="let data of show; let i=index">
-     
-      </div> -->
-        <textarea placeholder="Description" formControlName="des"></textarea>
-        
-      <button (click)="descriptionpost()" [disabled]="!form.valid">Submit</button>
+
+      </div>
+      <div class="submit-div">
+        <textarea placeholder="Description" class="form-control" formControlName="des"></textarea>
+        <button class="btn btn-primary" (click)="descriptionpost()" [disabled]="!form.valid">
+          <i class="fa fa-angle-up"></i>
+        </button>
+      </div>
+
     </form>
   </div>
 </div>
