@@ -32,7 +32,7 @@ const routes: Routes = [
     Ng2SearchPipeModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AgancyPricingComponent],
+  declarations: [],
   providers: []
 })
 export class AgancyPricingModule { }
