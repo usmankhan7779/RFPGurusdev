@@ -3621,12 +3621,6 @@ padding: 0 5px;
 #addRFP .mat-select-arrow-wrapper {
   vertical-align: bottom;
 }
-textarea{
-  font-weight: normal !important;
-  font-size: 15px !important;
-  min-height: 150px;
-}
-
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important
