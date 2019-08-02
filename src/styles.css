@@ -3618,16 +3618,28 @@ textarea::-webkit-scrollbar {
   padding: 0 5px
 }
 
-#addRFP .mat-form-field-type-mat-select .mat-form-field-underline {
-  bottom: 7px
+#addRFP .mat-form-field-type-mat-select .mat-form-field-label {
+  font-size: 16px;
+  top: 0.98125em;
+  font-weight: 700;
 }
-#addRFP .mat-form-field-type-mat-select {
-padding: 0
-}
-#addRFP .mat-select-arrow-wrapper {
+#addRFP .mat-form-field-type-mat-select .mat-icon-button .mat-button-wrapper>*{
   vertical-align: bottom
 }
-
+#addRFP .mat-form-field-type-mat-select {
+  padding: 0;
+  margin-top: 6px;
+}
+/* #addRFP .mat-select-arrow-wrapper {
+  vertical-align: middle
+} */
+#addRFP .input-group {
+  min-height: 56px;
+}
+#addRFP .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  transform: translateY(-0.98125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-0.98125em) scale(.75);
+}
 textarea {
   font-weight: 400 !important;
   font-size: 15px !important;
