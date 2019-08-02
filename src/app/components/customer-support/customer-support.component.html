@@ -9,7 +9,7 @@
                 </mat-select>
                 <mat-error>Please select a query</mat-error>
             </mat-form-field>
-            <mat-form-field *ngIf="isSubject">
+            <mat-form-field class="mg-top-5" *ngIf="isSubject">
 
               <input matInput placeholder="Subject" formControlName="othersub"  name=topic (onChange)="changeSubject($event)" required>
               <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
