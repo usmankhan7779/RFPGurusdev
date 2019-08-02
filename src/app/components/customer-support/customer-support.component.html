@@ -1,6 +1,6 @@
 
 
-<div class="layout">
+<div class="layout ">
     <mat-card class="mat-elevation-z8">
         <form class="support-placeholder sh-signup-form-fix" [formGroup]=form>
             <mat-form-field>
@@ -22,13 +22,13 @@
             <span class="btn-file file-input">Upload issue Image
               <input (change)="onChange($event)" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
             </span>
-            <button  type=button class="btn-submit btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
+            <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
         </form>
 
     </mat-card>
 </div>
 
-<div class="row" >
+<div class="row" *ngIf="views">
 
 <div class="col-lg-4">
     <p>{{views?.subject}}</p>
@@ -55,4 +55,4 @@
             </tbody>
           </table>
         </div>
-      </div>
+</div>
