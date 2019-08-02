@@ -19,9 +19,6 @@
             <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
             <h3 class="text-center">Your Watch List is empty</h3>
           </div>
-          <!-- <div class="col-sm-6" >
-                <span> Watchlist</span>
-              </div> -->
           <div class="products-area sh-products-area">
             <div *ngFor="let rfp of wrfp;let i=index" class="card">
               <div class="row sh-del-watchlist">
@@ -83,7 +80,7 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-7 padding-0">
                       <ul class="list-normal">
                         <li *ngIf="!subscribe; else pdf">
                           <a routerLink="/pricing">
@@ -113,13 +110,11 @@
                         </ng-template>
                       </ul>
                     </div>
-                    <div class="col-md-12">
-                      <div *ngIf="!subscribe" class="col-md-2 col-sm-3 col-xs-7 term top-margin-25">
-                        <button routerLink="pricing" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
-                          
+                    <div class="col-md-5  padding-0 pt-3px">
+                      
+                        <button *ngIf="!subscribe" routerLink="pricing" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
                         </button>
-
-                      </div>
+                    
                     </div>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
