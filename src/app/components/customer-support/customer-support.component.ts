@@ -113,7 +113,7 @@ export class CustomerSupportComponent implements OnInit {
     this.customerSupport.support(this.form.value['sub'] , this.form.value['des'], this.form.value['course_image']).subscribe(res => {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
-      this.tickets();
+     
 
       swal({
         type: 'success',
@@ -124,7 +124,7 @@ export class CustomerSupportComponent implements OnInit {
       });
     });
 
- 
+    this.tickets();
     this.form.reset();
 
     this.isSubject.reset();
@@ -134,7 +134,7 @@ export class CustomerSupportComponent implements OnInit {
       // alert(this.form.value['des']);
       // this.alert.AlertBox("success", "Your query has been sent")
    
-      this.tickets();
+
       swal({
         type: 'success',
         title: 'Successfully posted',
@@ -144,7 +144,7 @@ export class CustomerSupportComponent implements OnInit {
       });
     });
 
-
+    this.tickets();
     this.form.reset();
 
     this.isSubject.reset();

@@ -166,7 +166,7 @@ Credit Card
 .credit-card-box {
     perspective: 1000;
     width: 400px;
-    height: 230px;
+    height: 280px;
     position: absolute;
     top: -112px;
     left: 50%;
@@ -504,7 +504,16 @@ label {
     padding: 130px 0 0
 }
 
-
+.credit-card-box {
+    perspective: 1000;
+    width: 400px;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1
+}
 
 .credit-card-box.hover .flip,
 .credit-card-box:hover .flip {
@@ -949,10 +958,8 @@ mat-option {
   color: #01b301;
 }
 #pricing-switch{
-    padding: 20px 0 !important;
-    max-width: 750px;
-    margin: 100px auto;
-    float: none;
+  padding: 20px 0 !important;
+  margin-top: 100px;
 }
 .width-half{
     width: 200px !important;

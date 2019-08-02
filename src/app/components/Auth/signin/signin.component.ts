@@ -151,7 +151,6 @@ export class SigninComponent implements OnInit {
   }
   resolved(captchaResponse: string) {
   }
-  address; name;
   onLogin() {
     if (this.login.valid && this.recapcha.check()) {
       this.isequal = true;
@@ -165,7 +164,7 @@ export class SigninComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
-              
+
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length

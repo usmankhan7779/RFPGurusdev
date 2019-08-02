@@ -13,7 +13,7 @@ export class AgancyPricingService {
         let headers = new Headers();
         headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
         headers.append('Content-Type', 'application/json');
-        return this._https.get('https://apis.rfpgurus.com/agency/agency_deactivate_trail/', {headers:headers}).map((response: Response) => response.json());
+        return this._https.get('https://apis.rfpgurus.com/deactivate_trail/', {headers:headers}).map((response: Response) => response.json());
     }
    
     add_rfp( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
@@ -197,7 +197,14 @@ pricingimage(){
                 "agency": agencysearch,
                
             }),{ headers: headers }).map((res: Response) => {
-              
+                if (res.status == 200) {
+                    swal(
+                        'Your Agency add successfully',
+                        '',
+                        'success'
+                    )
+                   
+                }
             })
     }
     updateCard(var_status, id, name, cardno, ccv, expiryDate, address, zip, city, state, country, set_auto_pay) {

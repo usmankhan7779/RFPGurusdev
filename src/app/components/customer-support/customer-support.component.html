@@ -22,13 +22,13 @@
             <span class="btn-file file-input">Upload issue Image
               <input (change)="onChange($event)" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
             </span>
-            <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
+            <button  type=button class="btn-submit btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
         </form>
 
     </mat-card>
 </div>
 
-<div class="row" *ngIf="views">
+<div class="row" >
 
 <div class="col-lg-4">
     <p>{{views?.subject}}</p>

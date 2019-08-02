@@ -128,8 +128,6 @@ forms: FormGroup;
   constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
     private _serv4: MainService, private datePipe: DatePipe, 
     private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
-      
-    this.mainFunction();
       this.name = localStorage.getItem('name');
       this.address = localStorage.getItem('address');
   
@@ -150,6 +148,7 @@ forms: FormGroup;
     window.scroll(0, 0);
     // this.images();
    
+    this.mainFunction();
     this.forms = this.formbuilders.group({
       agensearch : [''],
    
@@ -312,12 +311,10 @@ forms: FormGroup;
                               this.record = data['subscription_detail'];
                               this.pkgList = data['subscription_detail']['pkg_fk'];
                               this.result = true;
-                              this.address = data['pkg_fk'];
-                          
 
                               var date = new Date();
                               this.userdetail = data['reg_fk'];
-                            this.nofound = false;
+                            
                             
                               var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
                           // },
@@ -327,10 +324,7 @@ forms: FormGroup;
 
                   } else if (data['message'] == "Trail Agency Subscribed") {
                     this.record = data['subscription_detail'];
-                    // console.log(this.record);
-                    // alert(this.record);
-                    this.pkgList = data['subscription_detail']['agency_package_detail'];
-                    console.log(this.pkgList)
+                    this.pkgList = data['subscription_detail']['pkg_fk'];
                     this.trial = true;
 
                     var date = new Date();
@@ -338,7 +332,6 @@ forms: FormGroup;
                   
                  
                     var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
-                    this.nofound = false;
                       // this._serv4.trialHistory().subscribe(
                       //     data => {
                       //         // this.nofound=false;
@@ -557,7 +550,7 @@ get(pay_date, end_date) {
                     '',
                     'success'
                   )
-                  this._nav.navigate(['/'])
+                  this._nav.navigate(['purchase-history'])
                   if (localStorage.getItem('member')) {
                     let url = localStorage.getItem('member')
                     let last = url.length
@@ -585,7 +578,7 @@ get(pay_date, end_date) {
                   }
                 
                   f.resetForm()
-                  this._nav.navigate(['/'])
+                  this._nav.navigate(['purchase-history'])
                 },
               
                   error => {
@@ -708,7 +701,7 @@ get(pay_date, end_date) {
                   this._nav.navigate(['/']);
                 }
                 f.resetForm()
-                this._nav.navigate(['/'])
+                this._nav.navigate(['purchase-history'])
               },
                 error => {
                   if (error.status == 500) {
@@ -790,7 +783,7 @@ get(pay_date, end_date) {
                             this._nav.navigate(['/']);
                           }
                           f.resetForm()
-                          this._nav.navigate(['/'])
+                          this._nav.navigate(['purchase-history'])
                         },
                         error => {
                           if (error.status == 403) {
@@ -895,7 +888,7 @@ get(pay_date, end_date) {
                   this._nav.navigate(['/']);
                 }
                 f.resetForm()
-                this._nav.navigate(['/'])
+                this._nav.navigate(['purchase-history'])
               },
     
               error => {
