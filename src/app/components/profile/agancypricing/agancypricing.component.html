@@ -22,13 +22,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td *ngIf="trial.package_detail.duration == 'M' ">Monthly Plan</td>
-                    <td *ngIf="trial.package_detail.duration  == 'Q'">Quater PLAN</td>
-                    <td *ngIf="trial.package_detail.duration == 'S'"> SixMonths PLAN</td>
-                    <td *ngIf="trial.package_detail.duration  == 'Y'"> Yearly PLAN</td>
-                    <td><span>$</span>{{trial.package_detail.pkg_price}} </td>
-                    <td>{{trial.timecreated | date:'EEEE, MMM dd, y'}}</td>
-                    <td>{{trial.endtime | date:'EEEE, MMM dd, y'}}</td>
+                     <td *ngIf="pkgList?.duration == 'M' ">Monthly Plan</td> 
+                     <td *ngIf="pkgList.duration  == 'Q'">Quater PLAN</td>
+                    <td *ngIf="pkgList.duration == 'S'"> SixMonths PLAN</td>
+                    <td *ngIf="pkgList.duration  == 'Y'"> Yearly PLAN</td> 
+                    <td><span>$</span>{{pkgList?.pkg_price}} </td>
+                    <td>{{record?.timecreated | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{record?.endtime | date:'EEEE, MMM dd, y'}}</td>
                     <td class="active-rfp"> Active </td>
 
                 </tr>
@@ -81,7 +81,7 @@
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
         </button>
-        <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result || trial">Publish RFP's</button>
+        <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result || trial">Publish RFP</button>
             <!-- <button class="btn btn-rose  " data-target="#myModal5" data-toggle="modal" *ngIf="result"
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
@@ -89,7 +89,7 @@
         </div>
        
     </div>
-    <div id="myModal5" class="modal fade" role="dialog">
+    <div id="myModal5" class="modal fade" role="dialog"  >
       <div class="modal-dialog">
 
           <!-- Modal content-->
@@ -311,9 +311,9 @@
           </div>
         </div>
       </div>
-<div class="row margin-0 center-pricing"  *ngIf="!result || !trial" >
+<div class="row margin-0 center-pricing" *ngIf="nofound" >
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
-        <div class="single-pricing-2 top">
+        <div class="single-pricing-2 top" >
           <div class="pricing2-button" *ngIf="!planSelected">
             <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
               title="Subscribe Package">Register
@@ -404,9 +404,7 @@
             <li>
               <i class="fa fa-check"></i>Publish unlimited RFPs
             </li>
-            <li>
-              <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-            </li>
+            
             <li>
               <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
             </li>
@@ -476,9 +474,7 @@
               <li>
                 <i class="fa fa-check"></i>Publish unlimited RFPs
               </li>
-              <li>
-                <i class="fa fa-check"></i> Unlimited RFP Views/Downloads
-              </li>
+             
               <li>
                 <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
               </li>
