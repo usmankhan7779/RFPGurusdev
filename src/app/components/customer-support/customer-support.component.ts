@@ -154,12 +154,24 @@ export class CustomerSupportComponent implements OnInit {
 
   isSubject
   queryList = [{
-      key: "Having issue in download",
-      value: "Having issue in download"
+      key: "Billing",
+      value: "Billing"
     },
     {
-      key: "Issue related to pricing",
-      value: "Issue related to pricing"
+      key: "Technical Issue",
+      value: "Technical Issue"
+    },
+    {
+      key: "General Query",
+      value: "General Query"
+    },
+    {
+      key: "App Feedback",
+      value: "App Feedback"
+    },
+    {
+      key: "Mobile App Issues",
+      value: "Mobile App Issues"
     },
     {
       key: "other",
