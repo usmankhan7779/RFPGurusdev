@@ -158,3 +158,22 @@ transform: translateX(-50%) translateY(-50%);
   flex-direction: row;
   justify-content: space-between;
 }
+.nav-tabs .nav-link {
+  font-size: 18px!important;
+  border-bottom: none!important;
+  color: #000;
+  background: #f3f3f3;
+  font-weight: 600;
+  text-align: center;
+}
+.nav-tabs .nav-item.active .nav-link {
+  color: #fff!important;
+  background-color: #000!important;
+  border-color: #000!important;
+}
+.nav-item{
+  width: 50%;
+}
+.pd-top-10px{
+  padding-top: 10px;
+}

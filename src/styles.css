@@ -2085,8 +2085,8 @@ button {
 .navbar .navbar-nav>li>a.btn.btn-rose:hover {
   background: #c00 !important;
   border-color: #c00 !important;
-  -webkit-box-shadow: 0 0 10px -5px #c00 !important;
-  box-shadow: 0 0 10px -5px #c00 !important
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important
 }
 
 .pd-left-30 {
