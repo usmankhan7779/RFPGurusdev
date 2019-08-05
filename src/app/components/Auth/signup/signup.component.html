@@ -30,6 +30,7 @@
                 <div class="tab-pane fade active in" id="User" role="tabpanel" aria-labelledby="home-tab">
                     <div class="card-content">
                         <div class="row signup-form-row">
+
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
                               <mat-form-field>
@@ -269,6 +270,8 @@
                               [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
                             <br>
                           </div>
+                       
+                       
                         </div>
                       </div>
                 </div>
@@ -316,7 +319,8 @@
                               </mat-form-field>
                             </div>
                           </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                          <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                               <mat-form-field>
                                 <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
@@ -332,7 +336,26 @@
                                 </mat-error>
                               </mat-form-field>
                             </div>
-                          </div>
+                          </div> -->
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <mat-form-field class="pos-rel">
+                          <mat-select  placeholder="Select Agency Name" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agencysearch"  required>
+                            <input class="inp" type="text"
+                              class="search-allstates" placeholder="Search By Agency">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <a class="btn btn-primary mg-0"  data-toggle="collapse" data-target="#demo">Others <i class="fa fa-angle-down"></i></a>
+                              
+                            <div id="demo" class="collapse">
+                              <input class="inp" class="search-allstates" type="text" placeholder="Type Agency" 
+                              [(ngModel)]="model.agencysearch"  name="agencysearch"  />
+                           
+                              </div>
+                            <mat-option *ngFor="let item of agen | filter:agencysearch " [value]="item.agency" >{{item.agency }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
                         </div>
                         <div class="row signup-form-row sh-adress">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

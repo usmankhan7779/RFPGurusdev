@@ -11,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { SeoService } from '../../../services/seoService';
 import { DISABLED } from '@angular/forms/src/model';
-
+import { AgancyPricingService} from '../../../components/profile/agancypricing/agancypricing.service';
 export class errorMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -48,13 +48,15 @@ export class SignupComponent implements OnInit, OnDestroy {
   endRequest;
   hide = true;
   hide1 = true;
- 
+  model : any = {};
   phone;
   public typeValidation: User;
   register: FormGroup;
+  register2: FormGroup;
   emailVerify: FormGroup;
   login: FormGroup;
   type: FormGroup;
+  agencysearch;
   digitsOnly = '^[0-9,-]+$';
   password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\\\[\\]\\-\'<>~|@_{}]).{8,}$';
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
@@ -70,8 +72,13 @@ export class SignupComponent implements OnInit, OnDestroy {
   vin_Data = { city: "", state: "", country: "" };
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
+agen;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) {
+    this._serv.rfpagen().subscribe(data => {
+      this.agen = data.Result;
+    
+    })
     window.scroll(0,0);
    }
   isFieldValid(form: FormGroup, field: string) {
@@ -150,6 +157,34 @@ export class SignupComponent implements OnInit, OnDestroy {
       });
     }
   }
+  
+  onRegisteragency(value) {
+    // alert(this.register.value.phone)
+    if (this.register.valid && this.recapcha.check()) {
+      this.isequal = true;
+      this.endRequest = this.signupService.post_service(this.register.value).subscribe(
+        data => {
+          this.send_link(this.register.value.email);
+          this.router.navigate(['/signin']);
+        },
+        error => {
+        });
+    } else {
+      this.validateAllFormFields(this.register);
+      this.captcha.resetImg();
+      // this.captcha.reset();
+      // this.isequal = false;
+
+      swal({
+        type: 'error',
+        title: 'Please confirm that you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
+    }
+  }
+  
   send_link(email) {
     this.endRequest = this.signupService.activation_service(email).subscribe(
       data => {
@@ -222,6 +257,26 @@ export class SignupComponent implements OnInit, OnDestroy {
     }, {
         validator: PasswordValidation.MatchPassword // your validation method
       });
+      this.register2 = this.formBuilder.group({
+        firstname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
+        lastname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
+        companyname: ['', Validators.compose([Validators.required])],
+        address: ['', Validators.compose([Validators.required])],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
+        city: ['', Validators.compose([Validators.required])],
+        country: ['', Validators.compose([Validators.required])],
+        state: ['', Validators.compose([Validators.required])],
+        phone: ['', Validators.compose([Validators.required])],
+        username: ['', Validators.compose([Validators.required, Validators.pattern(this.usernameOnly), Validators.minLength(3)])],
+        // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
+        email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailonly), Validators.email])],
+        // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
+        // optionsCheckboxes: ['', Validators.required],
+        password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.pattern(this.password_regex), Validators.maxLength(100)])],
+        confirmPassword: ['', Validators.compose([Validators.required, , Validators.pattern(this.password_regex)])],
+      }, {
+          validator: PasswordValidation.MatchPassword // your validation method
+        });
   }
   ngOnDestroy() {
     // this.endRequest.unsubscribe();
