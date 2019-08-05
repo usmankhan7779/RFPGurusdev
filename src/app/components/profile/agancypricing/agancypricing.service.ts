@@ -227,7 +227,7 @@ pricingimage(){
             }), { headers: this.authInterceptor.setHeaders() });
     }
     rfpagen() {
-
+if (JSON.parse(localStorage.getItem('currentUser'))){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');     
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
@@ -235,4 +235,8 @@ pricingimage(){
         return this._https.get('https://apis.rfpgurus.com/rf_p/allagencies/',
           { headers: headers }).map((response: Response) => response.json());
       }
+    else {
+        return this._https.get('https://apis.rfpgurus.com/rf_p/allagencies/' ).map((response: Response) => response.json());
+    }
+    }
 }
