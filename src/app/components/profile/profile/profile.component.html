@@ -48,13 +48,13 @@
                 <div class="col-sm-6 zip-address">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field class="example-full-width">
-                      <input class="text-capitalize" matInput placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
+                      <input class="text-capitalize" matInput placeholder="Agency Name" type="text" id="companyname" minlength="3" maxlength="64"
                         formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
                       <mat-error *ngIf="register.controls.companyname.value == ''">
-                        <strong>Company name cannot be empty</strong>
+                        <strong>Agency name cannot be empty</strong>
                       </mat-error>
                       <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                        <strong>Company Name must be between 3 and 64 characters</strong>
+                        <strong>Agency name must be between 3 and 64 characters</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>

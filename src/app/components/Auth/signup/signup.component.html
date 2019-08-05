@@ -75,15 +75,15 @@
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                               <mat-form-field>
                                 <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
-                                  placeholder="Company Name" required />
+                                  placeholder="Agency Name" required />
                                   <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                                    <strong>Company Name must be between 3 and 64 characters </strong>
+                                    <strong>Agency name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                   <mat-error *ngIf="register.controls.companyname.errors?.maxlength">
-                                    <strong>Company Name must be between 3 and 64 characters </strong>
+                                    <strong>Agency name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                 <mat-error *ngIf="register.controls.companyname.value == ''">
-                                  <strong>Company name cannot be empty</strong>
+                                  <strong>Agency name cannot be empty</strong>
                                 </mat-error>
                               </mat-form-field>
                             </div>
@@ -320,15 +320,15 @@
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                               <mat-form-field>
                                 <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
-                                  placeholder="Company Name" required />
+                                  placeholder="Agency Name" required />
                                   <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                                    <strong>Company Name must be between 3 and 64 characters </strong>
+                                    <strong>Agency name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                   <mat-error *ngIf="register.controls.companyname.errors?.maxlength">
-                                    <strong>Company Name must be between 3 and 64 characters </strong>
+                                    <strong>Agency name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                 <mat-error *ngIf="register.controls.companyname.value == ''">
-                                  <strong>Company name cannot be empty</strong>
+                                  <strong>Agency name cannot be empty</strong>
                                 </mat-error>
                               </mat-form-field>
                             </div>
