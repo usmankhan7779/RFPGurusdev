@@ -295,6 +295,7 @@ this.timer();
 timer(){
   this._serv.gettimer().subscribe( data => {
     this.totaltime = data.json();
+
     // alert(this.totaltime);
  
   })

@@ -29,8 +29,7 @@
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">
             <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
-              title="Subscribe Package">Register
-              Now
+              title="Subscribe Package">Register Now
             </a>
             <ng-template #pkg3>
               <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
