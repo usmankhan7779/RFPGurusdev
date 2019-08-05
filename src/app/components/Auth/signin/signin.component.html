@@ -4,7 +4,7 @@
     </video>
     <div class="container">
         <div class="login-form-1-center card">
-            <form [formGroup]="login" class="login-form-1 sh-signup-form-fix sh">
+            <div  class="login-form-1 sh-signup-form-fix sh">
                 <div class="login-form-1-header">
                     <h3>Sign In to Your Account</h3>
                     <div class="g-f-login text-center">
@@ -22,10 +22,9 @@
                         aria-selected="false">Agency</a>
                     </li>
                   </ul>
-                  
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active in" id="User" role="tabpanel" aria-labelledby="home-tab">
-                      
+                        <form [formGroup]="login" >
                         <div class="card-content margin-t-10">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'username')">
                                 <mat-form-field>
@@ -83,10 +82,11 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane fade" id="Agency" role="tabpanel" aria-labelledby="profile-tab">
-                      
+                        <form [formGroup]="login" >
                         <div class="card-content margin-t-10">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'username')">
                                 <mat-form-field>
@@ -144,10 +144,10 @@
                                 </div>
                             </div>
                         </div>
-
+                        </form>
                     </div>
                   </div>
-            </form>
+            </div>
         </div>
     </div>
 
