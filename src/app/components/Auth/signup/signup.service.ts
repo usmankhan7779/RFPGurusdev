@@ -26,6 +26,12 @@ export class SignupService {
     });
 
   }
+  agency(obj) {
+    return this.http.post("https://apis.rfpgurus.com/agency_register/", {
+      'obj': obj
+    });
+
+  }
   activation_service(email) {
     return this.http.post("https://apis.rfpgurus.com/ac_code/", {
       'email': email

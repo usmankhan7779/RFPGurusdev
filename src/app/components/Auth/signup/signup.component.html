@@ -7,7 +7,7 @@
     <div class="container">
       <div class="col-sm-12 margin-t-17">
         <div class="card">
-          <form [formGroup]="register" (ngSubmit)="onRegister(register.value)"
+          <div
             class="sh-signup-form-fix sh signup-form">
 
             <div class="card-header card-header-icon" data-background-color="red">
@@ -18,7 +18,7 @@
             <ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
                 <li class="nav-item active">
                   <a class="nav-link" id="home-tab" data-toggle="tab" href="#User" role="tab" aria-controls="User"
-                    aria-selected="true">User</a>
+                    aria-selected="true">Vendor</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Agency" role="tab" aria-controls="Agency"
@@ -29,7 +29,7 @@
               <div class="tab-content" id="myTabContent">
 
                 <div class="tab-pane fade active in" id="User" role="tabpanel" aria-labelledby="home-tab">
-
+<form  [formGroup]="register" (ngSubmit)="onRegister(register.value)">
                     <div class="card-content">
                         <div class="row signup-form-row">
 
@@ -78,15 +78,15 @@
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                               <mat-form-field>
                                 <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
-                                  placeholder="Agency Name" required />
+                                  placeholder="Compnay Name" required />
                                   <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                                    <strong>Agency name must be between 3 and 64 characters </strong>
+                                    <strong>Compnay Name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                   <mat-error *ngIf="register.controls.companyname.errors?.maxlength">
-                                    <strong>Agency name must be between 3 and 64 characters </strong>
+                                    <strong>Compnay Name must be between 3 and 64 characters </strong>
                                   </mat-error>
                                 <mat-error *ngIf="register.controls.companyname.value == ''">
-                                  <strong>Agency name cannot be empty</strong>
+                                  <strong>Compnay Name cannot be empty</strong>
                                 </mat-error>
                               </mat-form-field>
                             </div>
@@ -276,49 +276,49 @@
                        
                         </div>
                       </div>
-
+</form>
                 </div>
 
                 <div class="tab-pane fade" id="Agency" role="tabpanel" aria-labelledby="profile-tab">
-
+<form form [formGroup]="register2" (ngSubmit)="onRegisteragency(register2.value)">
                     <div class="card-content">
                         <div class="row signup-form-row">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
+                            <div class="form-group" [ngClass]="displayFieldCss(register2, 'firstname')">
                               <mat-form-field>
                                 <input class="sh-text-capt" matInput type="text"  (keydown.space)="$event.preventDefault()" minlength="2"  maxlength="64" id="firstname"
                                   formControlName="firstname" placeholder="First Name" required />
-                                  <mat-error *ngIf="register.controls.firstname.errors?.maxlength">
+                                  <mat-error *ngIf="register2.controls.firstname.errors?.maxlength">
                                     First Name must be between 2 to 64 characters
                                   </mat-error>
-                                  <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                                  <mat-error *ngIf="register2.controls.firstname.errors?.minlength">
                                     First Name must be between 2 to 64 characters
                                   </mat-error>
                                   
-                                <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
+                                <mat-error *ngIf="register2.controls.firstname.hasError('pattern')">
                                   Only Alphabets
                                 </mat-error>
-                                <mat-error *ngIf="register.controls.firstname.value == ''">
+                                <mat-error *ngIf="register2.controls.firstname.value == ''">
                                   <strong>First name cannot be empty</strong>
                                 </mat-error>
                               </mat-form-field>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'lastname')">
+                            <div class="form-group label-floating " [ngClass]="displayFieldCss(register2, 'lastname')">
                               <mat-form-field>
                                 <input class="sh-text-capt" matInput type="text" (keydown.space)="$event.preventDefault()" minlength="2" maxlength="64" id="lastname"
                                   formControlName="lastname" placeholder="Last Name" required />
-                                  <mat-error *ngIf="register.controls.lastname.errors?.minlength">
+                                  <mat-error *ngIf="register2.controls.lastname.errors?.minlength">
                                     Last Name must be between 2 to 64 characters
                                   </mat-error>
-                                  <mat-error *ngIf="register.controls.lastname.errors?.maxlength">
+                                  <mat-error *ngIf="register2.controls.lastname.errors?.maxlength">
                                     Last Name must be between 2 to 64 characters
                                   </mat-error>
-                                <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
+                                <mat-error *ngIf="register2.controls.lastname.hasError('pattern')">
                                   Only Alphabets
                                 </mat-error>
-                                <mat-error *ngIf="register.controls.lastname.value == ''">
+                                <mat-error *ngIf="register2.controls.lastname.value == ''">
                                   <strong>Last name cannot be empty</strong>
                                 </mat-error>
                               </mat-form-field>
@@ -344,9 +344,9 @@
                           </div> -->
                         </div>
                        
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" [ngClass]="displayFieldCss(register2, 'agency_name')">
                         <mat-form-field class="pos-rel">
-                          <mat-select  placeholder="Select Agency Name" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agencysearch"  required>
+                          <mat-select  placeholder="Select Agency Name" [(ngModel)]="model.agencysearch" name="agencysearch"  formControlName="agency_name"  required>
                             <input class="inp" type="text"
                               class="search-allstates" placeholder="Search By Agency">
                             <i class="fa fa-search " area-hidden="true"></i>
@@ -364,7 +364,7 @@
                         </div>
                         <div class="row signup-form-row sh-adress">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group text-area-placeholder label-floating" [ngClass]="displayFieldCss(register, 'address')">
+                            <div class="form-group text-area-placeholder label-floating" [ngClass]="displayFieldCss(register2, 'address')">
                               <mat-form-field>
                                 <textarea matInput type="text" id="address" class="resize-no"
                                   formControlName="address" placeholder="Address" required></textarea>
@@ -376,35 +376,35 @@
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                            <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'zipcode')">
+                            <div class="form-group label-floating " [ngClass]="displayFieldCss(register2, 'zipcode')">
                               <mat-form-field class="zipCodee text-area-placeholder">
                                 <input matInput type="number" maxlength="5" id="zipcode" min="0" 
-                                  (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
+                                  (change)="zipcodeCheck2(zipcode2.value)" #zipcode2 formControlName="zipcode"
                                   placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
-                                <mat-error *ngIf="register.controls.zipcode.value == ''">
+                                <mat-error *ngIf="register2.controls.zipcode.value == ''">
                                   <strong>Zipcode cannot be empty</strong>
                                 </mat-error>
-                                <mat-error class="border-right" *ngIf="register.controls.zipcode.hasError('pattern')">
+                                <mat-error class="border-right" *ngIf="register2.controls.zipcode.hasError('pattern')">
                                   Only Numbers
                                 </mat-error>
-                                <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
+                                <mat-error *ngIf="register2.controls.zipcode.errors?.minlength">
                                   Only 5 Numbers.
                                 </mat-error>
                               </mat-form-field>
-                              <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                              <p class="clr_red" *ngIf="invalid  && !vin_Data2.city2 && !vin_Data2.state2 && !vin_Data2.country2">
                                 Invalid Zipcode
                               </p>
-                              <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                              <p *ngIf="!invalid  && vin_Data2.city2 && vin_Data2.state2 && vin_Data2.country2">
                                 
                               </p>
                             </div>
                           </div>
                           
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'city')">
                               <mat-form-field>
-                                <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
-                                  value="{{vin_Data.city}}" placeholder="City" required />
+                                <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data2.city2"
+                                  value="{{vin_Data2.city2}}" placeholder="City" required />
                                 <!-- <mat-error *ngIf="register.controls.city.value == ''">
                                   <strong>City cannot be empty</strong>
                                 </mat-error> -->
@@ -415,9 +415,9 @@
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'state')">
                               <mat-form-field>
-                                <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
+                                <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data2.state2}}"
                                   formControlName="state" placeholder="State" required />
                                 <!-- <mat-error *ngIf="register.controls.state.value == ''">
                                   <strong>State cannot be empty</strong>
@@ -428,10 +428,10 @@
                           </div>
           
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'country')">
                               <mat-form-field>
-                                <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
-                                  value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
+                                <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data2.country2"
+                                  value="{{vin_Data2.country2}}" formControlName="country" placeholder="Country" required />
                                 <!-- <mat-error *ngIf="register.controls.country.value == ''">
                                   <strong>Country cannot be empty</strong>
                                 </mat-error> -->
@@ -439,13 +439,13 @@
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register, 'phone')">
+                            <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register2, 'phone')">
                               <int-phone-prefix type="number" minlength="13" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
                               </int-phone-prefix>
                               <mat-error *ngIf="register.controls.phone.value == ''">
                                 <strong>phone cannot be empty</strong>
                               </mat-error>
-                              <mat-error  *ngIf="register.controls.phone.errors?.minlength">
+                              <mat-error  *ngIf="register2.controls.phone.errors?.minlength">
                                 <strong> phone number cannot be less than 13 numbers </strong>
                               </mat-error>
                             </div>
@@ -453,15 +453,15 @@
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'email')">
                               <mat-form-field>
                                 <input matInput type="text" maxlength="255" id="email" (ngModelChange)="emailCheck(email1.value)"
                                   formControlName="email" #email1 placeholder="Email" required />
-                                <mat-error *ngIf="register.controls.email.value == ''">
+                                <mat-error *ngIf="register2.controls.email.value == ''">
                                   <strong>Email cannot be empty</strong>
                                 </mat-error>
                                 
-                                <mat-error *ngIf="register.controls.email.hasError('email')">
+                                <mat-error *ngIf="register2.controls.email.hasError('email')">
                                   Please enter a valid email address
                                 </mat-error>
                               </mat-form-field>
@@ -471,7 +471,7 @@
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'username')">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'username')">
                               <mat-form-field>
                                 <input [disabled]="emailexist" matInput type="text"   (keydown.space)="$event.preventDefault()"  maxlength="64" id="username" minlength="3"
                                   (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
@@ -479,17 +479,17 @@
                                   <!-- <mat-error *ngIf="register.controls.username.maxlength">
                                     <strong> Username must be between 3 and 64 characters </strong>
                                   </mat-error> -->
-                                  <mat-error  *ngIf="register.controls.username.errors?.minlength">
+                                  <mat-error  *ngIf="register2.controls.username.errors?.minlength">
                                     <strong> Username must be between 3 and 64 characters </strong>
                                   </mat-error>
-                                <mat-error *ngIf="register.controls.username.value == ''">
+                                <mat-error *ngIf="register2.controls.username.value == ''">
                                   Username cannot be empty
                                 </mat-error>
-                                <mat-error *ngIf="register.controls.username.hasError('pattern')">
+                                <mat-error *ngIf="register2.controls.username.hasError('pattern')">
                                   Invalid Username
                                 </mat-error>
                               </mat-form-field>
-                              <p *ngIf="usernameexist && register.controls.username.value != ''" class="clr_red">
+                              <p *ngIf="usernameexist && register2.controls.username.value != ''" class="clr_red">
                               Username already exists
                               </p>
                             </div>
@@ -497,7 +497,7 @@
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'password')">
+                            <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register2, 'password')">
                               <mat-form-field>
                                 <input [disabled]="emailexist || usernameexist" maxlength="32" [type]="hide ? 'password' : 'text'"
                                 onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -507,19 +507,19 @@
                                 <mat-error *ngIf="register.controls.password.value == ''">
                                   <strong>Password cannot be empty</strong>
                                 </mat-error>
-                                <mat-error *ngIf="register.controls.password.hasError('pattern')">
+                                <mat-error *ngIf="register2.controls.password.hasError('pattern')">
                                   Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character
                                 </mat-error>
                               </mat-form-field>
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'confirmPassword')">
+                            <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register2, 'confirmPassword')">
                               <mat-form-field>
                                 <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
                                 <i matSuffix (click)="hide1 = !hide1" class=" {{!hide1 ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                                 <mat-error
-                                  *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
+                                  *ngIf="(register2.controls.confirmPassword.value != register2.controls.password.value) || register2.controls.confirmPassword.value == ''">
                                   <strong>Password must match
                                   </strong>
                                 </mat-error>
@@ -539,17 +539,18 @@
                                   class="vt-middle" [routerLink]="['/privacy']" target="_blank"> Privacy Policy.</a>
                             </div>
                             <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
-                              [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
+                            [disabled]="!register2.valid || emailexist || usernameexist|| terms || disabledAgreement"
+                              >Sign up</button>
                             <br>
                           </div>
                         </div>
                       </div>
-                      
+                      </form>
                 </div>
               </div>
 
 
-          </form>
+            </div>
         </div>
       </div>
     </div>
