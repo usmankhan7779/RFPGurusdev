@@ -62,6 +62,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   emailonly = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   usernameOnly = '[a-zA-Z0-9_.]+';
   textonly = '[a-zA-Z]+'
+  public phoneMask = ['+', '1', '-', /[1-9]/, /\d/, /\d/, '-',  /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   emailexist: boolean = false;
   usernameexist: boolean = false;
   agencyname;
@@ -72,7 +73,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   matcher = new errorMatcher();
   vin_Data = { city: "", state: "", country: "" };
   vin_Data2 = { city2: "", state2: "", country2: "" };
-  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  // public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
 agen;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) {
@@ -88,7 +89,16 @@ agen;
   }
   resolved(captchaResponse: string) {
   }
-
+  public isInvalid: boolean = false;
+  public change2(event: any): void {
+    var phn = this.model.contact_no.split('_').join('').split('-').join('').split('+').join('').length
+    if (phn < 11) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+    }
+  }
   displayFieldCss(form: FormGroup, field: string) {
     return {
       'has-error': this.isFieldValid(form, field),
@@ -96,8 +106,12 @@ agen;
     };
   }
   disabledAgreement: boolean = true;
+  disabledAgreement2: boolean = true;
   changeCheck(event){
     this.disabledAgreement = !event.checked;
+  }
+  changeCheck2(event){
+    this.disabledAgreement2 = !event.checked;
   }
  
    

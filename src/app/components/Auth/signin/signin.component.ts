@@ -297,7 +297,7 @@ localStorage.setItem('loged_in2' , this.loginagency.value.username )
               } 
               
               else {
-                this._nav.navigate(['/pricing']);
+                this._nav.navigate(['/agencypricing']);
               }
               // this._location.back();
             },
