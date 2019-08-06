@@ -2624,11 +2624,6 @@ body {
   font-size: 125% !important
 }
 
-.sh-signup-form-fix.edit-profile .form-group {
-  padding-bottom: 0 !important;
-  margin: 0 !important
-}
-
 .sh-signup-form-fix .mat-form-field-infix {
   border-top: 0 solid transparent;
   padding: 6px 0;
@@ -3619,9 +3614,15 @@ padding: 0 5px;
   -ms-transform: translateY(-1.58125em) scale(.75);
 }
 .mat-form-field-prefix, .mat-form-field-suffix{
+  bottom: 10px;
+}
+.signup-main .mat-form-field-prefix,.signup-main .mat-form-field-suffix,.login-form-1-img .mat-form-field-prefix,.login-form-1-img .mat-form-field-suffix{
   bottom: 15px;
 }
-
+.btn{
+      padding: 6px 20px;
+}
+/* .............................Queries........................................... */
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important
