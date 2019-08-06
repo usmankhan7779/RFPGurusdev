@@ -70,6 +70,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   terms:boolean;
   matcher = new errorMatcher();
   vin_Data = { city: "", state: "", country: "" };
+  vin_Data2 = { city2: "", state2: "", country2: "" };
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
 agen;
@@ -100,7 +101,7 @@ agen;
  
    
   invalid
-
+  zipcode2;
   zipcodeCheck(zipcode1) {
     if (zipcode1.length > 4) {
       this.endRequest = this.signupService.zipcode(zipcode1).subscribe(
@@ -115,6 +116,23 @@ agen;
             delete this.vin_Data.city;
             delete this.vin_Data.state;
             delete this.vin_Data.country;
+      });
+    }
+  }
+  zipcodeCheck2(zipcode2) {
+    if (zipcode2.length > 4) {
+      this.endRequest = this.signupService.zipcode(zipcode2).subscribe(
+        data => {
+          this.vin_Data2.city2 = data['city'];
+          this.vin_Data2.state2 = data['state'];
+          this.vin_Data2.country2 = data['country'];
+        },
+          error => {
+            error.status== 400
+            this.invalid=error.status;
+            delete this.vin_Data2.city2;
+            delete this.vin_Data2.state2;
+            delete this.vin_Data2.country2;
       });
     }
   }
@@ -142,7 +160,8 @@ agen;
         },
         error => {
         });
-    } else {
+    } 
+    else {
       this.validateAllFormFields(this.register);
       this.captcha.resetImg();
       // this.captcha.reset();
@@ -162,27 +181,28 @@ agen;
     // alert(this.register.value.phone)
     if (this.register.valid && this.recapcha.check()) {
       this.isequal = true;
-      this.endRequest = this.signupService.post_service(this.register.value).subscribe(
+      this.endRequest = this.signupService.agency(this.register2.value).subscribe(
         data => {
-          this.send_link(this.register.value.email);
+          this.send_link(this.register2.value.email);
           this.router.navigate(['/signin']);
         },
         error => {
         });
-    } else {
-      this.validateAllFormFields(this.register);
-      this.captcha.resetImg();
-      // this.captcha.reset();
-      // this.isequal = false;
-
-      swal({
-        type: 'error',
-        title: 'Please confirm that you are not a robot',
-        showConfirmButton: false,
-        width: '512px',
-        timer: 2000
-      });
-    }
+      }
+      else {
+        this.validateAllFormFields(this.register2);
+        this.captcha.resetImg();
+        // this.captcha.reset();
+        // this.isequal = false;
+  
+        swal({
+          type: 'error',
+          title: 'Please confirm that you are not a robot',
+          showConfirmButton: false,
+          width: '512px',
+          timer: 2000
+        });
+      }
   }
   
   send_link(email) {
@@ -258,9 +278,9 @@ agen;
         validator: PasswordValidation.MatchPassword // your validation method
       });
       this.register2 = this.formBuilder.group({
-        firstname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
+        firstname: ['',  Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
         lastname: ['', Validators.compose([Validators.required, Validators.pattern(this.textonly),Validators.minLength(2)])],
-        companyname: ['', Validators.compose([Validators.required])],
+        agency_name: ['', Validators.compose([Validators.required])],
         address: ['', Validators.compose([Validators.required])],
         zipcode: ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
         city: ['', Validators.compose([Validators.required])],
