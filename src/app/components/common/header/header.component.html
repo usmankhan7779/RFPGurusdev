@@ -255,12 +255,21 @@
         </ul>
         <!--............-->
         <ul class="navbar-nav sh-signin-signup">
-          <li *ngIf="check_login() && !agencycheck_login()" class="vanders">
+          <li *ngIf="check_login() " class="vanders">
             <a onclick="topFunction()" routerLink="/profile">
               <i class="fa fa-user" aria-hidden="true"></i>My RFPGurus
             </a>
             <div class="profile-name drop-downs">
               <ul class="nav-vanders  why-rfp-sublist">
+                  
+                  <li *ngIf="agencycheck_login()">
+                      <a onclick="topFunction()" routerLink="/agencypricing">
+                        <i class="fa fa-building" aria-hidden="true"></i>Agency Subscription</a>
+                    </li>
+                    <li *ngIf="agencycheck_login()">
+                      <a onclick="topFunction()" routerLink="/AddRfps">
+                        <i class="fa fa-building" aria-hidden="true"></i>Publish RFPs</a>
+                    </li>
                 <li *ngIf="check_login()">
                   <a  onclick="topFunction()" routerLink="/preferences">
                     <i class="fa fa-newspaper-o" aria-hidden="true"></i>
@@ -274,19 +283,16 @@
                   <a onclick="topFunction()" routerLink="/my-watchlist">
                     <i class="fa fa-heart" aria-hidden="true"></i>My Watch List</a>
                 </li>
-                <li *ngIf="check_login()">
+                <li *ngIf="check_login() || agencycheck_login()">
                   <a onclick="topFunction()" routerLink="/profile">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>Profile</a>
                 </li>
-                <li *ngIf="check_login()">
+                <li *ngIf="check_login() && !agencycheck_login()">
                   <a onclick="topFunction()" routerLink="/purchase-history">
                     <i class="fa fa-history" aria-hidden="true"></i>Subscription</a>
                 </li>
+             
               
-                <li *ngIf="agencycheck_login() && !check_login()">
-                    <a onclick="topFunction()" routerLink="/agencypricing">
-                      <i class="fa fa-building" aria-hidden="true"></i>Agency Subscription</a>
-                  </li>
                 <li *ngIf="check_login()">
                   <a onclick="topFunction()" routerLink="/payment">
                     <i class="fa fa-money"></i>Payment Methods</a>

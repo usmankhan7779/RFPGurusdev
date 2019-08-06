@@ -77,6 +77,7 @@ export class SigninComponent implements OnInit {
            token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
+          localStorage.setItem('loged_in2', '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
         swal({
@@ -200,7 +201,7 @@ export class SigninComponent implements OnInit {
                 this._nav.navigate(['rfp/'], { queryParams: { query: url } });
                 }
               } else {
-                this._nav.navigate(['/']);
+                this._nav.navigate(['/pricing']);
               }
               // this._location.back();
             },
@@ -260,7 +261,7 @@ export class SigninComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
-localStorage.setItem('agency' , this.loginagency.value.username )
+localStorage.setItem('loged_in2' , this.loginagency.value.username )
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length
@@ -296,7 +297,7 @@ localStorage.setItem('agency' , this.loginagency.value.username )
               } 
               
               else {
-                this._nav.navigate(['/']);
+                this._nav.navigate(['/pricing']);
               }
               // this._location.back();
             },
@@ -406,7 +407,7 @@ localStorage.setItem('agency' , this.loginagency.value.username )
       // alert(this.logedin)
     }
     if (isPlatformBrowser(this.platformId)) {
-      this.agencylogin = localStorage.getItem('agency');
+      this.agencylogin = localStorage.getItem('loged_in2');
       // alert(this.agencylogin)
     }
     if (this.logedin == 1) {

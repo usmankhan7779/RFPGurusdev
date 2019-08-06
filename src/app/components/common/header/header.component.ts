@@ -67,6 +67,7 @@ export class HeaderComponent implements OnInit {
     this.check_login1(); 
     this.check_adminlogin();
     this.check_login();
+    this.agencycheck_login();
   }
   logout() {
     this.authService.signOut();
@@ -239,17 +240,17 @@ export class HeaderComponent implements OnInit {
       return false;
     }
   }
-  
+  lacal : boolean = false; 
   agencycheck_login() {
     // alert(localStorage.getItem('currentUser'))
-    if (localStorage.getItem('agency')) {
+    if (localStorage.getItem('loged_in2')) {
   //  alert(localStorage.getItem('agency'))
-      this.lacal_user = true;
+      this.lacal = true;
  
 
       return true;
     } else {
-      this.lacal_user = false;
+      this.lacal = false;
   
       return false;
     }
