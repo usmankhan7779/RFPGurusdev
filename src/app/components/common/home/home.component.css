@@ -900,8 +900,8 @@
 .on-load-popup .close-button {
     float: right;
     position: absolute;
-    right: 6px;
-    top: 13px
+    right: 0px;
+    top: 5px
 }
 
 .on-load-popup .close-button button {
