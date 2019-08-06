@@ -64,6 +64,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   textonly = '[a-zA-Z]+'
   emailexist: boolean = false;
   usernameexist: boolean = false;
+  agencyname;
   isequal;
   meaasge;
   btnSubmit;
@@ -142,6 +143,16 @@ agen;
         this.usernameexist = data;
       });
   }
+  agency(agencyname) {
+    this.endRequest = this.signupService.agency_exist(agencyname).subscribe(
+      (data: boolean) => {
+        this.agencyname = data;
+    
+      }
+      
+      
+      );
+  }
   emailCheck(email1) {
     this.endRequest = this.signupService.email_exist(email1).subscribe(
       (data: boolean) => {
@@ -179,7 +190,7 @@ agen;
   
   onRegisteragency(value) {
     // alert(this.register.value.phone)
-    if (this.register.valid && this.recapcha.check()) {
+ 
       this.isequal = true;
       this.endRequest = this.signupService.agency(this.register2.value).subscribe(
         data => {
@@ -188,21 +199,21 @@ agen;
         },
         error => {
         });
-      }
-      else {
-        this.validateAllFormFields(this.register2);
-        this.captcha.resetImg();
-        // this.captcha.reset();
-        // this.isequal = false;
+      
+      // else {
+      //   this.validateAllFormFields(this.register2);
+      //   this.captcha.resetImg();
+      //   // this.captcha.reset();
+      //   // this.isequal = false;
   
-        swal({
-          type: 'error',
-          title: 'Please confirm that you are not a robot',
-          showConfirmButton: false,
-          width: '512px',
-          timer: 2000
-        });
-      }
+      //   swal({
+      //     type: 'error',
+      //     title: 'Please confirm that you are not a robot',
+      //     showConfirmButton: false,
+      //     width: '512px',
+      //     timer: 2000
+      //   });
+      // }
   }
   
   send_link(email) {

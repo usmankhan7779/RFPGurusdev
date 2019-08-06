@@ -1,5 +1,5 @@
  
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject,  ElementRef, ViewChild } from '@angular/core';
 // import { AdminPanelComponent } from '../admin-penal/admin-penal.component';
 // import { PagerService } from './../rfps/rfp/paginator.service';
 // import { AllRfpsService } from '../all/all-rfps/all-rfps.service';
@@ -10,17 +10,26 @@ import { PagerService } from 'src/app/services/paginator.service';
 import { AdvanceService } from './advance.service';
 import { AllRfpsService } from './all-rfps.service';
 import { Http } from '@angular/http';
-
- 
+import { FormGroup, Validators, FormControl,FormBuilder, NgForm } from '@angular/forms';
 import { AgancyPricingService} from '../agancypricing/agancypricing.service';
+import { Location, NgForOf, DatePipe } from '@angular/common';
+declare var $:any;
+import { HomeService } from '../../common/home/home.service';
 @Component({
   selector: 'app-addrfps',
   templateUrl: './addrfps.component.html',
-  styleUrls: ['./addrfps.component.css'],
+  styleUrls: [
+  './addrfps.component.css',
+  '../../local-style/payment.css',
+  '../../local-style/single-pricing.css',
+  '../../local-style/cradet-card-box.css',
+  './pricingsteps.component.scss'
+],
   providers: [PagerService,AdvanceService,AllRfpsService]
 })
 export class AddrfpsComponent implements OnInit {
   data:any=[];url;
+  @ViewChild('openModal') openModal: ElementRef;
   agency_show:boolean=false;
   category_show:boolean=false;
   subcate_show:boolean=false;
@@ -35,9 +44,124 @@ export class AddrfpsComponent implements OnInit {
   id; web_infoo;
    subcat; seoTitleUrl; bid_type; agency_type; city_or_county; city;
   date_entered; due_date; web_info; rfp_reference;
+  isfreetrial;
+  show_pirce;
+  record;
+  pkgList;
+  userdetail;
+  free() {
+    if (localStorage.getItem('currentUser')) {
+      this.valuee = "BM";
+      this.isfreetrial = true;
+      this.Yplan = false;
+      this.Mplan = false;
+      this.Fplan = true;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else {
+      this._nav.navigate(['signin']);
+    }
+  }
+  publish() {
+    if (localStorage.getItem('currentUser')) {
+      this.valuee = "";
+      this.isfreetrial = true;
+      this.Yplan = false;
+      this.Mplan = false;
+      this.Fplan = true;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else {
+      this._nav.navigate(['signin']);
+    }
+  }
+  modal : any = {};
+  selectPlan({ value }) {
+    if (value == "BM") {
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (value == "PY") {
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.prv_stepdetail("P", "Y");
+    }
+  }
+  payed() {
+    if (localStorage.getItem('currentUser')) {
+      this.isfreetrial = false;
+      $('#exampleModalCenter').modal('hide');
+    }
+    else {
+      this._nav.navigate(['signin']);
+    }
+  }
+  agencySearch=new FormGroup({
+    agencysearch: new FormControl('',[])
+  })
+  pkgsub = false;
+  pkg_detail = {};
+  valuee = 'BM';
+  CCV: FormGroup;
+  CardNumber = '^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$';
+  ExpiryDate = '([0-9]{2}[/]?){2}';
+  vin_Data = { city: "", state: "", country: "" };
+  Mplan = true;
+  Yplan = true;
+  Fplan = true;
+  planSelected = false;
+  form: FormGroup;
+  CardNumberForm;
+  CardNumberForm2;
+  var_get_id;
+  CardCodeForm;
+  CardCodeForm2;
+  ExpiryDateForm
+  firststep(value) {
+    window.scroll(0, 0);
+    this.valuee = value;
+    if (value == "BM") {
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (value == "PY") {
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("P", "Y");
+    }
+  }
+  text:any = {
+    Year: 'Year',
+    Month: 'Month',
+    Weeks: "Weeks",
+    Days: "Days",
+    Hours: "Hrs",
+    Minutes: "Mins",
+    Seconds: "Secs",
+    MilliSeconds: "MilliSeconds"
+  };
+  prv_stepdetail(type, dur) {
+    this.pkg_detail['type'] = type
+    this.pkg_detail['dur'] = dur
+    this.pkgsub = true;
+  }
+  
+  name;
+  address;
+  isright;
   constructor(private _http: Http,
     private _serv1: AdvanceService, private _serv: AgancyPricingService,
-    private router: Router ) {
+    private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  ) {
     
    }
   acgeny_check(){
@@ -49,8 +173,9 @@ export class AddrfpsComponent implements OnInit {
       subchk(){
         this.subcate_show=true;
       }
+      eachcardid;
   ngOnInit() {
-    
+ 
     this._serv1.rfpstate().subscribe(
       data => {
         this.Statess = data.Result;
@@ -118,7 +243,9 @@ export class AddrfpsComponent implements OnInit {
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
   }
-
+checksub(){
+  this.mainFunction();
+}
   model : any = {};
   editClick() {
    
@@ -179,4 +306,537 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
     
   }
 }
+result; trial;
+local;
+uname;
+ngOnDestroy() {
+  $('#exampleModalCenter').modal('hide');
+}
+check_login() {
+  if (localStorage.getItem('currentUser')) {
+    this.local = localStorage.getItem('currentUser');
+    let pars = JSON.parse(this.local);
+    this.uname = pars.username
+    return false
+  }
+  else {
+    return true
+  }
+}
+isInvalid2;
+isInvalidl;
+date;
+setautopay;
+records;
+mainFunction() {
+  if (localStorage.getItem('currentUser')) {
+      this.local = localStorage.getItem('currentUser');
+      let pars = JSON.parse(this.local);
+      this.uname = pars.username
+      this._home.agenyprotel().subscribe(
+          data => {
+            // message: "Agency is not Subscribed"
+              if (data['message'] == "Agency Subscribed") {
+                this.Fplan = false
+                this.Mplan=false;
+                this.Yplan=false;
+                // this.planSelected = true
+                this.show_pirce= false;
+              
+                  // this._serv4.purchaseHistory().subscribe(
+                  //     data => {
+                          this.record = data['subscription_detail'];
+                          this.pkgList = data['subscription_detail']['pkg_fk'];
+                          this.result = true;
+
+                          var date = new Date();
+                          this.userdetail = data['reg_fk'];
+                        
+                        
+                          var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                      // },
+                      // error => {
+                      //     this.nofound = true;
+                      // })
+
+              } 
+              else if (data['message'] == "Trail Agency Subscribed") {
+                this.records = data['subscription_detail'];
+                this.pkgList = data['subscription_detail']['pkg_fk'];
+                this.trial = true;
+
+                var date = new Date();
+                this.userdetail = data['reg_fk'];
+              
+             
+                var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                  // this._serv4.trialHistory().subscribe(
+                  //     data => {
+                  //         // this.nofound=false;
+                  //         this.trial = data;
+                  //     }, error => {
+
+
+                  //         this.nofound = true;
+
+                  //     })
+              }
+              else if (data['message'] == "Agency is not Subscribed") {
+                // this.records = data['subscription_detail'];
+                // this.pkgList = data['subscription_detail']['pkg_fk'];
+                // this.trial = true;
+
+                // var date = new Date();
+                // this.userdetail = data['reg_fk'];
+              
+             this.nodata = data;
+             swal(
+              'Agency is not Subscribed.',
+              '',
+              'error'
+            )
+                  // this._serv4.trialHistory().subscribe(
+                  //     data => {
+                  //         // this.nofound=false;
+                  //         this.trial = data;
+                  //     }, error => {
+
+
+                  //         this.nofound = true;
+
+                  //     })
+              }
+              else {
+                  this.nofound = true;
+                  // alert(this.nofound)
+              }
+          },
+          error => {
+              this.nofound = true;
+              // alert(this.nofound)
+          });
+  }
+
+}
+nodata;
+nofound;
+proceed(f: NgForm) {
+  this.local = localStorage.getItem('currentUser');
+  let pars = JSON.parse(this.local);
+  this.uname = pars.username
+  this.date = this.model.expirationdate;
+  // if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+    // if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+      if (this.isfreetrial == true) {
+        if (this.isright == true) {
+              if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null  && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+    if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+      if(this.isInvalid==false && this.isInvalid2==false){
+        this._serv.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
+  
+          this.model.defaultcard = Data.id
+          if (Data.id) {
+            this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+              .subscribe(data => {
+                swal(
+                  'Your payment is posted successfully.',
+                  '',
+                  'success'
+                )
+                this._nav.navigate(['purchase-history'])
+                if (localStorage.getItem('member')) {
+                  let url = localStorage.getItem('member')
+                  let last = url.length
+                  let ur = url.slice(0, 13)
+                  let state = url.slice(0, 5)
+                  let category = url.slice(0, 8)
+                  let agency = url.slice(0, 6)
+
+                  if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                  else if (state == 'state') {
+                    this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                  }
+                  else if (category == 'category') {
+                    this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                  }
+                  else if (agency == 'agency') {
+
+                    this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                  }
+                  else {
+                    this._nav.navigate([url]);
+                  }
+                } else {
+                  this._nav.navigate(['/']);
+                }
+              
+                f.resetForm()
+                this._nav.navigate(['purchase-history'])
+              },
+            
+                error => {
+                  if (error.status == 500) {
+                    swal(
+                      'Oops',
+                      'Internal server error',
+                      'error'
+                    )
+                  }
+                  else if (error.status == 404) {
+                    swal(
+                      'You have already subscribed for free trial.',
+                      '',
+                      'error'
+                    )
+                  }
+                  else if (error.status == 403) {
+                    swal(
+                      'You have already subscribed',
+                      '',
+                      'error'
+                    )
+                  }
+                  else if (error.status == 400) {
+                    swal(
+                      'Sorry',
+                      'Select payment card and subscription plan first.',
+                      'error'
+                    )
+                  }
+                });
+          }
+          else {
+            swal(
+              'Oops',
+              'Something went wrong Please Try Again',
+              'error'
+            )
+          }
+        },
+        error => {
+          if (error.status === 406) {
+            swal({
+              type: 'error',
+              title: 'Card Number already exist',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+            })
+          }
+          else if(error.status === 405){
+            swal({
+              type: 'error',
+              title: 'Card details are not valid',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+            })
+          }
+        })
+      }
+      else {
+        swal({
+          type: 'error',
+          title: 'Invalid details',
+          showConfirmButton: false,
+          timer: 1500, width: '512px',
+        })
+      }     
+    }
+    else {
+      swal({
+        type: 'error',
+        title: 'Invalid details',
+        showConfirmButton: false,
+        timer: 1500, width: '512px',
+      })
+    }
+    }
+   
+  else {
+    swal({
+      type: 'error',
+      title: ' Please fill in all the fields ',
+      showConfirmButton: false,
+      timer: 1500, width: '512px',
+    })
+  }
+          // f.resetForm()
+        } else if (this.isright == false) {
+          this._serv.package_free_trial(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
+            .subscribe(data => {
+              swal(
+                'Your payment has been transferred',
+                '',
+                'success'
+              )
+              if (localStorage.getItem('member')) {
+                let url = localStorage.getItem('member')
+                let last = url.length
+                let ur = url.slice(0, 13)
+                let state = url.slice(0, 5)
+                let category = url.slice(0, 8)
+                let agency = url.slice(0, 6)
+  
+                if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                else if (state == 'state') {
+                  this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                }
+                else if (category == 'category') {
+                  this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                }
+                else if (agency == 'agency') {
+  
+                  this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                }
+                else {
+                  this._nav.navigate([url]);
+                }
+              } else {
+                this._nav.navigate(['/']);
+              }
+              f.resetForm()
+              this._nav.navigate(['purchase-history'])
+            },
+              error => {
+                if (error.status == 500) {
+                  swal(
+                    'Oops',
+                    'Internal server error',
+                    'error'
+                  )
+                }
+                else if (error.status == 404) {
+                  swal(
+                    'You have already subscribed for free trial',
+                    '',
+                    'error'
+                  )
+                }
+                else if (error.status == 403) {
+                  swal(
+                    'You have already subscribed',
+                    '',
+                    'error'
+                  )
+                }
+                else if (error.status == 200) {
+                  swal(
+                    'Your payment has been transferred',
+                    '',
+                    'success'
+                  )
+                }
+                else if (error.status == 400) {
+                  swal(
+                    'Sorry',
+                    'Select payment card and subscription plan first',
+                    'error'
+                  )
+                }
+              });
+        }
+      } else {
+        if (this.isright == true) {
+          if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
+            if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
+              if(this.isInvalid == false && this.isInvalid2==false){
+                this._serv.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
+  
+                  this.model.defaultcard = Data.id
+                  if (Data.id) {
+                    this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+                      data => {
+                        swal(
+                          'Your payment has been transferred',
+                          '',
+                          'success'
+                        )
+                        if (localStorage.getItem('member')) {
+                          let url = localStorage.getItem('member')
+                          let last = url.length
+                          let ur = url.slice(0, 13)
+                          let state = url.slice(0, 5)
+                          let category = url.slice(0, 8)
+                          let agency = url.slice(0, 6)
+        
+                          if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                          else if (state == 'state') {
+                            this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                          }
+                          else if (category == 'category') {
+                            this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                          }
+                          else if (agency == 'agency') {
+        
+                            this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                          }
+                          else {
+                            this._nav.navigate([url]);
+                          }
+                        } else {
+                          this._nav.navigate(['/']);
+                        }
+                        f.resetForm()
+                        this._nav.navigate(['purchase-history'])
+                      },
+                      error => {
+                        if (error.status == 403) {
+                          swal(
+                            'You have already subscribed',
+                            '',
+                            'error'
+                          )
+                        }
+                        // swal(
+                        //   'Oops',
+                        //   'Something went wrong',
+                        //   'error'
+                        // )
+                      });
+                  }
+                  //  else {
+                  //   swal(
+                  //     'Oops',
+                  //     'Something went wrong Please Try Again.',
+                  //     'error'
+                  //   )
+                  // }
+                },
+                error => {
+                  if (error.status === 406) {
+                    swal({
+                      type: 'error',
+                      title: 'Card Number already exist',
+                      showConfirmButton: false,
+                      timer: 1500, width: '512px',
+                    })
+                  }
+                  else if(error.status === 405){
+                    swal({
+                      type: 'error',
+                      title: 'Card details are not valid',
+                      showConfirmButton: false,
+                      timer: 1500, width: '512px',
+                    })
+                  }
+                })
+              }
+              else {
+                swal({
+                  type: 'error',
+                  title: 'Invalid detail',
+                  showConfirmButton: false,
+                  timer: 1500, width: '512px',
+                })
+              }
+        }
+          else {
+            swal({
+              type: 'error',
+              title: 'Invalid detail',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+            })
+          }
+        }
+         
+        else {
+          swal({
+            type: 'error',
+            title: ' Please fill in all the fields ',
+            showConfirmButton: false,
+            timer: 1500, width: '512px',
+          })
+        }
+        } else if (this.isright == false) {
+          this._serv.package_free(this.isright, this.eachcardid, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
+            data => {
+              swal(
+                'Your payment has been transferred',
+                '',
+                'success'
+              )
+              if (localStorage.getItem('member')) {
+                let url = localStorage.getItem('member')
+                let last = url.length
+                let ur = url.slice(0, 13)
+                let state = url.slice(0, 5)
+                let category = url.slice(0, 8)
+                let agency = url.slice(0, 6)
+  
+                if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                else if (state == 'state') {
+                  this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                }
+                else if (category == 'category') {
+                  this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                }
+                else if (agency == 'agency') {
+  
+                  this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                }
+                else {
+                  this._nav.navigate([url]);
+                }
+              } else {
+                this._nav.navigate(['/']);
+              }
+              f.resetForm()
+              this._nav.navigate(['purchase-history'])
+            },
+  
+            error => {
+              if (error.status == 500) {
+                swal(
+                  'Oops',
+                  'Internal server error',
+                  'error'
+                )
+              }
+              else if (error.status == 404) {
+                swal(
+                  'You have already subscribed for free trial',
+                  '',
+                  'error'
+                )
+              }
+              else if (error.status == 400) {
+                swal(
+                  'Sorry',
+                  'Select payment card and subscription plan first',
+                  'error'
+                )
+              }
+              else if(error.status==403){
+                swal(
+                  'Sorry',
+                  'You have already subscribed',
+                  'info'
+                )
+              }
+            });
+        }
+    }
+    
+    // }
+    // else {
+    //   swal({
+    //     type: 'error',
+    //     title: 'Invalid detail',
+    //     showConfirmButton: false,
+    //     timer: 1500, width: '512px',
+    //   })
+    // }
+    // }
+   
+  // else {
+  //   swal({
+  //     type: 'error',
+  //     title: ' Please fill in all the fields ',
+  //     showConfirmButton: false,
+  //     timer: 1500, width: '512px',
+  //   })
+  // }
+f.resetForm()
+}
+isInvalid;
 }

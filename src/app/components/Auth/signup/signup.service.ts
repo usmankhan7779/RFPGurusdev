@@ -19,7 +19,11 @@ export class SignupService {
       'username': username
     });
   }
-
+  agency_exist(agency) {
+    return this.http.post('https://apis.rfpgurus.com/agency_exist/', {
+      'agency': agency
+    });
+  }
   post_service(obj) {
     return this.http.post("https://apis.rfpgurus.com/register/", {
       'obj': obj

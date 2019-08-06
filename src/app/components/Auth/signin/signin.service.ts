@@ -43,7 +43,11 @@ export class SigninService {
       'username': username
     }, this.httpOptions);
   }
-
+agencycheck(username){
+  return this.http.post('https://apis.rfpgurus.com/agency_authenticated_login/', {
+    'username': username
+  }, this.httpOptions);
+}
   authenticate_service(uid) {
     return this.http.get('https://apis.rfpgurus.com/activate/' + uid,
       this.httpOptions).map((response: Response) => response.json());

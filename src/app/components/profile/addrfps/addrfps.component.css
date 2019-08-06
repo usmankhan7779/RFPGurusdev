@@ -54,3 +54,9 @@
   font-size: 12px;
   margin: 10px;
 }
+.publish_RFP{
+  padding: 10px 0;
+}
+.publish_RFP button{
+  width: 300px;
+}
