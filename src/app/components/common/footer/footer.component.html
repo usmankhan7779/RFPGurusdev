@@ -57,7 +57,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a   onclick="topFunction()"routerLink="pricing" class="appio-scroll">
+                                <a   onclick="topFunction()"routerLink="pricing" class="appio-scroll" *ngIf="!agencycheck_login()">
                                     <i class="fa fa-credit-card" aria-hidden="true"></i>
                                     Pricing
                                 </a>

@@ -555,8 +555,7 @@
                                   class="vt-middle" [routerLink]="['/privacy']" target="_blank"> Privacy Policy.</a>
                             </div>
                             <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
-                            [disabled]="!register2.valid || emailexist || usernameexist|| terms || disabledAgreement"
-                              >Sign up</button>
+                            [disabled]="disabledAgreement2">Sign up</button>
                             <br>
                           </div>
                         </div>
