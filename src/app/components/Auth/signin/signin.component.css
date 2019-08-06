@@ -180,3 +180,6 @@ transform: translateX(-50%) translateY(-50%);
 .nav-link:focus{
   text-decoration: none;
 }
+.nav>li>a{
+  padding: 2px 15px;
+}

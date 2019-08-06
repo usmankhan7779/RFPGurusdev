@@ -2111,9 +2111,6 @@ button {
   padding-top: 40px
 }
 
-.signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
-  top: 1.98125em
-}
 
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
@@ -3502,6 +3499,85 @@ textarea::-webkit-scrollbar {
   padding: 0 !important;
 }
 
+.fa-eye{
+  cursor: pointer;
+}
+.benner-conter {
+  width: 300px;
+  position: absolute;
+  top: 175px;
+  right: 55px;
+}
+/* End conter */
+
+
+
+.swal2-modal .swal2-title {
+  color: #000;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.color-red {
+  color: #c00;
+}
+.support-placeholder .mat-select-trigger {
+  height: 1.525em;
+}
+.support-placeholder textarea {
+  height: 150px;
+}
+.support-placeholder .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+    margin-top: 9px;
+}
+.mat-form-field-type-mat-select .mat-form-field-appearance-legacy .mat-form-field-label{
+padding: 0 5px;
+}
+#addRFP .mat-form-field-type-mat-select  .mat-form-field-underline {
+  bottom: 7px;
+}
+
+#addRFP .mat-select-arrow-wrapper {
+  vertical-align: bottom;
+}
+.sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.58125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-1.58125em) scale(.75);
+}
+.mat-form-field-prefix, .mat-form-field-suffix{
+  bottom: 10px;
+}
+.signup-main .mat-form-field-prefix,.signup-main .mat-form-field-suffix,.login-form-1-img .mat-form-field-prefix,.login-form-1-img .mat-form-field-suffix{
+  bottom: 15px;
+}
+.btn{
+      padding: 6px 20px;
+}
+.signup-main .mat-form-field-type-mat-select .mat-form-field-label {
+  top: 0.98125em !important;
+}
+.signup_select{
+  min-height: 64px;
+}
+.signup_select .mat-form-field-type-mat-select{
+  padding-top: 16px;
+}
+.signup_select .mat-select{
+  padding: 5px
+}
+.signup_select .mat-select-value{
+  font-size: 20px;
+}
+.signup_select .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-0.98125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-0.98125em) scale(.75);
+}
+
+
+.mainpagee .countdown .measurements {
+  padding: 5px 10px !important;
+}
+
 .mainpagee .countdown .measurements {
   width: 23%;
   margin: 0 5px;
@@ -3566,61 +3642,14 @@ textarea::-webkit-scrollbar {
   font-size: 16px;
   margin: 0;
 }
-.fa-eye{
-  cursor: pointer;
+.description p,.description div{
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: normal !important;
 }
-.benner-conter {
-  width: 300px;
-  position: absolute;
-  top: 175px;
-  right: 55px;
-}
-
-/* End conter */
-
-.mainpagee .countdown .measurements {
-  padding: 5px 10px !important;
-}
-
-.swal2-modal .swal2-title {
-  color: #000;
-  font-size: 20px;
-  line-height: 26px;
-}
-
-.color-red {
-  color: #c00;
-}
-.support-placeholder .mat-select-trigger {
-  height: 1.525em;
-}
-.support-placeholder textarea {
-  height: 150px;
-}
-.support-placeholder .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
-    margin-top: 9px;
-}
-.mat-form-field-type-mat-select .mat-form-field-appearance-legacy .mat-form-field-label{
-padding: 0 5px;
-}
-#addRFP .mat-form-field-type-mat-select  .mat-form-field-underline {
-  bottom: 7px;
-}
-#addRFP .mat-select-arrow-wrapper {
-  vertical-align: bottom;
-}
-.sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-  transform: translateY(-1.58125em) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-1.58125em) scale(.75);
-}
-.mat-form-field-prefix, .mat-form-field-suffix{
-  bottom: 10px;
-}
-.signup-main .mat-form-field-prefix,.signup-main .mat-form-field-suffix,.login-form-1-img .mat-form-field-prefix,.login-form-1-img .mat-form-field-suffix{
-  bottom: 15px;
-}
-.btn{
-      padding: 6px 20px;
+.Saved-card-sel-list .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-0.88125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-0.88125em) scale(.75);
 }
 /* .............................Queries........................................... */
 @media (min-width:1400px) {

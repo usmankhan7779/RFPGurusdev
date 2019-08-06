@@ -128,6 +128,22 @@ video {
 .nav-link:focus{
   text-decoration: none;
 }
+.fa-search{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.other_button{
+  padding: 3px 6px;
+  font-size: 12px;
+  margin:5px;
+}
+.other_button:focus{
+  outline: none;
+}
+.nav>li>a{
+  padding: 2px 15px;
+}
 @media (max-width:1280px){
   .form-footer {
     padding: 16px 0 20px !important;
