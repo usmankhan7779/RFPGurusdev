@@ -49,11 +49,13 @@ export class SigninComponent implements OnInit {
   public typeValidation: User;
   register: FormGroup;
   login: FormGroup;
+  loginagency: FormGroup;
   type: FormGroup;
   isequal;
   private loggedIn: boolean;
   user: any;
   public logedin: any = 0;
+  public agencylogin : any = 0;
   returnUrl: string;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { }
 
@@ -245,6 +247,102 @@ export class SigninComponent implements OnInit {
       });
     }
   }
+  onLoginagency() {
+    if (this.loginagency.valid && this.recapcha.check()) {
+      this.isequal = true;
+      this.signinService.agencycheck(this.loginagency.value.username).subscribe(
+        data => {
+          this.signinService.login(this.loginagency.value.username, this.loginagency.value.password).subscribe(
+            data => {
+              swal({
+                type: 'success',
+                title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
+                showConfirmButton: false,
+                timer: 1500, width: '512px',
+              });
+localStorage.setItem('agency' , this.loginagency.value.username )
+              if (localStorage.getItem('member')) {
+                let url = localStorage.getItem('member')
+                let last = url.length
+                let ur = url.slice(0, 13)
+                let state = url.slice(0, 5)
+                let category = url.slice(0, 8)
+                let agency = url.slice(0, 6)
+               
+
+                if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+                else if (state == 'state') {
+
+                  this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+                }
+                else if (category == 'category') {
+                  this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+                }
+                else if (agency == 'agency') {
+
+                  this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+                }
+                else if (url == 'advanced-search') {
+                  this._nav.navigate([url]);
+                }
+                else if (url == 'latest-rfps') {
+                  this._nav.navigate([url]);
+                }
+                else {
+                  // var val = 'rfp/' + url
+                  // this._nav.navigate([val]);
+                this._nav.navigate(['rfp/'], { queryParams: { query: url } });
+                }
+              } 
+              
+              else {
+                this._nav.navigate(['/']);
+              }
+              // this._location.back();
+            },
+            error => {
+              this.captcha.resetImg();
+              swal(
+                'Invalid',
+                'Username or Password',
+                'error'
+              )
+            });
+        },
+        error => {
+          if (error.status == 400) {
+            swal(
+              'Error',
+              'First, verify your email address to signin',
+              'error'
+            )
+          }
+          else if (error.status == 500) {
+            this.captcha.resetImg();
+            swal(
+              'Error',
+              'User does not exist',
+              'error'
+            )
+          }
+        }
+      );
+    }
+    else {
+      this.validateAllFormFields(this.login);
+      this.captcha.resetImg();
+      // this.captcha.reset();
+      // this.isequal = false;
+
+      swal({
+        type: 'error',
+        title: 'Please confirm that you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
+    }
+  }
   foremail() {
     swal({
       title: 'Forgot Password',
@@ -307,11 +405,22 @@ export class SigninComponent implements OnInit {
       this.logedin = localStorage.getItem('loged_in');
       // alert(this.logedin)
     }
+    if (isPlatformBrowser(this.platformId)) {
+      this.agencylogin = localStorage.getItem('agency');
+      // alert(this.agencylogin)
+    }
     if (this.logedin == 1) {
+      this._nav.navigate(['/']);
+    }
+    if (this.agencylogin == 1) {
       this._nav.navigate(['/']);
     }
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     this.login = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required])],
+      password: ['', Validators.compose([Validators.required])]
+    });
+    this.loginagency = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])]
     });

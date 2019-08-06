@@ -224,19 +224,38 @@ export class HeaderComponent implements OnInit {
       }
     })
   }
-
+  agencylogin;
   log: any;
   check_login() {
     // alert(localStorage.getItem('currentUser'))
     if (localStorage.getItem('loged_in')) {
       this.lacal_user = true;
+    
 
       return true;
     } else {
       this.lacal_user = false;
+    
       return false;
     }
   }
+  
+  agencycheck_login() {
+    // alert(localStorage.getItem('currentUser'))
+    if (localStorage.getItem('agency')) {
+  //  alert(localStorage.getItem('agency'))
+      this.lacal_user = true;
+ 
+
+      return true;
+    } else {
+      this.lacal_user = false;
+  
+      return false;
+    }
+  }
+
+
   check_adminlogin() {
     if (localStorage.getItem('currentadmin')) {
 
