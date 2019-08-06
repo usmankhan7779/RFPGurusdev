@@ -62,7 +62,7 @@ export class SidebarComponent {
 
         swal({
             type: 'success',
-            title: 'Successfully Logged out',
+            title: 'You have sucessfully logged out from RFPGurus',
             showConfirmButton: false,
             timer: 1500
         });

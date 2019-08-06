@@ -240,7 +240,7 @@ export class ProfileComponent implements OnInit {
         localStorage.clear();
         swal({
             type: 'success',
-            title: 'Successfully Logged out',
+            title: 'You have sucessfully logged out from RFPGurus',
             showConfirmButton: false,
             timer: 1500, width: '512px',
         });

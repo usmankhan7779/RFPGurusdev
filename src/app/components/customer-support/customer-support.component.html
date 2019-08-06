@@ -1,58 +1,82 @@
+<ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
+  <li class="nav-item active">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#create_new" role="tab" aria-controls="create_new"
+      aria-selected="true">Create New Support Ticket</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Support_Center" role="tab" aria-controls="Support_Center"
+      aria-selected="false">Support Center</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade active in" id="create_new" role="tabpanel" aria-labelledby="home-tab">
 
-
-<div class="layout ">
-    <mat-card class="mat-elevation-z8">
-        <form class="support-placeholder sh-signup-form-fix" [formGroup]=form>
-            <mat-form-field>
-                <mat-select placeholder="Please select your query" formControlName="sub" required>
-                    <mat-option [value]="query.key" (onSelectionChange)="change($event)" *ngFor="let query of queryList">{{query.value}}</mat-option>
-                </mat-select>
-                <mat-error>Please select a query</mat-error>
-            </mat-form-field>
-            <mat-form-field class="mg-top-5" *ngIf="isSubject">
-
-              <input matInput placeholder="Subject" formControlName="othersub"  name=topic (onChange)="changeSubject($event)" required>
-              <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
+    <div class="layout ">
+      <mat-card class="mat-elevation-z8">
+          <form class="support-placeholder sh-signup-form-fix" [formGroup]=form>
+              <mat-form-field>
+                  <mat-select placeholder="Please select your query" formControlName="sub" required>
+                      <mat-option [value]="query.key" (onSelectionChange)="change($event)" *ngFor="let query of queryList">{{query.value}}</mat-option>
+                  </mat-select>
+                  <mat-error>Please select a query</mat-error>
               </mat-form-field>
+              <mat-form-field class="mg-top-5" *ngIf="isSubject">
+  
+                <input matInput placeholder="Subject" formControlName="othersub"  name=topic (onChange)="changeSubject($event)" required>
+                <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
+                </mat-form-field>
+  
+              <mat-form-field class="margin-top-10">
+                  <textarea matInput placeholder="Message" formControlName="des" required></textarea>
+                  <mat-error>Please provide message</mat-error>
+              </mat-form-field>
+              <span class="btn-file file-input">Upload image or Other file
+                <input (change)="onChange($event)" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
+              </span>
+              <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
+          </form>
+  
+      </mat-card>
+  </div>
+  </div>
 
-            <mat-form-field class="margin-top-10">
-                <textarea matInput placeholder="Message" formControlName="des" required></textarea>
-                <mat-error>Please provide message</mat-error>
-            </mat-form-field>
-            <span class="btn-file file-input">Upload issue Image
-              <input (change)="onChange($event)" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
-            </span>
-            <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
-        </form>
+  <div class="tab-pane fade" id="Support_Center" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="row" *ngIf="views">
 
-    </mat-card>
+      <div class="col-lg-4">
+          <p>{{views?.subject}}</p>
+      </div>
+      </div>
+      
+      <div class="sh-container-paymnt " *ngIf="views">
+              <div class="table-responsive margin-top-20">
+                <table class="table payment-table">
+                  <thead>
+                    <tr>
+                      <th>Ticket id</th>
+                      <th>Subject</th>
+                      <th>Description</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let card of views">
+                          <td>{{card.unique_ticket_id  }} </td>
+                      <td>{{card?.subject}}</td>
+                      <td>{{card?.description}}</td>
+                      <td><button class="btn btn-rose btn-fill" routerLink="/queryreply" (click)="getid(card.id)">Detail</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+      </div>
+  </div>
 </div>
 
-<div class="row" *ngIf="views">
 
-<div class="col-lg-4">
-    <p>{{views?.subject}}</p>
-</div>
-</div>
-<div class="sh-container-paymnt " *ngIf="views">
-        <div class="table-responsive margin-top-20">
-          <table class="table payment-table">
-            <thead>
-              <tr>
-                <th>Ticket id</th>
-                <th>Subject</th>
-                <th>Description</th>
-                <th>Detail</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let card of views">
-                    <td>{{card.unique_ticket_id  }} </td>
-                <td>{{card?.subject}}</td>
-                <td>{{card?.description}}</td>
-                <td><button class="btn btn-rose btn-fill" routerLink="/queryreply" (click)="getid(card.id)">Detail</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-</div>
+<!-- ....................... -->
+
+
+
+
+

@@ -2,12 +2,9 @@
     width: 100%;
     margin: 10px auto;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px 10px;
     box-shadow: 1px 1px 7px 2px #ccc;
-}
-.container{
-  max-width: 900px;
 }
 .user-text{
   max-width: 60%;
@@ -101,15 +98,18 @@
   line-height: 26px;
 }
 .chat-box textarea{
-    width: calc(100% - 40px);
-    resize: none;
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 2;
-    color: #000;
-    height: auto;
-    border:none;
-    min-height: 70px !important;
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 2;
+  color: #000;
+  height: auto;
+  font-weight: normal;
+  font-size: 14px;
+  border: none;
+  min-height: 150px !important;
+  border: 1px solid #ccc;
 }
 .msg-area{
     max-height: 260px;
@@ -142,12 +142,12 @@
   color: #000;
 }
 .submit-div{
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+  text-align: center;
+  padding-top: 10px;
 }
 .rep_para{
   margin: 10px 0 0;
+}
+.btn-primary{
+  min-width: 200px;
 }
