@@ -1,5 +1,5 @@
 import { HomeComponent } from './components/common/home/home.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLogin } from './AuthGuards/auth.login';
 import { AuthGuard } from './AuthGuards/auth.guard';
@@ -9,6 +9,7 @@ import { ReplyComponent } from './components/reply/reply.component';
  
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
+import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
 const routes: Routes = [
 
   // =========== Default Paths ===========
@@ -49,7 +50,8 @@ const routes: Routes = [
       { path: 'purchase-history', loadChildren: './components/profile/purchase-history/purchase-history.module#PurchaseHistoryModule', canActivate: [AuthGuard] },
       { path: 'agencyportal', loadChildren: './components/profile/agencyportal/agencyportal.module#AgencyPortalModule', canActivate: [AuthGuard] },
       // { path: 'agencypricing', loadChildren: './components/profile/agancypricing/agancypricing.module#AgancyPricingModule' , canActivate: [AuthGuard]  },
-      { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
+      // { path: 'AddRfps', loadChildren: './components/profile/addrfps/addrfps.module#AddRfpsModule', canActivate: [AuthGuard] },
+      { path: 'AddRfps', component:AddrfpsComponent},
 
       
       { path : 'agencypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},

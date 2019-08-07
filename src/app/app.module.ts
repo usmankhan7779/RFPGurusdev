@@ -33,6 +33,7 @@ import { AgancyPricingService} from './components/profile/agancypricing/agancypr
 // import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import{ AddrfpsComponent } from './components/profile/addrfps/addrfps.component'
 import {
   MatCardModule,
   MatDatepickerModule,
@@ -109,7 +110,9 @@ import { MatChipsModule } from '@angular/material';
     CustomerSupportComponent,
     ReplyComponent,
     AgancyPricingComponent,
+    AddrfpsComponent
   ],
+  
   providers: [
     AgancyPricingService,
     {
@@ -132,8 +135,14 @@ import { MatChipsModule } from '@angular/material';
       useClass: AuthInterceptor,
       multi: true
     },
-    SetHeaders
+    SetHeaders,
+    
+   
   ],
+  entryComponents: [
+    AgancyPricingComponent
+  ],
+  
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
