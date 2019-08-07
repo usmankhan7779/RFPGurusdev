@@ -139,9 +139,7 @@ import { MatChipsModule } from '@angular/material';
     
    
   ],
-  entryComponents: [
-    AgancyPricingComponent
-  ],
+
   
   bootstrap: [AppComponent],
   schemas: [
