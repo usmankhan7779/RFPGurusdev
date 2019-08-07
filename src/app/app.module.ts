@@ -67,6 +67,7 @@ import { from } from 'rxjs';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
  
 import { MatChipsModule } from '@angular/material';
+import { AgencysubcripationComponent } from './components/agencysubcripation/agencysubcripation.component';
  
 
 // export class MaterialModule {}
@@ -110,7 +111,8 @@ import { MatChipsModule } from '@angular/material';
     CustomerSupportComponent,
     ReplyComponent,
     AgancyPricingComponent,
-    AddrfpsComponent
+    AddrfpsComponent,
+    AgencysubcripationComponent
   ],
   
   providers: [
