@@ -173,7 +173,12 @@ agen;
         this.emailexist = data;
       });
   }
-
+  emailCheck2(email2) {
+    this.endRequest = this.signupService.email_exist(email2).subscribe(
+      (data: boolean) => {
+        this.emailexist = data;
+      });
+  }
   onRegister(value) {
     // alert(this.register.value.phone)
     if (this.register.valid && this.recapcha.check()) {
