@@ -183,8 +183,8 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
                               <mat-form-field>
-                                <input matInput type="text" maxlength="255" id="email" (ngModelChange)="emailCheck(email1.value)"
-                                  formControlName="email" #email1 placeholder="Email" required />
+                                <input matInput type="text" maxlength="255" id="email" (ngModelChange)="emailCheck2(email2.value)"
+                                  formControlName="email" #email2 placeholder="Email" required />
                                 <mat-error *ngIf="register.controls.email.value == ''">
                                   <strong>Email cannot be empty</strong>
                                 </mat-error>
