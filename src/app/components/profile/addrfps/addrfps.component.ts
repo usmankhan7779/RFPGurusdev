@@ -11,10 +11,12 @@ import { AdvanceService } from './advance.service';
 import { AllRfpsService } from './all-rfps.service';
 import { Http } from '@angular/http';
 import { FormGroup, Validators, FormControl,FormBuilder, NgForm } from '@angular/forms';
+
 import { AgancyPricingService} from '../agancypricing/agancypricing.service';
 import { Location, NgForOf, DatePipe } from '@angular/common';
 declare var $:any;
 import { HomeService } from '../../common/home/home.service';
+import { SignupService } from '../../Auth/signup/signup.service';
 @Component({
   selector: 'app-addrfps',
   templateUrl: './addrfps.component.html',
@@ -49,6 +51,7 @@ export class AddrfpsComponent implements OnInit {
   record;
   pkgList;
   userdetail;
+  
   free() {
     if (localStorage.getItem('currentUser')) {
       this.valuee = "BM";
@@ -90,6 +93,47 @@ export class AddrfpsComponent implements OnInit {
       this.Mplan = false;
       this.Fplan = false;
       this.prv_stepdetail("P", "Y");
+    }
+  }
+  
+  cardtype;
+  ShowButton(var_type_atm) {
+    this.cardtype = var_type_atm;
+    if (var_type_atm == "American Express") {
+      this.cardmask = [/[3]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+      this.CardNumberForm = false;
+      this.form.controls.CardNumberForm.reset();
+      this.CardNumberForm2 = true;
+      this.CardCodeForm = false;
+      this.form.controls.CardCodeForm.reset();
+      this.CardCodeForm2 = true;
+    
+    }
+    else if (var_type_atm == "Visa") {
+      this.cardmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
+    }
+    else if (var_type_atm == "Mastercard") {
+      this.cardmask = [/[5]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
+    } else {
+      this.cardmask = [/[6]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+      this.CardNumberForm2 = false;
+      this.form.controls.CardNumberForm2.reset();
+      this.CardNumberForm = true;
+      this.CardCodeForm2 = false;
+      this.form.controls.CardCodeForm2.reset();
+      this.CardCodeForm = true;
     }
   }
   payed() {
@@ -155,14 +199,26 @@ export class AddrfpsComponent implements OnInit {
     this.pkg_detail['dur'] = dur
     this.pkgsub = true;
   }
-  
+  isright: boolean = false;
+  set_default: boolean = false;
+  Add_new() {
+    if (this.set_default == true) {
+      this.isright = false;
+    } else if (this.set_default == false) {
+      this.isright = true;
+
+    }
+  }
   name;
   address;
-  isright;
+ res;
   constructor(private _http: Http,
     private _serv1: AdvanceService, private _serv: AgancyPricingService,
-    private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  ) {
-    
+    private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  private _serv2: SignupService, ) {
+      this.CardNumberForm=true;
+    this.CardNumberForm2=false;
+    this.CardCodeForm=true;
+    this.CardCodeForm2=false
    }
   acgeny_check(){
     this.agency_show=true;
@@ -228,7 +284,48 @@ export class AddrfpsComponent implements OnInit {
     //   delete this.cates;
     //   delete this.subcate;
     // }
-
+    this.form = this.formBuilder.group({
+      CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+      CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+      CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
+      CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
+      ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
+      city: ['', Validators.compose([Validators.required])],
+      country: ['', Validators.compose([Validators.required])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+      Validators.pattern('^[0-9]*$')])],
+      CardtypeForm: ['', Validators.compose([Validators.required])],
+      Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
+      Address: ['', Validators.compose([Validators.required])],
+      Carddefault:['', Validators.compose([Validators.required])],
+      state: ['', Validators.compose([Validators.required])],
+      })
+    if (localStorage.getItem('currentUser')) {
+      this._home.get_card_infos().subscribe(Data => {
+        this.res = Data;
+     
+        if (!this.res.length) {
+          this.isright = true;
+        }
+      })
+    }
+    if(localStorage.getItem('agancypricing')=='BM'){
+      window.scroll(0, 0);
+      this.Mplan = true;
+      this.Yplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("B", "M");
+    }
+    else if (localStorage.getItem('agancypricing')=='PY'){
+      window.scroll(0, 0);
+      this.Yplan = true;
+      this.Mplan = false;
+      this.Fplan = false;
+      this.planSelected = true;
+      this.prv_stepdetail("P", "Y");
+    }
   }
   hide:boolean=false;
  
@@ -247,6 +344,24 @@ checksub(){
   this.mainFunction();
 }
   model : any = {};
+  public change(event: any): void {
+    var card = this.model.cardNumber.split('-').join('').split('_').join('').length;
+    if (card < 16) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+    }
+  }
+  public change2(event: any): void {
+    var card = this.model.cardNumber.split('-').join('').split('_').join('').length;
+    if ( card < 15) {
+      this.isInvalid2 = true;
+    }
+    else {
+      this.isInvalid2 = false;
+    }
+  }
   editClick() {
    
     if(this.input){
@@ -839,4 +954,80 @@ proceed(f: NgForm) {
 f.resetForm()
 }
 isInvalid;
+var_get_status;
+card_opeation = [
+  { value: 'Visa', viewValue: 'Visa' },
+  { value: 'Mastercard', viewValue: 'Master' },
+  { value: 'American Express', viewValue: 'American Express' },
+  { value: 'Discover', viewValue: 'Discover' }
+
+];
+onSelectionChanged({ value }) {
+  if (value === 'American Express') {
+    this.form.get('CardNumberForm2').enable();
+  } else {
+    this.form.get('CardNumberForm').enable();
+    
+  }
+}
+getcardid(id) {
+  this.eachcardid = id;
+}
+changed(val) {
+  this.setautopay = val.checked
+}
+invalid;
+zipcodeCheck(zipcode1) {
+ 
+  if (zipcode1.length > 4) {
+  
+    this.endRequest = this._serv2.zipcode(zipcode1).subscribe(
+      data => {
+        this.model.city = data['city'];
+        this.model.state = data['state'];
+        this.model.country = data['country'];
+        this.readonly=true;
+      },
+    
+      error => {
+        error.status== 400
+        this.invalid=error.status;
+        delete  this.model.city;
+        delete  this.model.state;
+        delete this.model.country;
+
+      });
+  }
+}
+readonly;
+endRequest;
+expirydate;
+chek(val) {
+  // this.expirydate=val.toString().slice(3,7);
+  this.expirydate = val.toString().slice(3, 5);
+}
+public mask = function (rawValue) {
+
+  // add logic to generate your mask array  
+  if (rawValue && rawValue.length > 0) {
+    if (rawValue[0] == '0' || rawValue[5] == '1') {
+      return [/[01]/, /[1-9]/, '/', /[0-9]/, /[0123456789]/];
+    } else {
+      return [/[01]/, /[0-2]/, '/', /[0-9]/, /[0123456789]/];
+    }
+  }
+  return [/[01]/, /[0-9]/, '/', /[0-9]/, /[0123456789]/];
+
+}
+// endRequest;
+// public ccvmask = [/[0-9]/, /\d/, /\d/];
+public cardmask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+keyPress(event: any) {
+  const pattern = /[0-9\ ]/;
+  let inputChar = String.fromCharCode(event.charCode);
+  if (event.keyCode != 8 && !pattern.test(inputChar)) {
+    event.preventDefault();
+  }
+}
 }

@@ -141,9 +141,7 @@ import { AgencysubcripationComponent } from './components/agencysubcripation/age
     
    
   ],
-  entryComponents: [
-    AgancyPricingComponent
-  ],
+
   
   bootstrap: [AppComponent],
   schemas: [
