@@ -1135,7 +1135,7 @@ button {
 }
 
 .active-route {
-  color: #c00 !important
+  color: #c00;
 }
 
 .dp-inline {

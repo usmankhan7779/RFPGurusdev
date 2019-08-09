@@ -1,14 +1,13 @@
 <!-- <app-loader></app-loader> -->
 <section class="section pricing2-section">
   <div class=" ">
+      <div class="page-title col-sm-12" *ngIf="result">
+          <span>Subscription</span>
+      </div>
+      <div class="page-title col-sm-12" *ngIf="trial" >
+          <span>Trial Subscription</span>
+      </div>
     <div class="table-section">
-        <div class="page-title" *ngIf="result">
-            <span>Subscription</span>
-        </div>
-        <div class="page-title" *ngIf="trial" >
-            <span>Trial Subscription</span>
-        </div>
-
         <table class="table table-striped history-table" *ngIf="trial">
         <!-- <table class="table table-striped history-table"> -->
             <thead>
@@ -89,6 +88,7 @@
         </div>
        
     </div>
+
     <div id="myModal5" class="modal fade" role="dialog">
       <div class="modal-dialog">
 

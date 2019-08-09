@@ -385,8 +385,8 @@ font-size: 13px;
 
 @media (min-width:1366px) {
   .logo img {
-    margin-top: 6px;
-    max-width: 160px
+    margin-top: 10px;
+    max-width: 140px;
   }
 }
 
