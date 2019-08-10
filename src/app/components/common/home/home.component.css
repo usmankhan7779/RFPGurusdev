@@ -120,13 +120,13 @@
 }
 
 .sh-map-desc {
-    padding: 0 10px;
-    font-size: 14px;
-    color: #fff;
-    text-shadow: 0 3px 10px #000;
-    margin-left: 8%;
-    background: rgba(0, 0, 0, .45);
-    display: inline
+  padding: 5px;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 3px 10px #000;
+  margin-left: 8%;
+  background: rgba(0, 0, 0, 0.21);
+  display: inline;
 }
 
 .svg_map {
@@ -917,10 +917,6 @@
 
 .packages-holder .dropdown-toggle {
     width: 100%
-}
-
-.sh-map-desc {
-    margin-left: 0
 }
 
 .choose-criteria ul li h4 {
