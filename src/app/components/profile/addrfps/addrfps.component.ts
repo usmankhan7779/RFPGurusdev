@@ -165,7 +165,7 @@ export class AddrfpsComponent implements OnInit {
   var_get_id;
   CardCodeForm;
   CardCodeForm2;
-  ExpiryDateForm
+  ExpiryDateForm;
   firststep(value) {
     window.scroll(0, 0);
     this.valuee = value;
@@ -249,7 +249,7 @@ export class AddrfpsComponent implements OnInit {
         this.agen = data.Result;
       }
     )
-
+this.mainFunction();
     
   }
   remove1(val, index){
