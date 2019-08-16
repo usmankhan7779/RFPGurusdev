@@ -165,7 +165,7 @@ export class AddrfpsComponent implements OnInit {
   var_get_id;
   CardCodeForm;
   CardCodeForm2;
-  ExpiryDateForm
+  ExpiryDateForm;
   firststep(value) {
     window.scroll(0, 0);
     this.valuee = value;
@@ -249,7 +249,24 @@ export class AddrfpsComponent implements OnInit {
         this.agen = data.Result;
       }
     )
-
+this.mainFunction();
+this.form = this.formBuilder.group({
+  CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+  CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+  CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
+  CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
+  ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
+  city: ['', Validators.compose([Validators.required])],
+  country: ['', Validators.compose([Validators.required])],
+  zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+  Validators.pattern('^[0-9]*$')])],
+  CardtypeForm: ['', Validators.compose([Validators.required])],
+  Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+  nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
+  Address: ['', Validators.compose([Validators.required])],
+  Carddefault:['', Validators.compose([Validators.required])],
+  state: ['', Validators.compose([Validators.required])],
+  })
     
   }
   remove1(val, index){
@@ -301,15 +318,15 @@ export class AddrfpsComponent implements OnInit {
       Carddefault:['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
       })
-    if (localStorage.getItem('currentUser')) {
-      this._home.get_card_infos().subscribe(Data => {
-        this.res = Data;
-     
-        if (!this.res.length) {
-          this.isright = true;
-        }
-      })
-    }
+      if (localStorage.getItem('currentUser')) {
+        this._home.get_card_infos().subscribe(Data => {
+          this.res = Data;
+       
+          if (!this.res.length) {
+            this.isright = true;
+          }
+        })
+      }
     if(localStorage.getItem('agancypricing')=='BM'){
       window.scroll(0, 0);
       this.Mplan = true;

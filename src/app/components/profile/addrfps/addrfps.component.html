@@ -1,5 +1,5 @@
 
-<div class="main-panel add-rfp" *ngIf="records">
+<div class="main-panel add-rfp" *ngIf="record">
     <div class="main-content custom">
       <div class="container-fluid">
         <div class="row">
@@ -219,7 +219,7 @@
   
                     <input matInput placeholder="Web Information PDF" name="web_info" [(ngModel)]="web_info" />
   
-                  </mat-form-field> -->
+                  </mat-form-field> 
                 </div>
                 
               </div>
@@ -249,7 +249,7 @@
 
 </div>
 
-<section *ngIf="!records">
+<section *ngIf="!record">
     <!-- <div class="col-sm-12 text-center publish_RFP"> -->
         <button class="btn btn-rose publish_new_rfp" (click)="checksub()"    routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
     <!-- </div> -->
@@ -481,6 +481,7 @@
                       <mat-option value="BM">Monthly Subscription</mat-option>
                     </mat-select>
                   </mat-form-field>
+
                 </div>
 
                 <span class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span class="pts-left"
