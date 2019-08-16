@@ -249,12 +249,12 @@
 
 </div>
 
-<section *ngIf="!record">
+<section>
     <!-- <div class="col-sm-12 text-center publish_RFP"> -->
-        <button class="btn btn-rose publish_new_rfp" (click)="checksub()"    routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
+        <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!record"   routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
     <!-- </div> -->
  <!-- <app-agancypricing></app-agancypricing> -->
- <div class="row margin-0 center-pricing"  *ngIf="!result || !trial" >
+ <div class="row margin-0 center-pricing"  *ngIf="!result || !trial && !record" >
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">
