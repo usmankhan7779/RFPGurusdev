@@ -249,7 +249,7 @@ export class AddrfpsComponent implements OnInit {
         this.agen = data.Result;
       }
     )
-this.mainFunction();
+
 this.form = this.formBuilder.group({
   CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
   CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
@@ -267,7 +267,7 @@ this.form = this.formBuilder.group({
   Carddefault:['', Validators.compose([Validators.required])],
   state: ['', Validators.compose([Validators.required])],
   })
-    
+  this.mainFunction();
   }
   remove1(val, index){
     this.subcat.splice(index, 1);
@@ -458,7 +458,7 @@ check_login() {
 isInvalid2;
 isInvalidl;
 date;
-setautopay;
+setautopay: boolean = true;
 records;
 mainFunction() {
   if (localStorage.getItem('currentUser')) {
