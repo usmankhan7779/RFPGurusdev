@@ -456,12 +456,12 @@ font-size: 13px;
 }
 @media (max-width:1080px) {
   .navbar-nav>li>a {
-    font-size: 13px !important
+    font-size: 12px !important
   }
 
   .nav-home ul a i.fa-android,
   .nav-home ul a i.fa-apple {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0 0 0 3px
   }
 

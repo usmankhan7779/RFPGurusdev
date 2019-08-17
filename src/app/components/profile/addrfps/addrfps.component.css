@@ -57,9 +57,16 @@
 .publish_RFP{
   padding: 10px 0;
 }
-.publish_RFP button{
-  width: 300px;
+.publish_new_rfp{
+  margin: 20px 0;
+  width: 100%;
+  max-width: 300px;
 }
 .active-route{
   color: #fff !important;
+}
+.flx-items{
+  display: flex;
+  align-items: center;
+  flex-direction: column
 }

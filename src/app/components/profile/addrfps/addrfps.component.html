@@ -1,4 +1,5 @@
 
+
 <div class="main-panel add-rfp" *ngIf="record">
     <div class="main-content custom">
       <div class="container-fluid">
@@ -248,8 +249,7 @@
  
 
 </div>
-
-<section *ngIf="!record">
+<section class="flx-items" *ngIf="!record">
     <!-- <div class="col-sm-12 text-center publish_RFP"> -->
         <button class="btn btn-rose publish_new_rfp" (click)="checksub()"    routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
     <!-- </div> -->
