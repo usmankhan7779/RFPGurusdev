@@ -5,6 +5,7 @@ import { Component, OnInit, Inject,  ElementRef, ViewChild } from '@angular/core
 // import { AllRfpsService } from '../all/all-rfps/all-rfps.service';
 //  import { AdvanceService } from '../advance-search/advance.service';
  import swal from 'sweetalert2';
+ 
  import { Router, NavigationEnd } from '@angular/router';
 import { PagerService } from 'src/app/services/paginator.service';
 import { AdvanceService } from './advance.service';
@@ -260,6 +261,7 @@ this.form = this.formBuilder.group({
   country: ['', Validators.compose([Validators.required])],
   zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
   Validators.pattern('^[0-9]*$')])],
+  setautopay: [''],
   CardtypeForm: ['', Validators.compose([Validators.required])],
   Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
   nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
@@ -357,8 +359,16 @@ this.form = this.formBuilder.group({
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
   }
+  msgfun(){
+    swal(
+      'Agency is not Subscribed.',
+      '',
+      'error'
+    )
+  }
 checksub(){
   this.mainFunction();
+  this.msgfun();
 }
   model : any = {};
   public change(event: any): void {
@@ -514,19 +524,9 @@ mainFunction() {
                   //     })
               }
               else if (data['message'] == "Agency is not Subscribed") {
-                // this.records = data['subscription_detail'];
-                // this.pkgList = data['subscription_detail']['pkg_fk'];
-                // this.trial = true;
-
-                // var date = new Date();
-                // this.userdetail = data['reg_fk'];
-              
+             
              this.nodata = data;
-             swal(
-              'Agency is not Subscribed.',
-              '',
-              'error'
-            )
+          
                   // this._serv4.trialHistory().subscribe(
                   //     data => {
                   //         // this.nofound=false;

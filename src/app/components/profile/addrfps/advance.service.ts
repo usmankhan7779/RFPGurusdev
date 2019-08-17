@@ -1,5 +1,6 @@
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { reduce, takeUntil, mapTo } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 // import { HttpService } from 'src/app/services/http-service';

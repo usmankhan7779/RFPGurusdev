@@ -214,13 +214,14 @@
               </div>
               <div class="col-md-6 col-sm-6">
                 <div class="input-group margin-zero1">
-                  <div> <button class="btn-file btn btn-primary">Upload File<input class="img-input" (change)="onChange($event)" 
-                    type="file"></button> </div> 
-                  <mat-form-field>
+                      <mat-form-field>
   
                     <input matInput placeholder="Web Information PDF" name="web_info" [(ngModel)]="web_info" />
   
                   </mat-form-field> 
+                  <div> <button class="btn-file btn btn-primary">Upload File<input class="img-input" (change)="onChange($event)" 
+                    type="file"></button> </div> 
+              
                 </div>
                 
               </div>
@@ -489,7 +490,7 @@
                 <div class="pts-switcher">
                   <div class="switch">
                     <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
-                      class="switch-toggle switch-toggle-round" type="checkbox" [checked]="!res.length"
+                      class="switch-toggle switch-toggle-round" type="checkbox" 
                    >
                    <!-- [disabled]="!res.length" -->
                     <label for="switch-toggle-pricing-tenure"></label>
