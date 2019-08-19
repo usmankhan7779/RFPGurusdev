@@ -21,20 +21,23 @@
   -webkit-animation: animateleft .4s;
   animation: animateleft .4s
 }
+.sidebar-close-btn{
+  z-index: 100;
+  position: absolute;
+  right: -40px;
+  padding: 0;
+  top: 2px;
+}
 .sidebar-close-btn button {
-  background: #fff;
-  font-size: 26px;
-  padding: 5;
-  height: 30px;
-  margin: 0;
-  width: 30px;
-  border-radius: 0!important;
-  color: #c00;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+    width: 60px;
+    height: 30px;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    border-radius: 0 5px 5px 0 !important;
 }
 .sidebar-close-btn button:hover{
-  background: #fff;
+  background: #c00;
 }
 .mg-top-5{
 margin-top: 5px;

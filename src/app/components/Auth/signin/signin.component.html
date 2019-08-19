@@ -1,4 +1,4 @@
-<div class="login-form-1-img m-top-minus-15 ">
+<div class="login-form-1-img m-top-minus-15 eye-slash">
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
         <source src="https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4" type="video/mp4">
     </video>
@@ -42,7 +42,7 @@
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                         formControlName="password" placeholder="Password" required />
                                         
-                                    <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                                    <i class="eye-slash" matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
         
                                     <mat-error *ngIf="login.controls.password.value == ''">
                                         <strong class="error-block">Password cannot be empty</strong>

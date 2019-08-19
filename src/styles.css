@@ -3544,8 +3544,11 @@ padding: 0 5px;
   transform: translateY(-1.58125em) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-1.58125em) scale(.75);
 }
-.mat-form-field-prefix, .mat-form-field-suffix{
+.eye-slash .mat-form-field-prefix,.eye-slash .mat-form-field-suffix{
   bottom: 10px;
+}
+.sh-advanceSearch .mat-form-field-suffix{
+  bottom: 0;
 }
 .signup-main .mat-form-field-prefix,.signup-main .mat-form-field-suffix,.login-form-1-img .mat-form-field-prefix,.login-form-1-img .mat-form-field-suffix{
   bottom: 15px;
@@ -3651,7 +3654,10 @@ padding: 0 5px;
   transform: translateY(-0.88125em) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-0.88125em) scale(.75);
 }
+
+
 /* .............................Queries........................................... */
+
 @media (min-width:1400px) {
   .svg_map {
     width: 60% !important
@@ -3732,7 +3738,7 @@ padding: 0 5px;
 
 @media (max-width:1024px) {
   .hd1 {
-    font-size: 23px !important;
+    font-size: 18px !important;
   }
 
   .slide {
@@ -3827,7 +3833,12 @@ padding: 0 5px;
     transform: none;
     z-index: 99
   }
-
+  .sidebar-outlet {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 9
+  }
   .products-area h4 {
     font-size: 14px !important
   }
@@ -4123,6 +4134,9 @@ padding: 0 5px;
 }
 
 @media (max-width:768px) {
+  .center-pricing .pricing-table2{
+    display: none !important;
+  }
   .play-store-img2 {
     left: 35% !important;
 }
@@ -4282,9 +4296,19 @@ padding: 0 5px;
   .search-holderinput[type=search] {
     font-size: 23px !important
   }
+  .subsBtn{
+    margin: 10px 0;
+  }
 }
 
 @media (max-width:767px) {
+    .heart-li sup {
+      top: 3px;
+      left: 5px;
+  }
+  .sidebar-close-btn {
+    top: 3px !important;
+  }
   .login-or-signup .modal-dialog {
     width: 95% !important;
     min-width: 95% !important;
@@ -4298,12 +4322,7 @@ padding: 0 5px;
     top: 50px !important
   }
 
-  .sidebar-outlet {
-    position: absolute;
-    left: 0;
-    top: 50px;
-    z-index: 9
-  }
+
 
   .sh-h2-resources {
     margin-left: 0 !important
@@ -4996,7 +5015,7 @@ padding: 0 5px;
     margin: 0
   }
   .sh-signin-signup>li:last-child:before {
-    top: 9px !important;
+    top: 3px !important;
     bottom: 0 !important;
     margin-left: 0 !important;
     height: 23px

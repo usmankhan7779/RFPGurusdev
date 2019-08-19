@@ -17,3 +17,22 @@
   background: #fff;
   border-right: 1px solid #ebebeb;
 }
+
+.sidebar-close-btn{
+  z-index: 100;
+  position: absolute;
+  padding: 0;
+  top: 21px;
+  left: 239px;
+}
+.sidebar-close-btn button {
+    width: 60px;
+    height: 30px;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    border-radius: 0 5px 5px 0 !important;
+}
+.sidebar-close-btn button:hover{
+  background: #c00;
+}
