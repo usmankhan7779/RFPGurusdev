@@ -116,12 +116,12 @@
                       <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a>
 
                     </h5>
-                    <h5>
+                    <!-- <h5>
                       <i class="fa fa-address-card" ></i> Address :
                       <a   *ngIf="rfp.address != null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">{{ rfp.address}}</a>
                       <a   *ngIf="rfp.address == null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">null</a>
 
-                    </h5>
+                    </h5> -->
                     <h5>
                       <i class="fa fa-phone-square" ></i> Phone No :
                       <a   *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
