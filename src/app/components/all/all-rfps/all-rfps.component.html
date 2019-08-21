@@ -91,7 +91,7 @@
                   </div>
                 </div>
                 <div class="card-content">
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 plan-detail padding-0">
                     <h3>
                       <a class="curser-pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
                         (click)="move()">
@@ -110,39 +110,7 @@
                         [queryParams]="{ state: rfp.state}"> {{
                         rfp.state}}</a>
                     </h5>
-                    <h5>
-                      <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
-                      <a   *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"  [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
-                      <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a>
-
-                    </h5>
-                    <!-- <h5>
-                      <i class="fa fa-address-card" ></i> Address :
-                      <a   *ngIf="rfp.address != null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">{{ rfp.address}}</a>
-                      <a   *ngIf="rfp.address == null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">null</a>
-
-                    </h5> -->
-                    <h5>
-                      <i class="fa fa-phone-square" ></i> Phone No :
-                      <a   *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
-                      <a   *ngIf="rfp.phone == null" class="cat-elips" >null</a>
-
-                    </h5>
-       
-                    <h5>
-                      <i class="fa fa-envelope-square" ></i> Email :
-                      <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
-                      <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
-
-                    </h5>
-                 
-
-                    <h5>
-                      <i class="fa fa-fax" aria-hidden="true"></i> Fax :
-                      <a   *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"  [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
-                      <a   *ngIf="rfp.fax == null" class="cat-elips" >null</a>
-
-                    </h5>
+                   
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="!subscribe">
                       <h5><i class="fa fa-info dscrption-icon"></i> Description:
                         <a (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
@@ -158,7 +126,7 @@
                       </h5>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+                  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 term top-margin-25">
                     <!--<h4>Detail:</h4>-->
                     <div class="table">
                       <table class="table-normal">
@@ -185,34 +153,104 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-xs-6 padding-0">
-                      <ul class="list-normal">
-                        <li *ngIf="!subscribe; else pdf">
-                          <a routerLink="/pricing">
-                            <i class="fa fa-credit-card"></i> Pricing/Package Details
-                          </a>
-                        </li>
-                        <ng-template #pdf>
-                          <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)"
-                            *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
-                            <a >
-                              <i class="material-icons">insert_drive_file</i> View Documents
+                    <!-- <table>
+                      <thead>
+                        <tr>
+                          <td>
+                            <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
+                          </td>
+                          <td> <i class="fa fa-phone-square" ></i> Phone No :</td>
+                          <td> <i class="fa fa-envelope-square" ></i> Email :</td>
+                          <td>  <i class="fa fa-fax" aria-hidden="true"></i> Fax :</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> <a   *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"  [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
+                            <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a></td>
+                          <td>
+                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
+                          </td>
+                          <td>
+                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
+                          </td>
+                          <td>
+                            <a   *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"  [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
+                            <a   *ngIf="rfp.fax == null" class="cat-elips" >null</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+
+                    <!--  -->
+                    <div class="row new_info">
+                      <div class="col-sm-12 col-md-6 col-xs-6 padding-0">
+                        <h5>
+                          <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
+                          <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
+                            [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
+                          <a *ngIf="rfp.contract_name == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-xs-6 padding-0">
+                        <h5>
+                          <i class="fa fa-phone-square"></i> Phone No :
+                          <a *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"
+                            [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
+                          <a *ngIf="rfp.phone == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-xs-6 padding-0">
+                        <h5>
+                          <i class="fa fa-envelope-square"></i> Email :
+                          <a *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"
+                            [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                          <a *ngIf="rfp.email == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-xs-6 padding-0">
+                        <h5>
+                          <i class="fa fa-fax" aria-hidden="true"></i> Fax :
+                          <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
+                            [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
+                          <a *ngIf="rfp.fax == null" class="cat-elips">null</a>
+                      
+                        </h5>
+                      </div>
+                      <!--  -->
+                    </div>
+                    <div class="row new_info">
+                      <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
+                        <ul class="list-normal">
+                          <li *ngIf="!subscribe; else pdf">
+                            <a routerLink="/pricing">
+                              <i class="fa fa-credit-card"></i> Pricing/Package Details
                             </a>
                           </li>
-                          <ng-template #link>
-                            <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)">
+                          <ng-template #pdf>
+                            <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)"
+                              *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
                               <a>
                                 <i class="material-icons">insert_drive_file</i> View Documents
                               </a>
                             </li>
+                            <ng-template #link>
+                              <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)">
+                                <a>
+                                  <i class="material-icons">insert_drive_file</i> View Documents
+                                </a>
+                              </li>
+                            </ng-template>
                           </ng-template>
-                        </ng-template>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-6">
-                      <div *ngIf="!subscribe" class=" term mg-top-5">
-                        <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
-                        </button>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div *ngIf="!subscribe" class=" term mg-top-5">
+                          <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -42,6 +42,17 @@
 .mg-top-5{
 margin-top: 5px;
 }
+.term h5 i{
+  width: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+.new_info{
+  margin: 0;
+}
+.new_info >div{
+  min-height: 31px;
+}
 @media (max-width:991px) {
   .main-content.custom {
     margin: 0 !important;
