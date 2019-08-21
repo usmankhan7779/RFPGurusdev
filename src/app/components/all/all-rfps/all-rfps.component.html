@@ -110,6 +110,39 @@
                         [queryParams]="{ state: rfp.state}"> {{
                         rfp.state}}</a>
                     </h5>
+                    <h5>
+                      <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
+                      <a   *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"  [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
+                      <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a>
+
+                    </h5>
+                    <h5>
+                      <i class="fa fa-address-card" ></i> Address :
+                      <a   *ngIf="rfp.address != null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">{{ rfp.address}}</a>
+                      <a   *ngIf="rfp.address == null" class="cat-elips" [routerLink]="['/address']"  [queryParams]="{ cat: rfp.address}">null</a>
+
+                    </h5>
+                    <h5>
+                      <i class="fa fa-phone-square" ></i> Phone No :
+                      <a   *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
+                      <a   *ngIf="rfp.phone == null" class="cat-elips" >null</a>
+
+                    </h5>
+       
+                    <h5>
+                      <i class="fa fa-envelope-square" ></i> Email :
+                      <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                      <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
+
+                    </h5>
+                 
+
+                    <h5>
+                      <i class="fa fa-fax" aria-hidden="true"></i> Fax :
+                      <a   *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"  [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
+                      <a   *ngIf="rfp.fax == null" class="cat-elips" >null</a>
+
+                    </h5>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="!subscribe">
                       <h5><i class="fa fa-info dscrption-icon"></i> Description:
                         <a (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
