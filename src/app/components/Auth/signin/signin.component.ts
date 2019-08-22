@@ -154,6 +154,15 @@ export class SigninComponent implements OnInit {
   }
   resolved(captchaResponse: string) {
   }
+  // checksubcribedornot(){
+  //   this.signinService.usersubscribe(this.login.value.username).subscribe( data => {
+  //     if (data['Response'] == "Subscribe user" || data['Response'] == "Trial Subscription user") {
+  //       this._nav.navigate(['/']);
+  //     }
+  //     alert(data);
+  //   });
+  // }
+  subscribed;
   onLogin() {
     if (this.login.valid && this.recapcha.check()) {
       this.isequal = true;
@@ -161,13 +170,13 @@ export class SigninComponent implements OnInit {
         data => {
           this.signinService.login(this.login.value.username, this.login.value.password).subscribe(
             data => {
+             
               swal({
                 type: 'success',
                 title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
-
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length
@@ -201,7 +210,27 @@ export class SigninComponent implements OnInit {
                 this._nav.navigate(['rfp/'], { queryParams: { query: url } });
                 }
               } else {
-                this._nav.navigate(['/pricing']);
+                // this._nav.navigate(['/']);
+                this.signinService.usersubscribe(this.login.value.username).subscribe( data => {
+                 
+                  if (data['Response'] == "Subscribe user" || data['Response'] == "Trial Subscription user") {
+               localStorage.setItem('subornot', this.subscribed);
+         
+                    this._nav.navigate(['/']);
+                  }
+                 
+                  // alert(data);
+               
+                },
+                error =>{
+               
+                  if(error.status == 406){
+                    this._nav.navigate(['/pricing']);
+                    
+                  }
+                }
+                );
+                
               }
               // this._location.back();
             },
@@ -213,6 +242,7 @@ export class SigninComponent implements OnInit {
                 'error'
               )
             });
+          
         },
         error => {
           if (error.status == 400) {

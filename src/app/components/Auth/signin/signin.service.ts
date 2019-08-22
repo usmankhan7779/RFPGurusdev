@@ -20,7 +20,11 @@ export class SigninService {
 
   time;
   exp_time;
-
+  usersubscribe(username) {
+    return this.http.post('https://apis.rfpgurus.com/pkg_sub/', {
+      'username': username
+    })
+  }
   login(username: string, password: string) {
     return this.http.post('https://apis.rfpgurus.com/user-token-auth/',
       JSON.stringify({ username: username, password: password }), this.httpOptions)

@@ -64,6 +64,8 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(private homeServ: HomeService,private el: ElementRef, private authService: AuthService, private speech: SpeechRecognitionService, private _nav: Router, public _shareData: SharedData, private _serv: HeaderService) {
+   this.subscribed = localStorage.getItem('subornot');
+  //  alert(this.subscribed);
     this.check_login1(); 
     this.check_adminlogin();
     this.check_login();
@@ -294,7 +296,7 @@ export class HeaderComponent implements OnInit {
     this.query = '';
     this.Rfp = '';
   }
-  subscribe;
+  subscribed;
   check_login1() {
     if (localStorage.getItem('currentUser')) {
       this.local = localStorage.getItem('currentUser');
@@ -303,15 +305,24 @@ export class HeaderComponent implements OnInit {
       this.homeServ.usersubscribe(this.uname).subscribe(
         data => {
           if (data['Response'] == "Subscribe user" || data['Response'] == "Trial Subscription user") {
-            this.subscribe = data['Response'];
-            this._shareData.subscribed_user(this.subscribe);
+            this.subscribed = data['Response'];
+            // alert(this.subscribed);
+            this._shareData.subscribed_user(this.subscribed);
 
             return false
           }
-        });
+        },
+        error =>{
+               
+          if(error.status == 406){
+           this.errornotsubcribed;
+          //  alert(this.errornotsubcribed);
+            
+          }
+        }
+        );
     }
-    else {
-      return true
-    }
+    
   }
+  errornotsubcribed;
 }
