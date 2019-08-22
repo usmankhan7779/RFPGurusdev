@@ -315,7 +315,7 @@ export class HeaderComponent implements OnInit {
         error =>{
                
           if(error.status == 406){
-           this.errornotsubcribed;
+           this.errornotsubcribed = error.status;
           //  alert(this.errornotsubcribed);
             
           }

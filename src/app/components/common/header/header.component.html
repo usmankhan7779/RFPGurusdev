@@ -64,7 +64,7 @@
               <i class="fa fa-search-plus"></i>Find RFPs
             </a>
           </li>
-          <li class="" *ngIf="!subscribed || !agencycheck_login()">
+          <li class="" *ngIf="!subscribed && !agencycheck_login()">
             <a onclick="topFunction()" (click)="pricing()" routerLink="/pricing" routerLinkActive="Active">
               <i class="fa fa-credit-card" aria-hidden="true"></i>Pricing
             </a>
