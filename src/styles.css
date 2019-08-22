@@ -547,7 +547,9 @@ h3 {
 }
 
 .list-normal li a i {
-  color: #000
+  color: #000;
+  width: 17px;
+  font-size: 13px;
 }
 
 .list-normal li {
