@@ -50,9 +50,19 @@ margin-top: 5px;
 .new_info{
   margin: 0;
 }
-.new_info >div{
-  min-height: 31px;
+.new_info h5{
+  margin: 2px 0 !important;
 }
+.new_info h5 a{
+  font-weight: normal !important;
+}
+.new_info >div{
+  min-height: 16px;
+}
+.view-more{
+  margin: 0;
+}
+
 @media (max-width:991px) {
   .main-content.custom {
     margin: 0 !important;

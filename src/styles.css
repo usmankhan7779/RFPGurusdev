@@ -3428,6 +3428,7 @@ body {
   position: fixed;
   z-index: 1060;
 }
+.panel-details p{font-size: 14px !important;line-height: 20px;text-align: left;text-transform: capitalize;}
 @keyframes animateleft {
   from {
     left: -300px;
