@@ -41,3 +41,23 @@
   text-decoration: underline;
   color: #c00
 }
+.term h5 i{
+  width: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+.new_info{
+  margin: 0;
+}
+.new_info h5{
+  margin: 2px 0 !important;
+}
+.new_info h5 a{
+  font-weight: normal !important;
+}
+.new_info >div{
+  min-height: 16px;
+}
+.view-more{
+  margin: 0;
+}
