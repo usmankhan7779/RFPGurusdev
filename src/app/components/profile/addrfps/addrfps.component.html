@@ -212,9 +212,14 @@
                       <div class="input-group">
         
                         <mat-form-field>
-                          <input matInput placeholder="City" name="city" [(ngModel)]="city" />
-        
+
+                        <mat-select  placeholder="City"   >
+                            <mat-option  *ngFor="let catitem of city"   #city
+                            [value]="catitem.city">{{catitem.city}}</mat-option>
+      
+                          </mat-select>
                         </mat-form-field>
+
                       </div>
                     </div> 
                     <div class="col-md-6 col-sm-6">

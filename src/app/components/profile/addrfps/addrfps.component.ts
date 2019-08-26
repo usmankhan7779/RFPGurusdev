@@ -498,10 +498,12 @@ dropdwon(states, county){
 }
 county;
 counties(countys){
-  alert(this.model.county)
+  // alert(countys)
     //  alert(this.countys);
-     console.log( this.county)
-  this._serv.statedropdwon(this.states, this.countys).subscribe( data =>{
+    //  console.log( this.county)
+  this._serv.statedropdwon(this.states, countys).subscribe( data =>{
+    this.city = data['Cities'];
+    // alert(this.city)
    
   
  
