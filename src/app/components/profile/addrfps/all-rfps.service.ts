@@ -37,6 +37,7 @@ export class AllRfpsService {
         return this._http5.get('https://apis.rfpgurus.com/rf_p/latest/' + items + '?page=' + page,
             { headers: headers }).map((response: Response) => response.json());
     }
+ 
     downloadFile(id) {
         let headers = new Headers();
         if (this.currentUser) {

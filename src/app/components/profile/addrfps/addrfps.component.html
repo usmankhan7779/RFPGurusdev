@@ -28,25 +28,43 @@
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                    <div class="input-group">
-                      <mat-form-field>
-                        <input matInput placeholder="RFP Key" name="rfpkey" [(ngModel)]="rfpkey" />
-                      </mat-form-field>
-                    </div>
-                  </div> 
-                    <div class="col-md-6 col-sm-6">
                       <div class="input-group">
-                        <mat-form-field>
-                          <mat-select name="states" placeholder="State" [(ngModel)]="states" (change)="select_state()">
-                            <input class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"
-                              class="search-allstates" placeholder="Search By State">
-                            <i class="fa fa-search " area-hidden="true"></i>
-                            <mat-option *ngFor="let item of Statess | filter:statsearch" [value]="item.state">{{item.state}}
-                            </mat-option>
+                         
+                         <mat-form-field>
+                           
+                          <mat-select placeholder="Bid Type" name="bid_type" [(ngModel)]="bid_type">
+                            <mat-option value="RFP">RFP - Request for Proposals</mat-option>
+                            <mat-option value="RFQ">RFQ - Request for Quotation</mat-option>
+                            <mat-option value="IFQ">IFQ - Invitation for Quote</mat-option>
+                            <mat-option value="ITB">ITB - Invitation to Bid</mat-option>
+                            <mat-option value="IFB">IFB - Invitation for Bids</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bids</mat-option>
+                            <mat-option value="SOQ">SOQ - Statement of Qualifications</mat-option>
+                            <mat-option value="SPL">SPL - Special Notice</mat-option>
+                            <mat-option value="SFQ">SFQ - Solicitation for Quote</mat-option>
+                            <mat-option value="RSB">RSB - Request for Sealed Bid</mat-option>
+                            <mat-option value="RSOQ">RSOQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RSQ">RSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFSQ">RFSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFI">RFI - Request for Information</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bid</mat-option>
+                            <mat-option value="RFC">RFC - Request for Construction</mat-option>
+                            <mat-option value="CSB">CSB - Competitive Sealed Bids</mat-option>
+                            <mat-option value="DQ">DQ - Documented Quote</mat-option>
+                            <mat-option value="INF">INF - Informal Bid</mat-option>
+                            <mat-option value="LOI">LOI - Letter of Interest</mat-option>
+                            <mat-option value="NFS">NFS - Notice of Final Settlements</mat-option>
+                            <mat-option value="NIB">NIB - Notice Inviting Bids</mat-option>
+                            <mat-option value="QR">QR - Quotation Request</mat-option>
+                            <mat-option value="RCO">RCO - Request for Competitive Offering</mat-option>
+                            <mat-option value="RFO">RFO - Request for Offer</mat-option>
+                            <mat-option value="WQ">WQ - Written Quote</mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
-                    </div>
+                    </div>  
+                  
+               
                     <div class="col-md-6 col-sm-6 ">
                       <div class="input-group ">
                           <mat-form-field *ngIf="hide==true">
@@ -123,59 +141,71 @@
         
                     </div>
         
-                   
                     <div class="col-md-6 col-sm-6">
                       <div class="input-group">
-                         
-                         <mat-form-field>
-                           
-                          <mat-select placeholder="Bid Type" name="bid_type" [(ngModel)]="bid_type">
-                            <mat-option value="RFP">RFP - Request for Proposals</mat-option>
-                            <mat-option value="RFQ">RFQ - Request for Quotation</mat-option>
-                            <mat-option value="IFQ">IFQ - Invitation for Quote</mat-option>
-                            <mat-option value="ITB">ITB - Invitation to Bid</mat-option>
-                            <mat-option value="IFB">IFB - Invitation for Bids</mat-option>
-                            <mat-option value="RFB">RFB - Request for Bids</mat-option>
-                            <mat-option value="SOQ">SOQ - Statement of Qualifications</mat-option>
-                            <mat-option value="SPL">SPL - Special Notice</mat-option>
-                            <mat-option value="SFQ">SFQ - Solicitation for Quote</mat-option>
-                            <mat-option value="RSB">RSB - Request for Sealed Bid</mat-option>
-                            <mat-option value="RSOQ">RSOQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RSQ">RSQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RFSQ">RFSQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RFI">RFI - Request for Information</mat-option>
-                            <mat-option value="RFB">RFB - Request for Bid</mat-option>
-                            <mat-option value="RFC">RFC - Request for Construction</mat-option>
-                            <mat-option value="CSB">CSB - Competitive Sealed Bids</mat-option>
-                            <mat-option value="DQ">DQ - Documented Quote</mat-option>
-                            <mat-option value="INF">INF - Informal Bid</mat-option>
-                            <mat-option value="LOI">LOI - Letter of Interest</mat-option>
-                            <mat-option value="NFS">NFS - Notice of Final Settlements</mat-option>
-                            <mat-option value="NIB">NIB - Notice Inviting Bids</mat-option>
-                            <mat-option value="QR">QR - Quotation Request</mat-option>
-                            <mat-option value="RCO">RCO - Request for Competitive Offering</mat-option>
-                            <mat-option value="RFO">RFO - Request for Offer</mat-option>
-                            <mat-option value="WQ">WQ - Written Quote</mat-option>
+                        <mat-form-field>
+                          <mat-select name="states" placeholder="State" [(ngModel)]="states" (change)="select_state()" #state>
+                            <input class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"
+                              class="search-allstates" placeholder="Search By State">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <mat-option *ngFor="let item of Statess | filter:statsearch" [value]="item.state" #state (click)="dropdwon(item?.state)">{{item.state}}
+                            </mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
-                    </div>  
+                    </div>
+                  
                      <div class="col-md-6 col-sm-6">
                       <div class="input-group">
         
-                        <mat-form-field>
-                          <input matInput placeholder="Agency Type" name="agency_type" [(ngModel)]="agency_type" />
-        
-                        </mat-form-field>
-                      </div>
-                    </div> 
-                     <div class="col-md-6 col-sm-6">
-                      <div class="input-group">
-        
-                        <mat-form-field>
+                        <!-- <mat-form-field>
                           <input matInput placeholder="County" name="city_or_county" [(ngModel)]="city_or_county" />
         
                         </mat-form-field>
+ -->
+
+
+                        <div class="input-group ">
+                          <!-- <mat-form-field class="example-chip-list" *ngIf="hide==true">
+                              <mat-chip-list #chipList>
+                                  <mat-chip  [selectable]="selectable" *ngIf="hide==true" >
+                                      {{countys}}
+                                     
+                                      
+                                  </mat-chip>
+                                  <mat-chip *ngFor="let list of subcat" [selectable]="selectable" [removable]="removable" (removed)="remove(list, $event)">
+                                      {{list}}
+                                      <i class="fa fa-remove" (click)="remove1(list, $event)"></i>
+                                      
+                                  </mat-chip>
+                                  <input [matChipInputFor]="chipList" 
+                                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                      [matChipInputAddOnBlur]="addOnBlur">
+                              </mat-chip-list>
+                          </mat-form-field> -->
+                        <!-- <mat-form-field class="category-edit-rfp">
+        
+                          <mat-select [(ngModel)]="countys" name="countys" placeholder="County" multiple>
+                            <input class="inp" type="text" [(ngModel)]="subcatsearch" [ngModelOptions]="{standalone: true}"
+                              placeholder="Search By Sub Category" class="search-allstates">
+                      
+                            <mat-option *ngFor="let catitem of countys | filter:subcatsearch"
+                              [value]="catitem.county">{{catitem.county}}</mat-option>
+        
+                          </mat-select>
+                        </mat-form-field> -->
+                        <mat-form-field>
+                        
+                          <mat-select  placeholder="County"  [(ngModel)]="model.county" >
+                            <mat-option  *ngFor="let catitem of countys"  (click)="counties(catitem?.county)" #county
+                            [value]="catitem.county">{{catitem.county}}</mat-option>
+      
+                          </mat-select>
+                        </mat-form-field>
+                        
+                      </div>
+
+
                       </div>
                     </div> 
                     <div class="col-md-6 col-sm-6">
@@ -191,8 +221,8 @@
                       <div class="input-group margin-zero1">
         
                         <mat-form-field> 
-                          <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered /> 
-                           <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" name="date_entered"
+                          <!-- <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered />  -->
+                           <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" #updateddate_entered  name="date_entered"
                             [(ngModel)]="date_entered" placeholder="Posted Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker color="warn"></mat-datepicker>
@@ -203,9 +233,9 @@
                       <div class="input-group margin-zero1">
         
                         <mat-form-field> 
-                           <input matInput placeholder="Submission Date" name="due_date" value="{{due_date}}" #u  pdateddue_date /> 
+                           <!-- <input matInput placeholder="Submission Date" name="due_date" value="{{due_date}}" #u  pdateddue_date />  -->
         
-                           <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" name="due_date"
+                           <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" #u  pdateddue_date  name="due_date"
                             [(ngModel)]="due_date" placeholder="Submission Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker1 color="warn"></mat-datepicker>
@@ -790,25 +820,185 @@
   <div class="tab-pane fade" id="update_rfps" role="tabpanel" aria-labelledby="profile-tab">
     <div class="sh-container-paymnt ">
       <div class="table-responsive margin-top-20">
-        <table class="table payment-table">
-          <thead>
-            <tr>
-              <th>Ticket id</th>
-              <th>Subject</th>
-              <th>Description</th>
-              <th>Detail</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr >
-              <td>data </td>
-              <td>data </td>
-              <td>data </td>
-              <td><button class="btn btn-rose btn-fill" routerLink="/queryreply" (click)="getid(card.id)">Update</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+     <p *ngIf="!showlist">No Add RFP yet</p>
+        <div class="products-area sh-products-area " *ngIf="showlist">
+            <div class="card">
+              <div class="row"  *ngFor="let rfp of showlist" >
+                <div class="col-sm-12 ">
+                  <div class="card-header card-header-text" data-background-color="purple">
+                    <a class="curser-pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
+                      (click)="move()">
+                      <h4 class="card-title">{{rfp?.rfpkey}}</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 plan-detail padding-0">
+                    <h3>
+                      <a class="curser-pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
+                        (click)="move()">
+                        {{rfp?.title}}</a>
+                    </h3>
+                    <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i> Agency :
+                      <a class="cat-elips" [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a>
+                    
+                    </h5>
+                    <h5>
+                      <i class="fa fa-university"></i> Category :
+                      <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat: rfp.category}">{{ rfp.category}}</a>
+                    </h5>
+                    <h5>
+                      <i class="fa  fa-fort-awesome"></i> State : <a [routerLink]="['/state']"
+                        [queryParams]="{ state: rfp.state}"> {{
+                        rfp.state}}</a>
+                    </h5>
+                 
+                  </div>
+                  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 term top-margin-25">
+                    <!--<h4>Detail:</h4>-->
+                    <div class="table">
+                      <table class="table-normal">
+                        <thead>
+                          <tr>
+                            <td>
+                              <i class="glyphicon glyphicon-calendar"></i> Posted Date</td>
+                            <td>
+                              <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
+                          </tr>
+                        </thead>
+                        <!-- <tbody>
+                          <tr *ngIf="!adminlogin">
+                            <td *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}
+                            </td>
+                            <td *ngIf="check(rfp.date_entered) == false"></td>
+                            <td *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
+                            <td *ngIf="check(rfp.due_date) == false"></td>
+                          </tr>
+                          <tr *ngIf="adminlogin">
+                            <td>{{rfp.date_entered}}</td>
+                            <td>{{rfp.due_date}}</td>
+                          </tr>
+                        </tbody> -->
+                      </table>
+                    </div>
+                    <!-- <table>
+                      <thead>
+                        <tr>
+                          <td>
+                            <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
+                          </td>
+                          <td> <i class="fa fa-phone-square" ></i> Phone No :</td>
+                          <td> <i class="fa fa-envelope-square" ></i> Email :</td>
+                          <td>  <i class="fa fa-fax" aria-hidden="true"></i> Fax :</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> <a   *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"  [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
+                            <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a></td>
+                          <td>
+                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
+                          </td>
+                          <td>
+                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
+                          </td>
+                          <td>
+                            <a   *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"  [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
+                            <a   *ngIf="rfp.fax == null" class="cat-elips" >null</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+
+                    <!--  -->
+                    <div class="row new_info">
+                      <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
+                        <h5>
+                          <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
+                          <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
+                            [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
+                          <a *ngIf="rfp.contract_name == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
+                        <h5>
+                          <i class="fa fa-phone-square"></i> Phone No :
+                          <a *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"
+                            [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
+                          <a *ngIf="rfp.phone == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
+                        <h5>
+                          <i class="fa fa-envelope-square"></i> Email :
+                          <a *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"
+                            [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                          <a *ngIf="rfp.email == null" class="cat-elips">null</a>
+                        </h5>
+                      </div>
+                      <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
+                        <h5>
+                          <i class="fa fa-fax" aria-hidden="true"></i> Fax :
+                          <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
+                            [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
+                          <a *ngIf="rfp.fax == null" class="cat-elips">null</a>
+                      
+                        </h5>
+                      </div>
+                      <!--  -->
+                    </div>
+                    <div class="row new_info">
+                      <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
+                        <ul class="list-normal">
+                          <li *ngIf="!subscribe; else pdf">
+                            <a routerLink="/pricing">
+                              <i class="fa fa-credit-card"></i> Pricing/Package Details
+                            </a>
+                          </li>
+                          <ng-template #pdf>
+                            <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)"
+                              *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
+                              <a>
+                                <i class="material-icons">insert_drive_file</i> View Documents
+                              </a>
+                            </li>
+                            <ng-template #link>
+                              <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)">
+                                <a>
+                                  <i class="material-icons">insert_drive_file</i> View Documents
+                                </a>
+                              </li>
+                            </ng-template>
+                          </ng-template>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div *ngIf="!subscribe" class=" term mg-top-5">
+                          <button (click)="memberonly()" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="subscribe">
+                    <h5 class="view-more collapsed" data-toggle="collapse" attr.data-target="#View{{rfp.id}}">
+                      Details <i class="material-icons">arrow_drop_down</i>
+                    </h5>
+                    <div attr.id="View{{rfp.id}}" class="panel-details collapse">
+                      <div class="col-md-12" *ngIf="rfp?.descriptionTag == null">
+                        <div [innerHTML]="rfp.deescription"></div>
+                      </div>
+                      <div class="col-md-12" *ngIf="rfp?.descriptionTag != null">
+                        <div [innerHTML]="rfp?.descriptionTag"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

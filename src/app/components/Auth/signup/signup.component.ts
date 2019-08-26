@@ -185,7 +185,12 @@ agen;
       this.isequal = true;
       this.endRequest = this.signupService.post_service(this.register.value).subscribe(
         data => {
-          this.send_link(this.register.value.email);
+          swal({
+            type: 'success',
+               title: 'Please check your email for account activation instructions',
+              showConfirmButton: true,
+              width: '512px',
+             });
           this.router.navigate(['/signin']);
         },
         error => {
@@ -213,7 +218,12 @@ agen;
       this.isequal = true;
       this.endRequest = this.signupService.agency(this.register2.value).subscribe(
         data => {
-          this.send_link(this.register2.value.email);
+          swal({
+                  type: 'success',
+                     title: 'Please check your email for account activation instructions',
+                    showConfirmButton: true,
+                    width: '512px',
+                   });
           this.router.navigate(['/signin']);
         },
         error => {
@@ -235,19 +245,19 @@ agen;
       // }
   }
   
-  send_link(email) {
-    this.endRequest = this.signupService.activation_service(email).subscribe(
-      data => {
-        swal({
-          type: 'success',
-          title: 'Please check your email for account activation instructions',
-          showConfirmButton: true,
-          width: '512px',
-        });
-      },
-      error => {
-      });
-  }
+  // send_link(email) {
+  //   this.endRequest = this.signupService.activation_service(email).subscribe(
+  //     data => {
+  //       swal({
+  //         type: 'success',
+  //         title: 'Please check your email for account activation instructions',
+  //         showConfirmButton: true,
+  //         width: '512px',
+  //       });
+  //     },
+  //     error => {
+  //     });
+  // }
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
