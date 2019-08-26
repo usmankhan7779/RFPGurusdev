@@ -79,6 +79,7 @@
               </mat-form-field>
             </div>
           </div>
+
           <div class="products-area sh-products-area " *ngIf="item !=0">
             <div *ngFor="let rfp of record;let i=index" class="card">
               <div class="row">
@@ -153,38 +154,7 @@
                         </tbody>
                       </table>
                     </div>
-                    <!-- <table>
-                      <thead>
-                        <tr>
-                          <td>
-                            <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
-                          </td>
-                          <td> <i class="fa fa-phone-square" ></i> Phone No :</td>
-                          <td> <i class="fa fa-envelope-square" ></i> Email :</td>
-                          <td>  <i class="fa fa-fax" aria-hidden="true"></i> Fax :</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td> <a   *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"  [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
-                            <a   *ngIf="rfp.contract_name == null" class="cat-elips" >null</a></td>
-                          <td>
-                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
-                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
-                          </td>
-                          <td>
-                            <a   *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
-                            <a   *ngIf="rfp.email == null" class="cat-elips" >null</a>
-                          </td>
-                          <td>
-                            <a   *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"  [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
-                            <a   *ngIf="rfp.fax == null" class="cat-elips" >null</a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table> -->
-
-                    <!--  -->
+                   
                     <div class="row new_info">
                       <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
                         <h5>
