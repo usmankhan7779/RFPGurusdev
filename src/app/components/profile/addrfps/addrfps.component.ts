@@ -396,8 +396,8 @@ checksub(){
       this.isInvalid2 = false;
     }
   }
-  editClick() {
-   
+  editClick(f : NgForm) {
+  
     if(this.input){
     this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
 
@@ -411,7 +411,8 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
     timer: 1500,width: '512px',
   });
 }else{
-  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.web_info,this.category,this.subcat,this.bid_type,this.city_or_county,this.city).subscribe(
+  alert()
+  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.web_info,this.category,this.subcat,this.bid_type,this.county,this.model.citys).subscribe(
     data => {
       swal({
         type: 'success',
@@ -419,6 +420,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
+      f.resetForm();
     },error =>{
     if (error.status=== 400){
       swal({
@@ -454,6 +456,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
 
     
   }
+
 }
 showlist;
 updaterec(){
@@ -499,16 +502,19 @@ dropdwon(states, county){
 county;
 counties(countys){
   // alert(countys)
-    //  alert(this.countys);
+    //  alert(countys);
+     this.county = countys;
     //  console.log( this.county)
   this._serv.statedropdwon(this.states, countys).subscribe( data =>{
     this.city = data['Cities'];
+    
     // alert(this.city)
    
   
  
   })
 }
+citys
 mainFunction() {
   if (localStorage.getItem('currentUser')) {
       this.local = localStorage.getItem('currentUser');
