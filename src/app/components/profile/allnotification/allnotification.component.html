@@ -42,7 +42,7 @@
                 </span>
                 <div class="heart-detail ">
                   
-                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"  [routerLink]="['/rfp']"[queryParams]="{query:item.target}">
                     {{item.description}}</h5>
                     <div class="text-right">
                         {{item?.timecreated | date}}
@@ -83,7 +83,7 @@
                 </span>
                 <div class="heart-detail  ">
                   <!-- (click)="single(item.target);updatenofication(item?.id)" -->
-                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()" [routerLink]="['/rfp']"[queryParams]="{query:item.target}"> {{item.description}}</h5>
                   <div class="text-right">
                       {{item?.timecreated | date}}
                     </div>

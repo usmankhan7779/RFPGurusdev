@@ -19,16 +19,22 @@ export class AgancyPricingService {
         let headers = new Headers();
         headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
         headers.append('Content-Type', 'application/json');
-        return this._https.get('http://192.168.29.235:8000/agency/get_allagency_user/10/' ,{ headers: headers}).map((res : Response) => res.json());
+        return this._https.get('https://apis.rfpgurus.com/agency/get_allagency_user/10/' ,{ headers: headers}).map((res : Response) => res.json());
 
     }
-    statedropdwon(state){
+    statedropdwon(state ,county){
           let headers = new Headers();
-        headers = new Headers({'Authorization': 'JWT '});
+          headers.append('Content-Type', 'application/json');
+        // headers = new Headers({'Authorization': 'JWT '});
         return this._https.post('https://apis.rfpgurus.com/agency/drop_down_values_PublishRFP/', JSON.stringify({
-            "state": "state"
-        }),{headers:headers}).map((res : Response) => res.json())
+            
+            "state": state,
+            "county" : county
+          
+        },
+        ),{headers:headers}).map((res : Response) => res.json())
     }
+  
     add_rfp( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
         if (category) {
             var cate = category.toString()

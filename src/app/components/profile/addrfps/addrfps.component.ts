@@ -22,15 +22,19 @@ import { SignupService } from '../../Auth/signup/signup.service';
   selector: 'app-addrfps',
   templateUrl: './addrfps.component.html',
   styleUrls: [
-  './addrfps.component.css',
-  '../../local-style/payment.css',
-  '../../local-style/single-pricing.css',
-  '../../local-style/cradet-card-box.css',
-  './pricingsteps.component.scss'
+    '../../local-style/payment.css',
+    '../../local-style/single-pricing.css',
+    '../../local-style/cradet-card-box.css',
+    '../../local-style/pagination.css',
+    '../../local-style/table-normal.css',
+    '../../local-style/products-area.css',
+    './pricingsteps.component.scss',
+    './addrfps.component.css',
+
 ],
   providers: [PagerService,AdvanceService,AllRfpsService]
 })
-export class AddrfpsComponent implements OnInit {
+export class AddrfpsComponent implements OnInit  {
   data:any=[];url;
   @ViewChild('openModal') openModal: ElementRef;
   agency_show:boolean=false;
@@ -269,7 +273,7 @@ this.form = this.formBuilder.group({
   Carddefault:['', Validators.compose([Validators.required])],
   state: ['', Validators.compose([Validators.required])],
   })
-  this.mainFunction();
+  // this.mainFunction();
   }
   remove1(val, index){
     this.subcat.splice(index, 1);
@@ -284,6 +288,9 @@ this.form = this.formBuilder.group({
         this.sub_categories = data.sub_categories;
       }
     )
+  }
+  ngAfterContentInit() : void {
+    this.mainFunction();
   }
   select_state() {
     
@@ -478,12 +485,26 @@ date;
 countys;
 setautopay: boolean = true;
 records;
-dropdwon(states){
-  alert(states);
-  this._serv.statedropdwon(states).subscribe( data =>{
-    alert(data);
-    this.countys = data.county;
+dropdwon(states, county){
+  // alert(states);
+  this._serv.statedropdwon(states, this.countys).subscribe( data =>{
+    // alert(data);
+    this.countys = data['Counties'];
+    // this.county = data['counties'].county;
+ 
+    // this.counties(states,this.countys)
     console.log(this.countys);
+  })
+}
+county;
+counties(countys){
+  alert(this.model.county)
+    //  alert(this.countys);
+     console.log( this.county)
+  this._serv.statedropdwon(this.states, this.countys).subscribe( data =>{
+   
+  
+ 
   })
 }
 mainFunction() {
