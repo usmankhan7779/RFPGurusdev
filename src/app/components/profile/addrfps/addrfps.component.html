@@ -28,25 +28,43 @@
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                    <div class="input-group">
-                      <mat-form-field>
-                        <input matInput placeholder="RFP Key" name="rfpkey" [(ngModel)]="rfpkey" />
-                      </mat-form-field>
-                    </div>
-                  </div> 
-                    <div class="col-md-6 col-sm-6">
                       <div class="input-group">
-                        <mat-form-field>
-                          <mat-select name="states" placeholder="State" [(ngModel)]="states" (change)="select_state()">
-                            <input class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"
-                              class="search-allstates" placeholder="Search By State">
-                            <i class="fa fa-search " area-hidden="true"></i>
-                            <mat-option *ngFor="let item of Statess | filter:statsearch" [value]="item.state">{{item.state}}
-                            </mat-option>
+                         
+                         <mat-form-field>
+                           
+                          <mat-select placeholder="Bid Type" name="bid_type" [(ngModel)]="bid_type">
+                            <mat-option value="RFP">RFP - Request for Proposals</mat-option>
+                            <mat-option value="RFQ">RFQ - Request for Quotation</mat-option>
+                            <mat-option value="IFQ">IFQ - Invitation for Quote</mat-option>
+                            <mat-option value="ITB">ITB - Invitation to Bid</mat-option>
+                            <mat-option value="IFB">IFB - Invitation for Bids</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bids</mat-option>
+                            <mat-option value="SOQ">SOQ - Statement of Qualifications</mat-option>
+                            <mat-option value="SPL">SPL - Special Notice</mat-option>
+                            <mat-option value="SFQ">SFQ - Solicitation for Quote</mat-option>
+                            <mat-option value="RSB">RSB - Request for Sealed Bid</mat-option>
+                            <mat-option value="RSOQ">RSOQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RSQ">RSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFSQ">RFSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFI">RFI - Request for Information</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bid</mat-option>
+                            <mat-option value="RFC">RFC - Request for Construction</mat-option>
+                            <mat-option value="CSB">CSB - Competitive Sealed Bids</mat-option>
+                            <mat-option value="DQ">DQ - Documented Quote</mat-option>
+                            <mat-option value="INF">INF - Informal Bid</mat-option>
+                            <mat-option value="LOI">LOI - Letter of Interest</mat-option>
+                            <mat-option value="NFS">NFS - Notice of Final Settlements</mat-option>
+                            <mat-option value="NIB">NIB - Notice Inviting Bids</mat-option>
+                            <mat-option value="QR">QR - Quotation Request</mat-option>
+                            <mat-option value="RCO">RCO - Request for Competitive Offering</mat-option>
+                            <mat-option value="RFO">RFO - Request for Offer</mat-option>
+                            <mat-option value="WQ">WQ - Written Quote</mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
-                    </div>
+                    </div>  
+                  
+               
                     <div class="col-md-6 col-sm-6 ">
                       <div class="input-group ">
                           <mat-form-field *ngIf="hide==true">
@@ -123,52 +141,20 @@
         
                     </div>
         
-                   
                     <div class="col-md-6 col-sm-6">
                       <div class="input-group">
-                         
-                         <mat-form-field>
-                           
-                          <mat-select placeholder="Bid Type" name="bid_type" [(ngModel)]="bid_type">
-                            <mat-option value="RFP">RFP - Request for Proposals</mat-option>
-                            <mat-option value="RFQ">RFQ - Request for Quotation</mat-option>
-                            <mat-option value="IFQ">IFQ - Invitation for Quote</mat-option>
-                            <mat-option value="ITB">ITB - Invitation to Bid</mat-option>
-                            <mat-option value="IFB">IFB - Invitation for Bids</mat-option>
-                            <mat-option value="RFB">RFB - Request for Bids</mat-option>
-                            <mat-option value="SOQ">SOQ - Statement of Qualifications</mat-option>
-                            <mat-option value="SPL">SPL - Special Notice</mat-option>
-                            <mat-option value="SFQ">SFQ - Solicitation for Quote</mat-option>
-                            <mat-option value="RSB">RSB - Request for Sealed Bid</mat-option>
-                            <mat-option value="RSOQ">RSOQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RSQ">RSQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RFSQ">RFSQ - Request for Statement of Qualifications</mat-option>
-                            <mat-option value="RFI">RFI - Request for Information</mat-option>
-                            <mat-option value="RFB">RFB - Request for Bid</mat-option>
-                            <mat-option value="RFC">RFC - Request for Construction</mat-option>
-                            <mat-option value="CSB">CSB - Competitive Sealed Bids</mat-option>
-                            <mat-option value="DQ">DQ - Documented Quote</mat-option>
-                            <mat-option value="INF">INF - Informal Bid</mat-option>
-                            <mat-option value="LOI">LOI - Letter of Interest</mat-option>
-                            <mat-option value="NFS">NFS - Notice of Final Settlements</mat-option>
-                            <mat-option value="NIB">NIB - Notice Inviting Bids</mat-option>
-                            <mat-option value="QR">QR - Quotation Request</mat-option>
-                            <mat-option value="RCO">RCO - Request for Competitive Offering</mat-option>
-                            <mat-option value="RFO">RFO - Request for Offer</mat-option>
-                            <mat-option value="WQ">WQ - Written Quote</mat-option>
+                        <mat-form-field>
+                          <mat-select name="states" placeholder="State" [(ngModel)]="states" (change)="select_state()" >
+                            <input class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"
+                              class="search-allstates" placeholder="Search By State">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <mat-option *ngFor="let item of Statess | filter:statsearch" [value]="item.state" (click)="dropdwon(item.state)">{{item.state}}
+                            </mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
-                    </div>  
-                     <div class="col-md-6 col-sm-6">
-                      <div class="input-group">
-        
-                        <mat-form-field>
-                          <input matInput placeholder="Agency Type" name="agency_type" [(ngModel)]="agency_type" />
-        
-                        </mat-form-field>
-                      </div>
-                    </div> 
+                    </div>
+                  
                      <div class="col-md-6 col-sm-6">
                       <div class="input-group">
         
@@ -191,8 +177,8 @@
                       <div class="input-group margin-zero1">
         
                         <mat-form-field> 
-                          <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered /> 
-                           <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" name="date_entered"
+                          <!-- <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered />  -->
+                           <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" #updateddate_entered  name="date_entered"
                             [(ngModel)]="date_entered" placeholder="Posted Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker color="warn"></mat-datepicker>
@@ -203,9 +189,9 @@
                       <div class="input-group margin-zero1">
         
                         <mat-form-field> 
-                           <input matInput placeholder="Submission Date" name="due_date" value="{{due_date}}" #u  pdateddue_date /> 
+                           <!-- <input matInput placeholder="Submission Date" name="due_date" value="{{due_date}}" #u  pdateddue_date />  -->
         
-                           <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" name="due_date"
+                           <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" #u  pdateddue_date  name="due_date"
                             [(ngModel)]="due_date" placeholder="Submission Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker1 color="warn"></mat-datepicker>
@@ -793,17 +779,19 @@
         <table class="table payment-table">
           <thead>
             <tr>
-              <th>Ticket id</th>
+             
               <th>Subject</th>
               <th>Description</th>
               <th>Detail</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr >
+            <tr *ngFor="let data of showlist">
+             
               <td>data </td>
               <td>data </td>
-              <td>data </td>
+              <td >{{data.admin_approved}} </td>
               <td><button class="btn btn-rose btn-fill" routerLink="/queryreply" (click)="getid(card.id)">Update</button>
               </td>
             </tr>

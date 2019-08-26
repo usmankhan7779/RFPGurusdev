@@ -232,7 +232,7 @@ export class AddrfpsComponent implements OnInit {
       }
       eachcardid;
   ngOnInit() {
- 
+ this.updaterec();
     this._serv1.rfpstate().subscribe(
       data => {
         this.Statess = data.Result;
@@ -448,6 +448,13 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
     
   }
 }
+showlist;
+updaterec(){
+  this._serv.getrecordforypdaterfp().subscribe(data => {
+this.showlist = data['results'];
+// alert(this.showlist);
+  })
+}
 result; trial;
 local;
 uname;
@@ -468,8 +475,17 @@ check_login() {
 isInvalid2;
 isInvalidl;
 date;
+countys;
 setautopay: boolean = true;
 records;
+dropdwon(states){
+  alert(states);
+  this._serv.statedropdwon(states).subscribe( data =>{
+    alert(data);
+    this.countys = data.county;
+    console.log(this.countys);
+  })
+}
 mainFunction() {
   if (localStorage.getItem('currentUser')) {
       this.local = localStorage.getItem('currentUser');
