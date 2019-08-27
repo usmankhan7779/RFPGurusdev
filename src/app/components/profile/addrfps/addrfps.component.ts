@@ -401,7 +401,7 @@ checksub(){
     if(this.input){
     this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
 
-          this.web_info = data['_body'];
+          this.model.web_info = data['_body'];
 
 if(data['_body'].substring(0,26)=="Sorry, file already exists"){
   swal({
@@ -412,7 +412,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
   });
 }else{
   alert()
-  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.web_info,this.category,this.subcat,this.bid_type,this.county,this.model.citys).subscribe(
+  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.model.web_info,this.category,this.subcat,this.bid_type,this.county,this.model.citys).subscribe(
     data => {
       swal({
         type: 'success',
