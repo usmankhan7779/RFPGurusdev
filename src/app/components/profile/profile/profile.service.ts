@@ -14,15 +14,58 @@ export class ProfileService {
     }
     token;
     get_profile() {
- 
+  
+    
+        if(localStorage.getItem('loged_in')){
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+             
+            headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+            return this._https.get('https://apis.rfpgurus.com/user_information/',{headers:headers}).map(response => response.json());
+        }
+    
+}
+agencyprofile(){
+    if(localStorage.getItem('loged_in2')){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
          
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-        return this._https.get('https://apis.rfpgurus.com/user_information/',{headers:headers}).map(response => response.json());
+        return this._https.get('https://apis.rfpgurus.com/agency_profile/',{headers:headers}).map(response => response.json());
     }
+}
     ProfileUpdate(obj) {
+        if (localStorage.getItem('loged_in2')){
         let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+         
+        headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        let userlist: any = [];
+        let jsonlist = {};
+        jsonlist = {
+            "zipcode": obj.zipcode,
+            "city": obj.city,
+            "address": obj.address,
+            "agency_name": obj.companyname,
+            "country": obj.country,
+            "state": obj.state,
+            "phone": obj.phone,
+            "email": obj.email,
+            "first_name": obj.firstname,
+            "last_name": obj.lastname,
+            "username": obj.username,
+            // "newsletter": obj.newsletter,
+        }
+      
+     
+        return this._https.put('https://apis.rfpgurus.com/agency_profile/',JSON.stringify(jsonlist),{headers:headers}).map(response => response.json()
+            // JSON.stringify(jsonlist), { headers: this.authInterceptor.setHeaders()
+            //  }
+            );
+    }
+    else {
+        if (localStorage.getItem('loged_in')){
+            let headers = new Headers();
         headers.append('Content-Type', 'application/json');
          
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
@@ -48,7 +91,9 @@ export class ProfileService {
             // JSON.stringify(jsonlist), { headers: this.authInterceptor.setHeaders()
             //  }
             );
+        }
     }
+}
     peraferanceUpdate(obj, catlist, statePreference, countyPreference, cityPreference, agencyPreference) {
         let userlist: any = [];
         if (catlist.length == 0) {

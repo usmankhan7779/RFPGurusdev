@@ -20,6 +20,13 @@
 }
 #addRFP .input-group{
   width: 100%;
+ 
+}
+.editform{
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  float: none;
 }
 .btn-file {
   position: relative;
@@ -99,4 +106,77 @@
 }
 #myTabContent{
   margin-top: 20px;
+}
+
+.main-content.custom {
+  margin-top: -10px!important;
+  padding: 15px 0
+}
+
+.sidebarToggle {
+  display: none;
+  width: 130px;
+  margin: 0;
+  top: 0;
+  left: 15px;
+  z-index: 9
+}
+.sidebar.custom {
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  background: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-animation: animateleft .4s;
+  animation: animateleft .4s
+}
+.sidebar-close-btn{
+  z-index: 100;
+  position: absolute;
+  right: -40px;
+  padding: 0;
+  top: 2px;
+}
+.sidebar-close-btn button {
+    width: 60px;
+    height: 30px;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    border-radius: 0 5px 5px 0 !important;
+}
+.sidebar-close-btn button:hover{
+  background: #c00;
+}
+.mg-top-5{
+margin-top: 5px;
+}
+.term h5 i{
+  width: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+.new_info{
+  margin: 0;
+}
+.new_info h5{
+  margin: 2px 0 !important;
+}
+.new_info h5 a{
+  font-weight: normal !important;
+}
+.new_info >div{
+  min-height: 16px;
+}
+.view-more{
+  margin: 0;
+}
+
+@media (max-width:991px) {
+  .main-content.custom {
+    margin: 0 !important;
+  }
+  .page-title {
+    margin: 0;
+  }
 }

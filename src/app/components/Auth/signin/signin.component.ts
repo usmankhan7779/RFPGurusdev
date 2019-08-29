@@ -77,6 +77,79 @@ export class SigninComponent implements OnInit {
            token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
+          // localStorage.setItem('loged_in2', '1');
+          localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+        swal({
+          type: 'success',
+          title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
+          showConfirmButton: false,
+          timer: 2500, width: '512px',
+        });
+        // this._location.back();
+        if (localStorage.getItem('member')) {
+          let url = localStorage.getItem('member')
+          let last = url.length
+          let ur = url.slice(0, 13)
+          let state = url.slice(0, 5)
+          let category = url.slice(0, 8)
+          let agency = url.slice(0, 6)
+
+
+          if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+          else if (state == 'state') {
+            this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+          }
+          else if (category == 'category') {
+            this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+          }
+          else if (agency == 'agency') {
+
+            this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+          }
+          else if (url == 'advanced-search') {
+            this._nav.navigate([url]);
+          }
+          else if (url == 'latest-rfps') {
+            this._nav.navigate([url]);
+          }
+          else {
+            var val = 'rfp/' + url
+            this._nav.navigate([val]);
+          }
+        } else {
+          this._nav.navigate(['/']);
+        }
+
+      },
+        error => {
+          swal(
+            'Invalid',
+            'Something went wrong',
+            'error'
+          )
+        })
+    }
+  }
+
+
+  socialCallBackforagency = (user) => {
+    this.user = user;
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    if (user) {
+      const createUser = this.http.post('https://apis.rfpgurus.com/agency_social_login/', {
+        user
+      }, { headers: headers })
+      // createUser.subscribe((data: Response) => {
+        // let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
+        createUser.subscribe(data => {
+          let user = { 
+           userid: this.jwtHelper.decodeToken(data['token']).user_id,
+           username: this.jwtHelper.decodeToken(data['token']).username, 
+           token: data['token'] };
+        if (user && user.token) {
+          // localStorage.setItem('loged_in', '1');
           localStorage.setItem('loged_in2', '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
@@ -136,6 +209,12 @@ export class SigninComponent implements OnInit {
   }
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.socialCallBack);
+  }
+  signInWithGoogleforagency(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.socialCallBackforagency);
+  }
+  signInWithFBforagency(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.socialCallBackforagency);
   }
   signOut(): void {
     this.authService.signOut();

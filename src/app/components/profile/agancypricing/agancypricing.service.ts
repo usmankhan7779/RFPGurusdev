@@ -34,7 +34,12 @@ export class AgancyPricingService {
         },
         ),{headers:headers}).map((res : Response) => res.json())
     }
-  
+  eachrfpget(id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this._https.get('https://apis.rfpgurus.com/agency/get_rfpagency_Detail/' + id + '/', {headers: headers}).map((res : Response) => res.json());  
+  }
     add_rfp( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
         if (category) {
             var cate = category.toString()
@@ -49,6 +54,44 @@ export class AgancyPricingService {
         }
         headers.append('Content-Type', 'application/json');
         return this._https.post('https://apis.rfpgurus.com/agency/add_rfp/', JSON.stringify({
+
+            "title": title,
+            "descriptionTag": descriptionTag,
+            "state": states,
+         
+            "date_entered": date_entered,
+            "due_date": due_date,
+            "web_info": web_info,
+            
+            "new_category": cate,
+            "sub_category": subcat,
+        
+            "bid_type": bid_type,
+           
+            "city_or_county": city_or_county,
+            "city": city,
+        
+           
+            "deescription": plainText,
+           
+        }),
+            { headers: headers }).map((response: Response) => response.json());
+    }
+
+    add_rfpupdate( title, descriptionTag, states, date_entered, due_date, web_info,  category, subcat,  bid_type,  city_or_county, city) {
+        if (category) {
+            var cate = category.toString()
+        }
+        if (subcat) {
+            var subcat = subcat.toString()
+        }
+        var plainText = descriptionTag.replace(/<[^>]*>/g, '');
+        let headers = new Headers();
+        if (localStorage.getItem('currentUser')) {
+            headers = new Headers({ 'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token });
+        }
+        headers.append('Content-Type', 'application/json');
+        return this._https.put('https://apis.rfpgurus.com/agency/add_rfp/', JSON.stringify({
 
             "title": title,
             "descriptionTag": descriptionTag,

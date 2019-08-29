@@ -6,12 +6,12 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#update_rfps" role="tab" aria-controls="Support_Center"
-      aria-selected="false">Update RFP's</a>
+      aria-selected="false">Published RFP's</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in" id="publish_new" role="tabpanel" aria-labelledby="home-tab">
-      <div class="main-panel add-rfp" *ngIf="record">
+      <div class="main-panel add-rfp" *ngIf="records">
           <div class="main-content custom">
             <div class="container-fluid">
               <div class="row">
@@ -214,7 +214,7 @@
                         <mat-form-field>
 
                         <mat-select  placeholder="City" [(ngModel)]="model.citys"  >
-                            <mat-option  *ngFor="let catitem of city"   #citys
+                            <mat-option  *ngFor="let catitem of city"   #citys (click)="getcityname(catitem.city)"
                             [value]="catitem.city">{{catitem.city}}</mat-option>
       
                           </mat-select>
@@ -227,7 +227,7 @@
         
                         <mat-form-field> 
                           <!-- <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered />  -->
-                           <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()" #updateddate_entered  name="date_entered"
+                           <input matInput  [min]="minDate" [matDatepicker]="startPicker" (focus)="startPicker.open()" #updateddate_entered  name="date_entered"
                             [(ngModel)]="date_entered" placeholder="Posted Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker color="warn"></mat-datepicker>
@@ -240,7 +240,7 @@
                         <mat-form-field> 
                            <!-- <input matInput placeholder="Submission Date" name="due_date" value="{{due_date}}" #u  pdateddue_date />  -->
         
-                           <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()" #u  pdateddue_date  name="due_date"
+                           <input matInput  [min]="minDate" [matDatepicker]="startPicker1" (focus)="startPicker1.open()" #u  pdateddue_date  name="due_date"
                             [(ngModel)]="due_date" placeholder="Submission Date" />
                           <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
                           <mat-datepicker #startPicker1 color="warn"></mat-datepicker>
@@ -250,11 +250,11 @@
                     </div>
                     <div class="col-md-6 col-sm-6">
                       <div class="input-group margin-zero1">
-                            <mat-form-field>
+                            <!-- <mat-form-field> -->
         
-                          <input matInput placeholder="Web Information PDF" readyonly name="web_info" [(ngModel)]="model.web_info" />
+                          <!-- <input matInput placeholder="Web Information PDF" readyonly name="web_info" [(ngModel)]="model.web_info" />
         
-                        </mat-form-field> 
+                        </mat-form-field>  -->
                         <div> <button class="btn-file btn btn-primary">Upload File<input class="img-input" (change)="onChange($event)" 
                           type="file"></button> </div> 
                     
@@ -275,7 +275,7 @@
                      </div>
                     <div class="col-md-12 col-sm-12">
                       <div class=" text-center">
-                        <button type="submit" class="btn btn-primary submit_btn" (click)="editClick(f)">Submit</button>
+                        <button type="submit" class="btn btn-primary submit_btn" (click)="editClick()">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -286,12 +286,12 @@
        
       
       </div>
-      <section class="flx-items" *ngIf="!record">
+      <section class="flx-items" *ngIf="!records">
           <!-- <div class="col-sm-12 text-center publish_RFP"> -->
-              <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!record"   routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
+              <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!records"   routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
           <!-- </div> -->
        <!-- <app-agancypricing></app-agancypricing> -->
-       <div class="row margin-0 center-pricing"  *ngIf="!result || !trial && !record" >
+       <div class="row margin-0 center-pricing"  *ngIf="!result || !trial && !records" >
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
               <div class="single-pricing-2 top">
                 <div class="pricing2-button" *ngIf="!planSelected">
@@ -825,43 +825,58 @@
   <div class="tab-pane fade" id="update_rfps" role="tabpanel" aria-labelledby="profile-tab">
     <div class="sh-container-paymnt ">
       <div class="table-responsive margin-top-20">
-     <p *ngIf="!showlist">No Add RFP yet</p>
+     <h3 *ngIf="TotalItems == '0'" class="text-center"><b> No RFP Published yet</b></h3>
         <div class="products-area sh-products-area " *ngIf="showlist">
-            <div class="card">
-              <div class="row"  *ngFor="let rfp of showlist" >
+            <div class="card"  *ngFor="let rfp of showlist">
+              <div class="row"  >
                 <div class="col-sm-12 ">
                   <div class="card-header card-header-text" data-background-color="purple">
-                    <a class="curser-pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
-                      (click)="move()">
+                    <a class="curser-pointer" >
                       <h4 class="card-title">{{rfp?.rfpkey}}</h4>
                     </a>
+                  </div>
+                  <div class="pull-right">
+                      <p *ngIf="rfp?.admin_approved == false">Pending Approval</p>
+                      <p *ngIf="rfp?.admin_approved == true">Approved By Admin</p>
+                      <button class="btn btn-rose"  data-toggle="modal" data-target="#myModal" (click)="gettingid(rfp?.id)">Edit RFP</button>
                   </div>
                 </div>
                 <div class="card-content">
                   <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 plan-detail padding-0">
                     <h3>
-                      <a class="curser-pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp.seoTitleUrl}"
-                        (click)="move()">
+                      <a class="curser-pointer" >
                         {{rfp?.title}}</a>
                     </h3>
-                    <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i> Agency :
-                      <a class="cat-elips" [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a>
+                    <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i>  Agency :
+                      <a class="cat-elips">{{rfp.agency}}</a>
                     
                     </h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :
-                      <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat: rfp.category}">{{ rfp.category}}</a>
+                      <a  class="cat-elips" >{{ rfp.sub_category}}</a>
                     </h5>
                     <h5>
-                      <i class="fa  fa-fort-awesome"></i> State : <a [routerLink]="['/state']"
-                        [queryParams]="{ state: rfp.state}"> {{
+                        <i class="fa fa-university"></i>Sub Category :
+                        <a  class="cat-elips">{{ rfp.new_category}}</a>
+                      </h5>
+                    <h5>
+                      <i class="fa  fa-fort-awesome"></i> State : <a > {{
                         rfp.state}}</a>
                     </h5>
-                 
+                    <h5>
+                        <i class="fa  fa-fort-awesome"></i> County : <a > {{
+                          rfp.city_or_county}}</a>
+                      </h5>
+                      <h5>
+                          <i class="fa  fa-fort-awesome"></i> City : <a > {{
+                            rfp.city}}</a>
+                        </h5>
                   </div>
+                 
                   <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 term top-margin-25">
                     <!--<h4>Detail:</h4>-->
                     <div class="table">
+                      
                       <table class="table-normal">
                         <thead>
                           <tr>
@@ -871,19 +886,19 @@
                               <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
                           </tr>
                         </thead>
-                        <!-- <tbody>
-                          <tr *ngIf="!adminlogin">
-                            <td *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}
+                        <tbody>
+                          <tr >
+                            <td >{{rfp.date_entered | date:'EEEE, MMM dd, y'}}
                             </td>
-                            <td *ngIf="check(rfp.date_entered) == false"></td>
-                            <td *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
-                            <td *ngIf="check(rfp.due_date) == false"></td>
+                         
+                            <td >{{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
+                            
                           </tr>
                           <tr *ngIf="adminlogin">
                             <td>{{rfp.date_entered}}</td>
                             <td>{{rfp.due_date}}</td>
                           </tr>
-                        </tbody> -->
+                        </tbody>
                       </table>
                     </div>
                     <!-- <table>
@@ -918,69 +933,7 @@
                     </table> -->
 
                     <!--  -->
-                    <div class="row new_info">
-                      <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
-                        <h5>
-                          <i class="fa fa-home" aria-hidden="true"></i> Contract Name :
-                          <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
-                            [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
-                          <a *ngIf="rfp.contract_name == null" class="cat-elips">null</a>
-                        </h5>
-                      </div>
-                      <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
-                        <h5>
-                          <i class="fa fa-phone-square"></i> Phone No :
-                          <a *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"
-                            [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
-                          <a *ngIf="rfp.phone == null" class="cat-elips">null</a>
-                        </h5>
-                      </div>
-                      <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
-                        <h5>
-                          <i class="fa fa-envelope-square"></i> Email :
-                          <a *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"
-                            [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
-                          <a *ngIf="rfp.email == null" class="cat-elips">null</a>
-                        </h5>
-                      </div>
-                      <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
-                        <h5>
-                          <i class="fa fa-fax" aria-hidden="true"></i> Fax :
-                          <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
-                            [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
-                          <a *ngIf="rfp.fax == null" class="cat-elips">null</a>
-                      
-                        </h5>
-                      </div>
-                      <!--  -->
-                    </div>
-                    <div class="row new_info">
-                      <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
-                        <ul class="list-normal">
-                          <li *ngIf="!subscribe; else pdf">
-                            <a routerLink="/pricing">
-                              <i class="fa fa-credit-card"></i> Pricing/Package Details
-                            </a>
-                          </li>
-                          <ng-template #pdf>
-                            <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)"
-                              *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
-                              <a>
-                                <i class="material-icons">insert_drive_file</i> View Documents
-                              </a>
-                            </li>
-                            <ng-template #link>
-                              <li (click)="check_trial(rfp.id, rfp.web_info,rfp.title)">
-                                <a>
-                                  <i class="material-icons">insert_drive_file</i> View Documents
-                                </a>
-                              </li>
-                            </ng-template>
-                          </ng-template>
-                        </ul>
-                      </div>
-                    
-                    </div>
+                  
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="subscribe">
                     <h5 class="view-more collapsed" data-toggle="collapse" attr.data-target="#View{{rfp.id}}">
@@ -1008,3 +961,295 @@
 <!--  -->
 
 
+<div id="myModal" class="modal fade " role="dialog">
+    <div class="modal-dialog editform">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close"  data-dismiss="myModal"
+          aria-label="Close"><span aria-hidden="true">&times;</span> </button> -->
+          <h4 class="modal-title text-center">Edit RFP </h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12 mg-0-auto">
+                  <!-- <div class="page-title">
+                    <div  class="col-sm-6 page-title"><span >Publish RFP's</span></div>
+                  </div> -->
+                  <form class="col-sm-12 sh-signup-form-fix" id="addRFP" >
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group">
+                        <mat-form-field>
+                          <input class="text-capitalize" matInput placeholder="Title" name="title" value="{{getforupdate.title}}" [(ngModel)]="model.title" 
+                          
+                          
+                          required />
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group">
+                         
+                         <mat-form-field>
+                           
+                          <mat-select placeholder="Bid Type" name="bid_type" [(ngModel)]="bid_type"  value="{{getforupdate.bid_type}}">
+                            <mat-option value="RFP">RFP - Request for Proposals</mat-option>
+                            <mat-option value="RFQ">RFQ - Request for Quotation</mat-option>
+                            <mat-option value="IFQ">IFQ - Invitation for Quote</mat-option>
+                            <mat-option value="ITB">ITB - Invitation to Bid</mat-option>
+                            <mat-option value="IFB">IFB - Invitation for Bids</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bids</mat-option>
+                            <mat-option value="SOQ">SOQ - Statement of Qualifications</mat-option>
+                            <mat-option value="SPL">SPL - Special Notice</mat-option>
+                            <mat-option value="SFQ">SFQ - Solicitation for Quote</mat-option>
+                            <mat-option value="RSB">RSB - Request for Sealed Bid</mat-option>
+                            <mat-option value="RSOQ">RSOQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RSQ">RSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFSQ">RFSQ - Request for Statement of Qualifications</mat-option>
+                            <mat-option value="RFI">RFI - Request for Information</mat-option>
+                            <mat-option value="RFB">RFB - Request for Bid</mat-option>
+                            <mat-option value="RFC">RFC - Request for Construction</mat-option>
+                            <mat-option value="CSB">CSB - Competitive Sealed Bids</mat-option>
+                            <mat-option value="DQ">DQ - Documented Quote</mat-option>
+                            <mat-option value="INF">INF - Informal Bid</mat-option>
+                            <mat-option value="LOI">LOI - Letter of Interest</mat-option>
+                            <mat-option value="NFS">NFS - Notice of Final Settlements</mat-option>
+                            <mat-option value="NIB">NIB - Notice Inviting Bids</mat-option>
+                            <mat-option value="QR">QR - Quotation Request</mat-option>
+                            <mat-option value="RCO">RCO - Request for Competitive Offering</mat-option>
+                            <mat-option value="RFO">RFO - Request for Offer</mat-option>
+                            <mat-option value="WQ">WQ - Written Quote</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>  
+                  
+               
+                    <div class="col-md-6 col-sm-6 ">
+                      <div class="input-group ">
+                          <mat-form-field *ngIf="hide==true">
+                          <mat-chip-list #chipList>
+                              <mat-chip  [selectable]="selectable" *ngIf="hide==true" >
+                                  {{category}}
+                                  {{categorynew}}
+                              </mat-chip>
+                              <mat-chip *ngFor="let list of category" [selectable]="selectable" [removable]="removable" (removed)="remove(list, $event)">
+                                  {{list}}
+                                  <i class="fa fa-remove" (click)="remove(list, $event)"></i>
+                                  
+                              </mat-chip>
+                              <input [matChipInputFor]="chipList" 
+                                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                  [matChipInputAddOnBlur]="addOnBlur">
+                          </mat-chip-list></mat-form-field>
+                        <mat-form-field>
+                          <mat-select  name="category" value="getforupdate.new_category" placeholder="Select Category" 
+                            (ngModelChange)="subcategory(updatedcategory.value)" #updatedcategory multiple>
+                            <input class="inp" type="text"  [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}"
+                              placeholder="Search By Category" class="search-allstates">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <button class="btn btn-primary others mg-0" (click)="cat_check()">Others</button>
+                            <input class="inp" type="text" class="search-allstates" placeholder="Type Category" name="category"
+                              [(ngModel)]="category" #updatedcategory (change)="subcategory(updatedcategory.value)"
+                              *ngIf="category_show==true" />
+                            <mat-option *ngFor="let catitem of cat | filter:catsearch" [value]="catitem.category_name">
+                              {{catitem.category_name}}</mat-option>
+        
+                          </mat-select>
+                        </mat-form-field>
+        
+                      </div>
+        
+        
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+        
+                      <div class="input-group ">
+                          <mat-form-field class="example-chip-list" *ngIf="hide==true">
+                              <mat-chip-list #chipList>
+                                  <mat-chip  [selectable]="selectable" *ngIf="hide==true" >
+                                      {{subcat}}
+                                     
+                                      
+                                  </mat-chip>
+                                  <mat-chip *ngFor="let list of subcat" [selectable]="selectable" [removable]="removable" (removed)="remove(list, $event)">
+                                      {{list}}
+                                      <i class="fa fa-remove" (click)="remove1(list, $event)"></i>
+                                      
+                                  </mat-chip>
+                                  <input [matChipInputFor]="chipList" 
+                                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                      [matChipInputAddOnBlur]="addOnBlur">
+                              </mat-chip-list>
+                          </mat-form-field>
+                        <mat-form-field class="category-edit-rfp">
+        
+                          <mat-select [(ngModel)]="subcat" name="subcat"  placeholder="Select Sub Category" multiple  >
+                            <input class="inp" type="text" [(ngModel)]="subcatsearch" [ngModelOptions]="{standalone: true}"
+                              placeholder="Search By Sub Category" class="search-allstates">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <button class="btn btn-primary others mg-0" (click)="subchk()">Others</button>
+                            <input class="inp" type="text" class="search-allstates" placeholder="Sub Category" name="subcat"
+                              [(ngModel)]="subcat" *ngIf="subcate_show==true" />
+                            <mat-option *ngFor="let catitem of sub_categories | filter:subcatsearch"
+                              [value]="catitem.subcategory_name">{{catitem.subcategory_name}}</mat-option>
+        
+                          </mat-select>
+                        </mat-form-field>
+        
+                      </div>
+        
+        
+                    </div>
+        
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group">
+                        <mat-form-field>
+                          <mat-select name="states" placeholder="State"  value="{{getforupdate.state}}" [(ngModel)]="states" (change)="select_state()" #state>
+                            <input class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"
+                              class="search-allstates" placeholder="Search By State">
+                            <i class="fa fa-search " area-hidden="true"></i>
+                            <mat-option *ngFor="let item of Statess | filter:statsearch" [value]="item.state" #state (click)="dropdwon(getforupdate?.state)">{{item.state}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  
+                     <div class="col-md-6 col-sm-6">
+                      <div class="input-group">
+        
+                        <!-- <mat-form-field>
+                          <input matInput placeholder="County" name="city_or_county" [(ngModel)]="city_or_county" />
+        
+                        </mat-form-field>
+ -->
+
+
+                        <div class="input-group ">
+                          <!-- <mat-form-field class="example-chip-list" *ngIf="hide==true">
+                              <mat-chip-list #chipList>
+                                  <mat-chip  [selectable]="selectable" *ngIf="hide==true" >
+                                      {{countys}}
+                                     
+                                      
+                                  </mat-chip>
+                                  <mat-chip *ngFor="let list of subcat" [selectable]="selectable" [removable]="removable" (removed)="remove(list, $event)">
+                                      {{list}}
+                                      <i class="fa fa-remove" (click)="remove1(list, $event)"></i>
+                                      
+                                  </mat-chip>
+                                  <input [matChipInputFor]="chipList" 
+                                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                      [matChipInputAddOnBlur]="addOnBlur">
+                              </mat-chip-list>
+                          </mat-form-field> -->
+                        <!-- <mat-form-field class="category-edit-rfp">
+        
+                          <mat-select [(ngModel)]="countys" name="countys" placeholder="County" multiple>
+                            <input class="inp" type="text" [(ngModel)]="subcatsearch" [ngModelOptions]="{standalone: true}"
+                              placeholder="Search By Sub Category" class="search-allstates">
+                      
+                            <mat-option *ngFor="let catitem of countys | filter:subcatsearch"
+                              [value]="catitem.county">{{catitem.county}}</mat-option>
+        
+                          </mat-select>
+                        </mat-form-field> -->
+                        <mat-form-field>
+                        
+                          <mat-select  placeholder="County"  [(ngModel)]="model.county"  value="{{getforupdate.city_or_county}}" >
+                            <mat-option  *ngFor="let catitem of countys"  (click)="counties(catitem?.county)" #county
+                            [value]="catitem.county">{{catitem.county}}</mat-option>
+      
+                          </mat-select>
+                        </mat-form-field>
+                        
+                      </div>
+
+
+                      </div>
+                    </div> 
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group">
+        
+                        <mat-form-field>
+
+                        <mat-select  placeholder="City" [(ngModel)]="model.citys"  value="{{getforupdate.city}}" >
+                            <mat-option  *ngFor="let catitem of city" (click)="getcityname(catitem.city)"
+                            [value]="catitem.city">{{catitem.city}}</mat-option>
+      
+                          </mat-select>
+                        </mat-form-field>
+
+                      </div>
+                    </div> 
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group margin-zero1">
+        
+                        <mat-form-field> 
+                          <!-- <input matInput placeholder="Posted Date" name="date_entered" value="{{date_entered}}" #updateddate_entered />  -->
+                           <input matInput   [min]="minDate" [matDatepicker]="startPicker" value="{{getforupdate.date_entered}}" (focus)="startPicker.open()" #updateddate_entered  name="date_entered"
+                            [(ngModel)]="date_entered" placeholder="Posted Date" />
+                          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                          <mat-datepicker #startPicker color="warn"></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group margin-zero1">
+        
+                        <mat-form-field> 
+            
+        
+                           <input matInput  [min]="minDate" [matDatepicker]="startPicker1" (focus)="startPicker1.open()" #u  value="{{getforupdate.due_date}}"  pdateddue_date  name="due_date"
+                            [(ngModel)]="due_date" placeholder="Submission Date" />
+                          <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
+                          <mat-datepicker #startPicker1 color="warn"></mat-datepicker>
+                        </mat-form-field>
+        
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="input-group margin-zero1">
+                            <!-- <mat-form-field>
+        
+                          <input matInput placeholder="Web Information PDF" readyonly name="web_info" [(ngModel)]="model.web_info"  value="{{getforupdate.web_info}}" />
+        
+                        </mat-form-field>  -->
+                        <button value="{{getforupdate.web_info}}"><a >View</a></button>
+                        <div> <button class="btn-file btn btn-primary">Upload File<input class="img-input" (change)="onChange($event)" 
+                          type="file"></button> </div> 
+                    
+                      </div>
+                      
+                    </div>
+                
+                 
+                    <div class="col-md-12 col-sm-12">
+                      <div class="input-group">
+                        <ckeditor [(ngModel)]="descriptionTag" value="{{getforupdate.descriptionTag}}"  name="descriptionTag">
+                          <ckbutton [name]="'saveButton'" [command]="'saveCmd'" [icon]="'save.png'" [label]="'Save Document'"
+                            [toolbar]="'clipboard,1'">
+                          </ckbutton>
+                        </ckeditor>
+        
+                      </div> 
+                     </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class=" text-center">
+                        <button type="submit" class="btn btn-primary submit_btn" (click)="editClickupdate()">Update</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+
+        </div>
+      
+      </div>
+  
+    </div>
+  </div>

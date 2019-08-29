@@ -292,6 +292,7 @@ forms: FormGroup;
             }
         })
 }
+nodata;
   mainFunction() {
       if (localStorage.getItem('currentUser')) {
           this.local = localStorage.getItem('currentUser');
@@ -308,7 +309,8 @@ forms: FormGroup;
                     this.show_pirce= false;
                       // this._serv4.purchaseHistory().subscribe(
                       //     data => {
-                              this.record = data['subscription_detail'];
+                              this.records = data['subscription_detail'];
+                              
                               this.pkgList = data['subscription_detail']['pkg_fk'];
                               this.result = true;
 
@@ -323,8 +325,10 @@ forms: FormGroup;
                           // })
 
                   } else if (data['message'] == "Trail Agency Subscribed") {
-                    this.record = data['subscription_detail'];
-                    this.pkgList = data['subscription_detail']['pkg_fk'];
+                    this.records = data['subscription_detail'];
+                    this.pkgList = data['subscription_detail']['agency_package_detail'];
+                    // alert(this.pkgList);
+                    console.log(this.records);
                     this.trial = true;
 
                     var date = new Date();
@@ -342,7 +346,22 @@ forms: FormGroup;
                       //         this.nofound = true;
 
                       //     })
-                  } else {
+                  }
+                  else if (data['message'] == "Agency is not Subscribed") {
+             
+                    this.nodata = data;
+                 
+                         // this._serv4.trialHistory().subscribe(
+                         //     data => {
+                         //         // this.nofound=false;
+                         //         this.trial = data;
+                         //     }, error => {
+       
+       
+                         //         this.nofound = true;
+       
+                         //     })
+                     } else {
                       this.nofound = true;
                       // alert(this.nofound)
                   }

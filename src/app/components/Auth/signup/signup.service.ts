@@ -46,7 +46,11 @@ export class SignupService {
     return this.http.get('https://apis.rfpgurus.com/activate/' + uid);
 
   }
+  agencyauthenticate_service(uid) {
+    // alert(uid);
+    return this._http.get('https://apis.rfpgurus.com/agency_activate_account/' + uid);
 
+  }
   zipcode(zip) {
    
     return this._http.get('https://apis.rfpgurus.com/zipcode/' + zip + '/').map((response: Response) => response.json());

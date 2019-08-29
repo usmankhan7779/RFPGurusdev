@@ -69,6 +69,7 @@ import { CustomerSupportComponent } from './components/customer-support/customer
  
 import { MatChipsModule } from '@angular/material';
 import { AgencysubcripationComponent } from './components/agencysubcripation/agencysubcripation.component';
+import { AgencyaccountactivationComponent } from './components/Auth/agencyaccountactivation/agencyaccountactivation.component';
  
 
 // export class MaterialModule {}
@@ -113,7 +114,8 @@ import { AgencysubcripationComponent } from './components/agencysubcripation/age
     ReplyComponent,
     AgancyPricingComponent,
     AddrfpsComponent,
-    AgencysubcripationComponent
+    AgencysubcripationComponent,
+    AgencyaccountactivationComponent
   ],
   
   providers: [

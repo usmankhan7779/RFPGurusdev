@@ -6,7 +6,7 @@ import { AuthGuard } from './AuthGuards/auth.guard';
 import { UserprofileComponent } from './layouts/userprofile/userprofile.component';
 import { FiltersComponent } from './layouts/filters/filters.component';
 import { ReplyComponent } from './components/reply/reply.component';
- 
+import { AgencyaccountactivationComponent } from './components/Auth/agencyaccountactivation/agencyaccountactivation.component';
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
 
 { path: 'queryreply' , component: ReplyComponent},
+{ path: 'agencyaccountactivation/:query2' , component: AgencyaccountactivationComponent},
   // =========== Auths ===========
   { path: 'signin', loadChildren: './components/Auth/signin/signin.module#SigninModule', canActivate: [AuthLogin] },
  

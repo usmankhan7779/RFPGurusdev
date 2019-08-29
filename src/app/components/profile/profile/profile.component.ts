@@ -50,16 +50,17 @@ export class ProfileComponent implements OnInit {
     local;
     options: FormGroup;
     uname;
+    personal2;
     usernameexist;
     vin_Data = { "city": "", "state": "" };
     emailexist;
     digitsOnly = '^[0-9,-]+$';
+    public phoneMask = ['+', '1', '-', /[1-9]/, /\d/, /\d/, '-',  /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
-    public phoneMask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
     constructor(private signupServ: SignupService, private authService: AuthService, private _nav: Router, private _serv: ProfileService, private datePipe: DatePipe, private formBuilder: FormBuilder, private _adserv: AdvanceService, private _ser: MainService, private seoService: SeoService) {
-        if (localStorage.getItem('currentUser')) {
-            this.local = localStorage.getItem('currentUser');
+        if (localStorage.getItem('loged_in')) {
+            this.local = localStorage.getItem('loged_in');
             let pars = JSON.parse(this.local);
             this.uname = pars.username
             this.endRequest = this._serv.get_profile().subscribe(
@@ -74,12 +75,14 @@ export class ProfileComponent implements OnInit {
 
                 });
         }
+this.agencyinfo();
         this.options = formBuilder.group({
             bottom: 0,
             fixed: false,
             top: 0
         });
     }
+
     isFieldValid(form: FormGroup, field: string) {
         return !form.get(field).valid && form.get(field).touched;
     }
@@ -163,6 +166,21 @@ export class ProfileComponent implements OnInit {
             }
         });
     }
+    agencyinfo(){
+        if (localStorage.getItem('loged_in2')) {
+            // this.local = localStorage.getItem('loged_in2');
+            // let pars = JSON.parse(this.local);
+            // this.uname = pars.username
+            this.endRequest = this._serv.agencyprofile().subscribe(
+                data => {
+                    this.personal2 = data;
+                    // alert(this.personal2);
+                    
+                   
+
+                });
+    }
+}
     mainFunction() {
         this.endRequest = this._ser.purchaseHistory().subscribe(
             data => {
@@ -213,7 +231,7 @@ export class ProfileComponent implements OnInit {
         this.register = this.formBuilder.group({
             firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
             lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
-            companyname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+'),Validators.minLength(3)]],
+            companyname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+'),Validators.minLength(3)] ],
             address: ['', [Validators.required]],
             username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+')]],
             zipcode: ['', [Validators.required, Validators.pattern('^[0-9,-]+$'), Validators.minLength(5)]],

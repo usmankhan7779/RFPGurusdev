@@ -21,13 +21,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td *ngIf="trial.package_detail.duration == 'M' ">Monthly Plan</td>
-                    <td *ngIf="trial.package_detail.duration  == 'Q'">Quater PLAN</td>
-                    <td *ngIf="trial.package_detail.duration == 'S'"> SixMonths PLAN</td>
-                    <td *ngIf="trial.package_detail.duration  == 'Y'"> Yearly PLAN</td>
-                    <td><span>$</span>{{trial.package_detail.pkg_price}} </td>
-                    <td>{{trial.timecreated | date:'EEEE, MMM dd, y'}}</td>
-                    <td>{{trial.endtime | date:'EEEE, MMM dd, y'}}</td>
+                    <td *ngIf="pkgList.duration == 'M' ">Monthly Plan</td>
+                    <td *ngIf="pkgList.duration == 'Q'">Quater PLAN</td>
+                    <td *ngIf="pkgList.duration == 'S'"> SixMonths PLAN</td>
+                    <td *ngIf="pkgList.duration  == 'Y'"> Yearly PLAN</td>
+                    <td><span>$</span>0 </td>
+                    <td>{{records?.timecreated | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{records?.endtime | date:'EEEE, MMM dd, y'}}</td>
                     <td class="active-rfp"> Active </td>
 
                 </tr>
@@ -60,8 +60,8 @@
                     <td *ngIf="pkgList.duration== 'S'"> SixMonths PLAN</td>
                     <td *ngIf="pkgList.duration == 'Y'"> Yearly PLAN</td>
                     <td><span>$</span>{{pkgList.pkg_price}} </td>
-                    <td>{{record.pay_date | date:'EEEE, MMM dd, y'}}</td>
-                    <td>{{record.end_date | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{record.timecreated | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{record.endtime | date:'EEEE, MMM dd, y'}}</td>
                     <td *ngIf="record.is_paid == true">
                     <p class="active-rfp"> Active </p>
                        </td>
@@ -201,7 +201,7 @@
       </div>
   </div>
    <!-- Models End-->
-<div class="row margin-0 center-pricing"  *ngIf="!result || !trial" >
+<div class="row margin-0 center-pricing"  *ngIf="!records" >
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">

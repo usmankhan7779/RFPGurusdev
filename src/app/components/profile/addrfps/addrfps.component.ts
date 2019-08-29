@@ -29,7 +29,7 @@ import { SignupService } from '../../Auth/signup/signup.service';
     '../../local-style/table-normal.css',
     '../../local-style/products-area.css',
     './pricingsteps.component.scss',
-    './addrfps.component.css',
+    './addrfps.component.css'
 
 ],
   providers: [PagerService,AdvanceService,AllRfpsService]
@@ -292,6 +292,12 @@ this.form = this.formBuilder.group({
   ngAfterContentInit() : void {
     this.mainFunction();
   }
+  cityname;
+  getcityname(name){
+    // alert(name);
+this.cityname = name;
+// alert(this.cityname);
+  }
   select_state() {
     
       this._serv1.admindropdown(this.states).subscribe(
@@ -365,6 +371,7 @@ this.form = this.formBuilder.group({
     const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
+
   }
   msgfun(){
     swal(
@@ -387,6 +394,7 @@ checksub(){
       this.isInvalid = false;
     }
   }
+  minDate = new Date();
   public change2(event: any): void {
     var card = this.model.cardNumber.split('-').join('').split('_').join('').length;
     if ( card < 15) {
@@ -396,31 +404,52 @@ checksub(){
       this.isInvalid2 = false;
     }
   }
-  editClick(f : NgForm) {
+  empty(){
+    // this.model.title = '';
+    // this.descriptionTag = '';
+    // this.states = '';
+    // this.date_entered = '', this.due_date = '',this.model.web_info ='',this.category = '',this.subcat = '',this.bid_type = '',this.county = [''],this.cityname = [''];
+
+    this.model.title = '',
+    this.descriptionTag= '',
+    this.states = '',
+    this.date_entered = '',
+    this.due_date = '' ,
+    this.model.web_info= '',
+    this.category ='',
+    this.subcat = '',
+    this.bid_type = '',
+    this.model.county = '',
+    this.cityname = ''
+
+  }
+  
+  editClick() {
   
     if(this.input){
     this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
 
           this.model.web_info = data['_body'];
+          alert(this.model.web_info)
 
 if(data['_body'].substring(0,26)=="Sorry, file already exists"){
   swal({
     type: 'error',
-    title: 'Opps! The file is already exist!',
+    title: 'Opps! The file is already exist.',
     showConfirmButton: false,
     timer: 1500,width: '512px',
   });
 }else{
-  alert()
-  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.model.web_info,this.category,this.subcat,this.bid_type,this.county,this.model.citys).subscribe(
+  // alert()
+  this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.model.web_info,this.category,this.subcat,this.bid_type,this.county,this.cityname).subscribe(
     data => {
       swal({
         type: 'success',
-        title: 'RFP Added successfully',
+        title: 'Your RFP has been successfully Posted. It will be listed after approval.',
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
-      f.resetForm();
+     
     },error =>{
     if (error.status=== 400){
       swal({
@@ -450,18 +479,104 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
   }
   
     );
+    this.empty();
 }
 
       });
 
     
   }
+this.updaterec();
+}
+
+editClickupdate() {
+  
+  if(this.input){
+  this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
+
+        this.model.web_info = data['_body'];
+        alert(this.model.web_info)
+
+if(data['_body'].substring(0,26)=="Sorry, file already exists"){
+swal({
+  type: 'error',
+  title: 'Opps! The file is already exist.',
+  showConfirmButton: false,
+  timer: 1500,width: '512px',
+});
+}else{
+// alert()
+alert(this.modal.title)
+this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.model.web_info,this.category,this.subcat,this.bid_type,this.county,this.cityname).subscribe(
+  data => {
+    swal({
+      type: 'success',
+      title: 'Your RFP has been successfully Posted. It will be listed after approval.',
+      showConfirmButton: false,
+      timer: 1500,width: '512px',
+    });
+   
+  },error =>{
+  if (error.status=== 400){
+    swal({
+      type: 'error',
+      title: 'Opps Something went wrong',
+      showConfirmButton: false,
+      timer: 1500,width: '512px',
+    });
+    
+  }
+  if (error.status === 403) {
+    swal({
+      type: 'error',
+      title: 'You are not allowed to Publish RFP',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+  if (error.status === 406) {
+    swal({
+      type: 'error',
+      title: "You have alredy Published 3 RFP's ",
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+}
+
+  );
+  this.empty();
+}
+
+    });
+
+  
+}
 
 }
+gettingid(id){
+  alert(id);
+  this.id = id;
+  this.showeachrecord(this.id);
+}
+categorynew: any =[];
+getforupdate : any ={};
+showeachrecord(id){
+  this._serv.eachrfpget(this.id).subscribe( data =>{
+    this.getforupdate = data;
+    this.categorynew = data.new_category;
+    // alert(this.getforupdate);
+    console.log(this.categorynew);
+  })
+}
+TotalItems;
 showlist;
 updaterec(){
   this._serv.getrecordforypdaterfp().subscribe(data => {
 this.showlist = data['results'];
+this.TotalItems = data.TotalItems;
+console.log(this.TotalItems);
+// alert(this.TotalItems);
 // alert(this.showlist);
   })
 }
@@ -497,7 +612,13 @@ dropdwon(states, county){
  
     // this.counties(states,this.countys)
     console.log(this.countys);
-  })
+  },
+  error => {
+    error.status == 500
+    delete  this.countys;
+    
+    
+      })
 }
 county;
 counties(countys){
@@ -509,8 +630,6 @@ counties(countys){
     this.city = data['Cities'];
     
     // alert(this.city)
-   
-  
  
   })
 }
@@ -532,7 +651,7 @@ mainFunction() {
               
                   // this._serv4.purchaseHistory().subscribe(
                   //     data => {
-                          this.record = data['subscription_detail'];
+                          this.records = data['subscription_detail'];
                           this.pkgList = data['subscription_detail']['pkg_fk'];
                           this.result = true;
 
@@ -1092,4 +1211,5 @@ keyPress(event: any) {
     event.preventDefault();
   }
 }
+
 }
