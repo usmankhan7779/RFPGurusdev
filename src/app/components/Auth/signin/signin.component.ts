@@ -55,6 +55,7 @@ export class SigninComponent implements OnInit {
   private loggedIn: boolean;
   user: any;
   public logedin: any = 0;
+  private changetabs : boolean = false; 
   public agencylogin : any = 0;
   returnUrl: string;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { }
@@ -203,6 +204,10 @@ export class SigninComponent implements OnInit {
           )
         })
     }
+  }
+  checkingtabs(){
+    alert(this.changetabs);
+    this.changetabs = false;
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.socialCallBack);
