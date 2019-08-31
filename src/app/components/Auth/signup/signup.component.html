@@ -107,14 +107,39 @@
                               </mat-form-field>
                             </div>
                           </div>
+
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
+                              <mat-form-field>
+                                <input matInput class="sh-text-capt"  type="text" id="country" [(ngModel)]="vin_Data.country"
+                                  value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
+                                <!-- <mat-error *ngIf="register.controls.country.value == ''">
+                                  <strong>Country cannot be empty</strong>
+                                </mat-error> -->
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row signup-form-row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
+                                <mat-form-field>
+                                  <input matInput class="text-uppercase"  type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
+                                    formControlName="state" placeholder="State / Province" required />
+                                  <!-- <mat-error *ngIf="register.controls.state.value == ''">
+                                    <strong>State cannot be empty</strong>
+                                  </mat-error> -->
+            
+                                </mat-form-field>
+                              </div>
+                            </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                             <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'zipcode')">
                               <mat-form-field class="zipCodee text-area-placeholder">
                                 <input matInput type="number" maxlength="5" id="zipcode" min="0" 
                                   (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
-                                  placeholder="Zip Code/Postal" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
+                                  placeholder="Zip / Postal Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
                                 <mat-error *ngIf="register.controls.zipcode.value == ''">
-                                  <strong>Zipcode cannot be empty</strong>
+                                  <strong>Zip / Postal Code cannot be empty</strong>
                                 </mat-error>
                                 <mat-error class="border-right" *ngIf="register.controls.zipcode.hasError('pattern')">
                                   Only Numbers
@@ -124,7 +149,7 @@
                                 </mat-error>
                               </mat-form-field>
                               <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
-                                Invalid Zipcode
+                                Invalid Zip / Postal Code
                               </p>
                               <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
                                 
@@ -135,7 +160,7 @@
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
                               <mat-form-field>
-                                <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
+                                <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data.city"
                                   value="{{vin_Data.city}}" placeholder="City" required />
                                 <!-- <mat-error *ngIf="register.controls.city.value == ''">
                                   <strong>City cannot be empty</strong>
@@ -145,31 +170,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row signup-form-row">
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
-                              <mat-form-field>
-                                <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
-                                  formControlName="state" placeholder="State" required />
-                                <!-- <mat-error *ngIf="register.controls.state.value == ''">
-                                  <strong>State cannot be empty</strong>
-                                </mat-error> -->
+                     
           
-                              </mat-form-field>
-                            </div>
-                          </div>
-          
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
-                              <mat-form-field>
-                                <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
-                                  value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
-                                <!-- <mat-error *ngIf="register.controls.country.value == ''">
-                                  <strong>Country cannot be empty</strong>
-                                </mat-error> -->
-                              </mat-form-field>
-                            </div>
-                          </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                           
                             <mat-form-field class="example-full-width">
@@ -396,14 +398,38 @@
                               </mat-form-field>
                             </div>
                           </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'country')">
+                              <mat-form-field>
+                                <input matInput class="sh-text-capt"  type="text" id="country" [(ngModel)]="vin_Data2.country2"
+                                  value="{{vin_Data2.country2}}" formControlName="country" placeholder="Country" required />
+                                <!-- <mat-error *ngIf="register.controls.country.value == ''">
+                                  <strong>Country cannot be empty</strong>
+                                </mat-error> -->
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row signup-form-row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'state')">
+                                <mat-form-field>
+                                  <input matInput class="text-uppercase"  type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data2.state2}}"
+                                    formControlName="state" placeholder="State / Province" required />
+                                  <!-- <mat-error *ngIf="register.controls.state.value == ''">
+                                    <strong>State cannot be empty</strong>
+                                  </mat-error> -->
+            
+                                </mat-form-field>
+                              </div>
+                            </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                             <div class="form-group label-floating " [ngClass]="displayFieldCss(register2, 'zipcode')">
                               <mat-form-field class="zipCodee text-area-placeholder">
                                 <input matInput type="number" maxlength="5" id="zipcode" min="0" 
                                   (change)="zipcodeCheck2(zipcode2.value)" #zipcode2 formControlName="zipcode"
-                                  placeholder="Zip Code/Postal" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
+                                  placeholder="Zip / Postal Code " required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
                                 <mat-error *ngIf="register2.controls.zipcode.value == ''">
-                                  <strong>Zipcode cannot be empty</strong>
+                                  <strong>Zip / Postal Code  cannot be empty</strong>
                                 </mat-error>
                                 <mat-error class="border-right" *ngIf="register2.controls.zipcode.hasError('pattern')">
                                   Only Numbers
@@ -413,7 +439,7 @@
                                 </mat-error>
                               </mat-form-field>
                               <p class="clr_red" *ngIf="invalid  && !vin_Data2.city2 && !vin_Data2.state2 && !vin_Data2.country2">
-                                Invalid Zipcode
+                                Invalid Zip / Postal Code
                               </p>
                               <p *ngIf="!invalid  && vin_Data2.city2 && vin_Data2.state2 && vin_Data2.country2">
                                 
@@ -424,7 +450,7 @@
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'city')">
                               <mat-form-field>
-                                <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data2.city2"
+                                <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data2.city2"
                                   value="{{vin_Data2.city2}}" placeholder="City" required />
                                 <!-- <mat-error *ngIf="register.controls.city.value == ''">
                                   <strong>City cannot be empty</strong>
@@ -434,31 +460,9 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row signup-form-row">
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'state')">
-                              <mat-form-field>
-                                <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data2.state2}}"
-                                  formControlName="state" placeholder="State" required />
-                                <!-- <mat-error *ngIf="register.controls.state.value == ''">
-                                  <strong>State cannot be empty</strong>
-                                </mat-error> -->
+                
           
-                              </mat-form-field>
-                            </div>
-                          </div>
-          
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'country')">
-                              <mat-form-field>
-                                <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data2.country2"
-                                  value="{{vin_Data2.country2}}" formControlName="country" placeholder="Country" required />
-                                <!-- <mat-error *ngIf="register.controls.country.value == ''">
-                                  <strong>Country cannot be empty</strong>
-                                </mat-error> -->
-                              </mat-form-field>
-                            </div>
-                          </div>
+                      
                           <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register2, 'phone')">
                               <int-phone-prefix type="number" minlength="13" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
