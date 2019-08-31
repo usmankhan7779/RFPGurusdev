@@ -48,8 +48,11 @@
     <div class="collapse navbar-collapse " id="menu-example">
       <div class="navbar-right navbar-nav">
         <ul class="navbar-nav sh-main-options">
-            <li>
-                <a onclick="topFunction()" routerLink="/signin" routerLinkActive="Active">
+            <li >
+                <a *ngIf="!agencycheck_login()" onclick="topFunction()" routerLink="/signin" routerLinkActive="Active">
+                  <i class="far fa-money-bill-alt" aria-hidden="true"></i>Publish RFP
+                </a>
+                <a *ngIf="agencycheck_login()" onclick="topFunction()" routerLink="/AddRfps" routerLinkActive="Active">
                   <i class="far fa-money-bill-alt" aria-hidden="true"></i>Publish RFP
                 </a>
               </li>
