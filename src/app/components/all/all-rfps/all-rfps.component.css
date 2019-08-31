@@ -59,6 +59,14 @@ margin-top: 5px;
 .new_info >div{
   min-height: 16px;
 }
+.contact-info{
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+.AgencyContactInfo{
+  font-size: 18px;
+}
+
 .view-more{
   margin: 0;
 }
