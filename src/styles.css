@@ -831,8 +831,7 @@ text tspan {
   top: 10px
 }
 
-#pg .cdk-overlay-backdrop,
-.cdk-overlay-pane {
+#pg .cdk-overlay-backdrop {
   margin-top: 40px !important
 }
 
@@ -3575,11 +3574,9 @@ padding: 0 5px;
   font-size: 20px;
 }
 .signup_select .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-  transform: translateY(-0.98125em) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-0.98125em) scale(.75);
+  transform: translateY(-1.58125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform: translateY(-1.58125em) scale(.75);
 }
-
-
 .mainpagee .countdown .measurements {
   padding: 5px 10px !important;
 }

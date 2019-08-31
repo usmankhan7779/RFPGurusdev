@@ -843,9 +843,8 @@
 .custom-model {
     z-index: 9;
     top: 80px;
-    max-width: 900px;
-    min-width: 900px;
-    width: 900px
+    max-width: 730px;
+    min-width: 730px;
 }
 
 .custom-model .modal-body {
@@ -928,11 +927,7 @@
     line-height: 18px
 }
 
-.custom-model {
-    max-width: 700px;
-    min-width: 700px;
-    width: 700px
-}
+
 
 .benner-conter {
     width: 300px;
