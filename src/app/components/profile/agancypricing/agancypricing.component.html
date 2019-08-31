@@ -230,9 +230,6 @@
               <i class="fa fa-check"></i> Publish upto 3 RFPs for free
             </li>
             <li>
-              <i class="fa fa-check"></i> Up to 5 RFPs View/Downloads
-            </li>
-            <li>
               <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
             </li>
             <li>
@@ -297,9 +294,7 @@
             <li>
               <i class="fa fa-check"></i>Publish unlimited RFPs
             </li>
-            <li>
-              <i class="fa fa-check"></i> Unlimited RFPs Access
-            </li>
+          
             <li>
               <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
             </li>
@@ -369,6 +364,7 @@
               <li>
                 <i class="fa fa-check"></i>Publish unlimited RFPs
               </li>
+<<<<<<< HEAD
               
                 <li>
                   <i class="fa fa-check"></i> Unlimited RFPs Access
@@ -377,6 +373,31 @@
                   <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
                 </li>
               
+=======
+              <li>
+             
+              <li>
+                <i class="fa fa-c
+                <div *ngIf="!isright" class="col-lg-6 col-sm-6 mg-0-auto padding-zero Saved-card-sel-list">
+                  <mat-form-field class="width-50per mg-0-auto">
+                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.defaultcard"
+                      [formControl]="Carddefault">
+                      <mat-option *ngFor="let card of res" [value]="card.id" (click)="getcardid(card.id)">
+                        {{card.nickname}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>Intelligence (AI)
+                <div *ngIf="!isright" class="col-lg-6 col-sm-6 mg-0-auto padding-zero Saved-card-sel-list">
+                  <mat-form-field class="width-50per mg-0-auto">
+                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.defaultcard"
+                      [formControl]="Carddefault">
+                      <mat-option *ngFor="let card of res" [value]="card.id" (click)="getcardid(card.id)">
+                        {{card.nickname}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </li>
+>>>>>>> parent of 01b70a5... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
               <li>
                 <i class="fa fa-check"></i> Upcoming Bids
               </li>

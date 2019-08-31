@@ -2,11 +2,11 @@
 <ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
   <li class="nav-item active">
     <a class="nav-link" id="home-tab" data-toggle="tab" href="#publish_new" role="tab" aria-controls="create_new"
-      aria-selected="true">Publish RFP</a>
+      aria-selected="true">Publish RFP's</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#update_rfps" role="tab" aria-controls="Support_Center"
-      aria-selected="false">Published RFP</a>
+      aria-selected="false">Published RFP's</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -289,6 +289,7 @@
       <section class="flx-items" *ngIf="!records">
           <!-- <div class="col-sm-12 text-center publish_RFP"> -->
               <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!records"   routerLink="/AddRfps" routerLinkActive="active-route" [hidden]="visible">Publish New RFP</button>
+<<<<<<< HEAD
               <div class="row margin-0 center-pricing"  *ngIf="!records" >
                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
                       <div class="single-pricing-2 top">
@@ -359,6 +360,238 @@
                                 <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
                               </ng-template>
                         </div>
+=======
+          <!-- </div> -->
+       <!-- <app-agancypricing></app-agancypricing> -->
+       <div class="row margin-0 center-pricing"  *ngIf="!result || !trial && !records" >
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
+              <div class="single-pricing-2 top">
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package" >Register
+                    Now
+                  </a>
+                  <!-- <ng-template #pkg3>
+                    <a class="btn btn-rose" title="Select Plan" data-toggle="modal" data-target="#selectAgency">Select
+                      Plan</a>
+                  </ng-template> -->
+                  <ng-template #pkg3>
+                    <a (click)="free();toggle()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                  </ng-template>
+                </div>
+                <span class="plan-name text-center">
+                  Free Plan
+                </span>
+                <!-- <p class="plan-price bg-black">
+                  <sup class="currency">$</sup>
+                  <strong>0.00</strong>
+                </p> -->
+                <img _ngcontent-vnl-c4="" src="https://storage.rfpgurus.com/final/Free_updated.png">
+                <ul class="list-pricing home-list-pricing">
+                  <li>
+                    <i class="fa fa-check"></i> Publish upto 3 RFPs for free
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Upcoming Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Federal Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Search Engine
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Android Mobile App
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> iOS Mobile App
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Technical Support Chat
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> RFP as a Service
+                  </li>
+                </ul>
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package">Register
+                    Now</a>
+                    <ng-template #pkg3>
+                        <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                      </ng-template>
+                </div>
+              </div>
+            </div>
+            <!-- <button (click)="showallplan()">view all plan </button> -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Mplan">
+              <div class="single-pricing-2 top">
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package">Register
+                    Now</a>
+                  <ng-template #pkg1>
+                    <a (click)="firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                  </ng-template>
+                </div>
+      
+                <span class="plan-name text-center">
+                  Monthly Plan
+                </span>
+                <!-- <p class="plan-price">
+                        <sup class="currency">$</sup>
+                        <strong>24.99</strong>
+                      </p> -->
+                <img _ngcontent-vnl-c4="" width="100%" src="https://storage.rfpgurus.com/category_images/Monthly_updated.png">
+                <ul class="list-pricing home-list-pricing">
+                  <li>
+                    <i class="fa fa-check"></i>Publish unlimited RFPs
+                  </li>
+                
+                  <li>
+                    <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Upcoming Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Federal Agency Bids
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Search Engine
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> Android Mobile App
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> iOS Mobile App
+                  </li>
+      
+                  <li>
+                    <i class="fa fa-check"></i> Technical Support Chat
+                  </li>
+                  <li>
+                    <i class="fa fa-check"></i> RFP as a Service
+                  </li>
+                </ul>
+      
+      
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package">Register
+                    Now</a>
+                  <ng-template #pkg1>
+                    <a (click)="firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInUp"
+              data-wow-delay="0.6s" *ngIf="Yplan">
+              <div class="single-pricing-2 top">
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package">Register
+                    Now</a>
+                  <ng-template #pkg4>
+                    <a (click)="firststep('PY')"  class="btn btn-rose " title="Select Plan">Select Plan</a>
+                  </ng-template>
+                </div>
+                <div>
+                  <span class="plan-name text-center">
+                    Yearly Plan
+                  </span>
+                  <!-- <p class="plan-price">
+                      <sup class="currency">$</sup>
+                      <strong>299.99</strong>
+                    </p> -->
+                  <img _ngcontent-pcv-c4="" width="100%"
+                    src="https://storage.rfpgurus.com/category_images/Yearly_updated].png">
+                  <ul class="list-pricing home-list-pricing">
+                    <li>
+                      <i class="fa fa-check"></i>Publish unlimited RFPs
+                    </li>
+                    <li>
+                   
+                    <li>
+                      <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Upcoming Bids
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Federal Agency Bids
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Search Engine
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Android Mobile App
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> iOS Mobile App
+                    </li>
+      
+                    <li>
+                      <!-- Technical Support Chat -->
+                      <i class="fa fa-check"></i> Technical Support Chat
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> RFP as a Service
+                    </li>
+                  </ul>
+      
+                </div>
+                <div class="pricing2-button" *ngIf="!planSelected">
+                  <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+                    title="Subscribe Package">Register
+                    Now</a>
+                  <ng-template #pkg4>
+                    <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select Plan</a>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="pkgsub" class="sh-signup-form-fix col-lg-8 col-md-8 col-sm-8 col-xs-12" data-wow-delay=".5s">
+              <div class=" row sh-payment">
+                <div class="checkout-select-box ">
+                  <h2 *ngIf="isfreetrial" class="pricing_heading" style="text-align:center">Join RFPGurus for a
+                    7-day
+                    risk-free trial period</h2>
+                  
+      
+                  <div id="section-pricing" class="text-center col-sm-12 padding-zero">
+                    <div class="pricing-tenure-switcher center" data-container="#pricing-switch">
+                      <div class="col-sm-4 padding-0">
+                        <mat-form-field class=" mg-0-auto yearly-mnthly">
+                          <mat-select [(ngModel)]="valuee" (selectionChange)="selectPlan($event)">
+                            <mat-option value="PY">Yearly Subscription</mat-option>
+                            <mat-option value="BM">Monthly Subscription</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+      
+>>>>>>> parent of 01b70a5... Merge branch 'master' of https://github.com/usmankhanbrainplow/RFPGurusdev
                       </div>
                     </div>
                     <!-- <button (click)="showallplan()">view all plan </button> -->
