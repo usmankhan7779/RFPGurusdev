@@ -2362,7 +2362,9 @@ body {
 .signup-form-row .mat-form-field-appearance-legacy .mat-form-field-label {
   top: 1.98125em !important
 }
-
+.signup-form-row{
+  margin: 0;
+}
 .sh-container-paymnt .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-15px) scale(.75) perspective(100px) translateZ(0) !important;

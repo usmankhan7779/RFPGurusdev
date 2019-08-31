@@ -169,9 +169,6 @@
                               
                             </div>
                           </div>
-                        </div>
-                     
-          
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                           
                             <mat-form-field class="example-full-width">
@@ -182,6 +179,7 @@
                                 </mat-form-field>
                                 <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
                           </div>
+                        </div>
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -459,6 +457,16 @@
                               
                             </div>
                           </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                          
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change2($event)
+                                  formControlName="phone" [(ngModel)]="phone" >
+                                  <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
+                                  </int-phone-prefix> -->
+                                </mat-form-field>
+                                <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
+                          </div>
                         </div>
                 
           
@@ -477,16 +485,7 @@
                           </div> -->
                        
                        
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                          
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change2($event)
-                                    formControlName="phone" [(ngModel)]="phone" >
-                                    <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
-                                    </int-phone-prefix> -->
-                                  </mat-form-field>
-                                  <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
-                            </div>
+                        
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
