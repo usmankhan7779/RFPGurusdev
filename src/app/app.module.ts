@@ -12,11 +12,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CKEditorModule } from 'ng2-ckeditor';
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
- 
+import { LoaderComponent } from './loader/loader.component';
 // ------------------- Services
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
-
+import { PreloaderService} from './services/preloader-service';
 // ------------------- Randoms
 import { AuthInterceptor, SetHeaders } from './AuthGuards/auth.interceptor';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -115,7 +115,8 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     AgancyPricingComponent,
     AddrfpsComponent,
     AgencysubcripationComponent,
-    AgencyaccountactivationComponent
+    AgencyaccountactivationComponent,
+    LoaderComponent
   ],
   
   providers: [
@@ -132,6 +133,7 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     CustomerService,
     AuthGuard,
     AuthLogin,
+    PreloaderService,
     
   
     

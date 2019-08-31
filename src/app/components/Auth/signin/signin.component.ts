@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, EventEmitter , Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { SigninService } from './signin.service';
 import swal from 'sweetalert2';
@@ -40,6 +40,8 @@ declare interface User {
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  @Output() open: EventEmitter<any> = new EventEmitter();
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
@@ -132,8 +134,16 @@ export class SigninComponent implements OnInit {
         })
     }
   }
-
-
+  visible;
+  toggle() {
+    // alert(this.visible);
+    this.visible = !this.visible;
+    if (this.visible) {
+      this.open.emit(null);
+    } else {
+      this.close.emit(null);
+    }
+  }
   socialCallBackforagency = (user) => {
     this.user = user;
     const headers = new HttpHeaders();
@@ -192,7 +202,7 @@ export class SigninComponent implements OnInit {
             this._nav.navigate([val]);
           }
         } else {
-          this._nav.navigate(['/']);
+          this._nav.navigate(['/agencypricing']);
         }
 
       },
@@ -206,7 +216,7 @@ export class SigninComponent implements OnInit {
     }
   }
   checkingtabs(){
-    alert(this.changetabs);
+    // alert(this.changetabs);
     this.changetabs = false;
   }
   signInWithGoogle(): void {

@@ -161,6 +161,7 @@ agen;
     this.endRequest = this.signupService.agency_exist(agencyname).subscribe(
       (data: boolean) => {
         this.agencyname = data;
+        alert(this.agencyname);
     
       }
       
@@ -214,8 +215,8 @@ agen;
   
   onRegisteragency(value) {
     // alert(this.register.value.phone)
- 
-      this.isequal = true;
+    if ( this.recapcha.check()) {
+      this.isInvalid = true;
       this.endRequest = this.signupService.agency(this.register2.value).subscribe(
         data => {
           swal({
@@ -228,23 +229,22 @@ agen;
         },
         error => {
         });
-      
-      // else {
-      //   this.validateAllFormFields(this.register2);
-      //   this.captcha.resetImg();
-      //   // this.captcha.reset();
-      //   // this.isequal = false;
-  
-      //   swal({
-      //     type: 'error',
-      //     title: 'Please confirm that you are not a robot',
-      //     showConfirmButton: false,
-      //     width: '512px',
-      //     timer: 2000
-      //   });
-      // }
+    }
+    else {
+      this.validateAllFormFields(this.register2);
+      this.captcha.resetImg();
+      // this.captcha.reset();
+      // this.isequal = false;
+
+      swal({
+        type: 'error',
+        title: 'Please confirm that you are not a robot',
+        showConfirmButton: false,
+        width: '512px',
+        timer: 2000
+      });
+    }
   }
-  
   // send_link(email) {
   //   this.endRequest = this.signupService.activation_service(email).subscribe(
   //     data => {

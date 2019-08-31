@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatInputModule, MatFormFieldModule, MatIconModule, MatSlideToggleModule, MatSelectModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatIconModule, MatSlideToggleModule, MatSelectModule , MatAutocompleteModule} from '@angular/material';
+
 import { TextMaskModule } from 'angular2-text-mask';
 import { RecapchaModule } from '../recapcha/recapcha.module';
 import { InternationalPhoneModule } from 'ng4-intl-phone';
@@ -26,6 +27,7 @@ const routes: Routes = [
     MatIconModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatAutocompleteModule,
     Ng2SearchPipeModule,
     RouterModule.forChild(routes),
     RecapchaModule,
