@@ -382,7 +382,9 @@ font-size: 13px;
   background: #616161;
   content: ''
 }
-
+.btn.btn-rose.Active{
+  color: #fff !important;
+}
 @media (min-width:1366px) {
   .logo img {
     margin-top: 10px;
