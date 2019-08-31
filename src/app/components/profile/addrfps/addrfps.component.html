@@ -531,13 +531,12 @@
                       <span class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span class="pts-left"
                         *ngIf="isright">Saved Cards</span>
                       <div class="pts-switcher">
-                        <div class="switch">
-                          <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
-                            class="switch-toggle switch-toggle-round" type="checkbox" 
-                         >
-                         <!-- [disabled]="!res.length" -->
-                          <label for="switch-toggle-pricing-tenure"></label>
-                        </div>
+                          <div class="switch">
+                              <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
+                                class="switch-toggle switch-toggle-round" type="checkbox" 
+                                >
+                              <label for="switch-toggle-pricing-tenure"></label>
+                            </div>
                       </div><span class="pts-right" *ngIf="!isright">Add New Payment Method</span> <span class="pts-right"
                         *ngIf="isright" style="color: black">Add New Payment Method</span>
                     </div>
