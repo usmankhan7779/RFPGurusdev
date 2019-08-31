@@ -93,7 +93,7 @@
                     <mat-form-field>
                       <input matInput type="text" id="zipcode" (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1
                         [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}" (keydown.space)="$event.preventDefault()"
-                        placeholder="Zip Code" maxlength="5" required  (keypress)="keyPress($event)"/>
+                        placeholder="Zip / Postal Code" maxlength="5" required  (keypress)="keyPress($event)"/>
                       <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
                         Zip Code must 5 digits long.
                       </mat-error>
@@ -102,7 +102,7 @@
                       </mat-error>
                     </mat-form-field>
                     <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country && personal.zipcode!='' && personal.zipcode.length==5">
-                      Invalid Zipcode
+                      Invalid Zip / Postal Code
                     </p>
                     <p class="clr_red" *ngIf="!invalid && personal.city && personal.state && personal.country">
                     </p>
