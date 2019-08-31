@@ -246,7 +246,6 @@ export class HeaderComponent implements OnInit {
   agencycheck_login() {
     // alert(localStorage.getItem('currentUser'))
     if (localStorage.getItem('loged_in2')) {
-      // alert(localStorage.getItem('loged_in2'))
   //  alert(localStorage.getItem('agency'))
       this.lacal = true;
  
