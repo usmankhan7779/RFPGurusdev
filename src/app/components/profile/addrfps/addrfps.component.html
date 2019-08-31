@@ -288,7 +288,7 @@
       </div>
       <section class="flx-items" *ngIf="!records">
           <!-- <div class="col-sm-12 text-center publish_RFP"> -->
-              <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!records"   routerLink="/AddRfps" routerLinkActive="active-route">Publish New RFP</button>
+              <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!records"   routerLink="/AddRfps" routerLinkActive="active-route" [hidden]="visible">Publish New RFP</button>
           <!-- </div> -->
        <!-- <app-agancypricing></app-agancypricing> -->
        <div class="row margin-0 center-pricing"  *ngIf="!result || !trial && !records" >
@@ -296,7 +296,7 @@
               <div class="single-pricing-2 top">
                 <div class="pricing2-button" *ngIf="!planSelected">
                   <a *ngIf="check_login(); else pkg3" routerLink='/signup' class="btn btn-rose"
-                    title="Subscribe Package">Register
+                    title="Subscribe Package" >Register
                     Now
                   </a>
                   <!-- <ng-template #pkg3>
@@ -304,7 +304,7 @@
                       Plan</a>
                   </ng-template> -->
                   <ng-template #pkg3>
-                    <a (click)="free()" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                    <a (click)="free();toggle()" class="btn btn-rose" title="Select Plan">Select Plan</a>
                   </ng-template>
                 </div>
                 <span class="plan-name text-center">
@@ -811,7 +811,7 @@
                           </form>
                         </div>
                       </div>
-                      <button type="submit" class="btn-file btn btn-rose add-payment" (click)="proceed(f)">Place
+                      <button type="submit" class="btn-file btn btn-rose add-payment" (click)="proceed()">Place
                         Order
                       </button>
                     </div>
@@ -823,8 +823,8 @@
       </section>
   </div>
   <div class="tab-pane fade" id="update_rfps" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="sh-container-paymnt ">
-      <div class="table-responsive margin-top-20">
+    <div class="sh-container-paymnt max-width-1000">
+      <div class=" margin-top-20">
      <h3 *ngIf="TotalItems == '0'" class="text-center"><b> No RFP Published yet</b></h3>
         <div class="products-area sh-products-area " *ngIf="showlist">
             <div class="card"  *ngFor="let rfp of showlist">
@@ -835,9 +835,10 @@
                       <h4 class="card-title">{{rfp?.rfpkey}}</h4>
                     </a>
                   </div>
-                  <div class="pull-right">
-                      <p *ngIf="rfp?.admin_approved == false">Pending Approval</p>
-                      <p *ngIf="rfp?.admin_approved == true">Approved By Admin</p>
+                  <div class="pending-aprove">
+                    
+                      <p *ngIf="rfp?.admin_approved == false">Admin Status : Pending</p>
+                      <p *ngIf="rfp?.admin_approved == true">Admin Status : Approved By Admin</p>
                       <button class="btn btn-rose"  data-toggle="modal" data-target="#myModal" (click)="gettingid(rfp?.id)">Edit RFP</button>
                   </div>
                 </div>
@@ -1217,8 +1218,8 @@
                           <input matInput placeholder="Web Information PDF" readyonly name="web_info" [(ngModel)]="model.web_info"  value="{{getforupdate.web_info}}" />
         
                         </mat-form-field>  -->
-                        <button value="{{getforupdate.web_info}}"><a >View</a></button>
-                        <div> <button class="btn-file btn btn-primary">Upload File<input class="img-input" (change)="onChange($event)" 
+                        <!-- <button value="{{getforupdate.web_info}}"><a >View</a></button> -->
+                        <div> <button class="btn-file btn btn-primary">Update File<input class="img-input" (change)="onChange($event)" 
                           type="file"></button> </div> 
                     
                       </div>

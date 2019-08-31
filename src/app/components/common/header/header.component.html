@@ -76,14 +76,10 @@
           </li>
           <li>
             <a onclick="topFunction()" routerLink="/all-agencies">
-              <i class="fa fa-building" aria-hidden="true"></i>Agencies
+              <i class="fa fa-building" aria-hidden="true"></i>Agency Contacts DB
             </a>
           </li>
-          <li >
-            <a class="comparison-none" onclick="topFunction()" routerLink="/features-comparison" routerLinkActive="Active">
-              <i class="fa fa-bar-chart" aria-hidden="true"></i>Comparison
-            </a>
-          </li>
+         
           <li class="vanders ">
             <a onclick="topFunction()" href="javascript:void(0)" routerLink="/why-rfpgurus" routerLinkActive="Active">
               <i class="fa fa-question-circle"></i>Why RFPGurus?
@@ -125,6 +121,11 @@
                     <i class="fa fa-plus"></i>Who are We?
                   </a>
                 </li>
+                <li >
+                    <a class="comparison-none" onclick="topFunction()" routerLink="/features-comparison" routerLinkActive="Active">
+                      <i class="fa fa-bar-chart" aria-hidden="true"></i>Comparison
+                    </a>
+                  </li>
               </ul>
             </div>
           </li>
@@ -268,7 +269,7 @@
                     </li>
                     <li *ngIf="agencycheck_login()">
                       <a onclick="topFunction()" routerLink="/AddRfps">
-                        <i class="fa fa-building" aria-hidden="true"></i>Publish RFPs</a>
+                        <i class="fa fa-upload" aria-hidden="true"></i>Publish RFPs</a>
                     </li>
                 <li *ngIf="check_login()">
                   <a  onclick="topFunction()" routerLink="/preferences">

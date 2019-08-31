@@ -7,25 +7,25 @@
             <div  class="login-form-1 sh-signup-form-fix sh">
                 <div class="login-form-1-header">
                     <h3>Sign In to Your Account</h3>
-                    <div class="g-f-login text-center" aria-labelledby="home-tab" >
+                    <div class="g-f-login text-center" aria-labelledby="home-tab" [hidden]="visible" >
                         <a (click)="signInWithFB()"><img src="../../../../assets/img/icon-facebook.png" alt="img"></a>
                         <a (click)="signInWithGoogle()"><img src="../../../../assets/img/icon-Google.png" alt="img"></a>
                     </div>
 
 
-                    <div class="g-f-login text-center" >
+                    <div class="g-f-login text-center" [hidden]="!visible">
                             <a (click)="signInWithFBforagency()"><img src="../../../../assets/img/icon-facebook.png" alt="img"></a>
                             <a (click)="signInWithGoogleforagency()"><img src="../../../../assets/img/icon-Google.png" alt="img"></a>
-                        </div>
+                        </div> 
                 </div>
                 <ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
                     <li class="nav-item active">
                       <a class="nav-link" id="home-tab" data-toggle="tab" (click)="checkingtabs()" href="#User" role="tab" aria-controls="User"
-                        aria-selected="true">Vendor</a>
+                        aria-selected="true" (click)="toggle()">Vendor</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Agency" role="tab" aria-controls="Agency"
-                        aria-selected="false">Agency</a>
+                        aria-selected="false" (click)="toggle()">Agency</a>
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">

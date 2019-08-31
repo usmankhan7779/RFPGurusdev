@@ -1,5 +1,5 @@
  
-import { Component, OnInit, Inject,  ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject,  ElementRef, ViewChild, EventEmitter , Output } from '@angular/core';
 // import { AdminPanelComponent } from '../admin-penal/admin-penal.component';
 // import { PagerService } from './../rfps/rfp/paginator.service';
 // import { AllRfpsService } from '../all/all-rfps/all-rfps.service';
@@ -35,6 +35,9 @@ import { SignupService } from '../../Auth/signup/signup.service';
   providers: [PagerService,AdvanceService,AllRfpsService]
 })
 export class AddrfpsComponent implements OnInit  {
+  @Output() open: EventEmitter<any> = new EventEmitter();
+  @Output() close: EventEmitter<any> = new EventEmitter();
+
   data:any=[];url;
   @ViewChild('openModal') openModal: ElementRef;
   agency_show:boolean=false;
@@ -56,7 +59,17 @@ export class AddrfpsComponent implements OnInit  {
   record;
   pkgList;
   userdetail;
+  visible;
+  toggle() {
   
+    this.visible = !this.visible;
+    alert(this.visible);
+    if (this.visible) {
+      this.open.emit(null);
+    } else {
+      this.close.emit(null);
+    }
+  }
   free() {
     if (localStorage.getItem('currentUser')) {
       this.valuee = "BM";
@@ -430,7 +443,7 @@ checksub(){
     this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
 
           this.model.web_info = data['_body'];
-          alert(this.model.web_info)
+          // alert(this.model.web_info)
 
 if(data['_body'].substring(0,26)=="Sorry, file already exists"){
   swal({
@@ -495,7 +508,7 @@ editClickupdate() {
   this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
 
         this.model.web_info = data['_body'];
-        alert(this.model.web_info)
+        // alert(this.model.web_info)
 
 if(data['_body'].substring(0,26)=="Sorry, file already exists"){
 swal({
@@ -506,7 +519,7 @@ swal({
 });
 }else{
 // alert()
-alert(this.modal.title)
+// alert(this.modal.title)
 this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_entered,this.due_date,this.model.web_info,this.category,this.subcat,this.bid_type,this.county,this.cityname).subscribe(
   data => {
     swal({
@@ -555,7 +568,7 @@ this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_en
 
 }
 gettingid(id){
-  alert(id);
+  // alert(id);
   this.id = id;
   this.showeachrecord(this.id);
 }
@@ -716,7 +729,7 @@ mainFunction() {
 }
 nodata;
 nofound;
-proceed(f: NgForm) {
+proceed() {
   this.local = localStorage.getItem('currentUser');
   let pars = JSON.parse(this.local);
   this.uname = pars.username
@@ -766,8 +779,8 @@ proceed(f: NgForm) {
                   this._nav.navigate(['/']);
                 }
               
-                f.resetForm()
-                this._nav.navigate(['purchase-history'])
+               
+                this._nav.navigate(['/agencypricing'])
               },
             
                 error => {
@@ -889,8 +902,8 @@ proceed(f: NgForm) {
               } else {
                 this._nav.navigate(['/']);
               }
-              f.resetForm()
-              this._nav.navigate(['purchase-history'])
+             
+              this._nav.navigate(['/agencypricing'])
             },
               error => {
                 if (error.status == 500) {
@@ -971,8 +984,8 @@ proceed(f: NgForm) {
                         } else {
                           this._nav.navigate(['/']);
                         }
-                        f.resetForm()
-                        this._nav.navigate(['purchase-history'])
+                   
+                        this._nav.navigate(['/agencypricing'])
                       },
                       error => {
                         if (error.status == 403) {
@@ -1076,8 +1089,8 @@ proceed(f: NgForm) {
               } else {
                 this._nav.navigate(['/']);
               }
-              f.resetForm()
-              this._nav.navigate(['purchase-history'])
+         
+              this._nav.navigate(['/agencypricing'])
             },
   
             error => {
@@ -1111,6 +1124,7 @@ proceed(f: NgForm) {
               }
             });
         }
+     
     }
     
     // }
@@ -1132,7 +1146,7 @@ proceed(f: NgForm) {
   //     timer: 1500, width: '512px',
   //   })
   // }
-f.resetForm()
+
 }
 isInvalid;
 var_get_status;

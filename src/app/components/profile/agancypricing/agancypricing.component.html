@@ -60,12 +60,12 @@
                     <td *ngIf="pkgList.duration== 'S'"> SixMonths PLAN</td>
                     <td *ngIf="pkgList.duration == 'Y'"> Yearly PLAN</td>
                     <td><span>$</span>{{pkgList.pkg_price}} </td>
-                    <td>{{record.timecreated | date:'EEEE, MMM dd, y'}}</td>
-                    <td>{{record.endtime | date:'EEEE, MMM dd, y'}}</td>
-                    <td *ngIf="record.is_paid == true">
+                    <td>{{records.pay_date | date:'EEEE, MMM dd, y'}}</td>
+                    <td>{{records.end_date | date:'EEEE, MMM dd, y'}}</td>
+                    <td *ngIf="records.is_paid == true">
                     <p class="active-rfp"> Active </p>
                        </td>
-                    <td *ngIf="record.is_paid == false"><button
+                    <td *ngIf="records.is_paid == false"><button
                             (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package"
                             class="btn btn-primary">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
                 </tr>
@@ -77,7 +77,7 @@
             Deactivate Trail
         </button>
         <button class="btn btn-rose pull-right " data-target="#myModal5" data-toggle="modal" *ngIf="result"
-            (click)="get(record.pay_date,record.end_date)">
+            (click)="get(records.pay_date,records.end_date)">
             Generate Invoice
         </button>
         <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result || trial">Publish RFP's</button>
@@ -367,7 +367,25 @@
               <li>
              
               <li>
-                <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                <i class="fa fa-c
+                <div *ngIf="!isright" class="col-lg-6 col-sm-6 mg-0-auto padding-zero Saved-card-sel-list">
+                  <mat-form-field class="width-50per mg-0-auto">
+                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.defaultcard"
+                      [formControl]="Carddefault">
+                      <mat-option *ngFor="let card of res" [value]="card.id" (click)="getcardid(card.id)">
+                        {{card.nickname}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>Intelligence (AI)
+                <div *ngIf="!isright" class="col-lg-6 col-sm-6 mg-0-auto padding-zero Saved-card-sel-list">
+                  <mat-form-field class="width-50per mg-0-auto">
+                    <mat-select class="" placeholder="Select card " [(ngModel)]="model.defaultcard"
+                      [formControl]="Carddefault">
+                      <mat-option *ngFor="let card of res" [value]="card.id" (click)="getcardid(card.id)">
+                        {{card.nickname}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </li>
               <li>
                 <i class="fa fa-check"></i> Upcoming Bids
