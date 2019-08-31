@@ -34,7 +34,6 @@
 <form  [formGroup]="register" (ngSubmit)="onRegister(register.value)">
                     <div class="card-content">
                         <div class="row signup-form-row">
-
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
                               <mat-form-field>
@@ -144,23 +143,22 @@
                               </div>
                             </div>
                             
-                
-                        
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
-                              <mat-form-field>
-                                <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data.city"
-                                  value="{{vin_Data.city}}" placeholder="City" required />
-                                <!-- <mat-error *ngIf="register.controls.city.value == ''">
-                                  <strong>City cannot be empty</strong>
-                                </mat-error> -->
-                              </mat-form-field>
-                              
-                            </div>
-                          </div>
+                          
                         </div>
                      
                         <div class="row signup-form-row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                                <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
+                                  <mat-form-field>
+                                    <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data.city"
+                                      value="{{vin_Data.city}}" placeholder="City" required />
+                                    <!-- <mat-error *ngIf="register.controls.city.value == ''">
+                                      <strong>City cannot be empty</strong>
+                                    </mat-error> -->
+                                  </mat-form-field>
+                                  
+                                </div>
+                              </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                                 <mat-form-field>
@@ -184,7 +182,7 @@
                                 <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
                           </div>
                         </div>
-                        </div>
+                      
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
@@ -279,7 +277,7 @@
                        
                        
                         </div>
-                      
+                      </div>
 </form>
                 </div>
 
@@ -385,8 +383,6 @@
 
                                 </div>
                         </div>
-                       
-                      
                         <div class="row signup-form-row sh-adress">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group text-area-placeholder label-floating" [ngClass]="displayFieldCss(register2, 'address')">
@@ -435,34 +431,7 @@
                                 </p>
                               </div>
                             </div>
-                  
-                         
-                          
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'city')">
-                              <mat-form-field>
-                                <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data2.city2"
-                                  value="{{vin_Data2.city2}}" placeholder="City" required />
-                                <!-- <mat-error *ngIf="register.controls.city.value == ''">
-                                  <strong>City cannot be empty</strong>
-                                </mat-error> -->
-                              </mat-form-field>
-                              
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                          
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change2($event)
-                                  formControlName="phone" [(ngModel)]="phone" >
-                                  <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
-                                  </int-phone-prefix> -->
-                                </mat-form-field>
-                                <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
-                          </div>
                         </div>
-                
-          
                         <div class="row signup-form-row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'state')">
@@ -488,9 +457,28 @@
                               </mat-error>
                             </div>
                           </div> -->
-                       
-                       
-                        
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                              <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'city')">
+                                <mat-form-field>
+                                  <input matInput class="sh-text-capt" type="text"  id="city" formControlName="city" [(ngModel)]="vin_Data2.city2"
+                                    value="{{vin_Data2.city2}}" placeholder="City" required />
+                                  <!-- <mat-error *ngIf="register.controls.city.value == ''">
+                                    <strong>City cannot be empty</strong>
+                                  </mat-error> -->
+                                </mat-form-field>
+                                
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change2($event)
+                                    formControlName="phone" [(ngModel)]="phone" >
+                                    <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
+                                    </int-phone-prefix> -->
+                                  </mat-form-field>
+                                  <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
+                            </div>
                         </div>
                         <div class="row signup-form-row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

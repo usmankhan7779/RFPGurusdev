@@ -385,6 +385,14 @@ font-size: 13px;
 .btn.btn-rose.Active{
   color: #fff !important;
 }
+.pblsh-rfp{
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.pblsh-rfp i{
+  color: #fff;
+  margin-right: 5px;
+}
 @media (min-width:1366px) {
   .logo img {
     margin-top: 10px;
