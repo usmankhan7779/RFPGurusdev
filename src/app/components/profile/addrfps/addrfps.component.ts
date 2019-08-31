@@ -63,7 +63,7 @@ export class AddrfpsComponent implements OnInit  {
   toggle() {
   
     this.visible = !this.visible;
-    alert(this.visible);
+    // alert(this.visible);
     if (this.visible) {
       this.open.emit(null);
     } else {
@@ -221,9 +221,12 @@ export class AddrfpsComponent implements OnInit  {
   set_default: boolean = false;
   Add_new() {
     if (this.set_default == true) {
+      // alert(this.isright)
       this.isright = false;
     } else if (this.set_default == false) {
+    
       this.isright = true;
+    
 
     }
   }
@@ -268,24 +271,24 @@ export class AddrfpsComponent implements OnInit  {
       }
     )
 
-// this.form = this.formBuilder.group({
-//   CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-//   CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-//   CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
-//   CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
-//   ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
-//   city: ['', Validators.compose([Validators.required])],
-//   country: ['', Validators.compose([Validators.required])],
-//   zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
-//   Validators.pattern('^[0-9]*$')])],
-//   setautopay: [''],
-//   CardtypeForm: ['', Validators.compose([Validators.required])],
-//   Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
-//   nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
-//   Address: ['', Validators.compose([Validators.required])],
-//   Carddefault:['', Validators.compose([Validators.required])],
-//   state: ['', Validators.compose([Validators.required])],
-//   })
+this.form = this.formBuilder.group({
+  CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+  CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+  CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
+  CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
+  ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
+  city: ['', Validators.compose([Validators.required])],
+  country: ['', Validators.compose([Validators.required])],
+  zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+  Validators.pattern('^[0-9]*$')])],
+  setautopay: [''],
+  CardtypeForm: ['', Validators.compose([Validators.required])],
+  Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+  nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
+  Address: ['', Validators.compose([Validators.required])],
+  Carddefault:['', Validators.compose([Validators.required])],
+  state: ['', Validators.compose([Validators.required])],
+  })
   // this.mainFunction();
   }
   remove1(val, index){
@@ -752,7 +755,7 @@ proceed() {
                   '',
                   'success'
                 )
-                this._nav.navigate(['purchase-history'])
+                this._nav.navigate([''])
                 if (localStorage.getItem('member')) {
                   let url = localStorage.getItem('member')
                   let last = url.length
@@ -779,8 +782,8 @@ proceed() {
                   this._nav.navigate(['/']);
                 }
               
-               
-                this._nav.navigate(['/agencypricing'])
+             
+                this._nav.navigate(['purchase-history'])
               },
             
                 error => {
@@ -793,7 +796,7 @@ proceed() {
                   }
                   else if (error.status == 404) {
                     swal(
-                      'You have already subscribed for free trial.',
+                      'You have already subscribed for free trial',
                       '',
                       'error'
                     )
@@ -808,7 +811,7 @@ proceed() {
                   else if (error.status == 400) {
                     swal(
                       'Sorry',
-                      'Select payment card and subscription plan first.',
+                      'Select payment card and subscription plan first',
                       'error'
                     )
                   }
@@ -902,8 +905,8 @@ proceed() {
               } else {
                 this._nav.navigate(['/']);
               }
-             
-              this._nav.navigate(['/agencypricing'])
+              
+              this._nav.navigate(['purchase-history'])
             },
               error => {
                 if (error.status == 500) {
@@ -984,8 +987,8 @@ proceed() {
                         } else {
                           this._nav.navigate(['/']);
                         }
-                   
-                        this._nav.navigate(['/agencypricing'])
+                    
+                        this._nav.navigate(['purchase-history'])
                       },
                       error => {
                         if (error.status == 403) {
@@ -1038,14 +1041,6 @@ proceed() {
                 })
               }
         }
-          else {
-            swal({
-              type: 'error',
-              title: 'Invalid detail',
-              showConfirmButton: false,
-              timer: 1500, width: '512px',
-            })
-          }
         }
          
         else {
@@ -1089,8 +1084,8 @@ proceed() {
               } else {
                 this._nav.navigate(['/']);
               }
-         
-              this._nav.navigate(['/agencypricing'])
+            
+              this._nav.navigate(['purchase-history'])
             },
   
             error => {
@@ -1124,7 +1119,6 @@ proceed() {
               }
             });
         }
-     
     }
     
     // }
