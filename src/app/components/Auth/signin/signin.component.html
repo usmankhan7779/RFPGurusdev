@@ -49,13 +49,11 @@
                                         formControlName="password" placeholder="Password" required />
                                         
                                     <i class="eye-slash" matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
-        
                                     <mat-error *ngIf="login.controls.password.value == ''">
                                         <strong class="error-block">Password cannot be empty</strong>
                                     </mat-error>
                                 </mat-form-field>
                             </div>
-        
                             <div class="form-group dp-flex">
                                 <div class="checkbox col-sm-6 padding-0 dp-inline">
                                     <mat-slide-toggle [checked]="true">Stay Signed in</mat-slide-toggle>
