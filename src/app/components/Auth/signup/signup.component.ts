@@ -70,6 +70,9 @@ export class SignupComponent implements OnInit, OnDestroy {
   meaasge;
   btnSubmit;
   terms:boolean;
+  allcountry;
+  country;
+  countrys;
   matcher = new errorMatcher();
   vin_Data = { city: "", state: "", country: "" };
   vin_Data2 = { city2: "", state2: "", country2: "" };
@@ -81,6 +84,10 @@ agen;
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
     
+    });
+    this.signupService.getcounty().subscribe( data =>{
+      this.allcountry = data['countries'];
+      console.log(this.allcountry);
     })
     window.scroll(0,0);
    }
@@ -91,6 +98,15 @@ agen;
   }
   public isInvalid: boolean = false;
   public change2(event: any): void {
+    var phn = this.model.contact_no.split('_').join('').split('-').join('').split('+').join('').length
+    if (phn < 11) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+    }
+  }
+  public change3(event: any): void {
     var phn = this.model.contact_no.split('_').join('').split('-').join('').split('+').join('').length
     if (phn < 11) {
       this.isInvalid = true;
@@ -161,7 +177,7 @@ agen;
     this.endRequest = this.signupService.agency_exist(agencyname).subscribe(
       (data: boolean) => {
         this.agencyname = data;
-        alert(this.agencyname);
+        // alert(this.agencyname);
     
       }
       

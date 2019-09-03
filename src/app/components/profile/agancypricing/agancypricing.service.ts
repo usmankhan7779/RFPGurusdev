@@ -235,6 +235,7 @@ pricingimage(){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');     
         headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+        alert(JSON.parse(localStorage.getItem('currentUser')).token);
         return this._https.post("https://apis.rfpgurus.com/agency/agency_trial_subscription/",
             JSON.stringify({
                 "package_detail": pkg_type,

@@ -221,8 +221,9 @@ export class AddrfpsComponent implements OnInit  {
   set_default: boolean = false;
   Add_new() {
     if (this.set_default == true) {
-      // alert(this.isright)
+  
       this.isright = false;
+      // alert(this.isright)
     } else if (this.set_default == false) {
     
       this.isright = true;
@@ -239,7 +240,20 @@ export class AddrfpsComponent implements OnInit  {
       this.CardNumberForm=true;
     this.CardNumberForm2=false;
     this.CardCodeForm=true;
-    this.CardCodeForm2=false
+    this.CardCodeForm2=false;
+    if (localStorage.getItem('loged_in2')) {
+      this._home.get_card_infos().subscribe(Data => {
+        this.res = Data;
+        // alert(this.res);
+     
+        if (!this.res.length) {
+          this.isright = true;
+        }
+        else {
+          this.isright = false;
+        }
+      })
+    }
    }
   acgeny_check(){
     this.agency_show=true;
@@ -332,32 +346,24 @@ this.cityname = name;
     //   delete this.cates;
     //   delete this.subcate;
     // }
-    this.form = this.formBuilder.group({
-      CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-      CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-      CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
-      CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
-      ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
-      city: ['', Validators.compose([Validators.required])],
-      country: ['', Validators.compose([Validators.required])],
-      zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
-      Validators.pattern('^[0-9]*$')])],
-      CardtypeForm: ['', Validators.compose([Validators.required])],
-      Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
-      nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
-      Address: ['', Validators.compose([Validators.required])],
-      Carddefault:['', Validators.compose([Validators.required])],
-      state: ['', Validators.compose([Validators.required])],
-      })
-      if (localStorage.getItem('currentUser')) {
-        this._home.get_card_infos().subscribe(Data => {
-          this.res = Data;
-       
-          if (!this.res.length) {
-            this.isright = true;
-          }
-        })
-      }
+    // this.form = this.formBuilder.group({
+    //   CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+    //   CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
+    //   CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
+    //   CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
+    //   ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
+    //   city: ['', Validators.compose([Validators.required])],
+    //   country: ['', Validators.compose([Validators.required])],
+    //   zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
+    //   Validators.pattern('^[0-9]*$')])],
+    //   CardtypeForm: ['', Validators.compose([Validators.required])],
+    //   Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
+    //   nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
+    //   Address: ['', Validators.compose([Validators.required])],
+    //   Carddefault:['', Validators.compose([Validators.required])],
+    //   state: ['', Validators.compose([Validators.required])],
+    //   })
+ 
     if(localStorage.getItem('agancypricing')=='BM'){
       window.scroll(0, 0);
       this.Mplan = true;
@@ -743,7 +749,7 @@ proceed() {
         if (this.isright == true) {
               if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null  && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
     if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
-      if(this.isInvalid==false && this.isInvalid2==false){
+      // if(this.isInvalid==false && this.isInvalid2==false){
         this._serv.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
   
           this.model.defaultcard = Data.id
@@ -783,7 +789,7 @@ proceed() {
                 }
               
              
-                this._nav.navigate(['purchase-history'])
+                this._nav.navigate(['/agencypricing'])
               },
             
                 error => {
@@ -843,15 +849,15 @@ proceed() {
             })
           }
         })
-      }
-      else {
-        swal({
-          type: 'error',
-          title: 'Invalid details',
-          showConfirmButton: false,
-          timer: 1500, width: '512px',
-        })
-      }     
+      // }
+      // else {
+      //   swal({
+      //     type: 'error',
+      //     title: 'Invalid details',
+      //     showConfirmButton: false,
+      //     timer: 1500, width: '512px',
+      //   })
+      // }     
     }
     else {
       swal({
@@ -906,7 +912,7 @@ proceed() {
                 this._nav.navigate(['/']);
               }
               
-              this._nav.navigate(['purchase-history'])
+              this._nav.navigate(['/agencypricing'])
             },
               error => {
                 if (error.status == 500) {
@@ -950,7 +956,7 @@ proceed() {
         if (this.isright == true) {
           if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
             if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
-              if(this.isInvalid == false && this.isInvalid2==false){
+              // if(this.isInvalid == false && this.isInvalid2==false){
                 this._serv.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
   
                   this.model.defaultcard = Data.id
@@ -984,11 +990,11 @@ proceed() {
                           else {
                             this._nav.navigate([url]);
                           }
-                        } else {
+                        } else {this.proceed
                           this._nav.navigate(['/']);
                         }
                     
-                        this._nav.navigate(['purchase-history'])
+                        this._nav.navigate(['/agencypricing'])
                       },
                       error => {
                         if (error.status == 403) {
@@ -1031,15 +1037,15 @@ proceed() {
                     })
                   }
                 })
-              }
-              else {
-                swal({
-                  type: 'error',
-                  title: 'Invalid detail',
-                  showConfirmButton: false,
-                  timer: 1500, width: '512px',
-                })
-              }
+              // }
+              // else {
+              //   swal({
+              //     type: 'error',
+              //     title: 'Invalid detail',
+              //     showConfirmButton: false,
+              //     timer: 1500, width: '512px',
+              //   })
+              // }
         }
         }
          
@@ -1085,7 +1091,7 @@ proceed() {
                 this._nav.navigate(['/']);
               }
             
-              this._nav.navigate(['purchase-history'])
+              this._nav.navigate(['/agencypricing'])
             },
   
             error => {

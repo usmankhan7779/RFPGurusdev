@@ -30,7 +30,14 @@ a:hover {
   padding: .5em 0;
   border-top: 0
 }
-
+.country-img{
+  width: 25px;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+.testing {
+  margin-top: 10px;
+}
 .form-footer {
   padding-top: 0 !important;
   padding: 16px 0 20px !important;

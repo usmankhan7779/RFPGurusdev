@@ -2325,7 +2325,8 @@ body {
   transform: translateY(-22px) scale(.75) perspective(100px) translateZ(.001px) !important;
   -ms-transform: translateY(-22px) scale(.75) !important
 }
-.edit-profile .mat-form-field-label-wrapper {
+.edit-profile .mat-form-field-label-wrapper,
+.selecte .mat-form-field-label-wrapper {
   overflow: visible
 }
 .signup-form .has-error .form-control:focus {
@@ -2629,7 +2630,12 @@ body {
   padding: 6px 0;
   margin-top: 2px
 }
-
+.sh-signup-form-fix .selecte .mat-form-field-infix {
+  padding: 6px 0 10px;
+}
+.sh-signup-form-fix .selecte .mat-form-field-flex {
+  margin-top: 6px;
+}
 .sh-signup-form-fix .mat-form-field-underline {
   bottom: 18px
 }
@@ -2774,7 +2780,9 @@ body {
   font-size: 16px;
   font-weight: 600
 }
-
+.selecte .mat-select-value{
+  font-size: 24px;
+}
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
@@ -3561,7 +3569,7 @@ padding: 0 5px;
       padding: 6px 20px;
 }
 .signup-main .mat-form-field-type-mat-select .mat-form-field-label {
-  top: 0.98125em !important;
+  top: 26px!important;
 }
 .signup_select{
   min-height: 64px;

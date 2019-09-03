@@ -13,7 +13,9 @@ export class SignupService {
       'email': email
     });
   }
-
+getcounty(){
+  return this.http.get('https://apis.rfpgurus.com/all_countries/')
+}
   username_exist(username) {
     return this.http.post('https://apis.rfpgurus.com/user_name_exist/', {
       'username': username
@@ -32,6 +34,7 @@ export class SignupService {
   }
   agency(obj) {
     return this.http.post("https://apis.rfpgurus.com/agency_register/", {
+      
       'obj': obj
     });
 
