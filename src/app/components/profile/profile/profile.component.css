@@ -4,3 +4,32 @@
     border-radius: 50px;
     vertical-align: middle;
   }
+.image-area{
+  position: relative;
+}
+.image-area input[type=file]{
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  width: 18px;
+  height: 15px;
+  opacity: 0;
+  z-index: 1;
+}
+.image-area i{
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  width: 18px;
+  height: 17px;
+  font-size: 16px;
+}
+.image-area img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.image-area input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}

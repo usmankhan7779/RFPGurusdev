@@ -244,18 +244,12 @@
                
                 </span>
               
-                <span class="btn-file margin-top-10" *ngIf="!personal2 && personal">
-                
-                    <div class="custom-file-input">
-                        <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
-                        required class="file" id="file1">
-                        <i class="fa fa-camera upload-cam-img">
-                        <img class="upload-signup-img" src="https://storage.rfpgurus.com/final/download (1)_1111111111111111111111.jpeg">
-                        </i>
-                      </div>
-                    
-                    </span>
-                  
+                <span class="image-area" *ngIf="!personal2 && personal">
+                    <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                    required>
+                    <i class="fa fa-camera"></i>
+                    <img src="https://storage.rfpgurus.com/final/download (1)_1111111111111111111111.jpeg">
+                </span>
               </div>
 
             
