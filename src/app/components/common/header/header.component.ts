@@ -252,9 +252,11 @@ export class HeaderComponent implements OnInit {
 
       return true;
     } else {
+  
       this.lacal = false;
   
       return false;
+      
     }
   }
 

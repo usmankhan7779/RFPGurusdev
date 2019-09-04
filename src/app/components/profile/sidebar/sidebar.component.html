@@ -6,9 +6,7 @@
                         My RFPGurus
                 </div> -->
             <ul>
-                <li *ngIf="agencycheck_login()"><a routerLink="/preferences" routerLinkActive="active-route">
-                        <i class="fa fa-newspaper-o"></i>RFP Preferences</a>
-                </li>
+            
                 <li *ngIf="agencycheck_login()">
                                 <a onclick="topFunction()" routerLink="/agencypricing">
                                   <i class="fa fa-building" aria-hidden="true"></i>Agency Subscription</a>
@@ -17,6 +15,9 @@
                                 <a onclick="topFunction()" routerLink="/AddRfps">
                                   <i class="fa fa-upload"></i>Publish RFPs</a>
                               </li>
+                              <li *ngIf="agencycheck_login()"><a routerLink="/preferences" routerLinkActive="active-route">
+                                <i class="fa fa-newspaper-o"></i>RFP Preferences</a>
+                        </li>
                 <li><a routerLink="/notifications" routerLinkActive="active-route">
                         <i class="fa fa-bell"></i>Bid Notifications</a>
                 </li>

@@ -2325,7 +2325,8 @@ body {
   transform: translateY(-22px) scale(.75) perspective(100px) translateZ(.001px) !important;
   -ms-transform: translateY(-22px) scale(.75) !important
 }
-.edit-profile .mat-form-field-label-wrapper {
+.edit-profile .mat-form-field-label-wrapper,
+.selecte .mat-form-field-label-wrapper {
   overflow: visible
 }
 .signup-form .has-error .form-control:focus {
@@ -2629,7 +2630,12 @@ body {
   padding: 6px 0;
   margin-top: 2px
 }
-
+.sh-signup-form-fix .selecte .mat-form-field-infix {
+  padding: 6px 0 10px;
+}
+.sh-signup-form-fix .selecte .mat-form-field-flex {
+  margin-top: 6px;
+}
 .sh-signup-form-fix .mat-form-field-underline {
   bottom: 18px
 }
@@ -2774,7 +2780,9 @@ body {
   font-size: 16px;
   font-weight: 600
 }
-
+.selecte .mat-select-value{
+  font-size: 24px;
+}
 .sh-advanceSearch .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
   -webkit-transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
   transform: translateY(-16px) scale(.75) perspective(100px) translateZ(0) !important;
@@ -3561,7 +3569,7 @@ padding: 0 5px;
       padding: 6px 20px;
 }
 .signup-main .mat-form-field-type-mat-select .mat-form-field-label {
-  top: 0.98125em !important;
+  top: 26px!important;
 }
 .signup_select{
   min-height: 64px;
@@ -3656,8 +3664,49 @@ padding: 0 5px;
   transform: translateY(-0.88125em) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-0.88125em) scale(.75);
 }
-
-
+.upload-img-div{
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.upload-signup-img{
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+}
+.custom-file-input{
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0;
+}
+.custom-file-input #file1{
+  outline: 0;
+    border: none;
+    opacity: 0;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    z-index: 999;
+    width: 34%;
+    height: 35px;
+}
+.custom-file-input #file2{
+  background: #000;
+  border-radius: 25px;
+  padding: 0 10px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  height: 33px;
+}
+.custom-file-input #file3{
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  height: 33px;
+  outline: 0;
+  cursor: default;
+}
 /* .............................Queries........................................... */
 
 @media (min-width:1400px) {
