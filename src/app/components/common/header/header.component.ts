@@ -242,6 +242,18 @@ export class HeaderComponent implements OnInit {
       return false;
     }
   }
+  showmesgforvendor(){
+    // alert(localStorage.getItem('loged_in'))
+    if(localStorage.getItem('loged_in')){
+      swal({
+        type: 'error',
+        title: 'Register as Agency to Publish RFP.',
+        showConfirmButton: false,
+        confirmButtonColor: "#090200",
+        timer: 1500, width: '512px',
+      });
+    }
+  }
   lacal : boolean = false; 
   agencycheck_login() {
     // alert(localStorage.getItem('currentUser'))
