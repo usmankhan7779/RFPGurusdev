@@ -525,7 +525,9 @@ font-size: 13px;
   .nav-home ul a i {
     margin: 0 2px 0 0
   }
-
+  .pblsh-rfp{
+    margin-bottom: 2px;
+  }
   .logo img {
     margin-top: 5px
   }
