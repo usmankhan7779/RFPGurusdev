@@ -2636,6 +2636,9 @@ body {
 .sh-signup-form-fix .selecte .mat-form-field-flex {
   margin-top: 6px;
 }
+.profile-country .mat-form-field-infix{
+  padding: 11px 0!important;
+}
 .sh-signup-form-fix .mat-form-field-underline {
   bottom: 18px
 }
