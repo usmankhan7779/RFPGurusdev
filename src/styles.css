@@ -3693,6 +3693,7 @@ padding: 0 5px;
     z-index: 999;
     width: 55%;
     height: 35px;
+    cursor: pointer;
 }
 .custom-file-input #file2{
   background: #000;
@@ -3703,6 +3704,10 @@ padding: 0 5px;
   font-size: 16px;
   width: 55%;
   height: 33px;
+}
+.custom-file-input input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+  border-radius: 25px;
 }
 /* .............................Queries........................................... */
 
