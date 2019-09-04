@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin.component';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -32,6 +32,8 @@ const routes: Routes = [
   declarations: [SigninComponent],
   providers: [
     SigninService
+  ],  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class SigninModule { }

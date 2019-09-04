@@ -17,6 +17,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
 import { PreloaderService} from './services/preloader-service';
+import {PreloaderFull} from '../app/components/preloader-full/preloader-full';
+import {PreloaderSmall} from '../app/components/preloader-small/preloader-small';
 // ------------------- Randoms
 import { AuthInterceptor, SetHeaders } from './AuthGuards/auth.interceptor';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -116,7 +118,9 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     AddrfpsComponent,
     AgencysubcripationComponent,
     AgencyaccountactivationComponent,
-    LoaderComponent
+    LoaderComponent,
+    PreloaderFull,
+    PreloaderSmall
   ],
   
   providers: [

@@ -272,6 +272,20 @@
                             </div>
                           </div>
                         </div>
+                        <div class="upload-img-div">
+                  <span class="btn-file margin-top-10">
+                      <div class="custom-file-input">
+                          <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                          required class="file" id="file1">
+                          <input type="button" value="Upload Profile Image" id="file2">
+                          <input readonly type="text" id="file3">
+                        </div>
+                    <!-- <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                        required> -->
+                      </span>
+                        <img class="upload-signup-img" accept=".jpg, .jpeg, .png" src="{{ImgSrc}}"
+                        alt="" allowmultiple="false" />
+                      </div>
                         <div class="form-footer reg col-sm-12 col-xs-12 col-lg-12 padding-0">
                           <div class="form-group col-sm-3 col-md-2 col-xs-12 padding-0 pd-left-0">
                             <app-recapcha class="recaptcha-style"></app-recapcha>
@@ -586,6 +600,20 @@
                             </div>
                           </div>
                         </div>
+                        <div class="upload-img-div">
+                          <span class="btn-file margin-top-10">
+                              <div class="custom-file-input">
+                                <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                                required class="file" id="file1">
+                                <input type="button" value="Upload Agency Logo" id="file2">
+                                <input readonly type="text" id="file3">
+                              </div>
+                            <!-- <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                                required>  -->
+                              </span>
+                                <img class="upload-signup-img" accept=".jpg, .jpeg, .png" src="{{ImgSrc}}"
+                                alt="" allowmultiple="false" />
+                              </div>
                         <div class="form-footer reg col-sm-12 col-xs-12 col-lg-12 padding-0">
                           <div class="form-group col-sm-3 col-md-2 col-xs-12 padding-0 pd-left-0">
                             <app-recapcha class="recaptcha-style"></app-recapcha>

@@ -1,4 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { Http, Headers , Response} from '@angular/http'
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { PasswordValidation } from '../../../Validators/password-validator.component';
 import swal from 'sweetalert2';
@@ -79,7 +81,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   // public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
 agen;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService, private _http:HttpClient) {
 
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
@@ -190,17 +192,66 @@ agen;
         this.emailexist = data;
       });
   }
+  input;
   emailCheck2(email2) {
     this.endRequest = this.signupService.email_exist(email2).subscribe(
       (data: boolean) => {
         this.emailexist = data;
       });
   }
+  files;
+  file;
+  ImgSrc;
+  base64textString;
+  _handleReaderLoaded(readerEvt) {
+    console.log('base64');
+    const binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    // console.log(this.base64textString);
+  }
+  onChange(event: EventTarget) {
+    this.input = new FormData();
+
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+    this.input.append('fileToUpload', target.files[0]);
+    this.files = target.files;
+    this.file = this.files[0];
+    console.log(this.files);
+
+    const reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+
+    const reader1 = new FileReader();
+    reader1.onload = (e: any) => {
+      this.ImgSrc = (e.target.result);
+    };
+    reader1.readAsDataURL(this.file);
+  }
+    onSubmit() {
+
+    this._http.post(
+      
+      'https://storage.rfpgurus.com/hamzatest.php',
+      this.input, { responseType: 'text' }).subscribe(data => {
+        // alert(this.input);
+        if (data === 'Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.') {
+          // this.CourseFailure();
+        }
+        else {
+
+          // this.CourseSuccess();
+          this.model.profile_image = data;
+          // alert(this.model.profile_image);
+          // this.ifImageUpload(f);
+        }
+      });
+  }
   onRegister(value) {
-    // alert(this.register.value.phone)
+// alert(this.model.profile_image);
     if (this.register.valid && this.recapcha.check()) {
       this.isequal = true;
-      this.endRequest = this.signupService.post_service(this.register.value).subscribe(
+      this.endRequest = this.signupService.post_service(this.register.value, this.model.profile_image).subscribe(
         data => {
           swal({
             type: 'success',
@@ -233,7 +284,7 @@ agen;
     // alert(this.register.value.phone)
     if ( this.recapcha.check()) {
       this.isInvalid = true;
-      this.endRequest = this.signupService.agency(this.register2.value).subscribe(
+      this.endRequest = this.signupService.agency(this.register2.value, this.model.profile_image).subscribe(
         data => {
           swal({
                   type: 'success',
@@ -319,6 +370,7 @@ agen;
       companyname: ['', Validators.compose([Validators.required])],
       address: ['', Validators.compose([Validators.required])],
       zipcode: ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
+      profile_image : [ '',Validators.compose([])],
       city: ['', Validators.compose([Validators.required])],
       country: ['', Validators.compose([Validators.required])],
       state: ['', Validators.compose([Validators.required])],
