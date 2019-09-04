@@ -81,7 +81,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   ccv2;
   form: FormGroup;
   form2: FormGroup;
-
+  allcountry;
   cardnumber2;
   var_box_check: boolean = false;
   destroy_value;
@@ -96,6 +96,10 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     this.cardnumber2 = false;
     this.ccv = true;
     this.ccv2 = false;
+    this.signupServ.getcounty().subscribe( data =>{
+      this.allcountry = data['countries'];
+      console.log(this.allcountry);
+    })
   }
   ShowButton(var_type_atm, f: NgForm) {
     this.cardtype = var_type_atm;
