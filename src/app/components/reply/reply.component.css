@@ -113,7 +113,7 @@
 }
 .msg-area{
     max-height: 260px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 10px;
     overflow-x: hidden;
     padding: 20px 50px 20px 30px;
@@ -146,8 +146,20 @@
   padding-top: 10px;
 }
 .rep_para{
-  margin: 10px 0 0;
+  font-size: 18px;
+  text-align: center;
 }
 .btn-primary{
   min-width: 200px;
+}
+.rfp-back{
+  margin-top: 10px;
+}
+.rfp-back a{
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+}
+.rfp-back a:hover{
+  color: #c00;
 }
