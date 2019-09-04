@@ -3,13 +3,11 @@
         <a routerLink="/support"><i class="fa fa-chevron-left"></i> Back to Previous Page</a>
       </div>
   <div class="row">
-    <div class="col-sm-6 page-title">
-      <span>Subject: <br>
-        <p class="rep_para"> {{subjests?.ticket_detail?.subject}}</p></span>
-    </div>
-    <div class="col-sm-6 page-title ">
-      <span>Description: <br>
-        <p class="rep_para">{{subjests?.ticket_detail?.description}} </p></span>
+    <div class="col-sm-12 rfp-back">
+      <div class="rep_para"><b>Subject: </b>
+        {{subjests?.ticket_detail?.subject}}</div>
+        <div class="rep_para"><b>Description: </b>
+          {{subjests?.ticket_detail?.description}}</div>
     </div>
   </div>
   <div class="chat-box">
