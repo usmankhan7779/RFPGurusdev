@@ -3669,10 +3669,14 @@ padding: 0 5px;
   align-items: center;
   padding: 0 20px;
 }
+.upload-img-div .btn-file{
+  width: 30%;
+}
 .upload-signup-img{
   width: 75px;
   height: 75px;
   border-radius: 50px;
+  object-fit: cover;
 }
 .custom-file-input{
   overflow: hidden;
@@ -3687,7 +3691,7 @@ padding: 0 5px;
     top: 6px;
     left: 0;
     z-index: 999;
-    width: 34%;
+    width: 55%;
     height: 35px;
 }
 .custom-file-input #file2{
@@ -3698,14 +3702,7 @@ padding: 0 5px;
   color: #fff;
   font-size: 16px;
   height: 33px;
-}
-.custom-file-input #file3{
-  border: none;
-  font-size: 18px;
-  font-weight: 500;
-  height: 33px;
-  outline: 0;
-  cursor: default;
+  width: 55%;
 }
 /* .............................Queries........................................... */
 

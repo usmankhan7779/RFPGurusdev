@@ -497,6 +497,36 @@ localStorage.setItem('loged_in2' , this.loginagency.value.username )
       }
     )
   }
+
+  foremailagency() {
+    swal({
+      title: 'Forgot Password',
+      html: ' Enter your email address to receive a link allowing you to reset your password. First, verify your email address to signin',
+      input: 'email',
+      confirmButtonColor: "#000", width: '512px',
+      inputPlaceholder: 'Email'
+    }).then((email) => {
+      this.agencyforgetPassword(email)
+    })
+  }
+  agencyforgetPassword(pass) {
+    this.signinService.agencyforget_password(pass).subscribe(
+      data => {
+        swal({
+          type: 'success',
+          html: 'Password reset instructions have been sent to your email. ',
+          width: '512px',
+        })
+      },
+      error => {
+        swal(
+          'Invalid email ',
+          'Or User does not exist',
+          'error'
+        )
+      }
+    )
+  }
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);

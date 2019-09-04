@@ -10,7 +10,7 @@ import { AdvanceService } from '../../other/advance-search/advance.service';
 declare const $: any;
 import { SeoService } from '../../../services/seoService';
 import { SignupService } from '../../Auth/signup/signup.service';
-
+import { HttpClient } from '@angular/common/http';
 declare interface ValidatorFn {
     (c: AbstractControl): {
         [key: string]: any;
@@ -39,6 +39,10 @@ export class ProfileComponent implements OnInit {
     today: number = Date.now();
     record;
     result: boolean = false;
+    input;files;
+    file
+    ImgSrc;
+    base64textString;
     public typeValidation: User;
     register: FormGroup;
     emailVerify: FormGroup;
@@ -50,15 +54,17 @@ export class ProfileComponent implements OnInit {
     local;
     options: FormGroup;
     uname;
+    model : any = {};
     personal2;
     usernameexist;
+    allcountry;
     vin_Data = { "city": "", "state": "" };
     emailexist;
     digitsOnly = '^[0-9,-]+$';
     public phoneMask = ['+', '1', '-', /[1-9]/, /\d/, /\d/, '-',  /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-    constructor(private signupServ: SignupService, private authService: AuthService, private _nav: Router, private _serv: ProfileService, private datePipe: DatePipe, private formBuilder: FormBuilder, private _adserv: AdvanceService, private _ser: MainService, private seoService: SeoService) {
+    constructor(private signupServ: SignupService, private authService: AuthService, private _nav: Router, private _serv: ProfileService, private _http: HttpClient, private datePipe: DatePipe, private formBuilder: FormBuilder, private _adserv: AdvanceService, private _ser: MainService, private seoService: SeoService) {
         if (localStorage.getItem('loged_in')) {
             this.local = localStorage.getItem('loged_in');
             let pars = JSON.parse(this.local);
@@ -74,6 +80,10 @@ export class ProfileComponent implements OnInit {
                    
 
                 });
+                this.signupServ.getcounty().subscribe( data =>{
+                    this.allcountry = data['countries'];
+                    console.log(this.allcountry);
+                  })
         }
 this.agencyinfo();
         this.options = formBuilder.group({
@@ -98,6 +108,51 @@ this.agencyinfo();
         if (event.keyCode != 8 && !pattern.test(inputChar)) {
           event.preventDefault();
         }
+      }
+      _handleReaderLoaded(readerEvt) {
+        console.log('base64');
+        const binaryString = readerEvt.target.result;
+        this.base64textString = btoa(binaryString);
+        // console.log(this.base64textString);
+      }
+    
+      onChange(event: EventTarget) {
+        this.input = new FormData();
+    
+        const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+        const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+        this.input.append('fileToUpload', target.files[0]);
+        this.files = target.files;
+        this.file = this.files[0];
+        console.log(this.files);
+    
+        const reader = new FileReader();
+        reader.onload = this._handleReaderLoaded.bind(this);
+    
+        const reader1 = new FileReader();
+        reader1.onload = (e: any) => {
+          this.ImgSrc = (e.target.result);
+        };
+        reader1.readAsDataURL(this.file);
+      }
+        onSubmit() {
+    
+        this._http.post(
+          
+          'https://storage.rfpgurus.com/hamzatest.php',
+          this.input, { responseType: 'text' }).subscribe(data => {
+            // alert(this.input);
+            if (data === 'Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.') {
+              // this.CourseFailure();
+            }
+            else {
+    
+              // this.CourseSuccess();
+              this.model.profile_image = data;
+              // alert(this.model.profile_image);
+              // this.ifImageUpload(f);
+            }
+          });
       }
     invalid
     zipcodeCheck(zipcode1) {
@@ -138,7 +193,7 @@ this.agencyinfo();
     onRegister() {
         if (this.register.valid) {
 
-            this.endRequest = this._serv.ProfileUpdate(this.register.value).subscribe(
+            this.endRequest = this._serv.ProfileUpdate(this.register.value, this.model.profile_image).subscribe(
                 data => {
                     swal({
                         type: 'success',
@@ -239,6 +294,7 @@ this.agencyinfo();
             country: ['', [Validators.required]],
             state: ['', [Validators.required]],
             phone: ['', [Validators.required]],
+            
             // newsletter: ['', Validators.required],
             // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
             email: [{ value: '', disabled: true }, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],

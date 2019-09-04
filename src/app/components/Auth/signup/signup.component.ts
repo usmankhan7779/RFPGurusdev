@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, OnDestroy, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { Http, Headers , Response} from '@angular/http'
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
@@ -45,7 +45,7 @@ declare interface User {
     './signup.component.css',
     '../../local-style/multiple-style.css']
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SignupComponent implements OnInit, OnDestroy , AfterViewInit {
   @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
   endRequest;
   hide = true;
@@ -87,10 +87,7 @@ agen;
       this.agen = data.Result;
     
     });
-    this.signupService.getcounty().subscribe( data =>{
-      this.allcountry = data['countries'];
-      console.log(this.allcountry);
-    })
+ 
     window.scroll(0,0);
    }
   isFieldValid(form: FormGroup, field: string) {
@@ -405,6 +402,12 @@ agen;
       }, {
           validator: PasswordValidation.MatchPassword // your validation method
         });
+  }
+  ngAfterViewInit(){
+    this.signupService.getcounty().subscribe( data =>{
+      this.allcountry = data['countries'];
+      console.log(this.allcountry);
+    })
   }
   ngOnDestroy() {
     // this.endRequest.unsubscribe();

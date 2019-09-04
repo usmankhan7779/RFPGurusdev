@@ -278,10 +278,7 @@
                           <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
                           required class="file" id="file1">
                           <input type="button" value="Upload Profile Image" id="file2">
-                          <input readonly type="text" id="file3">
                         </div>
-                    <!-- <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
-                        required> -->
                       </span>
                         <img class="upload-signup-img" accept=".jpg, .jpeg, .png" src="{{ImgSrc}}"
                         alt="" allowmultiple="false" />
@@ -424,19 +421,12 @@
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(register2, 'country')">
-                              <!-- <mat-form-field>
-                                <input matInput class="sh-text-capt"  type="text" id="country" [(ngModel)]="vin_Data2.country2"
-                                  value="{{vin_Data2.country2}}" formControlName="country" placeholder="Country" required />
-                                <!-- <mat-error *ngIf="register.controls.country.value == ''">
-                                  <strong>Country cannot be empty</strong>
-                                </mat-error> -->
-                              <!-- </mat-form-field> --> 
+                       
 
                                <mat-form-field class="selecte example-full-width"   > 
-                                <!-- <input matInput class="sh-text-capt"  type="text" id="country" 
-                              formControlName="country" placeholder="Country" required />  -->
+                    
                               <mat-select 
-                              formControlName="country" [(ngModel)]="countrys"  placeholder="Country" >
+                              formControlName="country" placeholder="Country" >
                                   <mat-option  *ngFor="let item of allcountry | filter:countrys " [value]="item.name" >
                                      
                                       <img class="country-img" src="{{item.image_path}}">
@@ -444,6 +434,9 @@
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
+
+
+                              
 
 
                               
@@ -606,10 +599,7 @@
                                 <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
                                 required class="file" id="file1">
                                 <input type="button" value="Upload Agency Logo" id="file2">
-                                <input readonly type="text" id="file3">
                               </div>
-                            <!-- <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
-                                required>  -->
                               </span>
                                 <img class="upload-signup-img" accept=".jpg, .jpeg, .png" src="{{ImgSrc}}"
                                 alt="" allowmultiple="false" />
