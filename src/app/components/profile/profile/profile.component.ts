@@ -218,7 +218,7 @@ export class ProfileComponent implements OnInit {
             );
     }
     onRegister() {
-        alert('hffgfc')
+        // alert('hffgfc')
         if (this.register.valid) {
 
             this.endRequest = this._serv.ProfileUpdate(this.register.value, this.model.profile_image).subscribe(

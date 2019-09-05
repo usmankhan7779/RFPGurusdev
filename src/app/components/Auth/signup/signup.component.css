@@ -35,12 +35,19 @@ a:hover {
   border-radius: 50px;
   vertical-align: middle;
 }
+.already{
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 233px;
+  margin-bottom: 10px;
+}
 .testing {
   margin-top: 10px;
 }
 .form-footer {
   padding-top: 0 !important;
-  padding: 16px 0 20px !important;
+  padding: 16px 0 4px !important;
 
 }
 .card [data-background-color] {

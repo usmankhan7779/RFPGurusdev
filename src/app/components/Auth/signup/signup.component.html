@@ -117,7 +117,7 @@
                                 </mat-error> -->
                               <!-- </mat-form-field> --> 
 
-                              <mat-select [(ngModel)]="country"
+                              <mat-select 
                               formControlName="country" placeholder="Country" >
                                   <mat-option *ngFor="let item of allcountry | filter:country " [value]="item.name" >
                         
@@ -295,7 +295,7 @@
                             </div>
                             <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
                               [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
-                            <br>
+                              
                           </div>
                        
                        
@@ -629,8 +629,10 @@
                     
                       </form>
                 </div>
-                Already have an account? <a routerLink="/signin">Sign In</a>
-
+                
+                <div class="already">
+                    Already have an account? <a routerLink="/signin">Sign In</a>
+                </div>
 
             </div>
         </div>

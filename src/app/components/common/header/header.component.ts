@@ -247,7 +247,7 @@ export class HeaderComponent implements OnInit {
     if(localStorage.getItem('loged_in')){
       swal({
         type: 'error',
-        title: 'Register as Agency to Publish RFP.',
+        title: 'Register as Agency to Publish RFPs.',
         showConfirmButton: false,
         confirmButtonColor: "#090200",
         timer: 1500, width: '512px',
