@@ -48,31 +48,21 @@
               </div>
               <div class="row mrg-btm">
                 <div class="col-sm-6 zip-address">
-                  <div *ngIf="!personal2">
+                  <div *ngIf="comapny">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field class="example-full-width">
                       <input class="text-capitalize" matInput readOnly placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
-                        formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
-                      <mat-error *ngIf="register.controls.companyname.value == ''">
-                        <strong>Company name cannot be empty</strong>
-                      </mat-error>
-                      <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                        <strong>Company name must be between 3 and 64 characters</strong>
-                      </mat-error>
+                        formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" >
+                    
                     </mat-form-field>
                   </div>
                   </div>
-                  <div *ngIf="personal2">
+                  <div *ngIf="!comapny">
                       <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                         <mat-form-field class="example-full-width">
-                          <input class="text-capitalize" matInput [readonly]="true" placeholder="Agency Name" type="text" id="companyname" minlength="3" maxlength="64"
-                            formControlName="companyname" [(ngModel)]="personal2.agency_name" value="{{personal2.agency_name}}" required>
-                          <mat-error *ngIf="register.controls.companyname.value == ''">
-                            <strong>Agency name cannot be empty</strong>
-                          </mat-error>
-                          <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                            <strong>Agency name must be between 3 and 64 characters</strong>
-                          </mat-error>
+                          <input class="text-capitalize" matInput readonly placeholder="Agency Name" type="text" id="companyname" minlength="3" maxlength="64"
+                            formControlName="companyname" [(ngModel)]="personal.agency_name" value="{{personal.agency_name}}" >
+                         
                         </mat-form-field>
                       </div>
                       </div>
@@ -100,9 +90,9 @@
 
 
 
-                          <mat-select [(ngModel)]="personal.country"
-                          formControlName="country" value="{{personal.country}}" placeholder="Country">
-                              <mat-option *ngFor="let item of allcountry | filter:personal.country " [value]="item.name" >
+                          <mat-select [(ngModel)]="country"
+                          formControlName="country" value="{{country}}" placeholder="Country">
+                              <mat-option *ngFor="let item of allcountry" [value]="item.name" >
                     
                                   <img class="country-img" src="{{item.image_path}}">
                                 {{item.name }}
@@ -234,24 +224,54 @@
               </div>
             </div>
             <div class="upload-img-div">
-            <span class="btn-file margin-top-10" *ngIf="personal2 && !personal">
-                <!-- <img class="upload-signup-img" src="{{personal2?.profile_image}}"> -->
-                <div class="custom-file-input">
+            <!-- <span class="btn-file margin-top-10 image-area" *ngIf="personal">
+
+                <div class="custom-file-input" *ngIf="personal && !personal">
                     <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
                     required class="file" id="file1">
+                    <div *ngIf="personal?.profile_image">
                     <i class="fa fa-camera upload-cam-img">
-                      <img class="upload-signup-img" src="https://storage.rfpgurus.com/final/download (1)_1111111111111111111111.jpeg">
+                      <img class="upload-signup-img" src="{{personal.profile_image}}">
                       </i>
+                      </div>
+                      <div *ngIf="!personal.profile_image">
+                        <i class="fa fa-camera"></i>
+                    <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                        </div>
                   </div>
                
-                </span>
+                </span> -->
               
-                <span class="image-area" *ngIf="!personal2 && personal">
+                <!-- <span class="image-area" *ngIf="!personal2 && personal">
+                  <div class="custom-file-input"  *ngIf="personal">
                     <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
                     required>
+                    <div *ngIf="personal?.profile_image">
                     <i class="fa fa-camera"></i>
-                    <img src="https://storage.rfpgurus.com/final/download (1)_1111111111111111111111.jpeg">
-                </span>
+                    <img src="{{personal.profile_image}}">
+                    </div>
+                    <div *ngIf="!personal.profile_image">
+                      <i class="fa fa-camera"></i>
+                  <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                      </div>
+                    </div>
+                </span> -->
+
+                <span class="image-area">
+                    <div class="custom-file-input"  >
+                      <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                      required>
+                      <div *ngIf="personal.profile_image">
+                      <i class="fa fa-camera"></i>
+                      <img src="{{personal.profile_image}}">
+                      </div>
+                  
+                      <div *ngIf="!personal.profile_image">
+                        <i class="fa fa-camera"></i>
+                    <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                        </div>
+                      </div>
+                  </span>
               </div>
 
             

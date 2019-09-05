@@ -178,6 +178,29 @@
               </div>
             </div>
             <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
+                    <!-- <mat-form-field>
+                      <input matInput class="sh-text-capt" placeholder="Country *" [(ngModel)]="model.country"  type="text" formControlName="country"
+                        readonly>
+                    </mat-form-field> -->
+    
+    
+                    <mat-form-field class="selecte example-full-width"   > 
+                        
+                      <mat-select 
+                     type="text" [(ngModel)]="countrys" formControlName="country" placeholder="Country" >
+                          <mat-option  *ngFor="let item of allcountry | filter:countrys " [value]="item.name" >
+                             
+                              <img class="country-img" src="{{item.image_path}}">
+                            {{item.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+    
+    
+    
+    
+                  </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
                   <input matInput placeholder="Zip / Postal Code" maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
@@ -197,11 +220,7 @@
                 <p *ngIf="!invalid  && model.city && model.state && model.country">
                 </p>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
-                <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="City *" [(ngModel)]="model.city" type="text" formControlName="city" >
-                </mat-form-field>
-              </div>
+            
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
@@ -210,29 +229,11 @@
                     >
                 </mat-form-field>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
-                <!-- <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="Country *" [(ngModel)]="model.country"  type="text" formControlName="country"
-                    readonly>
-                </mat-form-field> -->
-
-
-                <mat-form-field class="selecte example-full-width"   > 
-                    
-                  <mat-select 
-                 type="text" formControlName="country" placeholder="Country" >
-                      <mat-option  *ngFor="let item of allcountry | filter:countrys " [value]="item.name" >
-                         
-                          <img class="country-img" src="{{item.image_path}}">
-                        {{item.name }}
-                      </mat-option>
-                    </mat-select>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
+                  <mat-form-field>
+                    <input matInput class="sh-text-capt" placeholder="City *" [(ngModel)]="model.city" type="text" formControlName="city" >
                   </mat-form-field>
-
-
-
-
-              </div>
+                </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'cardnickname')">

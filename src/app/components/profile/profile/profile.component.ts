@@ -52,12 +52,16 @@ export class ProfileComponent implements OnInit {
     profile: any = [];
     personal: any = [];
     local;
+    image;
     options: FormGroup;
     uname;
     model : any = {};
+    agency;
     personal2;
+    comapny;
     usernameexist;
     allcountry;
+    country;
     vin_Data = { "city": "", "state": "" };
     emailexist;
     digitsOnly = '^[0-9,-]+$';
@@ -65,34 +69,57 @@ export class ProfileComponent implements OnInit {
 
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
     constructor(private signupServ: SignupService, private authService: AuthService, private _nav: Router, private _serv: ProfileService, private _http: HttpClient, private datePipe: DatePipe, private formBuilder: FormBuilder, private _adserv: AdvanceService, private _ser: MainService, private seoService: SeoService) {
-        if (localStorage.getItem('loged_in')) {
+        if (localStorage.getItem('role') == '0') {
             this.local = localStorage.getItem('loged_in');
             let pars = JSON.parse(this.local);
             this.uname = pars.username
             this.endRequest = this._serv.get_profile().subscribe(
                 data => {
                     this.personal = data;
-                    console.log(this.personal.address);
-                    localStorage.setItem('address' , this.personal.address)
+                    this.country =this.personal.country;
+                    this.image=this.personal.profile_image
+                    // alert(this.country)
+                    console.log(this.image);
+                    this.comapny=this.personal.company;
+                    localStorage.setItem('address' , this.personal.address);
            
                     this.profile = data['user'];
                     localStorage.setItem('name', this.profile.username)
                    
 
                 });
-                this.signupServ.getcounty().subscribe( data =>{
-                    this.allcountry = data['countries'];
-                    console.log(this.allcountry);
-                  })
+           
         }
-this.agencyinfo();
+        if (localStorage.getItem('role') == '1') {
+            // this.local = localStorage.getItem('loged_in2');   this.profile = data['user'];
+            // let pars = JSON.parse(this.local);
+            // this.uname = pars.username
+            this.agency =localStorage.getItem('role');
+            this.endRequest = this._serv.agencyprofile().subscribe(
+                data => {
+                    this.personal = data;
+                    this.country = this.personal.country;
+                    // this.image2=this.personal.profile_image
+                    // this.profile = this.personal2;
+                    // alert(this.profile);
+                    // alert(this.personal2);
+                    
+                    this.profile = data['user'];
+
+                });
+    }
+    this.signupServ.getcounty().subscribe( data =>{
+        this.allcountry = data['countries'];
+        console.log(this.allcountry);
+      })
+// this.agencyinfo();
         this.options = formBuilder.group({
             bottom: 0,
             fixed: false,
             top: 0
         });
     }
-
+    image2;
     isFieldValid(form: FormGroup, field: string) {
         return !form.get(field).valid && form.get(field).touched;
     }
@@ -191,6 +218,7 @@ this.agencyinfo();
             );
     }
     onRegister() {
+        alert('hffgfc')
         if (this.register.valid) {
 
             this.endRequest = this._serv.ProfileUpdate(this.register.value, this.model.profile_image).subscribe(
@@ -221,6 +249,7 @@ this.agencyinfo();
             }
         });
     }
+   
     agencyinfo(){
         if (localStorage.getItem('loged_in2')) {
             // this.local = localStorage.getItem('loged_in2');
@@ -229,6 +258,8 @@ this.agencyinfo();
             this.endRequest = this._serv.agencyprofile().subscribe(
                 data => {
                     this.personal2 = data;
+                    this.country = this.personal2.country
+                    
                     // alert(this.personal2);
                     
                    
@@ -286,7 +317,7 @@ this.agencyinfo();
         this.register = this.formBuilder.group({
             firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
             lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+'),Validators.minLength(2)]],
-            companyname: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+'),Validators.minLength(3)] ],
+            companyname: [''],
             address: ['', [Validators.required]],
             username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_.]+')]],
             zipcode: ['', [Validators.required, Validators.pattern('^[0-9,-]+$'), Validators.minLength(5)]],

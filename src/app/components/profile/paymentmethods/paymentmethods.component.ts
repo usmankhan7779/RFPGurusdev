@@ -85,6 +85,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   cardnumber2;
   var_box_check: boolean = false;
   destroy_value;
+  countrys;
   public cardmask;
   //  public cardsmask;
   // vin_Data = { "city": "", "state": "" };

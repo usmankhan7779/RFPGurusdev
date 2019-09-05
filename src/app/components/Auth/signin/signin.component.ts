@@ -80,6 +80,7 @@ export class SigninComponent implements OnInit {
            token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
+          localStorage.setItem('role' , '1');
           // localStorage.setItem('loged_in2', '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
@@ -162,6 +163,7 @@ export class SigninComponent implements OnInit {
         if (user && user.token) {
           // localStorage.setItem('loged_in', '1');
           localStorage.setItem('loged_in2', '1');
+  
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
         swal({
@@ -264,7 +266,7 @@ export class SigninComponent implements OnInit {
         data => {
           this.signinService.login(this.login.value.username, this.login.value.password).subscribe(
             data => {
-             
+              localStorage.setItem('role', '0');
               swal({
                 type: 'success',
                 title: 'You have successfully logged into RFPGurus - The largest aggregator of RFPs at the Federal, County, City, State, Agency levels.',
@@ -385,7 +387,8 @@ export class SigninComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
-localStorage.setItem('loged_in2' , this.loginagency.value.username )
+localStorage.setItem('loged_in2' , this.loginagency.value.username );
+localStorage.setItem('role' , '1');
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length
