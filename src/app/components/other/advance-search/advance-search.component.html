@@ -272,7 +272,8 @@
                                         </table>
                                     </div>
                                     <div class="row new_info">
-                                            <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
+                                        <div class="ac-head">Agency Contact Info</div>
+                                            <div class="col-sm-12 padding-0">
                                               <h5>
                                                 <i class="fa fa-home" aria-hidden="true"></i> Contact Name/Designation:
                                                 <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
@@ -282,7 +283,7 @@
                                                   </a>
                                               </h5>
                                             </div>
-                                            <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
+                                            <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                                               <h5>
                                                 <i class="fa fa-phone-square"></i> Phone No :
                                                 <a *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"
@@ -290,15 +291,7 @@
                                                 <a *ngIf="rfp.phone == null" class="cat-elips"></a>
                                               </h5>
                                             </div>
-                                            <div class="col-sm-12 col-md-7 col-xs-12 padding-0">
-                                              <h5>
-                                                <i class="fa fa-envelope-square"></i> Email :
-                                                <a *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"
-                                                  [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
-                                                <a *ngIf="rfp.email == null" class="cat-elips"></a>
-                                              </h5>
-                                            </div>
-                                            <div class="col-sm-12 col-md-5 col-xs-12 padding-0">
+                                            <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                                               <h5>
                                                 <i class="fa fa-fax" aria-hidden="true"></i> Fax :
                                                 <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
@@ -307,7 +300,14 @@
                                             
                                               </h5>
                                             </div>
-                                             
+                                            <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
+                                                <h5>
+                                                  <i class="fa fa-envelope-square"></i> Email :
+                                                  <a *ngIf="rfp.email != null" class="cat-elips" [routerLink]="['/phone']"
+                                                    [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
+                                                  <a *ngIf="rfp.email == null" class="cat-elips"></a>
+                                                </h5>
+                                              </div>
                                           </div> 
                                     <div class="col-md-6 col-sm-6 col-xs-6 padding-0" *ngIf="!subscribe">
                                         <button (click)="memberonly()" class="btn btn-rose sub"
