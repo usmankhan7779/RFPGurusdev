@@ -64,6 +64,19 @@ border-radius: 0;
 -webkit-box-shadow: 0 6px 6px #ccc;
 box-shadow: 0 6px 6px #ccc
 }
+.new_info{
+  box-shadow: 0 1px 4px 0 #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+.new_info h5{
+  margin: 5px 0;
+}
+.new_info .ac-head{
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 @media (max-width:991px){
 .sh-pg-container .product-label {
   margin: 12px 10px 0 0 !important;

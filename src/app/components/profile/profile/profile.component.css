@@ -10,18 +10,18 @@
 .image-area input[type=file]{
   position: absolute;
   left: 40px;
-  top: 5px;
+  top: 12px;
   width: 18px;
-  height: 15px;
+  height: 16px;
   opacity: 0;
   z-index: 1;
 }
 .image-area i{
   position: absolute;
   left: 40px;
-  top: 5px;
+  top: 12px;
   width: 18px;
-  height: 17px;
+  height: 16px;
   font-size: 16px;
 }
 .image-area img {
