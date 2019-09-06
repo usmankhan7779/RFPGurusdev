@@ -78,6 +78,7 @@ export class PricingComponent implements OnInit {
   CardNumberForm;
   CardNumberForm2;
   id;
+  allcountry;
   CardCodeForm;
   CardCodeForm2;
   ExpiryDateForm
@@ -121,6 +122,10 @@ export class PricingComponent implements OnInit {
     this.CardCodeForm2=false
    }
   ngOnInit() {
+    this._serv2.getcounty().subscribe( data =>{
+      this.allcountry = data['countries'];
+      console.log(this.allcountry);
+    })
     this.getcardid(this.id);
     window.scroll(0, 0);
     this.images();

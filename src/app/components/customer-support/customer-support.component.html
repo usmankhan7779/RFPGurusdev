@@ -31,7 +31,7 @@
                   <mat-error>Please provide message</mat-error>
               </mat-form-field>
               <span class="btn-file file-input">Upload image or Other file
-                <input (change)="onChange($event)" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
+                <input (change)="onChange($event); onSubmit()" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
               </span>
               <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
           </form>
@@ -41,14 +41,15 @@
   </div>
 
   <div class="tab-pane fade" id="Support_Center" role="tabpanel" aria-labelledby="profile-tab">
+    
     <div class="row" *ngIf="views">
-
+<p *ngIf="views == ''" style="text-align: center ; margin-top: 10px; font-size: 24px">No support tickets</p>
       <div class="col-lg-4">
           <p>{{views?.subject}}</p>
       </div>
       </div>
       
-      <div class="sh-container-paymnt " *ngIf="views">
+      <div class="sh-container-paymnt " *ngIf="views != ''">
               <div class="table-responsive margin-top-20">
                 <table class="table payment-table">
                   <thead>

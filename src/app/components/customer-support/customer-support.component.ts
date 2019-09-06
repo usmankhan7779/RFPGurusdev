@@ -68,8 +68,7 @@ export class CustomerSupportComponent implements OnInit {
  attach_file;
 
  onSubmit() {
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
+
   this.http.post(
     'https://storage.rfpgurus.com/hamzatest1.php',
     

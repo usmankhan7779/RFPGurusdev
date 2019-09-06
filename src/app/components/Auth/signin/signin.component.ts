@@ -48,6 +48,7 @@ export class SigninComponent implements OnInit {
   jwtHelper: JwtHelper = new JwtHelper();
   endRequest;
   hide = true;
+  chechagencydiv : boolean = true;
   public typeValidation: User;
   register: FormGroup;
   login: FormGroup;
