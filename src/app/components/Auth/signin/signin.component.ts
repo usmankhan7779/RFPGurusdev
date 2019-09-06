@@ -274,6 +274,7 @@ export class SigninComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
+              
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length

@@ -37,6 +37,12 @@ export class AllRfpsComponent implements OnInit {
   length = 0;
   constructor(public homeServ: HomeService, public dialog: MatDialog, private __serv: AdvanceService, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
+
+  if ( localStorage.getItem('loged_in' || 'loged_in2')){
+    // alert('abc')
+    this.notlgoin = true;
+    // alert(this.notlgoin)
+  }
   }
   ngOnInit() {
     window.scroll(0, 0);
@@ -81,6 +87,7 @@ export class AllRfpsComponent implements OnInit {
     if (localStorage.getItem('currentadmin')) {
       this.adminlogin = localStorage.getItem('currentadmin')
     }
+    
   }
   formats = [
     moment.ISO_8601,
@@ -97,7 +104,10 @@ export class AllRfpsComponent implements OnInit {
   uname;
   subscribe;
   date;
+  notlgoin
+// checklogin(){
 
+// }
   check(date) {
 
     this.date = moment(date, this.formats, true).isValid()

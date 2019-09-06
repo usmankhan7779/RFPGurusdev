@@ -274,7 +274,7 @@
                                     <div class="row new_info">
                                         <div class="ac-head">Agency Contact Info</div>
                                             <div class="col-sm-12 padding-0">
-                                              <h5>
+                                              <h5 *ngIf="notlgoin == true">
                                                 <i class="fa fa-home" aria-hidden="true"></i> Contact Name/Designation:
                                                 <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
                                                   [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
@@ -282,6 +282,10 @@
                       
                                                   </a>
                                               </h5>
+                                              <h5 *ngIf="notlgoin != true"><i class="fa fa-home"></i> Contact Name/Designation:
+                                                <a (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
+                                                  Only</a>
+                                                  </h5>
                                             </div>
                                             <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                                               <h5>
