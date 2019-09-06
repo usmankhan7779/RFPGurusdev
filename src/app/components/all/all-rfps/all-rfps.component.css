@@ -73,18 +73,21 @@ margin-top: 5px;
 h5{
   color: rgba(0, 0, 0, .87);
 }
-.new_info{
+.new_info.box{
   box-shadow: 0 1px 4px 0 #ccc;
   padding: 10px;
-  margin: 10px 0;
+  margin: 8px 0 5px;
 }
-.new_info h5{
+.new_info.box h5{
   margin: 5px 0!important;
 }
-.new_info .ac-head{
+.new_info.box .ac-head{
   color: #000;
   font-size: 18px;
   margin-bottom: 10px;
+}
+.new_info.padd{
+  padding: 0 10px;
 }
 @media (max-width:991px) {
   .main-content.custom {
