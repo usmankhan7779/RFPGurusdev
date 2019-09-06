@@ -178,44 +178,62 @@
               </div>
             </div>
             <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
+                    <!-- <mat-form-field>
+                      <input matInput class="sh-text-capt" placeholder="Country *" [(ngModel)]="model.country"  type="text" formControlName="country"
+                        readonly>
+                    </mat-form-field> -->
+    
+    
+                    <mat-form-field class="selecte example-full-width"   > 
+                        
+                      <mat-select 
+                     type="text" formControlName="country" placeholder="Country" >
+                          <mat-option  *ngFor="let item of allcountry | filter:countrys " [value]="item.name" >
+                             
+                              <img class="country-img" src="{{item.image_path}}">
+                            {{item.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+    
+    
+    
+    
+                  </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
-                  <input matInput placeholder="Zip Code" maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
+                  <input matInput placeholder="Zip / Postal Code" maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
                     (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1  (keypress)="keyPress($event)" step="1" required (keydown.space)="$event.preventDefault()">
                   <mat-error *ngIf="form.controls.zip.touched && form.controls.zip.invalid">
                     <mat-error *ngIf="form.controls.zip.errors.required">
-                      Zip code cannot be empty
+                      Zip / Postal Code cannot be empty
                     </mat-error>
                     <mat-error *ngIf="form.controls.zip.errors?.minlength">
-                      Zip Code must be 5 digits long
+                      Zip / Postal Code must be 5 digits long
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
                 <p class="clr_red" *ngIf="invalid  && !model.city && !model.state && !model.country && model.zip!='' && model.zip.length==5">
-                  Invalid Zipcode
+                  Invalid Zip / Postal Code
                 </p>
                 <p *ngIf="!invalid  && model.city && model.state && model.country">
                 </p>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
-                <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="City *" [(ngModel)]="model.city" type="text" formControlName="city" readonly>
-                </mat-form-field>
-              </div>
+            
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'state')">
                 <mat-form-field>
-                  <input matInput class="text-uppercase" placeholder="State *" [(ngModel)]="model.state"  type="text" formControlName="state"
-                    readonly>
+                  <input matInput class="text-uppercase" placeholder="State / Province *" [(ngModel)]="model.state"  type="text" formControlName="state"
+                    >
                 </mat-form-field>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'country')">
-                <mat-form-field>
-                  <input matInput class="sh-text-capt" placeholder="Country *" [(ngModel)]="model.country"  type="text" formControlName="country"
-                    readonly>
-                </mat-form-field>
-              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'city')">
+                  <mat-form-field>
+                    <input matInput class="sh-text-capt" placeholder="City *" [(ngModel)]="model.city" type="text" formControlName="city" >
+                  </mat-form-field>
+                </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'cardnickname')">

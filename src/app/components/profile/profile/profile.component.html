@@ -4,7 +4,9 @@
         <div class="card">
           <form [formGroup]="register" class="sh-signup-form-fix floting-label edit-profile ">
             <div class="card-header card-header-icon" data-background-color="rose">
-              <i class="fa fa-user"></i> Edit Profile
+              <i class="fa fa-user"></i>
+            
+              Edit Profile
             </div>
             <div class="card-content">
               <div class="row mrg-btm">
@@ -46,31 +48,21 @@
               </div>
               <div class="row mrg-btm">
                 <div class="col-sm-6 zip-address">
-                  <div *ngIf="!personal2">
+                  <div *ngIf="comapny">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                     <mat-form-field class="example-full-width">
                       <input class="text-capitalize" matInput readOnly placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
-                        formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
-                      <mat-error *ngIf="register.controls.companyname.value == ''">
-                        <strong>Agency name cannot be empty</strong>
-                      </mat-error>
-                      <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                        <strong>Agency name must be between 3 and 64 characters</strong>
-                      </mat-error>
+                        formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" >
+                    
                     </mat-form-field>
                   </div>
                   </div>
-                  <div *ngIf="personal2">
+                  <div *ngIf="!comapny">
                       <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
                         <mat-form-field class="example-full-width">
-                          <input class="text-capitalize" matInput [readonly]="true" placeholder="Agency Name" type="text" id="companyname" minlength="3" maxlength="64"
-                            formControlName="companyname" [(ngModel)]="personal2.agency_name" value="{{personal2.agency_name}}" required>
-                          <mat-error *ngIf="register.controls.companyname.value == ''">
-                            <strong>Agency name cannot be empty</strong>
-                          </mat-error>
-                          <mat-error *ngIf="register.controls.companyname.errors?.minlength">
-                            <strong>Agency name must be between 3 and 64 characters</strong>
-                          </mat-error>
+                          <input class="text-capitalize" matInput readonly placeholder="Agency Name" type="text" id="companyname" minlength="3" maxlength="64"
+                            formControlName="companyname" [(ngModel)]="personal.agency_name" value="{{personal.agency_name}}" >
+                         
                         </mat-form-field>
                       </div>
                       </div>
@@ -88,62 +80,101 @@
                 </div>
               </div>
               <div class="row mrg-btm">
-                <div class="col-sm-6">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
-                    <mat-form-field>
-                      <input matInput type="text" id="zipcode" (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1
-                        [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}" (keydown.space)="$event.preventDefault()"
-                        placeholder="Zip Code" maxlength="5" required  (keypress)="keyPress($event)"/>
-                      <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
-                        Zip Code must 5 digits long.
-                      </mat-error>
-                      <mat-error *ngIf="register.controls.zipcode.value == ''">
-                        <strong>Zip Code cannot be empty</strong>
-                      </mat-error>
-                    </mat-form-field>
-                    <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country && personal.zipcode!='' && personal.zipcode.length==5">
-                      Invalid Zipcode
-                    </p>
-                    <p class="clr_red" *ngIf="!invalid && personal.city && personal.state && personal.country">
-                    </p>
+                
+              
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
+                      <mat-form-field class="example-full-width profile-country">
+                        <!-- <input matInput class="sh-text-capt" placeholder="Country" type="text" id="country" 
+                          formControlName="country" [(ngModel)]="personal.country"  required> -->
+
+
+
+                          <mat-select [(ngModel)]="country"
+                          formControlName="country" value="{{country}}" placeholder="Country">
+                              <mat-option *ngFor="let item of allcountry" [value]="item.name" >
+                    
+                                  <img class="country-img" src="{{item.image_path}}">
+                                {{item.name }}
+                              </mat-option>
+                            </mat-select>
+
+                        <mat-error *ngIf="register.controls.country.value == ''">
+                          <strong>Country cannot be empty</strong>
+                        </mat-error>
+
+                      </mat-form-field>
+
+
+
+                    </div>
                   </div>
+              
+              
+              
+              
+                  <div class="col-sm-6">
+                    <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
+                      <mat-form-field>
+                        <input matInput type="text" id="zipcode" (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1
+                          [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}" (keydown.space)="$event.preventDefault()"
+                          placeholder="Zip / Postal Code" maxlength="5" required  (keypress)="keyPress($event)"/>
+                        <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
+                            Zip / Postal Code must 5 digits long.
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.zipcode.value == ''">
+                          <strong>Zip / Postal Code cannot be empty</strong>
+                        </mat-error>
+                      </mat-form-field>
+                      <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country && personal.zipcode!='' && personal.zipcode.length==5">
+                        Invalid Zipcode
+                      </p>
+                      <p class="clr_red" *ngIf="!invalid && personal.city && personal.state && personal.country">
+                      </p>
+                    </div>
+  
+              
+              
+              
+              
+              
+              
+              
                 </div>
     
-                <div class="col-sm-6">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
-                    <mat-form-field class="example-full-width">
-                      <input matInput class="sh-text-capt" placeholder="City" type="text" id="city" formControlName="city"
-                        [(ngModel)]="personal.city" value="{{personal.city}}" required readonly>
-                      <mat-error *ngIf="register.controls.city.value == ''">
-                        <strong>City cannot be empty</strong>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-                </div>
+             
+
+
+
+
+
+
+
               </div>
               <div class="row mrg-btm">
+                  <div class="col-sm-6">
+                      <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
+                        <mat-form-field class="example-full-width">
+                          <input matInput class="sh-text-capt" placeholder="City" type="text" id="city" formControlName="city"
+                            [(ngModel)]="personal.city" value="{{personal.city}}" required >
+                          <mat-error *ngIf="register.controls.city.value == ''">
+                            <strong>City cannot be empty</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
                 <div class="col-sm-6">
                   <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
                     <mat-form-field class="example-full-width">
-                      <input matInput class="text-uppercase" placeholder="State" type="text" id="state" readonly
+                      <input matInput class="text-uppercase" placeholder="State / Province" type="text" id="state" 
                         formControlName="state" [(ngModel)]="personal.state" value="{{personal.state}}" required>
                       <mat-error *ngIf="register.controls.state.value == ''">
-                        <strong>State cannot be empty</strong>
+                        <strong>State / Province cannot be empty</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
                 </div>
-                <div class="col-sm-6">
-                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
-                    <mat-form-field class="example-full-width">
-                      <input matInput class="sh-text-capt" placeholder="Country" type="text" id="country" readonly
-                        formControlName="country" [(ngModel)]="personal.country" value="{{personal.country}}" required>
-                      <mat-error *ngIf="register.controls.country.value == ''">
-                        <strong>Country cannot be empty</strong>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-                </div>
+
     
     
               </div>
@@ -192,6 +223,60 @@
                 </div>
               </div>
             </div>
+            <div class="upload-img-div">
+            <!-- <span class="btn-file margin-top-10 image-area" *ngIf="personal">
+
+                <div class="custom-file-input" *ngIf="personal && !personal">
+                    <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                    required class="file" id="file1">
+                    <div *ngIf="personal?.profile_image">
+                    <i class="fa fa-camera upload-cam-img">
+                      <img class="upload-signup-img" src="{{personal.profile_image}}">
+                      </i>
+                      </div>
+                      <div *ngIf="!personal.profile_image">
+                        <i class="fa fa-camera"></i>
+                    <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                        </div>
+                  </div>
+               
+                </span> -->
+              
+                <!-- <span class="image-area" *ngIf="!personal2 && personal">
+                  <div class="custom-file-input"  *ngIf="personal">
+                    <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                    required>
+                    <div *ngIf="personal?.profile_image">
+                    <i class="fa fa-camera"></i>
+                    <img src="{{personal.profile_image}}">
+                    </div>
+                    <div *ngIf="!personal.profile_image">
+                      <i class="fa fa-camera"></i>
+                  <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                      </div>
+                    </div>
+                </span> -->
+
+                <span class="image-area">
+                    <div class="custom-file-input"  >
+                      <input (change)="onChange($event);onSubmit()" type="file" #image accept="image/gif, image/jpeg, image/png"
+                      required>
+                      <div *ngIf="personal.profile_image">
+                      <i class="fa fa-camera"></i>
+                      <img src="{{personal.profile_image}}">
+                      </div>
+                  
+                      <div *ngIf="!personal.profile_image">
+                        <i class="fa fa-camera"></i>
+                    <img src="../../../../assets/img/default-profile-icon-24.jpg">
+                        </div>
+                      </div>
+                  </span>
+              </div>
+
+            
+
+
             <div class="form-footer text-right">
               <div *ngIf="!pkgsub">
               </div>

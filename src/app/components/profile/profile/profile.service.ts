@@ -34,7 +34,7 @@ agencyprofile(){
         return this._https.get('https://apis.rfpgurus.com/agency_profile/',{headers:headers}).map(response => response.json());
     }
 }
-    ProfileUpdate(obj) {
+    ProfileUpdate(obj, profile_image) {
         if (localStorage.getItem('loged_in2')){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -54,6 +54,7 @@ agencyprofile(){
             "first_name": obj.firstname,
             "last_name": obj.lastname,
             "username": obj.username,
+            "profile_image" : profile_image
             // "newsletter": obj.newsletter,
         }
       
@@ -83,6 +84,8 @@ agencyprofile(){
             "first_name": obj.firstname,
             "last_name": obj.lastname,
             "username": obj.username,
+            "profile_image" : profile_image
+
             // "newsletter": obj.newsletter,
         }
       

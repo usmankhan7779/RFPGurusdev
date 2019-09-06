@@ -1,1 +1,35 @@
 .card{margin-top:30px;max-width:90%;margin:20px auto;float:none;display:block}.card [data-background-color]{font-size:24px;font-weight:600;display:inline}.mat-error{margin-right:5px}.mat-form-field-subscript-wrapper>div{display:-webkit-box;display:-ms-flexbox;display:flex}.form-footer{padding:0 0 20px!important}.profile-update{width:200px}.card-content{padding:25px 20px 0}.phonee .form-control{height:37px!important}@media (max-width:991px){.card{max-width:90%;margin:20px auto;float:none;display:block;margin-top:0}}
+.country-img{
+    width: 25px;
+    border-radius: 50px;
+    vertical-align: middle;
+  }
+.image-area{
+  position: relative;
+}
+.image-area input[type=file]{
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  width: 18px;
+  height: 15px;
+  opacity: 0;
+  z-index: 1;
+}
+.image-area i{
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  width: 18px;
+  height: 17px;
+  font-size: 16px;
+}
+.image-area img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.image-area input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}

@@ -47,11 +47,11 @@
       <div class="navbar-right navbar-nav">
         <ul class="navbar-nav sh-main-options">
             <li >
-                <button class="btn btn-rose pblsh-rfp" *ngIf="!agencycheck_login()" onclick="topFunction()" routerLink="/signin" routerLinkActive="Active">
-                  <i class="fa fa-upload"></i>Publish RFP
+                <button class="btn btn-rose pblsh-rfp" *ngIf="!agencycheck_login()" onclick="topFunction()" routerLink="/signin"  (click)="showmesgforvendor()"routerLinkActive="Active">
+                  <i class="fa fa-upload"></i>Publish RFPs
                 </button>
-                <button class="btn btn-rose pblsh-rfp" *ngIf="agencycheck_login()" onclick="topFunction()" routerLink="/AddRfps" routerLinkActive="Active">
-                  <i class="fa fa-upload"></i>Publish RFP
+                <button class="btn btn-rose pblsh-rfp" *ngIf="agencycheck_login()"  routerLink="/AddRfps" routerLinkActive="Active">
+                  <i class="fa fa-upload"></i>Publish RFPs
                 </button>
               </li>
           <li>
@@ -314,11 +314,11 @@
                   <a onclick="topFunction()" routerLink="/change-password">
                     <i class="fa fa-key" ria-hidden="true"></i>Change Password</a>
                 </li>
-             
+<!--              
                 <li *ngIf="check_login()">
                   <a onclick="topFunction()" routerLink="/contact-us">
                     <i class="fa fa-comment" aria-hidden="true"></i>Contact Us</a>
-                </li>
+                </li> -->
                 <li *ngIf="check_login()" class="">
                   <a onclick="topFunction()" (click)="logout()" class="curser-pointer">
                       <i class="fa fa-sign-out"></i>Sign Out</a>

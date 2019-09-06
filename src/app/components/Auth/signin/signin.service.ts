@@ -62,6 +62,10 @@ agencycheck(username){
       'email': email
     }, this.httpOptions)
   }
-
+  agencyforget_password(email) {
+    return this.http.post('https://apis.rfpgurus.com/forget_password_agency/', {
+      'email': email
+    }, this.httpOptions)
+  }
 }
 // http://192.168.29.120:8000/forget_password_agency/
