@@ -35,6 +35,7 @@ export class AllRfpsComponent implements OnInit {
   pdf;
   currentUser;
   length = 0;
+  agencylogin;
   constructor(public homeServ: HomeService, public dialog: MatDialog, private __serv: AdvanceService, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
     localStorage.removeItem('member');
 
@@ -45,6 +46,7 @@ export class AllRfpsComponent implements OnInit {
   }
   }
   ngOnInit() {
+    this.agencylogin=(localStorage.getItem('role') == '1')
     window.scroll(0, 0);
     window.onscroll = function () { myFunction() };
     var header = document.getElementById("myHeader");
@@ -59,7 +61,7 @@ export class AllRfpsComponent implements OnInit {
     }
 
     // --------------- SEO Service ---------------
-    // setting the page title 
+    // setting the page title
     this.seoService.setTitle('Latest RFPs');
 
     // Updating Open Graph
@@ -87,7 +89,7 @@ export class AllRfpsComponent implements OnInit {
     if (localStorage.getItem('currentadmin')) {
       this.adminlogin = localStorage.getItem('currentadmin')
     }
-    
+
   }
   formats = [
     moment.ISO_8601,
@@ -146,22 +148,22 @@ export class AllRfpsComponent implements OnInit {
     }
   }
   enter: any = [];
-  
+
   setPage(page) {
     localStorage.setItem('latestpage', page);
     this._serv.latestrfpecord(this.pageSize, page).subscribe(
       data => {
 
         this.record = data['results'];
-       
+
 
         this.item = data['totalItems'];
-       
-        
+
+
       let democompprods;
       democompprods = data['results'];
 
-     
+
         this.pager = this.pagerService.getPager(this.item, page, this.pageSize);
 
       },
@@ -197,7 +199,7 @@ export class AllRfpsComponent implements OnInit {
   //       }
   //     });
   // }
-  
+
   public showPDF(rfpkey,title): void {
     // alert(rfpkey)
     this._serv.getPDF(rfpkey)
@@ -213,7 +215,7 @@ export class AllRfpsComponent implements OnInit {
                 return;
             }
 
-            // For other browsers: 
+            // For other browsers:
             // Create a link pointing to the ObjectURL containing the blob.
             const data = window.URL.createObjectURL(newBlob);
 
@@ -241,7 +243,7 @@ export class AllRfpsComponent implements OnInit {
             });
           }
         }
-        
+
         );
 }
 public showzip(rfpkey,title): void {
@@ -259,7 +261,7 @@ public showzip(rfpkey,title): void {
               return;
           }
 
-          // For other browsers: 
+          // For other browsers:
           // Create a link pointing to the ObjectURL containing the blob.
           const data = window.URL.createObjectURL(newBlob);
 
@@ -287,7 +289,7 @@ public showzip(rfpkey,title): void {
           });
         }
       }
-      
+
       );
 }
   // get_download_file
@@ -323,7 +325,7 @@ public showzip(rfpkey,title): void {
                 return;
             }
 
-            // For other browsers: 
+            // For other browsers:
             // Create a link pointing to the ObjectURL containing the blob.
             const data = window.URL.createObjectURL(newBlob);
 
@@ -378,7 +380,7 @@ public showzip(rfpkey,title): void {
       this.__serv.downloadRfps(id).subscribe(
         data=>{
           // alert(data.content_type)
-       
+
           if (data.content_type == "pdf"){
               // window.open(url, '_blank');
               this.showPDF(id,title);
@@ -393,7 +395,7 @@ public showzip(rfpkey,title): void {
               confirmButtonColor: "#090200",
             });
           }
-          
+
             },
         error=>{
           if(error.status==403){

@@ -58,7 +58,7 @@ export class SigninComponent implements OnInit {
   private loggedIn: boolean;
   user: any;
   public logedin: any = 0;
-  private changetabs : boolean = false; 
+  private changetabs : boolean = false;
   public agencylogin : any = 0;
   returnUrl: string;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { }
@@ -75,13 +75,13 @@ export class SigninComponent implements OnInit {
       // createUser.subscribe((data: Response) => {
         // let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
         createUser.subscribe(data => {
-          let user = { 
+          let user = {
            userid: this.jwtHelper.decodeToken(data['token']).user_id,
-           username: this.jwtHelper.decodeToken(data['token']).username, 
+           username: this.jwtHelper.decodeToken(data['token']).username,
            token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
-          localStorage.setItem('role' , '1');
+          localStorage.setItem('role' , '0');
           // localStorage.setItem('loged_in2', '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
@@ -157,14 +157,14 @@ export class SigninComponent implements OnInit {
       // createUser.subscribe((data: Response) => {
         // let user = { userid: jwt_decode(data.json()['token']).user_id, username: jwt_decode(data.json()['token']).username, token: data.json()['token'] };
         createUser.subscribe(data => {
-          let user = { 
+          let user = {
            userid: this.jwtHelper.decodeToken(data['token']).user_id,
-           username: this.jwtHelper.decodeToken(data['token']).username, 
+           username: this.jwtHelper.decodeToken(data['token']).username,
            token: data['token'] };
         if (user && user.token) {
           // localStorage.setItem('loged_in', '1');
           localStorage.setItem('loged_in2', '1');
-  
+
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
         swal({
@@ -238,7 +238,7 @@ export class SigninComponent implements OnInit {
     this.authService.signOut();
   }
 
-  // --------------------------------- end 
+  // --------------------------------- end
 
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
@@ -274,7 +274,7 @@ export class SigninComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500, width: '512px',
               });
-              
+
               if (localStorage.getItem('member')) {
                 let url = localStorage.getItem('member')
                 let last = url.length
@@ -282,7 +282,7 @@ export class SigninComponent implements OnInit {
                 let state = url.slice(0, 5)
                 let category = url.slice(0, 8)
                 let agency = url.slice(0, 6)
-                   
+
 
                 if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                 else if (state == 'state') {
@@ -310,25 +310,26 @@ export class SigninComponent implements OnInit {
               } else {
                 // this._nav.navigate(['/']);
                 this.signinService.usersubscribe(this.login.value.username).subscribe( data => {
-                 
+
                   if (data['Response'] == "Subscribe user" || data['Response'] == "Trial Subscription user") {
                localStorage.setItem('subornot', this.subscribed);
-         
+               console.log(this.subscribed);
+
                     this._nav.navigate(['/']);
                   }
-                 
+
                   // alert(data);
-               
+
                 },
                 error =>{
-               
+
                   if(error.status == 406){
                     this._nav.navigate(['/pricing']);
-                    
+
                   }
                 }
                 );
-                
+
               }
               // this._location.back();
             },
@@ -340,7 +341,7 @@ export class SigninComponent implements OnInit {
                 'error'
               )
             });
-          
+
         },
         error => {
           if (error.status == 400) {
@@ -398,7 +399,7 @@ localStorage.setItem('role' , '1');
                 let state = url.slice(0, 5)
                 let category = url.slice(0, 8)
                 let agency = url.slice(0, 6)
-               
+
 
                 if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                 else if (state == 'state') {
@@ -423,8 +424,8 @@ localStorage.setItem('role' , '1');
                   // this._nav.navigate([val]);
                 this._nav.navigate(['rfp/'], { queryParams: { query: url } });
                 }
-              } 
-              
+              }
+
               else {
                 this._nav.navigate(['/agencypricing']);
               }
@@ -546,7 +547,7 @@ localStorage.setItem('role' , '1');
   ngOnInit() {
     window.scroll(0, 0);
     // --------------- SEO Service ---------------
-    // setting the page title 
+    // setting the page title
     this.seoService.setTitle('Signin');
 
     // Updating Open Graph

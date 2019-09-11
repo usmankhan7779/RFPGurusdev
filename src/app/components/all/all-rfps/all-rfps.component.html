@@ -1,7 +1,7 @@
 <div class="main-panel max-width-1000" [ngClass]="status ? 'sidebarActive' : ''">
   <div class="main-content custom">
     <div class="container-fluid">
-      
+
       <div class="row">
           <div class="page-title">
               <div class="col-sm-6 col-xs-5 latest-rfps-title">
@@ -14,7 +14,7 @@
       </div>
       <div class="row All-RFPs-Comp">
         <div class="col-sm-12">
-          
+
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container header" id="myHeader">
             <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right" *ngIf="item !=0">
               <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
@@ -100,7 +100,7 @@
                     </h3>
                     <h5 *ngIf="rfp.agency"><i class="fa fa-building"></i> Agency :
                       <a class="cat-elips" [routerLink]="['/agency']" [queryParams]="{ agency: rfp.agency}">{{rfp.agency}}</a>
-                    
+
                     </h5>
                     <h5>
                       <i class="fa fa-university"></i> Category :
@@ -111,7 +111,7 @@
                         [queryParams]="{ state: rfp.state}"> {{
                         rfp.state}}</a>
                     </h5>
-                   
+
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0" *ngIf="!subscribe">
                       <h5><i class="fa fa-info dscrption-icon"></i> Description:
                         <a (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
@@ -154,7 +154,7 @@
                         </tbody>
                       </table>
                     </div>
-                   
+
                     <div class="row new_info box">
                       <div class="ac-head">Agency Contact Info</div>
                       <div class="col-sm-12 padding-0">
@@ -162,9 +162,16 @@
                           <i class="fa fa-home" aria-hidden="true"></i> Contact Name/Designation:
                           <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
                             [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
-                          <a *ngIf="rfp.contract_name == null" routerLink="/signin" class="cat-elips">Download RFP Docs for Agency Contact Info.
+
+                          <a *ngIf="!agencylogin && rfp.contract_name == null" routerLink="/pricing" class="cat-elips">Download RFP Docs for Agency Contact Info.
 
                             </a>
+
+
+                            <a *ngIf="agencylogin && rfp.contract_name == null" routerLink="/agencypricing" class="cat-elips">Download RFP Docs for Agency Contact Info.
+
+                            </a>
+
                         </h5>
                         <h5 *ngIf="notlgoin != true"><i class="fa fa-home"></i> Contact Name/Designation:
                           <a (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
@@ -185,7 +192,7 @@
                           <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
                             [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
                           <a *ngIf="rfp.fax == null" class="cat-elips"></a>
-                      
+
                         </h5>
                       </div>
                       <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
@@ -196,7 +203,7 @@
                             <a *ngIf="rfp.email == null" class="cat-elips"></a>
                           </h5>
                         </div>
-                    </div> 
+                    </div>
                     <div class="row new_info padd">
                       <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                         <ul class="list-normal">

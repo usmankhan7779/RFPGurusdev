@@ -1,11 +1,11 @@
- 
+
 import { Component, OnInit, Inject,  ElementRef, ViewChild, EventEmitter , Output } from '@angular/core';
 // import { AdminPanelComponent } from '../admin-penal/admin-penal.component';
 // import { PagerService } from './../rfps/rfp/paginator.service';
 // import { AllRfpsService } from '../all/all-rfps/all-rfps.service';
 //  import { AdvanceService } from '../advance-search/advance.service';
  import swal from 'sweetalert2';
- 
+
  import { Router, NavigationEnd } from '@angular/router';
 import { PagerService } from 'src/app/services/paginator.service';
 import { AdvanceService } from './advance.service';
@@ -61,7 +61,7 @@ export class AddrfpsComponent implements OnInit  {
   userdetail;
   visible;
   toggle() {
-  
+
     this.visible = !this.visible;
     // alert(this.visible);
     if (this.visible) {
@@ -113,7 +113,7 @@ export class AddrfpsComponent implements OnInit  {
       this.prv_stepdetail("P", "Y");
     }
   }
-  
+
   cardtype;
   ShowButton(var_type_atm) {
     this.cardtype = var_type_atm;
@@ -125,7 +125,7 @@ export class AddrfpsComponent implements OnInit  {
       this.CardCodeForm = false;
       this.form.controls.CardCodeForm.reset();
       this.CardCodeForm2 = true;
-    
+
     }
     else if (var_type_atm == "Visa") {
       this.cardmask = [/[4]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
@@ -221,13 +221,13 @@ export class AddrfpsComponent implements OnInit  {
   set_default: boolean = false;
   Add_new() {
     if (this.set_default == true) {
-  
+
       this.isright = false;
       // alert(this.isright)
     } else if (this.set_default == false) {
-    
+
       this.isright = true;
-    
+
 
     }
   }
@@ -245,7 +245,7 @@ export class AddrfpsComponent implements OnInit  {
       this._home.get_card_infos().subscribe(Data => {
         this.res = Data;
         // alert(this.res);
-     
+
         if (!this.res.length) {
           this.isright = true;
         }
@@ -310,12 +310,13 @@ this.form = this.formBuilder.group({
   }
   remove(val, index) {
     this.category.splice(index, 1);
-    
+
 }
   subcategory(value) {
     this._serv.rfpsubcat(value).subscribe(
       data => {
         this.sub_categories = data.sub_categories;
+        alert( this.sub_categories)
       }
     )
   }
@@ -329,18 +330,19 @@ this.cityname = name;
 // alert(this.cityname);
   }
   select_state() {
-    
+
       this._serv1.admindropdown(this.states).subscribe(
         data => {
-         
+
           if (data.Agencies) {
           this.agen = data.Agencies;
+          alert(this.agen);
 
           }
-        
+
 
         })
-    
+
     // if (this.states) {
     //   delete this.agencies
     //   delete this.cates;
@@ -363,7 +365,7 @@ this.cityname = name;
     //   Carddefault:['', Validators.compose([Validators.required])],
     //   state: ['', Validators.compose([Validators.required])],
     //   })
- 
+
     if(localStorage.getItem('agancypricing')=='BM'){
       window.scroll(0, 0);
       this.Mplan = true;
@@ -382,7 +384,7 @@ this.cityname = name;
     }
   }
   hide:boolean=false;
- 
+
   open_rfp:boolean=false;record_added:boolean=true;
   agency;
   category;
@@ -445,11 +447,11 @@ checksub(){
     this.cityname = ''
 
   }
-  
+
   editClick() {
-  
+
     if(this.input){
-    this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
+    this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => {
 
           this.model.web_info = data['_body'];
           // alert(this.model.web_info)
@@ -471,7 +473,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
-     
+
     },error =>{
     if (error.status=== 400){
       swal({
@@ -480,7 +482,7 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
         showConfirmButton: false,
         timer: 1500,width: '512px',
       });
-      
+
     }
     if (error.status === 403) {
       swal({
@@ -499,22 +501,22 @@ if(data['_body'].substring(0,26)=="Sorry, file already exists"){
       })
     }
   }
-  
+
     );
     this.empty();
 }
 
       });
 
-    
+
   }
 this.updaterec();
 }
 
 editClickupdate() {
-  
+
   if(this.input){
-  this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => { 
+  this._http.post('https://storage.rfpgurus.com/upload.php/',this.input).subscribe(data => {
 
         this.model.web_info = data['_body'];
         // alert(this.model.web_info)
@@ -537,7 +539,7 @@ this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_en
       showConfirmButton: false,
       timer: 1500,width: '512px',
     });
-   
+
   },error =>{
   if (error.status=== 400){
     swal({
@@ -546,7 +548,7 @@ this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_en
       showConfirmButton: false,
       timer: 1500,width: '512px',
     });
-    
+
   }
   if (error.status === 403) {
     swal({
@@ -572,7 +574,7 @@ this._serv.add_rfp(this.model.title,this.descriptionTag,this.states,this.date_en
 
     });
 
-  
+
 }
 
 }
@@ -581,12 +583,12 @@ gettingid(id){
   this.id = id;
   this.showeachrecord(this.id);
 }
-categorynew: any =[];
+categorynew;
 getforupdate : any ={};
 showeachrecord(id){
   this._serv.eachrfpget(this.id).subscribe( data =>{
     this.getforupdate = data;
-    this.categorynew = data.new_category;
+    this.categorynew = data.new_category.toString();
     // alert(this.getforupdate);
     console.log(this.categorynew);
   })
@@ -631,15 +633,15 @@ dropdwon(states, county){
     // alert(data);
     this.countys = data['Counties'];
     // this.county = data['counties'].county;
- 
+
     // this.counties(states,this.countys)
     console.log(this.countys);
   },
   error => {
     error.status == 500
     delete  this.countys;
-    
-    
+
+
       })
 }
 county;
@@ -650,9 +652,9 @@ counties(countys){
     //  console.log( this.county)
   this._serv.statedropdwon(this.states, countys).subscribe( data =>{
     this.city = data['Cities'];
-    
+
     // alert(this.city)
- 
+
   })
 }
 citys
@@ -670,7 +672,7 @@ mainFunction() {
                 this.Yplan=false;
                 // this.planSelected = true
                 this.show_pirce= false;
-              
+
                   // this._serv4.purchaseHistory().subscribe(
                   //     data => {
                           this.records = data['subscription_detail'];
@@ -679,15 +681,15 @@ mainFunction() {
 
                           var date = new Date();
                           this.userdetail = data['reg_fk'];
-                        
-                        
+
+
                           var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
                       // },
                       // error => {
                       //     this.nofound = true;
                       // })
 
-              } 
+              }
               else if (data['message'] == "Trail Agency Subscribed") {
                 this.records = data['subscription_detail'];
                 this.pkgList = data['subscription_detail']['pkg_fk'];
@@ -695,8 +697,8 @@ mainFunction() {
 
                 var date = new Date();
                 this.userdetail = data['reg_fk'];
-              
-             
+
+
                 var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
                   // this._serv4.trialHistory().subscribe(
                   //     data => {
@@ -710,9 +712,9 @@ mainFunction() {
                   //     })
               }
               else if (data['message'] == "Agency is not Subscribed") {
-             
+
              this.nodata = data;
-          
+
                   // this._serv4.trialHistory().subscribe(
                   //     data => {
                   //         // this.nofound=false;
@@ -751,7 +753,7 @@ proceed() {
     if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
       // if(this.isInvalid==false && this.isInvalid2==false){
         this._serv.addCard(this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
-  
+
           this.model.defaultcard = Data.id
           if (Data.id) {
             this._serv.package_free_trial(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur'])
@@ -787,11 +789,11 @@ proceed() {
                 } else {
                   this._nav.navigate(['/']);
                 }
-              
-             
+
+
                 this._nav.navigate(['/agencypricing'])
               },
-            
+
                 error => {
                   if (error.status == 500) {
                     swal(
@@ -857,7 +859,7 @@ proceed() {
       //     showConfirmButton: false,
       //     timer: 1500, width: '512px',
       //   })
-      // }     
+      // }
     }
     else {
       swal({
@@ -868,7 +870,7 @@ proceed() {
       })
     }
     }
-   
+
   else {
     swal({
       type: 'error',
@@ -893,7 +895,7 @@ proceed() {
                 let state = url.slice(0, 5)
                 let category = url.slice(0, 8)
                 let agency = url.slice(0, 6)
-  
+
                 if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                 else if (state == 'state') {
                   this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
@@ -902,7 +904,7 @@ proceed() {
                   this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
                 }
                 else if (agency == 'agency') {
-  
+
                   this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
                 }
                 else {
@@ -911,7 +913,7 @@ proceed() {
               } else {
                 this._nav.navigate(['/']);
               }
-              
+
               this._nav.navigate(['/agencypricing'])
             },
               error => {
@@ -958,7 +960,7 @@ proceed() {
             if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
               // if(this.isInvalid == false && this.isInvalid2==false){
                 this._serv.addCard( this.model.holdername, this.model.address, this.model.zipcode, this.model.city, this.model.state, this.model.country, this.model.cardNumber.split('-').join(''), this.model.cardcod, this.date.split('/').join(''), this.model.cardtype, this.setautopay, this.model.nickname).subscribe(Data => {
-  
+
                   this.model.defaultcard = Data.id
                   if (Data.id) {
                     this._serv.package_free(this.isright, this.model.defaultcard, this.model.expirationdate, this.model.cardcod, this.var_get_id, this.model.cardtype, this.model.holdername, this.pkg_detail['type'], this.pkg_detail['dur']).subscribe(
@@ -975,7 +977,7 @@ proceed() {
                           let state = url.slice(0, 5)
                           let category = url.slice(0, 8)
                           let agency = url.slice(0, 6)
-        
+
                           if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                           else if (state == 'state') {
                             this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
@@ -984,7 +986,7 @@ proceed() {
                             this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
                           }
                           else if (agency == 'agency') {
-        
+
                             this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
                           }
                           else {
@@ -993,7 +995,7 @@ proceed() {
                         } else {this.proceed
                           this._nav.navigate(['/']);
                         }
-                    
+
                         this._nav.navigate(['/agencypricing'])
                       },
                       error => {
@@ -1048,7 +1050,7 @@ proceed() {
               // }
         }
         }
-         
+
         else {
           swal({
             type: 'error',
@@ -1072,7 +1074,7 @@ proceed() {
                 let state = url.slice(0, 5)
                 let category = url.slice(0, 8)
                 let agency = url.slice(0, 6)
-  
+
                 if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
                 else if (state == 'state') {
                   this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
@@ -1081,7 +1083,7 @@ proceed() {
                   this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
                 }
                 else if (agency == 'agency') {
-  
+
                   this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
                 }
                 else {
@@ -1090,10 +1092,10 @@ proceed() {
               } else {
                 this._nav.navigate(['/']);
               }
-            
+
               this._nav.navigate(['/agencypricing'])
             },
-  
+
             error => {
               if (error.status == 500) {
                 swal(
@@ -1126,7 +1128,7 @@ proceed() {
             });
         }
     }
-    
+
     // }
     // else {
     //   swal({
@@ -1137,7 +1139,7 @@ proceed() {
     //   })
     // }
     // }
-   
+
   // else {
   //   swal({
   //     type: 'error',
@@ -1162,7 +1164,7 @@ onSelectionChanged({ value }) {
     this.form.get('CardNumberForm2').enable();
   } else {
     this.form.get('CardNumberForm').enable();
-    
+
   }
 }
 getcardid(id) {
@@ -1173,9 +1175,9 @@ changed(val) {
 }
 invalid;
 zipcodeCheck(zipcode1) {
- 
+
   if (zipcode1.length > 4) {
-  
+
     this.endRequest = this._serv2.zipcode(zipcode1).subscribe(
       data => {
         this.model.city = data['city'];
@@ -1183,7 +1185,7 @@ zipcodeCheck(zipcode1) {
         this.model.country = data['country'];
         this.readonly=true;
       },
-    
+
       error => {
         error.status== 400
         this.invalid=error.status;
@@ -1203,7 +1205,7 @@ chek(val) {
 }
 public mask = function (rawValue) {
 
-  // add logic to generate your mask array  
+  // add logic to generate your mask array
   if (rawValue && rawValue.length > 0) {
     if (rawValue[0] == '0' || rawValue[5] == '1') {
       return [/[01]/, /[1-9]/, '/', /[0-9]/, /[0123456789]/];
