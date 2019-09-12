@@ -163,10 +163,12 @@
                           <a *ngIf="rfp.contract_name != null" class="cat-elips" [routerLink]="['/contract_name']"
                             [queryParams]="{ cat: rfp.contract_name}">{{ rfp.contract_name}}</a>
 
-                          <a *ngIf="!agencylogin && rfp.contract_name == null" routerLink="/pricing" class="cat-elips">Download RFP Docs for Agency Contact Info.
+                          <a *ngIf="subornot && !agencylogin && rfp.contract_name == null" class="cat-elips">Download RFP Docs for Agency Contact Info.
 
                             </a>
+                            <a *ngIf="!subornot && !agencylogin &&rfp.contract_name == null" class="cat-elips" routerLink="/pricing" >Download RFP Docs for Agency Contact Info.
 
+                            </a>
 
                             <a *ngIf="agencylogin && rfp.contract_name == null" routerLink="/agencypricing" class="cat-elips">Download RFP Docs for Agency Contact Info.
 

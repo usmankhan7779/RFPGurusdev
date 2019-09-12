@@ -43,8 +43,10 @@ export class SingleRfpComponent implements OnInit {
   currentUser;
   wrfp;
   notlgoin;
+  subornot;
   constructor(private advanceServ: AdvanceService,
     private getfile: AllRfpsService, private homeServ: HomeService, public dialog: MatDialog, private _nav: Router, public _shareData: SharedData, private route: ActivatedRoute, private _serv: RfpService, private seoService: SeoService, ) {
+      this.subornot=localStorage.getItem('subornot');
     localStorage.removeItem('member');
 
   if ( localStorage.getItem('loged_in' || 'loged_in2')){
