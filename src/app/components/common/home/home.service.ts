@@ -12,7 +12,7 @@ export class HomeService {
   }
 
   latestrfps() {
-    return this.http.get('https://apis.rfpgurus.com/rf_p/latest/10?page=1')
+    return this.http.get('https://apis.rfpgurus.com/rf_p/latest_web/10?page=1')
   }
 
   rfpcategory() {

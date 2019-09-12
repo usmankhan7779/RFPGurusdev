@@ -82,6 +82,7 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   subcatsearch;
   rfpid: string;
   id;
+  notlgoin;
   foods = [
     { value: 'active', viewValue: 'Active' },
     { value: 'expire', viewValue: 'Expired' },
@@ -94,6 +95,11 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
     localStorage.removeItem('member');
     if (localStorage.getItem('statuss')) {
       this.status = localStorage.getItem('statuss');
+    }
+    if ( localStorage.getItem('loged_in' || 'loged_in2')){
+      // alert('abc')
+      this.notlgoin = true;
+      // alert(this.notlgoin)
     }
     if (localStorage.getItem('enterdates')) { this.enterdate = localStorage.getItem('enterdates') }
     if (localStorage.getItem('duedates')) { this.duedate = localStorage.getItem('duedates') }
