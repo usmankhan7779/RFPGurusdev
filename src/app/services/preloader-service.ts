@@ -15,7 +15,7 @@ export class PreloaderService {
   }
 
   myFunction() {
-    setTimeout(this.showPreloader, 400);
+    setTimeout(this.showPreloader, 1000);
     this.count = true
   
 

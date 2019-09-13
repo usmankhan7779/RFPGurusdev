@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { PasswordValidation } from '../../../Validators/password-validator.component';
 import swal from 'sweetalert2';
+import { PreloaderService} from '../../../services/preloader-service';
 import { ErrorStateMatcher } from '@angular/material';
 import { SignupService } from './signup.service';
 import { Router } from '@angular/router';
@@ -81,7 +82,7 @@ export class SignupComponent implements OnInit, OnDestroy , AfterViewInit {
   // public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public logedin: any = 0;
 agen;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService, private _http:HttpClient) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _serv: AgancyPricingService, private signupService: SignupService, private formBuilder: FormBuilder, private router: Router, public recapcha: RecapchaService, private seoService: SeoService, private _http:HttpClient, private load : PreloaderService) {
 
     this._serv.rfpagen().subscribe(data => {
       this.agen = data.Result;
