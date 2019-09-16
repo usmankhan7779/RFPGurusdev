@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
+import { HttpService} from '../../../services/http-service'
 
 @Injectable()
 export class AllRfpsService {
-    constructor(private http: HttpClient, private authInterceptor: SetHeaders,private _https : Http) { }
+    constructor(private http: HttpClient, private http2: HttpService,private authInterceptor: SetHeaders,private _https : Http) { }
     trial_document(id) {
         let headers = new Headers();
           headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
@@ -23,7 +24,7 @@ export class AllRfpsService {
         headers.append('Content-Type', 'application/json');
          
         // headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-        return this._https.get('https://apis.rfpgurus.com/rf_p/latest_web/' + items + '?page=' + page,{headers:headers}).map((response: Response) => response.json())
+        return this.http2.get('https://apis.rfpgurus.com/rf_p/latest_web/' + items + '?page=' + page,{headers:headers}).map((response: Response) => response.json())
         }
         else{
             return this.http.get('https://apis.rfpgurus.com/rf_p/latest_web/' + items + '?page=' + page)

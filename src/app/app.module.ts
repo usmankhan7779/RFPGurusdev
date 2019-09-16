@@ -13,12 +13,18 @@ import { CKEditorModule } from 'ng2-ckeditor';
 // ----- Layouts
 import { CommonLayoutModule } from './layouts/common/common.module';
 import { LoaderComponent } from './loader/loader.component';
+import { LoaderModule } from './loader/loader.module';
 // ------------------- Services
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
 import { PreloaderService} from './services/preloader-service';
+import {HttpService} from './services/http-service';
 import {PreloaderFull} from '../app/components/preloader-full/preloader-full';
 import {PreloaderSmall} from '../app/components/preloader-small/preloader-small';
+export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestOptions, preloaderService: PreloaderService) {
+  return new HttpService(backend, defaultOptions, preloaderService);
+}
+import {XHRBackend, RequestOptions} from '@angular/http';
 // ------------------- Randoms
 import { AuthInterceptor, SetHeaders } from './AuthGuards/auth.interceptor';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -92,6 +98,7 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     MatDialogModule,
     MatIconModule,
     MatCheckboxModule,
+    LoaderModule,
     MatInputModule,
     MatSelectModule,
     MatTabsModule,
@@ -118,7 +125,7 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     AddrfpsComponent,
     AgencysubcripationComponent,
     AgencyaccountactivationComponent,
-    LoaderComponent,
+    // LoaderComponent,
     PreloaderFull,
     PreloaderSmall
   ],
@@ -137,15 +144,19 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     CustomerService,
     AuthGuard,
     AuthLogin,
-    PreloaderService,
+    // PreloaderService,
     
   
     
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
+      deps: [XHRBackend, RequestOptions]
     },
+
+ 
+
     SetHeaders,
     
    

@@ -1,1 +1,3 @@
-<div class="loading" ></div>
+<!-- <div class="loading" *ngIf="preloaderService.getPreloaderCount('full') > 0" ></div> -->
+
+<div class="preloader-full" *ngIf="preloaderService.getPreloaderCount('full') > 0"> <div class="spinner"></div></div>

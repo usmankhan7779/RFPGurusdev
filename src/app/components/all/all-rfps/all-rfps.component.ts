@@ -38,7 +38,9 @@ export class AllRfpsComponent implements OnInit {
   agencylogin;
   subornot;
   constructor(public homeServ: HomeService, public dialog: MatDialog, private __serv: AdvanceService, private _compiler: Compiler, private pagerService: PagerService, public _shareData: SharedData, private _nav: Router, private _serv: AllRfpsService, private route: ActivatedRoute, private _location: Location, private seoService: SeoService) {
-    this.subornot=localStorage.getItem('subornot');
+    
+    this.subornot=(localStorage.getItem('subornot') == 'done');
+  
     localStorage.removeItem('member');
 
   if ( localStorage.getItem('loged_in' || 'loged_in2')){
