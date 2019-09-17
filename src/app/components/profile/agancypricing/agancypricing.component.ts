@@ -11,6 +11,7 @@ import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
 import { MainService } from 'src/app/services/main.service';
 declare var $: any;
+
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 @Component({
@@ -125,6 +126,7 @@ forms: FormGroup;
   agen;
   name;
   address;
+  allcountry;
   constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
     private _serv4: MainService, private datePipe: DatePipe, 
     private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
@@ -135,7 +137,10 @@ forms: FormGroup;
       this.agen = data.Result;
     
     })
-
+    this._serv2.getcounty().subscribe( data =>{
+      this.allcountry = data['countries'];
+      console.log(this.allcountry);
+    })
     
     this.CardNumberForm=true;
     this.CardNumberForm2=false;

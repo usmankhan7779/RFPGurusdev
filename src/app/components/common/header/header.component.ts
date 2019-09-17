@@ -120,6 +120,7 @@ export class HeaderComponent implements OnInit {
             // this.notificate = data['notifications'];
             this.notificate=data['notifications'].filter(single=>single.id!=id);
             this.unread = data['unread'];
+            console.log(this.unread.slice(99))
           });
         // this.notificate=this.notificate.filter((d)=>
         // {
