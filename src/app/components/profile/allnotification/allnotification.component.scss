@@ -2,6 +2,12 @@
   float: none;
   margin: 0 auto;
 }
+.sh-notification-unseen{
+  background: #fff!important
+}
+.sh-notification-unseen:hover{
+  background: #f2f3f5!important
+}
 .sh-notification-seen {
   background: #f2f3f5!important
 }

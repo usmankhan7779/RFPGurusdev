@@ -10,17 +10,15 @@
         <h3 class="text-center">No Notifications</h3>
       </div>
     
-       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center pd-top-20px" *ngIf="total != '0'">
+       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pd-top-20px pull-right" *ngIf="total != '0'">
         <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All
-          Notifications </button>
+          Notifications </button>&nbsp;&nbsp;
+          <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="readall()">Read All
+            Notifications </button>
       </div>
-      <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center pd-top-20px" *ngIf="total != '0'">
-        <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="readall()">Read All
-          Notifications </button>
-      </div> -->
       <div class="card"  *ngIf="notificate?.length != 0">
         <div *ngFor="let item of notificate">
-          <div class="heart-main-div" *ngIf="item.read == false">
+          <div class="heart-main-div sh-notification-unseen" *ngIf="item.read == false">
             <div class="heart-contact sh-del-watchlist">
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
