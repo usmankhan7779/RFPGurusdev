@@ -11,7 +11,7 @@
       </div>
       <div class="card"  *ngIf="notificate?.length != 0">
         <div *ngFor="let item of notificate">
-          <div class="heart-main-div" *ngIf="item.read == false">
+          <div class="heart-main-div sh-notification-unseen" *ngIf="item.read == false">
             <div class="heart-contact sh-del-watchlist">
               <a class="heart-heading"
                 *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"

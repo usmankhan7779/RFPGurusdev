@@ -3710,6 +3710,9 @@ padding: 0 5px;
   cursor: pointer;
   border-radius: 25px;
 }
+.pricing-margin{
+  margin-bottom: 8px!important;
+}
 /* .............................Queries........................................... */
 
 @media (min-width:1400px) {
