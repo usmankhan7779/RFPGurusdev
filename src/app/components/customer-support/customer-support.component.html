@@ -57,6 +57,7 @@
                       <th>Ticket id</th>
                       <th>Subject</th>
                       <th>Description</th>
+                      <th>Status</th>
                       <th>Detail</th>
                     </tr>
                   </thead>
@@ -65,6 +66,8 @@
                           <td>{{card.unique_ticket_id  }} </td>
                       <td>{{card?.subject}}</td>
                       <td>{{card?.description}}</td>
+                      <td  *ngIf="card.status == false">Close</td>
+                      <td  *ngIf="card.status == true">Open</td>
                       <td><button class="btn btn-rose btn-fill" routerLink="/queryreply" (click)="getid(card.id)">Detail</button></td>
                     </tr>
                   </tbody>

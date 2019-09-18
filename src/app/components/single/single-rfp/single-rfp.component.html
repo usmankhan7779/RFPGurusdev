@@ -46,6 +46,12 @@
                                                         class="fa fa-lock lock-icon"></i>Member
                                                     Only</a>
                                             </h5>
+                                            <h5 *ngIf="!subscribe"><i class="fa fa-building"></i> Agency :
+                                                <a (click)="memberonly()" class="memberOnly"><i
+                                                    class="fa fa-lock lock-icon"></i>Member
+                                                    Only</a>
+                          
+                                              </h5>
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 term top-margin-25">
@@ -106,6 +112,10 @@
                                                             [routerLink]="['/phone']"
                                                             [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
                                                         <a *ngIf="rfp.phone == null" class="cat-elips"></a>
+                                                        <a *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"
+                                                        ><i class="fa fa-lock lock-icon"></i> Member
+                                                        Only</a>
+                                                  
                                                     </h5>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
@@ -115,7 +125,8 @@
                                                             [routerLink]="['/fax']"
                                                             [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
                                                         <a *ngIf="rfp.fax == null" class="cat-elips"></a>
-
+<a  *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
+    Only</a>
                                                     </h5>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
@@ -125,6 +136,8 @@
                                                             [routerLink]="['/phone']"
                                                             [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
                                                         <a *ngIf="rfp.email == null" class="cat-elips"></a>
+                                                        <a  *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i> Member
+                                                            Only</a>
                                                     </h5>
                                                 </div>
                                             </div>

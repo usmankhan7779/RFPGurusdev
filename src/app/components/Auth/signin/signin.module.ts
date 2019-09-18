@@ -8,7 +8,7 @@ import { MatInputModule, MatFormFieldModule, MatSlideToggleModule, MatIconModule
 import { TextMaskModule } from 'angular2-text-mask';
 import { RecapchaModule } from '../recapcha/recapcha.module';
 import { SigninService } from '../signin/signin.service';
-
+import { LoaderModule } from '../../../loader/loader.module';
 const routes: Routes = [
   {
     path: '', component: SigninComponent
@@ -22,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
+    LoaderModule,
     MatIconModule,
     TextMaskModule,
     MatSlideToggleModule,

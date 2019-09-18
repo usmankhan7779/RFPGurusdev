@@ -116,6 +116,7 @@ export class PricingComponent implements OnInit {
     this.pkgsub = true;
   }
   constructor(private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router, private _serv: PricingService, private _home :HomeService, private _serv2: SignupService, private _http6: PaymentmethodsService, private _location: Location, private seoService: SeoService) {
+  
     this.CardNumberForm=true;
     this.CardNumberForm2=false;
     this.CardCodeForm=true;
@@ -390,6 +391,7 @@ export class PricingComponent implements OnInit {
     // if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null && this.model.city != null && this.model.state != null && this.model.country != null && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
       // if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid && this.form.controls.CardCodeForm.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){
         if (this.isfreetrial == true) {
+          
           if (this.isright == true) {
                 if(this.model.holdername != null && this.model.address != null && this.model.zipcode != null  && this.model.cardNumber != null && this.model.cardcod && this.date != null && this.model.cardtype != null &&  this.model.nickname != null ){
       if(this.form.controls.Holdername.valid && this.form.controls.Address.valid && this.form.controls.zipcode.valid && this.form.controls.city.valid && this.form.controls.state.valid && this.form.controls.country.valid && this.form.controls.CardNumberForm.valid || this.form.controls.CardNumberForm2.valid && this.form.controls.CardCodeForm.valid || this.form.controls.CardCodeForm2.valid && this.form.controls.CardtypeForm.valid && this.form.controls.nickname.valid){

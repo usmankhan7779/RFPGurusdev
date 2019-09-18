@@ -203,7 +203,7 @@
                   </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [ngClass]="displayFieldCss(form, 'zip')">
                 <mat-form-field>
-                  <input matInput placeholder="Zip / Postal Code *" maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
+                  <input matInput placeholder="Zip / Postal Code " maxlength="5" minlength="5" type="text" formControlName="zip" min="0" [(ngModel)]="model.zip" 
                     (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1  (keypress)="keyPress($event)" step="1" required (keydown.space)="$event.preventDefault()">
                   <mat-error *ngIf="form.controls.zip.touched && form.controls.zip.invalid">
                     <mat-error *ngIf="form.controls.zip.errors.required">

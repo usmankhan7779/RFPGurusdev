@@ -18,7 +18,12 @@ export class HeaderService {
   deletenotify(id: string) {
     return this.http.delete('https://apis.rfpgurus.com/read_delete/' + id + '/');
   }
-
+readallnotifications(){
+    let headers = new Headers();
+  headers = new Headers({'Authorization': 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token});
+headers.append('Content-Type', 'application/json');
+  return this.http.get('https://apis.rfpgurus.com/read_all_notifications/')
+}
   Updatenotify(id: string) {
     return this.http.put('https://apis.rfpgurus.com/read_delete/' + id + '/', JSON.stringify({})
       , { headers: this.authInterceptor.setHeaders() });

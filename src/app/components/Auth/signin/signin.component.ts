@@ -312,7 +312,7 @@ export class SigninComponent implements OnInit {
                 this.signinService.usersubscribe(this.login.value.username).subscribe( data => {
 
                   if (data['Response'] == "Subscribe user" || data['Response'] == "Trial Subscription user") {
-               localStorage.setItem('subornot', this.subscribed);
+               localStorage.setItem('subornot', 'done');
                console.log(this.subscribed);
 
                     this._nav.navigate(['/']);

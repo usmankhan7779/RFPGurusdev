@@ -234,9 +234,14 @@ export class AddrfpsComponent implements OnInit  {
   name;
   address;
  res;
+ allcountry;
   constructor(private _http: Http,
     private _serv1: AdvanceService, private _serv: AgancyPricingService,
     private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  private _serv2: SignupService, ) {
+      this._serv2.getcounty().subscribe( data =>{
+        this.allcountry = data['countries'];
+        console.log(this.allcountry);
+      })
       this.CardNumberForm=true;
     this.CardNumberForm2=false;
     this.CardCodeForm=true;
