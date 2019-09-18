@@ -1,19 +1,17 @@
 import { FilterSidebarService } from './../filter-sidebar/filter-sidebar.service';
 import { HomeService } from './../../common/home/home.service';
-import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { AdvanceService } from './advance.service';
 import { PageEvent } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-// import {DatePipe} from '@angular/common';
 declare var $: any;
 import { HeaderService } from '../../common/header/header.service';
 import { SpeechRecognitionService } from '../../common/header/speechservice';
 import { SharedData } from '../../../services/shared-service';
 import { PagerService } from '../../../services/paginator.service';
-// import { DateFormat } from './date-format';
 import * as moment from 'moment';
 import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
@@ -30,7 +28,7 @@ import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
   ],
   providers: [PagerService, AdvanceService, SharedData, HeaderService, SpeechRecognitionService, HomeService,AllRfpsService]
 })
-export class AdvanceSearchComponent implements OnInit, OnDestroy {
+export class AdvanceSearchComponent implements OnInit, AfterViewInit, OnDestroy {
   public blink = false;
   formats = [
     moment.ISO_8601,
@@ -92,6 +90,14 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   filtertext;
   constructor(private filterServ: FilterSidebarService, private homeServ: HomeService, private datePipe: DatePipe, private speech: SpeechRecognitionService, public _shareData: SharedData, private _serv1: HeaderService, private pagerService: PagerService, private route: ActivatedRoute, private _nav: Router, private _serv: AdvanceService,
     private getfile :AllRfpsService, private _location: Location, private seoService: SeoService, public dialog: MatDialog) {
+        // this.onPaginateChange(1);
+    if (localStorage.getItem('page')) {
+      var page_num: number = Number(localStorage.getItem('page'));
+      this.onSubmit(page_num);
+    }
+    else {
+      this.onSubmit(1);
+    }
     localStorage.removeItem('member');
     if (localStorage.getItem('statuss')) {
       this.status = localStorage.getItem('statuss');
@@ -229,45 +235,45 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
   Submission_to(date) {
     if (date) {
       this.submissionto = moment(date).format('YYYY-MM-DD');
-      // this.onSubmit(1);
+     
     }
     else {
       delete this.submissionfrom;
       delete this.submissionto;
-      //  this.onSubmit(1);
+     
     }
   }
   Submission_from(date) {
     if (date) {
       this.submissionfrom = moment(date).format('YYYY-MM-DD');
-      // this.onSubmit(1);
+   
     }
     else {
       delete this.submissionfrom;
       delete this.submissionto;
-      //  this.onSubmit(1);
+    
     }
   }
   entereddate(enterdate) {
 
     if (enterdate) {
       this.postedDate = moment(enterdate).format('YYYY-MM-DD');
-      // this.onSubmit(1);
+     
     }
     else {
       delete this.enterdate;
       delete this.postedDate;
-      //  this.onSubmit(1);
+      
     }
   }
   dueddate(duedate) {
     if (duedate) {
       this.DueDate = moment(duedate).format('YYYY-MM-DD');
-      // this.onSubmit(1);
+  
     } else {
       delete this.DueDate;
       delete this.duedate;
-      //  this.onSubmit(1);
+      
     }
 
   }
@@ -564,27 +570,9 @@ export class AdvanceSearchComponent implements OnInit, OnDestroy {
       this.adminlogin = localStorage.getItem('currentadmin')
     }
 
-    // this.onPaginateChange(1);
-    if (localStorage.getItem('page')) {
-      var page_num: number = Number(localStorage.getItem('page'));
-      this.onSubmit(page_num);
-    }
-    else {
-      this.onSubmit(1);
-    }
+  
 
-    this.endRequest = this.homeServ.rfpstate().subscribe(
-      data => {
-        this.state = data['Result'];
-      });
-    this.endRequest = this.homeServ.rfpcategory().subscribe(
-      data => {
-        this.cat = data;
-      });
-    this.endRequest = this.filterServ.agencies().subscribe(
-      data => {
-        this.agency = data['Result'];
-      });
+ 
     this.check_login();
     $("#box").click(function () {
       $("#box").toggleClass("animation-blink");
@@ -772,7 +760,20 @@ public showzip(rfpkey,title): void {
       return true
     }
   }
- 
+ ngAfterViewInit(){
+  this.endRequest = this.homeServ.rfpstate().subscribe(
+    data => {
+      this.state = data['Result'];
+    });
+  this.endRequest = this.homeServ.rfpcategory().subscribe(
+    data => {
+      this.cat = data;
+    });
+  this.endRequest = this.filterServ.agencies().subscribe(
+    data => {
+      this.agency = data['Result'];
+    });
+ }
   ngOnDestroy() {
     // this.endRequest.unsubscribe();
   }
