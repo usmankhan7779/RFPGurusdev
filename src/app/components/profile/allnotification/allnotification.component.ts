@@ -108,10 +108,12 @@ this.notification()
   }
 readall(){
   this._serv.readallnotifications().subscribe( data =>{
-    this.notification();
+  
   })
+  this.notification();
 }
   updatenofication(id) {
+
     this._serv.Updatenotify(id).subscribe(
       data => {
         this.notification();
