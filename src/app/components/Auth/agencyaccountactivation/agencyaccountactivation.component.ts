@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SignupService } from "../signup/signup.service";
 import swal from 'sweetalert2';
 import { SeoService } from 'src/app/services/seoService';
+
 @Component({
   selector: 'app-agencyaccountactivation',
   templateUrl: './agencyaccountactivation.component.html',
@@ -11,7 +12,7 @@ import { SeoService } from 'src/app/services/seoService';
 })
 export class AgencyaccountactivationComponent implements OnInit {
   endRequest;
-  sub;
+  sub; id;
   constructor(
     private seoService: SeoService,
     private signupService: SignupService,
@@ -22,6 +23,10 @@ export class AgencyaccountactivationComponent implements OnInit {
     window.scroll(0, 0);
     this.endRequest = this.sub = this.route.params.subscribe(params => {
       this.authenticate(params['query2']);
+      localStorage.setItem('query2' , this.id);
+      this.id=this.route.snapshot.paramMap.get("query2");
+      // alert(this.id);
+      // alert(this.authenticate(params['query2']));
 
     });
   }

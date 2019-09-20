@@ -15,6 +15,7 @@ import { CommonLayoutModule } from './layouts/common/common.module';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderModule } from './loader/loader.module';
 // ------------------- Services
+import { AgancyPriceComponent} from './components/profile/AgancyPrice/AgancyPrice.component';
 import { SharedData } from './services/shared-service';
 import { SeoService } from './services/seoService';
 import { PreloaderService} from './services/preloader-service';
@@ -127,7 +128,8 @@ import { AgencyaccountactivationComponent } from './components/Auth/agencyaccoun
     AgencyaccountactivationComponent,
     // LoaderComponent,
     PreloaderFull,
-    PreloaderSmall
+    PreloaderSmall,
+    AgancyPriceComponent
   ],
   
   providers: [

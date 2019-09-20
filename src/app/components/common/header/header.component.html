@@ -75,6 +75,11 @@
               <i class="fa fa-credit-card" aria-hidden="true"></i>Pricing
             </a>
           </li>
+          <li class="" *ngIf="!subscribed && agencycheck_login()">
+            <a onclick="topFunction()" (click)="pricing()" routerLink="/AgencyPricing" routerLinkActive="Active">
+              <i class="fa fa-credit-card" aria-hidden="true"></i>Agency Pricing
+            </a>
+          </li>
           <li>
             <a onclick="topFunction()" routerLink="/all-states">
               <i class="fa fa-flag"></i>States

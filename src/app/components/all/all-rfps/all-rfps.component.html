@@ -187,7 +187,7 @@
                       <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                         <h5>
                           <i class="fa fa-phone-square"></i> Phone No :
-                          <a *ngIf="rfp.phone != null" class="cat-elips" [routerLink]="['/phone']"
+                          <a *ngIf="rfp.phone != null && notlgoin == true" class="cat-elips" [routerLink]="['/phone']"
                             [queryParams]="{ cat: rfp.phone}">{{ rfp.phone}}</a>
 
                             <a *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
@@ -199,7 +199,7 @@
                       <div class="col-sm-12 col-md-6 col-xs-12 padding-0">
                         <h5>
                           <i class="fa fa-fax" aria-hidden="true"></i> Fax :
-                          <a *ngIf="rfp.fax != null" class="cat-elips" [routerLink]="['/fax']"
+                          <a *ngIf="rfp.fax != null && notlgoin == true" class="cat-elips" [routerLink]="['/fax']"
                             [queryParams]="{ cat: rfp.fax}">{{ rfp.fax}}</a>
                           <a *ngIf="rfp.fax == null" class="cat-elips"></a>
                           <a *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
@@ -209,9 +209,11 @@
                       <div class="col-sm-12 col-xs-12 padding-0">
                           <h5>
                             <i class="fa fa-envelope-square"></i> Email :
-                            <a *ngIf="rfp.email != null" [routerLink]="['/phone']"
+                            <a *ngIf="rfp.email != null && notlgoin == true" [routerLink]="['/phone']"
                               [queryParams]="{ cat: rfp.email}">{{ rfp.email}}</a>
                             <a *ngIf="rfp.email == null"></a>
+                            <a *ngIf="notlgoin != true" (click)="memberonly()" class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
+                              Only</a>
                           </h5>
                         </div>
                     </div>

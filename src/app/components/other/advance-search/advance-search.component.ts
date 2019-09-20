@@ -1,6 +1,6 @@
 import { FilterSidebarService } from './../filter-sidebar/filter-sidebar.service';
 import { HomeService } from './../../common/home/home.service';
-import { Component, OnInit, Input, OnDestroy, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { AdvanceService } from './advance.service';
@@ -13,9 +13,7 @@ import { SpeechRecognitionService } from '../../common/header/speechservice';
 import { SharedData } from '../../../services/shared-service';
 import { PagerService } from '../../../services/paginator.service';
 import * as moment from 'moment';
-import { Location } from '@angular/common';
 import { SeoService } from '../../../services/seoService';
-import { MatDialog } from '@angular/material';
 import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
 
 @Component({
@@ -28,7 +26,7 @@ import { AllRfpsService } from '../../all/all-rfps/all-rfps.service';
   ],
   providers: [PagerService, AdvanceService, SharedData, HeaderService, SpeechRecognitionService, HomeService,AllRfpsService]
 })
-export class AdvanceSearchComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AdvanceSearchComponent implements OnInit {
   public blink = false;
   formats = [
     moment.ISO_8601,
@@ -89,7 +87,7 @@ export class AdvanceSearchComponent implements OnInit, AfterViewInit, OnDestroy 
   datashow: boolean = false;
   filtertext;
   constructor(private filterServ: FilterSidebarService, private homeServ: HomeService, private datePipe: DatePipe, private speech: SpeechRecognitionService, public _shareData: SharedData, private _serv1: HeaderService, private pagerService: PagerService, private route: ActivatedRoute, private _nav: Router, private _serv: AdvanceService,
-    private getfile :AllRfpsService, private _location: Location, private seoService: SeoService, public dialog: MatDialog) {
+    private getfile :AllRfpsService,  private seoService: SeoService) {
         // this.onPaginateChange(1);
     if (localStorage.getItem('page')) {
       var page_num: number = Number(localStorage.getItem('page'));
@@ -349,7 +347,18 @@ export class AdvanceSearchComponent implements OnInit, AfterViewInit, OnDestroy 
             });
         }
       })
-
+      this.endRequest = this.homeServ.rfpstate().subscribe(
+        data => {
+          this.state = data['Result'];
+        });
+      this.endRequest = this.homeServ.rfpcategory().subscribe(
+        data => {
+          this.cat = data;
+        });
+      this.endRequest = this.filterServ.agencies().subscribe(
+        data => {
+          this.agency = data['Result'];
+        });
   }
   page(pageSize) {
     if (pageSize) {
@@ -760,21 +769,6 @@ public showzip(rfpkey,title): void {
       return true
     }
   }
- ngAfterViewInit(){
-  this.endRequest = this.homeServ.rfpstate().subscribe(
-    data => {
-      this.state = data['Result'];
-    });
-  this.endRequest = this.homeServ.rfpcategory().subscribe(
-    data => {
-      this.cat = data;
-    });
-  this.endRequest = this.filterServ.agencies().subscribe(
-    data => {
-      this.agency = data['Result'];
-    });
- }
-  ngOnDestroy() {
-    // this.endRequest.unsubscribe();
-  }
+
+  
 }

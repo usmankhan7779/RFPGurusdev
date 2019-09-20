@@ -5,6 +5,7 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { ViewChild } from '@angular/core';
+
 import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { AuthService } from "angular4-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angular4-social-login";
@@ -61,7 +62,17 @@ export class SigninComponent implements OnInit {
   private changetabs : boolean = false;
   public agencylogin : any = 0;
   returnUrl: string;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { }
+  checkagency;
+  id;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { 
+    // this.checkagency=localStorage.getItem('agencylogin');
+    // alert(localStorage.getItem('agencylogin'))
+    // alert(this.checkagency);
+    this.route.paramMap.subscribe(params => { 
+      this.checkagency = params.get('id'); 
+      // alert(this.checkagency);
+  });
+  }
 
   // ----------------------------- social login
   socialCallBack = (user) => {

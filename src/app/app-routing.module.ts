@@ -8,6 +8,7 @@ import { FiltersComponent } from './layouts/filters/filters.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { AgencyaccountactivationComponent } from './components/Auth/agencyaccountactivation/agencyaccountactivation.component';
 import { AgancyPricingComponent} from './components/profile/agancypricing/agancypricing.component';
+import { AgancyPriceComponent} from './components/profile/AgancyPrice/AgancyPrice.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AddrfpsComponent } from './components/profile/addrfps/addrfps.component';
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
 { path: 'agencyaccountactivation/:query2' , component: AgencyaccountactivationComponent},
   // =========== Auths ===========
   { path: 'signin', loadChildren: './components/Auth/signin/signin.module#SigninModule', canActivate: [AuthLogin] },
+  
  
   { path: 'signup', loadChildren: './components/Auth/signup/signup.module#SignupModule' },
   { path: 'activateaccount/:query1', loadChildren: './components/Auth/accountActivation/accountActivation.module#AccountActivationModule' },
@@ -56,6 +58,8 @@ const routes: Routes = [
 
       
       { path : 'agencypricing' , component: AgancyPricingComponent, canActivate: [AuthGuard]},
+           
+      { path : 'AgencyPricing' , component: AgancyPriceComponent, canActivate: [AuthGuard]},
       { path: 'preferences', loadChildren: './components/profile/Preferences/profile.module#ProfileModule', canActivate: [AuthGuard] },
       { path: 'change-password', loadChildren: './components/profile/changed-password/changed-password.module#ChangedPasswordModule', canActivate: [AuthGuard] },
       { path: 'profile', loadChildren: './components/profile/profile/profile.module#ProfileModule', canActivate: [AuthGuard] },
