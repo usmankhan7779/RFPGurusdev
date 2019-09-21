@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild , Output, EventEmitter} from '@angular/core';
 import { AgancyPricingService } from './agancypricing.service';
 import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -28,6 +28,7 @@ import jsPDF from 'jspdf';
 })
 export class AgancyPriceComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
+  @Output() tested: EventEmitter<any> = new EventEmitter();
   isfreetrial: boolean = false;
   readonly:boolean=false;
 forms: FormGroup;
@@ -227,7 +228,10 @@ forms: FormGroup;
     }
 
   }
-  
+  visable;
+  testeddiv(tested : string){
+    this.visable = tested;
+  }
   monthly;
   year;
   priceimages;
