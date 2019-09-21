@@ -39,6 +39,7 @@ export class ChangedPasswordComponent implements OnInit, OnDestroy {
     hide = true;
     hide1 = true;
     hide2 = true;
+    hide3 = true;
     password_regex = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[\/\\\!\"#$%&()*+,£^.:;=?\\\\[\\]\\-\'<>~|@_{}]).{8,}$';
     public isInvalid: boolean = false;
     public onChange(event: any): void {

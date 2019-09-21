@@ -127,9 +127,86 @@ forms: FormGroup;
   name;
   address;
   allcountry;
+  results;
   constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
     private _serv4: MainService, private datePipe: DatePipe, 
     private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
+      if (localStorage.getItem('currentUser')) {
+        this.local = localStorage.getItem('currentUser');
+        let pars = JSON.parse(this.local);
+        this.uname = pars.username
+        this._home.agenyprotel().subscribe(
+            data => {
+                if (data['message'] == "Agency Subscribed") {
+                  this.Fplan = false
+                  this.Mplan=false;
+                  this.Yplan=false;
+                  // this.planSelected = true
+                  this.show_pirce= false;
+                    // this._serv4.purchaseHistory().subscribe(
+                    //     data => {
+                            this.records = data['subscription_detail'];
+                            
+                            this.pkgList = data['subscription_detail']['pkg_fk'];
+                            this.result = true;
+
+                            var date = new Date();
+                            this.userdetail = data['reg_fk'];
+                          
+                          
+                            var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                        // },
+                        // error => {
+                        //     this.nofound = true;
+                        // })
+
+                } else if (data['message'] == "Trail Agency Subscribed") {
+                  this.records = data['subscription_detail'];
+                  this.pkgList = data['subscription_detail']['agency_package_detail'];
+                  // alert(this.pkgList);
+                  this.result = true;
+                  this.trial = true;
+
+                  var date = new Date();
+                  this.userdetail = data['reg_fk'];
+                
+               
+                  var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                    // this._serv4.trialHistory().subscribe(
+                    //     data => {
+                    //         // this.nofound=false;
+                    //         this.trial = data;
+                    //     }, error => {
+
+
+                    //         this.nofound = true;
+
+                    //     })
+                }
+                else if (data['message'] == "Agency is not Subscribed") {
+           
+                  this.nodata = data;
+                  this.results = false;
+                       // this._serv4.trialHistory().subscribe(
+                       //     data => {
+                       //         // this.nofound=false;
+                       //         this.trial = data;
+                       //     }, error => {
+     
+     
+                       //         this.nofound = true;
+     
+                       //     })
+                   } else {
+                    this.nofound = true;
+                    // alert(this.nofound)
+                }
+            },
+            error => {
+                this.nofound = true;
+                // alert(this.nofound)
+            });
+    }
       this.name = localStorage.getItem('name');
       this.address = localStorage.getItem('address');
   
@@ -139,7 +216,7 @@ forms: FormGroup;
     })
     this._serv2.getcounty().subscribe( data =>{
       this.allcountry = data['countries'];
-      console.log(this.allcountry);
+     
     })
     
     this.CardNumberForm=true;
@@ -299,83 +376,7 @@ forms: FormGroup;
 }
 nodata;
   mainFunction() {
-      if (localStorage.getItem('currentUser')) {
-          this.local = localStorage.getItem('currentUser');
-          let pars = JSON.parse(this.local);
-          this.uname = pars.username
-          this._home.agenyprotel().subscribe(
-              data => {
-                // message: "Agency is not Subscribed"
-                  if (data['message'] == "Agency Subscribed") {
-                    this.Fplan = false
-                    this.Mplan=false;
-                    this.Yplan=false;
-                    // this.planSelected = true
-                    this.show_pirce= false;
-                      // this._serv4.purchaseHistory().subscribe(
-                      //     data => {
-                              this.records = data['subscription_detail'];
-                              
-                              this.pkgList = data['subscription_detail']['pkg_fk'];
-                              this.result = true;
-
-                              var date = new Date();
-                              this.userdetail = data['reg_fk'];
-                            
-                            
-                              var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
-                          // },
-                          // error => {
-                          //     this.nofound = true;
-                          // })
-
-                  } else if (data['message'] == "Trail Agency Subscribed") {
-                    this.records = data['subscription_detail'];
-                    this.pkgList = data['subscription_detail']['agency_package_detail'];
-                    // alert(this.pkgList);
-                    console.log(this.records);
-                    this.trial = true;
-
-                    var date = new Date();
-                    this.userdetail = data['reg_fk'];
-                  
-                 
-                    var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
-                      // this._serv4.trialHistory().subscribe(
-                      //     data => {
-                      //         // this.nofound=false;
-                      //         this.trial = data;
-                      //     }, error => {
-
-
-                      //         this.nofound = true;
-
-                      //     })
-                  }
-                  else if (data['message'] == "Agency is not Subscribed") {
-             
-                    this.nodata = data;
-                 
-                         // this._serv4.trialHistory().subscribe(
-                         //     data => {
-                         //         // this.nofound=false;
-                         //         this.trial = data;
-                         //     }, error => {
-       
-       
-                         //         this.nofound = true;
-       
-                         //     })
-                     } else {
-                      this.nofound = true;
-                      // alert(this.nofound)
-                  }
-              },
-              error => {
-                  this.nofound = true;
-                  // alert(this.nofound)
-              });
-      }
+    
 
   }
   eachcardid;

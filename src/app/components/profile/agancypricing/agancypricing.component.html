@@ -1,14 +1,14 @@
 <!-- <app-loader></app-loader> -->
 <section class="section pricing2-section">
   <div class=" ">
-      <div class="page-title col-sm-12" *ngIf="result">
+      <div class="page-title col-sm-12" *ngIf="result == true">
           <span>Subscription</span>
       </div>
-      <div class="page-title col-sm-12" *ngIf="trial" >
+      <div class="page-title col-sm-12" *ngIf="result == true && trial == true" >
           <span>Trial Subscription</span>
       </div>
     <div class="table-section">
-        <table class="table table-striped history-table" *ngIf="trial">
+        <table class="table table-striped history-table" *ngIf="result == true && trial == true" >
         <!-- <table class="table table-striped history-table"> -->
             <thead>
                 <tr>
@@ -43,7 +43,7 @@
             </tbody>
         </table>
 
-        <table class="table table-striped history-table" *ngIf="result">
+        <table class="table table-striped history-table" *ngIf="result == true">
             <thead>
                 <tr>
                     <th>Subscription Name</th>
@@ -80,7 +80,7 @@
             (click)="get(records.pay_date,records.end_date)">
             Generate Invoice
         </button>
-        <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result || trial">Publish RFP</button>
+        <button class="btn btn-rose" routerLink="/AddRfps" routerLinkActive="active-route" *ngIf="result == true || trial == true">Publish RFP</button>
             <!-- <button class="btn btn-rose  " data-target="#myModal5" data-toggle="modal" *ngIf="result"
             (click)="get(record.pay_date,record.end_date)">
             Generate Invoice
@@ -201,7 +201,7 @@
       </div>
   </div>
    <!-- Models End-->
-<div class="row margin-0 center-pricing"  *ngIf="!records" >
+<div class="row margin-0 center-pricing"  *ngIf="results == false" >
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s" *ngIf="Fplan">
         <div class="single-pricing-2 top">
           <div class="pricing2-button" *ngIf="!planSelected">

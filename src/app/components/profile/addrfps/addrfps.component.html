@@ -11,7 +11,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in" id="publish_new" role="tabpanel" aria-labelledby="home-tab">
-      <div class="main-panel add-rfp" *ngIf="records">
+      <div class="main-panel add-rfp" *ngIf="result == true">
           <div class="main-content custom">
             <div class="container-fluid">
               <div class="row">
@@ -286,7 +286,7 @@
 
 
       </div>
-      <section class="flx-items" *ngIf="!records">
+      <section class="flx-items" *ngIf="result == false">
           <!-- <div class="col-sm-12 text-center publish_RFP"> -->
               <button class="btn btn-rose publish_new_rfp" (click)="checksub()"  *ngIf="!records"   routerLink="/AddRfps" routerLinkActive="active-route" [hidden]="visible">Publish New RFP</button>
           <!-- </div> -->

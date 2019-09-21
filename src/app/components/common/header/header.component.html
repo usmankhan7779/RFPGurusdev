@@ -288,11 +288,11 @@
                     <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                     RFP Preferences</a>
                 </li>
-                <li *ngIf="check_login() && !agencycheck_login()">
+                <li *ngIf="check_login() || agencycheck_login()">
                   <a onclick="topFunction()" routerLink="/notifications">
                     <i class="fa fa-bell"></i>Bid Notifications</a>
                 </li>
-                <li *ngIf="check_login() && !agencycheck_login()">
+                <li *ngIf="check_login() || agencycheck_login()">
                   <a onclick="topFunction()" routerLink="/my-watchlist">
                     <i class="fa fa-heart" aria-hidden="true"></i>My Watch List</a>
                 </li>

@@ -238,9 +238,86 @@ export class AddrfpsComponent implements OnInit  {
   constructor(private _http: Http,
     private _serv1: AdvanceService, private _serv: AgancyPricingService,
     private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  private _serv2: SignupService, ) {
+      if (localStorage.getItem('currentUser')) {
+        this.local = localStorage.getItem('currentUser');
+        let pars = JSON.parse(this.local);
+        this.uname = pars.username
+        this._home.agenyprotel().subscribe(
+            data => {
+              // message: "Agency is not Subscribed"
+                if (data['message'] == "Agency Subscribed") {
+                  this.Fplan = false
+                  this.Mplan=false;
+                  this.Yplan=false;
+                  // this.planSelected = true
+                  this.show_pirce= false;
+  
+                    // this._serv4.purchaseHistory().subscribe(
+                    //     data => {
+                            this.records = data['subscription_detail'];
+                            this.pkgList = data['subscription_detail']['pkg_fk'];
+                            this.result = true;
+  
+                            var date = new Date();
+                            this.userdetail = data['reg_fk'];
+  
+  
+                            var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                        // },
+                        // error => {
+                        //     this.nofound = true;
+                        // })
+  
+                }
+                else if (data['message'] == "Trail Agency Subscribed") {
+                  this.records = data['subscription_detail'];
+                  this.pkgList = data['subscription_detail']['pkg_fk'];
+                  this.trial = true;
+                  this.result = true;
+                  var date = new Date();
+                  this.userdetail = data['reg_fk'];
+  
+  
+                  var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
+                    // this._serv4.trialHistory().subscribe(
+                    //     data => {
+                    //         // this.nofound=false;
+                    //         this.trial = data;
+                    //     }, error => {
+  
+  
+                    //         this.nofound = true;
+  
+                    //     })
+                }
+                else if (data['message'] == "Agency is not Subscribed") {
+                  this.result = false;
+               this.nodata = data;
+  
+                    // this._serv4.trialHistory().subscribe(
+                    //     data => {
+                    //         // this.nofound=false;
+                    //         this.trial = data;
+                    //     }, error => {
+  
+  
+                    //         this.nofound = true;
+  
+                    //     })
+                }
+                else {
+                    this.nofound = true;
+                    this.result = false;
+                    // alert(this.nofound)
+                }
+            },
+            error => {
+                this.nofound = true;
+                // alert(this.nofound)
+            });
+    }
       this._serv2.getcounty().subscribe( data =>{
         this.allcountry = data['countries'];
-        console.log(this.allcountry);
       })
       this.CardNumberForm=true;
     this.CardNumberForm2=false;
@@ -348,28 +425,6 @@ this.cityname = name;
 
         })
 
-    // if (this.states) {
-    //   delete this.agencies
-    //   delete this.cates;
-    //   delete this.subcate;
-    // }
-    // this.form = this.formBuilder.group({
-    //   CardNumberForm: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-    //   CardNumberForm2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
-    //   CardCodeForm: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(3)])],
-    //   CardCodeForm2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$'),Validators.minLength(4)])],
-    //   ExpiryDateForm: ['', Validators.compose([Validators.required, Validators.pattern('(0[1-9]|10|11|12)/[0-9]{2}$')])],
-    //   city: ['', Validators.compose([Validators.required])],
-    //   country: ['', Validators.compose([Validators.required])],
-    //   zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5),
-    //   Validators.pattern('^[0-9]*$')])],
-    //   CardtypeForm: ['', Validators.compose([Validators.required])],
-    //   Holdername: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z _.]+$')])],
-    //   nickname: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z _.]+$')])],
-    //   Address: ['', Validators.compose([Validators.required])],
-    //   Carddefault:['', Validators.compose([Validators.required])],
-    //   state: ['', Validators.compose([Validators.required])],
-    //   })
 
     if(localStorage.getItem('agancypricing')=='BM'){
       window.scroll(0, 0);
@@ -664,83 +719,7 @@ counties(countys){
 }
 citys
 mainFunction() {
-  if (localStorage.getItem('currentUser')) {
-      this.local = localStorage.getItem('currentUser');
-      let pars = JSON.parse(this.local);
-      this.uname = pars.username
-      this._home.agenyprotel().subscribe(
-          data => {
-            // message: "Agency is not Subscribed"
-              if (data['message'] == "Agency Subscribed") {
-                this.Fplan = false
-                this.Mplan=false;
-                this.Yplan=false;
-                // this.planSelected = true
-                this.show_pirce= false;
 
-                  // this._serv4.purchaseHistory().subscribe(
-                  //     data => {
-                          this.records = data['subscription_detail'];
-                          this.pkgList = data['subscription_detail']['pkg_fk'];
-                          this.result = true;
-
-                          var date = new Date();
-                          this.userdetail = data['reg_fk'];
-
-
-                          var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
-                      // },
-                      // error => {
-                      //     this.nofound = true;
-                      // })
-
-              }
-              else if (data['message'] == "Trail Agency Subscribed") {
-                this.records = data['subscription_detail'];
-                this.pkgList = data['subscription_detail']['pkg_fk'];
-                this.trial = true;
-
-                var date = new Date();
-                this.userdetail = data['reg_fk'];
-
-
-                var currentDate = this.datePipe.transform(date, "yyyy-MM-dd").toString()
-                  // this._serv4.trialHistory().subscribe(
-                  //     data => {
-                  //         // this.nofound=false;
-                  //         this.trial = data;
-                  //     }, error => {
-
-
-                  //         this.nofound = true;
-
-                  //     })
-              }
-              else if (data['message'] == "Agency is not Subscribed") {
-
-             this.nodata = data;
-
-                  // this._serv4.trialHistory().subscribe(
-                  //     data => {
-                  //         // this.nofound=false;
-                  //         this.trial = data;
-                  //     }, error => {
-
-
-                  //         this.nofound = true;
-
-                  //     })
-              }
-              else {
-                  this.nofound = true;
-                  // alert(this.nofound)
-              }
-          },
-          error => {
-              this.nofound = true;
-              // alert(this.nofound)
-          });
-  }
 
 }
 nodata;
