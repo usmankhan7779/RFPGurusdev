@@ -448,13 +448,18 @@ this.cityname = name;
   open_rfp:boolean=false;record_added:boolean=true;
   agency;
   category;
-  input
+  input;
+  files;
+  file;
   onChange(event: EventTarget) {
 
     this.input = new FormData();
     const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
+    this.files = target.files;
+    this.model.file = this.files[0];
+    console.log(this.model.file);
 
   }
   msgfun(){

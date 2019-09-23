@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy , Output , EventEmitter} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SignupService } from "../signup/signup.service";
 import swal from 'sweetalert2';
@@ -13,6 +13,7 @@ import { SeoService } from 'src/app/services/seoService';
 export class AgencyaccountactivationComponent implements OnInit {
   endRequest;
   sub; id;
+  @Output() fire: EventEmitter<any> = new EventEmitter();
   constructor(
     private seoService: SeoService,
     private signupService: SignupService,
@@ -29,6 +30,10 @@ export class AgencyaccountactivationComponent implements OnInit {
       // alert(this.authenticate(params['query2']));
 
     });
+  }
+  public emittedData(data) {
+    // console.log(data);
+    this.fire.emit(data);
   }
   authenticate(uid) {
     this.endRequest = this.signupService.agencyauthenticate_service(uid)

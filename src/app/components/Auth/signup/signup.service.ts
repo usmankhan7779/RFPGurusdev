@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , Output , EventEmitter} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers , Response} from '@angular/http'
 
@@ -6,6 +6,7 @@ import { Http, Headers , Response} from '@angular/http'
   providedIn: 'root'
 })
 export class SignupService {
+  @Output() fire: EventEmitter<any> = new EventEmitter();
   constructor(private http: HttpClient,private _http:Http) { }
 
   email_exist(email) {
@@ -52,7 +53,7 @@ getcounty(){
   }
   agencyauthenticate_service(uid) {
     // alert(uid);
-    return this._http.get('https://apis.rfpgurus.com/agency_activate_account/' + uid);
+    return this._http.get('https://apis.rfpgurus.com/agency_activate_account/' + uid).map((response: Response) => response.json());
 
   }
   zipcode(zip) {
