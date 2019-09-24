@@ -21,7 +21,11 @@
   color: #fff
 }
 #edit-card-modal .modal-dialog{
-  margin: 17% auto;
+  margin-top: 100px;
+  width: 500px;
+}
+#edit-card-modal .mat-form-field{
+  margin-bottom: 10px;
 }
 #edit-card-modal .modal-header{
   border: none;
@@ -112,8 +116,11 @@
   color: #4267b2
 }
 
-.edit-payment .delete {
-  color: #c00
+.edit-payment .delete i{
+  color: #555;
+}
+.edit-payment .delete i:hover{
+  color: #c00;
 }
 .pd-20-0{
   padding: 20px 0;

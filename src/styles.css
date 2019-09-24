@@ -739,9 +739,18 @@ h3 {
 }
 
 .mat-form-field-infix {
-    padding: .6375em 0 .2375em
+    border-top: none;
 }
-
+.mat-input-element {
+    font-size: 16px!important;
+    font-weight: 600!important;
+}
+.mat-form-field-label{
+    margin: 0;
+    font-size: 16px!important;
+    font-weight: 600!important;
+    color: rgba(0, 0, 0, .54)!important
+}
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
     font-weight: 700;
     color: rgba(0, 0, 0, .54)
@@ -1059,9 +1068,6 @@ button {
     float: none
 }
 
-.mat-form-field-label {
-    color: rgba(0, 0, 0, .54)!important
-}
 
 .pd-left-0 {
     padding-left: 0!important
@@ -2184,10 +2190,6 @@ button {
     text-align: right!important
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-wrapper {
-    padding-bottom: 0
-}
-
 .elpsis-agency {
     overflow: hidden;
     -o-text-overflow: ellipsis;
@@ -2451,10 +2453,6 @@ body {
 
 .sh-select-list {
     text-align: right!important
-}
-
-.mat-form-field-appearance-legacy .mat-form-field-wrapper {
-    padding-bottom: 0
 }
 
 .elpsis-agency {
