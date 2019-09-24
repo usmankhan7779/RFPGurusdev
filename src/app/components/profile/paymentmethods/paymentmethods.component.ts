@@ -183,6 +183,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
       }
     });
   }
+  id;
   ngOnInit() {
     window.scroll(0, 0);
 
@@ -203,6 +204,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     // --------------- SEO Service End ---------------
 
     this.getCards();
+  
     this.form = this.formBuilder.group({
       cardnumber: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
       cardnumber2: [{ value: "", disabled: true }, Validators.compose([Validators.required])],
@@ -247,7 +249,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
   city;
   state;
   country;
-  id;
+  
   setautopay: boolean = true;
   payauto: boolean = true;
   autopay;
