@@ -41,6 +41,7 @@ export class PricingComponent implements OnInit {
     }
   }
   selectPlan({ value }) {
+    if (this.Yplan == true || this.Mplan == true)
     if (value == "BM") {
       this.Mplan = true;
       this.Yplan = false;

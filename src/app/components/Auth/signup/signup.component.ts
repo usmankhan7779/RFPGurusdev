@@ -15,6 +15,7 @@ import { RecapchaService } from '../recapcha/recapcha.service';
 import { SeoService } from '../../../services/seoService';
 import { DISABLED } from '@angular/forms/src/model';
 import { AgancyPricingService} from '../../../components/profile/agancypricing/agancypricing.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class errorMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -76,6 +77,8 @@ export class SignupComponent implements OnInit, OnDestroy , AfterViewInit {
   allcountry;
   country;
   countrys;
+  private tokenGlobal = new BehaviorSubject<boolean>(false);
+  tokenGlobal$ = this.tokenGlobal.asObservable();
   matcher = new errorMatcher();
   vin_Data = { city: "", state: "", country: "" };
   vin_Data2 = { city2: "", state2: "", country2: "" };

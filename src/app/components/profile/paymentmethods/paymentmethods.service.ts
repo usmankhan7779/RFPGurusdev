@@ -14,7 +14,35 @@ export class PaymentmethodsService {
          
   //       headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
   //       return this._https.get('https://apis.rfpgurus.com/user_information/' + uid + '/',{headers:headers}).map(response => response.json());
- 
+  singleCard(id) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this._https.get('http://192.168.29.120:9000/payment/sigle_card_get/' + id, { headers: headers }).map((response: Response) => response.json());
+  }
+  updateCard(id, nickname, auotpay,address, zipcode, state, city , country) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
+    return this._https.put( 'http://192.168.29.120:9000/payment/sigle_card_get/' + id, {
+
+      "nickname": nickname,
+      "autopay": auotpay,
+      "street_address": address,
+      "zipcode": zipcode,
+      "state": state,
+      "city": city,
+      "country" : country
+
+
+      // "autopay": auotpay,
+      // "city": city,
+      // "nickname": nickname,
+      // "state": state,
+      // "street_address": address,
+      // "zipcode": zipcode,
+    }, { headers: headers });
+  }
   addCard( name, address, zip, city, state, country, cardno, ccv, expiryDate, var_type_atm, setautopay, nickname) {
     let headers = new Headers();
         headers.append('Content-Type', 'application/json');

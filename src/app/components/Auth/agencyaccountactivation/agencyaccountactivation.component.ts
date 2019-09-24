@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SignupService } from "../signup/signup.service";
 import swal from 'sweetalert2';
 import { SeoService } from 'src/app/services/seoService';
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Component({
   selector: 'app-agencyaccountactivation',
   templateUrl: './agencyaccountactivation.component.html',
@@ -14,6 +14,7 @@ export class AgencyaccountactivationComponent implements OnInit {
   endRequest;
   sub; id;
   @Output() fire: EventEmitter<any> = new EventEmitter();
+
   constructor(
     private seoService: SeoService,
     private signupService: SignupService,

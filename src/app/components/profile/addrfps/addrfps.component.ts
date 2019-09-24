@@ -100,6 +100,7 @@ export class AddrfpsComponent implements OnInit  {
   }
   modal : any = {};
   selectPlan({ value }) {
+    if (this.Yplan == true || this.Mplan == true)
     if (value == "BM") {
       this.Mplan = true;
       this.Yplan = false;

@@ -20,6 +20,54 @@
   font-weight: 700;
   color: #fff
 }
+#edit-card-modal .modal-dialog{
+  margin: 17% auto;
+}
+#edit-card-modal .modal-header{
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  margin-top: -20px;
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+#edit-card-modal .close{
+  position: absolute;
+  right: 10px;
+  top: 22px;
+  color: #fff;
+  opacity: 1;
+  text-shadow: none;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+#edit-card-modal .modal-title{
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+#edit-card-modal .modal-body{
+  padding: 30px 20px 15px;
+}
+#edit-card-modal .btn-rose{
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.4s ease-in-out;
+
+}
+#edit-card-modal .btn-rose:hover{
+  background: #c00;
+  box-shadow: none;
+}
 .country-img{
   width: 25px;
   border-radius: 50px;

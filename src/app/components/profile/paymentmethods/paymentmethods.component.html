@@ -295,22 +295,36 @@
                 <th>Cardholder Name</th>
                 <th>Card Number</th>
                 <th>Expiry Date</th>
+                <th>Autopay</th>
                 <th>Delete</th>
-              </tr>
+
+                <th>Edit</th>
+                            </tr>
             </thead>
             <tbody>
               <tr *ngFor="let card of res">
                 <td>{{card.nickname}}</td>
                 <td>{{card.cardNumber}}</td>
                 <td>{{card.expiryDate | slice:0:2 }}/20{{card.expiryDate | slice:2:4 }} </td>
-
                 <td>
+                    <i class="fa fa-check" aria-hidden="true"  *ngIf="card.autopay == true"></i>
+                    <i class="fa fa-times" aria-hidden="true"  *ngIf="card.autopay == false"></i>
+                </td>
+                <td>
+                  
                   <span class="edit-payment">
                     <a class="delete" (click)="deleteSingleCard(card.id)">
                       <i class="fa fa-trash"></i>
                     </a>
                   </span>
                 </td>
+                <td>
+                    <span class="edit-payment">
+                      <a class="delete" data-target="#edit-card-modal" (click)="Eachcard(card?.id)" data-toggle="modal">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                    </span>
+                  </td>
               </tr>
             </tbody>
           </table>
@@ -321,15 +335,41 @@
 </div>
 
 <div class="modal fade modal-form" id="edit-card-modal" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content" style="margin-top:53%;">
-      <div class="modal-header">
-        <div class="form-1-header">
-          <h1>Edit your Credit Card Information</h1>
+    <div class="modal-dialog">
+      <div class="modal-content" *ngIf="card">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="modal-title">Edit your Credit Card Information</div>
         </div>
-      </div>
-      <div class="modal-body">
+        <div class="modal-body">
+          <form>
+            <mat-form-field class="w-100">
+              <input matInput type="text" name="nickname" placeholder="nickname" [(ngModel)]="card.nickname">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <input matInput type="text" name="street" placeholder="Street Address" [(ngModel)]="card.street_address">
+              </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="text" name="country" placeholder="Country" [(ngModel)]="card.country">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="text" name="zip" placeholder="Zip / Postal Code" [(ngModel)]="card.zipcode">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="text" name="sate" placeholder="State / Province" [(ngModel)]="card.state">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="text" name="city" placeholder="City" [(ngModel)]="card.city">
+            </mat-form-field>
+         
+            <mat-slide-toggle [(ngModel)]="card.autopay" name="autopay">Enroll in Autopay -
+                Set this card as recurring payment method
+            </mat-slide-toggle>
+            <div class="text-center">
+              <button class="btn-rose" (click)="editCard(card.id)" data-dismiss="modal">Update</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

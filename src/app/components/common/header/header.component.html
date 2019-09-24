@@ -150,9 +150,13 @@
         <!--.............-->
         <ul class="navbar-nav sh-android-apple">
           <li class="heart-li" *ngIf="check_login() ||check_adminlogin()">
-            <a onclick="topFunction()" routerLink="/my-watchlist" title="Watchlist">
+            <a onclick="topFunction()" routerLink="/my-watchlist" title="Watchlist" *ngIf="total < 100">
               <i class="fa fa-eye"></i>
               <sup>{{total}}</sup>
+            </a>
+            <a onclick="topFunction()" routerLink="/my-watchlist" title="Watchlist" *ngIf="total > 100 || total == 100">
+              <i class="fa fa-eye"></i>
+              <sup>99+</sup>
             </a>
             <div class="heart-sub-meun">
               <div class="heart-full-div">
@@ -193,9 +197,13 @@
             <!-- </a> -->
           </li>
           <li class="heart-li notifications" *ngIf="check_login()">
-            <a onclick="topFunction()" routerLink="/notifications" title="Notification">
+            <a onclick="topFunction()" routerLink="/notifications" title="Notification" *ngIf="unread < 100">
               <i class="fa fa-bell"></i>
               <sup>{{unread}}</sup>
+            </a>
+            <a onclick="topFunction()" routerLink="/notifications" title="Notification" *ngIf="unread > 100 || unread == 100">
+              <i class="fa fa-bell"></i>
+              <sup>99+</sup>
             </a>
             <div class="heart-sub-meun">
               <div class="heart-full-div">

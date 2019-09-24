@@ -99,7 +99,7 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
     this.ccv2 = false;
     this.signupServ.getcounty().subscribe( data =>{
       this.allcountry = data['countries'];
-      console.log(this.allcountry);
+     
     })
   }
   ShowButton(var_type_atm, f: NgForm) {
@@ -487,6 +487,24 @@ export class PaymentmethodsComponent implements OnInit, OnDestroy {
 
   }
   res;
+  pay;
+  Eachcard(id) {
+    this.serv.singleCard(id).subscribe(data => {
+      this.card = data.single;
+    
+    })
+  }
+  editCard(id) {
+    this.serv.updateCard(id, this.card.nickname, this.card.autopay , this.card.street_address, this.card.zipcode, this.card.state, this.card.city, this.card.country).subscribe(data => {
+      swal({
+        type: 'success',
+        title: 'Successfully Updated',
+        showConfirmButton: false,
+        timer: 1500, width: '512px',
+      })
+      this.getCards()
+    })
+  }
   message;
   getCards() {
     this.endRequest = this._home.get_card_infos().subscribe(Data => {

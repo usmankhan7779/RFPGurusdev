@@ -11,6 +11,7 @@ import { SeoService } from 'src/app/services/seoService';
 export class AccountActivationComponent implements OnInit, OnDestroy {
   endRequest;
   sub;
+  id;
   constructor(
     private seoService: SeoService,
     private signupService: SignupService,
@@ -20,6 +21,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
     window.scroll(0, 0);
     this.endRequest = this.sub = this.route.params.subscribe(params => {
       this.authenticate(params['query1'])
+      localStorage.setItem('query1' , this.id)
     });
   }
   authenticate(uid) {

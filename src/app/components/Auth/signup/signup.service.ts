@@ -6,7 +6,7 @@ import { Http, Headers , Response} from '@angular/http'
   providedIn: 'root'
 })
 export class SignupService {
-  @Output() fire: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: HttpClient,private _http:Http) { }
 
   email_exist(email) {
