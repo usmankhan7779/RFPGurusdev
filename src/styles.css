@@ -738,14 +738,14 @@ h3 {
     font-weight: 500
 }
 
-.mat-form-field-infix {
+.edit-card-modal .mat-form-field-infix {
     border-top: none;
 }
-.mat-input-element {
+.edit-card-modal .mat-input-element {
     font-size: 16px!important;
     font-weight: 600!important;
 }
-.mat-form-field-label{
+.edit-card-modal .mat-form-field-label{
     margin: 0;
     font-size: 16px!important;
     font-weight: 600!important;
