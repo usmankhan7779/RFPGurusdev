@@ -18,13 +18,13 @@ export class PaymentmethodsService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-    return this._https.get('http://192.168.29.120:9000/payment/sigle_card_get/' + id, { headers: headers }).map((response: Response) => response.json());
+    return this._https.get('https://apis.rfpgurus.com/payment/sigle_card_get/' + id, { headers: headers }).map((response: Response) => response.json());
   }
   updateCard(id, nickname, auotpay,address, zipcode, state, city , country) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);
-    return this._https.put( 'http://192.168.29.120:9000/payment/sigle_card_get/' + id, {
+    return this._https.put( 'https://apis.rfpgurus.com/payment/sigle_card_get/' + id, {
 
       "nickname": nickname,
       "autopay": auotpay,
