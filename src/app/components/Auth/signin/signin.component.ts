@@ -64,14 +64,26 @@ export class SigninComponent implements OnInit {
   returnUrl: string;
   checkagency;
   id;
+  checkagency2;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { 
-    // this.checkagency=localStorage.getItem('agencylogin');
+    // this.checkagency='';
+    this.checkagency=localStorage.getItem('testing');
+    // this.checkagency2=localStorage.getItem('testing');
     // alert(localStorage.getItem('agencylogin'))
-    // alert(this.checkagency);
-    this.route.paramMap.subscribe(params => { 
-      this.checkagency = params.get('id'); 
-      // alert(this.checkagency);
-  });
+    if (this.checkagency!='1'&&this.checkagency!='0')
+    {
+      this.checkagency='';
+    }
+    else
+    {
+      // alert(this.checkagency)
+    }
+    
+
+  //   this.route.paramMap.subscribe(params => { 
+  //     this.checkagency = params.get('id'); 
+  //     // alert(this.checkagency);
+  // });
   }
 
   // ----------------------------- social login
@@ -175,7 +187,7 @@ export class SigninComponent implements OnInit {
         if (user && user.token) {
           // localStorage.setItem('loged_in', '1');
           localStorage.setItem('loged_in2', '1');
-
+          localStorage.setItem('role' , '1');
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
         swal({

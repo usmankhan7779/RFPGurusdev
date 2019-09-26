@@ -21,7 +21,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
     window.scroll(0, 0);
     this.endRequest = this.sub = this.route.params.subscribe(params => {
       this.authenticate(params['query1'])
-      localStorage.setItem('query1' , this.id)
+      localStorage.setItem('testing' , '1');
     });
   }
   authenticate(uid) {
@@ -35,6 +35,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
             timer: 2000,
             width: '512px',
           })
+          localStorage.setItem('testing' , '1');
           this.router.navigate(['/signin']);
         },
         error => {
@@ -47,6 +48,7 @@ export class AccountActivationComponent implements OnInit, OnDestroy {
               width: '512px',
             })
           }
+          localStorage.setItem('testing' , '1');
           this.router.navigate(['/signin']);
         });
   }

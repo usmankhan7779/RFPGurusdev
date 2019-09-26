@@ -54,13 +54,35 @@ export class CustomerSupportComponent implements OnInit {
     localStorage.setItem('queryidget', this.queryid);
     this.router.navigate(['/queryreply'], {queryParams: {ticketid : this.queryid}});
   }
+  files;
+  ImgSrc;
+  file;
+  base64textString;
+  _handleReaderLoaded(readerEvt) {
+    console.log('base64');
+    const binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    // console.log(this.base64textString);
+  }
+
   onChange(event: EventTarget) {
     this.input = new FormData();
+
     const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     this.input.append('fileToUpload', target.files[0]);
-    console.log(this.input)
+    this.files = target.files;
+    this.file = this.files[0];
+    console.log(this.files);
 
+    const reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+
+    const reader1 = new FileReader();
+    reader1.onload = (e: any) => {
+      this.ImgSrc = (e.target.result);
+    };
+    reader1.readAsDataURL(this.file);
   }
   image : any = {};
  subjects;

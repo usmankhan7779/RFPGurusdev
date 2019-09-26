@@ -25,7 +25,7 @@ export class AgencyaccountactivationComponent implements OnInit {
     window.scroll(0, 0);
     this.endRequest = this.sub = this.route.params.subscribe(params => {
       this.authenticate(params['query2']);
-      localStorage.setItem('query2' , this.id);
+      localStorage.setItem('testing' , '0');
       this.id=this.route.snapshot.paramMap.get("query2");
       // alert(this.id);
       // alert(this.authenticate(params['query2']));
@@ -48,6 +48,7 @@ export class AgencyaccountactivationComponent implements OnInit {
             timer: 2000,
             width: '512px',
           })
+          localStorage.setItem('testing' , '0');
           this.router.navigate(['/signin']);
         },
         error => {
@@ -60,6 +61,7 @@ export class AgencyaccountactivationComponent implements OnInit {
               width: '512px',
             })
           }
+          localStorage.setItem('testing' , '0');
           this.router.navigate(['/signin']);
         });
   }

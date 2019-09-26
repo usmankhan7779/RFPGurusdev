@@ -31,8 +31,10 @@
                   <mat-error>Please provide message</mat-error>
               </mat-form-field>
               <span class="btn-file file-input">Upload image or Other file
-                <input (change)="onChange($event); onSubmit()" type="file" accept="image/gif, image/jpeg, image/png"  #course_image  required> 
+                <input (change)="onChange($event);" type="file" accept="image/gif, image/jpeg, image/png"    required> 
               </span>
+              <img class="upload-signup-img" accept=".jpg, .jpeg, .png" src="{{ImgSrc}}"
+              alt="" allowmultiple="false" />
               <button  type=button class="btn-submit btn btn-primary" (click)="CustomerSupport()" [disabled]="!form.valid">Submit</button>
           </form>
   

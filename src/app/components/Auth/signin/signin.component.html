@@ -20,7 +20,7 @@
                 </div>
                 <ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
                     <li class="nav-item active">
-                      <a class="nav-link" id="home-tab" data-toggle="tab" (click)="checkingtabs()" href="#User" role="tab" aria-controls="User"
+                      <a class="nav-link"   id="home-tab" data-toggle="tab" (click)="checkingtabs()" href="#User" role="tab" aria-controls="User"
                         aria-selected="true" (click)="toggle()" >Vendor</a>
                     </li>
                     <li class="nav-item" >
@@ -29,7 +29,7 @@
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade active in" id="User" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade active in" id="User" role="tabpanel"  aria-labelledby="home-tab">
                         <form [formGroup]="login" >
                         <div class="card-content margin-t-10">
                             <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'username')">
