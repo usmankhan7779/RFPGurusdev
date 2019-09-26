@@ -28,7 +28,7 @@ const routes: Routes = [
   // 
   // =========== Static pages ===========
   { path: 'who-are-we', loadChildren: './components/static/about/about.module#AboutModule' },
-  { path: 'contact-us', loadChildren: './components/static/contact-us/contact-us.module#ContactUsModule' },
+  { path: 'contact', loadChildren: './components/static/contact-us/contact-us.module#ContactUsModule' },
   { path: 'features-comparison', loadChildren: './components/static/features-comparison/features-comparison.module#FeaturesComparisonModule' },
   { path: 'how-it-works', loadChildren: './components/static/how-it-works/how-it-work.module#HowItWorksModule' },
   { path: 'our-team', loadChildren: './components/static/our-team/our-team.module#OurTeamModule' },
