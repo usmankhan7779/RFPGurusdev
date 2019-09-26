@@ -174,7 +174,7 @@ export class SigninComponent implements OnInit {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     if (user) {
-      const createUser = this.http.post('https://apis.rfpgurus.com/agency_social_login/', {
+      const createUser = this.http.post('https://devapis.rfpgurus.com/agency_social_login/', {
         user
       }, { headers: headers })
       // createUser.subscribe((data: Response) => {
