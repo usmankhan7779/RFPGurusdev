@@ -9,7 +9,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { SeoService } from '../../../services/seoService';
 import { HomeService } from '../../common/home/home.service';
-
+import { PricingService } from '../../other/pricing/pricing.service';
 declare const $: any;
 @Component({
     selector: 'app-purchase-history',
@@ -18,7 +18,7 @@ declare const $: any;
     '../../local-style/single-pricing.css'
 
   ],
-    providers: [AuthService, MainService]
+    providers: [AuthService, MainService , PricingService]
 })
 export class PurchaseHistoryComponent implements OnInit {
 
@@ -72,7 +72,7 @@ export class PurchaseHistoryComponent implements OnInit {
     plan;
     flipclass = 'credit-card-box';
     shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-    constructor(private _serv1: HomeService, private authService: AuthService, private _nav: Router, private datePipe: DatePipe, private formBuilder: FormBuilder, private _serv: MainService, private seoService: SeoService) {
+    constructor(private price : PricingService,private _serv1: HomeService, private authService: AuthService, private _nav: Router, private datePipe: DatePipe, private formBuilder: FormBuilder, private _serv: MainService, private seoService: SeoService) {
 
         if (localStorage.getItem('currentUser')) {
             this.local = localStorage.getItem('currentUser');
@@ -245,6 +245,7 @@ export class PurchaseHistoryComponent implements OnInit {
             });
     }
     ngOnInit() {
+        this.images();
         window.scroll(0, 0);
         // --------------- SEO Service ---------------
         // setting the page title 
@@ -280,5 +281,16 @@ export class PurchaseHistoryComponent implements OnInit {
         this._nav.navigate(['/']);
 
     }
-
+    priceimages;
+    monthly;
+    year;
+    images(){
+        this.price.pricingimage().subscribe(data => {
+          this.priceimages = data['free_trial'];
+          this.monthly = data['monthly_plan'];
+          this.year = data['yearly_plan'];
+          
+         
+        })
+      }
 }

@@ -5,7 +5,7 @@ import { Component, OnInit, Inject,  ElementRef, ViewChild, EventEmitter , Outpu
 // import { AllRfpsService } from '../all/all-rfps/all-rfps.service';
 //  import { AdvanceService } from '../advance-search/advance.service';
  import swal from 'sweetalert2';
-
+ import { PricingService } from '../../other/pricing/pricing.service';
  import { Router, NavigationEnd } from '@angular/router';
 import { PagerService } from 'src/app/services/paginator.service';
 import { AdvanceService } from './advance.service';
@@ -32,7 +32,7 @@ import { SignupService } from '../../Auth/signup/signup.service';
     './addrfps.component.css'
 
 ],
-  providers: [PagerService,AdvanceService,AllRfpsService]
+  providers: [PagerService,AdvanceService,AllRfpsService , PricingService]
 })
 export class AddrfpsComponent implements OnInit  {
   @Output() open: EventEmitter<any> = new EventEmitter();
@@ -236,7 +236,7 @@ export class AddrfpsComponent implements OnInit  {
   address;
  res;
  allcountry;
-  constructor(private _http: Http,
+  constructor(private  price : PricingService,private _http: Http,
     private _serv1: AdvanceService, private _serv: AgancyPricingService,
     private router: Router, private formBuilder: FormBuilder, private _nav: Router, private datePipe: DatePipe,private _home :HomeService,  private _serv2: SignupService, ) {
       if (localStorage.getItem('currentUser')) {
@@ -349,6 +349,7 @@ export class AddrfpsComponent implements OnInit  {
       }
       eachcardid;
   ngOnInit() {
+    this.images();
  this.updaterec();
     this._serv1.rfpstate().subscribe(
       data => {
@@ -709,6 +710,18 @@ dropdwon(states, county){
 
 
       })
+}
+priceimages;
+monthly;
+year;
+images(){
+  this.price.pricingimage().subscribe(data => {
+    this.priceimages = data['free_trial'];
+    this.monthly = data['monthly_plan'];
+    this.year = data['yearly_plan'];
+    
+   
+  })
 }
 county;
 counties(countys){

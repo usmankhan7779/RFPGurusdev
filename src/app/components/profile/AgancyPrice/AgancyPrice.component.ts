@@ -10,7 +10,7 @@ import { FormGroup, Validators, FormControl,FormBuilder, NgForm } from '@angular
 import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
 import { MainService } from '../../../services/main.service';
-
+import { PricingService } from '../../other/pricing/pricing.service';
 declare var $: any;
 
 import html2canvas from 'html2canvas';
@@ -24,7 +24,7 @@ import jsPDF from 'jspdf';
   '../../local-style/cradet-card-box.css',
   './pricingsteps.component.scss'
 ],
-  providers: [AgancyPricingService, RfpService,MainService,DatePipe ]
+  providers: [AgancyPricingService, RfpService,MainService,DatePipe , PricingService]
 })
 export class AgancyPriceComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
@@ -138,9 +138,9 @@ forms: FormGroup;
   name;
   address;
   allcountry;
-  constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
-    private _serv4: MainService, private datePipe: DatePipe, 
-    private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
+  constructor(private price: PricingService ,private formbuilders : FormBuilder ,private _serv: AgancyPricingService,
+     private datePipe: DatePipe, 
+    private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,   private seoService: SeoService) {
       this.name = localStorage.getItem('name');
       this.address = localStorage.getItem('address');
   
@@ -159,6 +159,7 @@ forms: FormGroup;
     this.CardCodeForm2=false
    }
   ngOnInit() {
+    this.images();
  this.timer();
     this.getcardid(this.id);
     window.scroll(0, 0);
@@ -237,6 +238,16 @@ forms: FormGroup;
   year;
   priceimages;
   agencie
+
+  images(){
+    this.price.pricingimage().subscribe(data => {
+      this.priceimages = data['free_trial'];
+      this.monthly = data['monthly_plan'];
+      this.year = data['yearly_plan'];
+      
+     
+    })
+  }
   acgeny_check() {
     this.agencie = true;
     this.addagency();

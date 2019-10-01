@@ -116,7 +116,7 @@ export class PricingComponent implements OnInit {
     this.pkg_detail['dur'] = dur
     this.pkgsub = true;
   }
-  constructor(private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router, private _serv: PricingService, private _home :HomeService, private _serv2: SignupService, private _http6: PaymentmethodsService, private _location: Location, private seoService: SeoService) {
+  constructor( private formBuilder: FormBuilder, private _nav: Router, private _serv: PricingService, private _home :HomeService, private _serv2: SignupService, private _http6: PaymentmethodsService,  private seoService: SeoService) {
   
     this.CardNumberForm=true;
     this.CardNumberForm2=false;

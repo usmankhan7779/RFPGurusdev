@@ -11,7 +11,7 @@ import { SignupService } from '../../Auth/signup/signup.service';
 import { HomeService } from '../../common/home/home.service';
 import { MainService } from 'src/app/services/main.service';
 declare var $: any;
-
+import { PricingService } from '../../other/pricing/pricing.service';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 @Component({
@@ -23,7 +23,7 @@ import jsPDF from 'jspdf';
   '../../local-style/cradet-card-box.css',
   './pricingsteps.component.scss'
 ],
-  providers: [AgancyPricingService, RfpService,MainService,DatePipe ]
+  providers: [AgancyPricingService, RfpService,MainService,DatePipe , PricingService ]
 })
 export class AgancyPricingComponent implements OnInit {
   @ViewChild('openModal') openModal: ElementRef;
@@ -129,7 +129,7 @@ forms: FormGroup;
   address;
   allcountry;
   results;
-  constructor(private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
+  constructor(private price : PricingService,private formbuilders : FormBuilder,private router: Router ,private _serv: AgancyPricingService,
     private _serv4: MainService, private datePipe: DatePipe, 
     private route: ActivatedRoute, private _serv1: RfpService,private formBuilder: FormBuilder, private _nav: Router,  private _home :HomeService, private _serv2: SignupService,  private _location: Location, private seoService: SeoService) {
       if (localStorage.getItem('currentUser')) {
@@ -226,7 +226,7 @@ forms: FormGroup;
     this.CardCodeForm2=false
    }
   ngOnInit() {
- 
+ this.images();
     this.getcardid(this.id);
     window.scroll(0, 0);
     // this.images();
@@ -301,7 +301,17 @@ forms: FormGroup;
   monthly;
   year;
   priceimages;
-  agencie
+  agencie;
+ 
+  images(){
+    this.price.pricingimage().subscribe(data => {
+      this.priceimages = data['free_trial'];
+      this.monthly = data['monthly_plan'];
+      this.year = data['yearly_plan'];
+      
+     
+    })
+  }
   acgeny_check() {
     this.agencie = true;
     this.addagency();

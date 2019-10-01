@@ -68,16 +68,16 @@ export class SigninComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService, private _nav: Router, private signinService: SigninService, private formBuilder: FormBuilder, private _location: Location, public recapcha: RecapchaService, private seoService: SeoService) { 
     // this.checkagency='';
     this.checkagency=localStorage.getItem('testing');
+    // alert(this.checkagency)
     // this.checkagency2=localStorage.getItem('testing');
     // alert(localStorage.getItem('agencylogin'))
     if (this.checkagency!='1'&&this.checkagency!='0')
     {
-      this.checkagency='';
+      // alert('if chl rai')
+      this.checkagency='1';
     }
-    else
-    {
-      // alert(this.checkagency)
-    }
+    // alert(this.checkagency)
+
     
 
   //   this.route.paramMap.subscribe(params => { 
@@ -164,8 +164,12 @@ export class SigninComponent implements OnInit {
     // alert(this.visible);
     this.visible = !this.visible;
     if (this.visible) {
+      this.checkagency = '0';
+      // alert('0');
       this.open.emit(null);
     } else {
+      this.checkagency ='1';
+      // alert('1');
       this.close.emit(null);
     }
   }
